@@ -1,0 +1,4 @@
+/* Overrides */
+.navbar-default{background-color:#555;border:none;border-radius:0;}
+.navbar-default .navbar-nav>li>a{color:#fefefe;}
+.navbar-default .navbar-nav>li>a:hover{color:#fefefe;}
