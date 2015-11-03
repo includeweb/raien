@@ -1,3 +1,2 @@
-User: <strong><?php echo $username; ?></strong> <?php echo anchor('/auth/logout/', 'Logout'); ?><br />
+Bienvenido:  <strong><?php echo $username; ?></strong> ROL:<strong><?php echo $role; ?></strong>
 
-ROL: <?php echo $role; ?></strong>
