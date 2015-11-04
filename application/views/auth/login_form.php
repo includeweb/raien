@@ -67,12 +67,7 @@ $captcha = array(
 			<img src="http://www.raien.com.ar/img/logo.png" />
 		</td>
 	</tr>
-	<tr>
-		<td colspan="3">
-
-			<h3>Login</h3>
-		</td>
-	</tr>
+	
 	<tr>
 		<td><?php echo form_label($login_label, $login['id']); ?></td>
 		<td><?php echo form_input($login); ?></td>

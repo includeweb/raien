@@ -30,6 +30,13 @@ class Dashboard extends CI_Controller {
 		$this->layout->view('productos/index', $data, $return=false);
 	}
 
+	public function agregar_producto(){
+		$data['user_id']	= $this->tank_auth->get_user_id();
+		$data['username']	= $this->tank_auth->get_username();
+		$data['role'] = $this->tank_auth->get_role();
+		$this->layout->view('productos/agregar', $data, $return=false);
+	}
+
 }
 
 /* End of file welcome.php */
