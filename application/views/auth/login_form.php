@@ -1,3 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>Raien - Admin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+      	<?php echo add_style('bootstrap.min');?>
+        <?php echo add_style('override');?>
+        <?php echo add_jscript('jquery-1.11.1.min');?>		
+        <?php echo add_jscript('bootstrap.min');?>
+        <?php echo add_style('gradients');?>
+     
+      <style type="text/css">
+      table tr td{padding: 8px;}
+      .login{
+      	background-color: #eee;
+      	width: 480px;
+      	margin: auto;
+      	padding: 10px;
+      	margin-top: 150px;
+      }
+      </style>
+		
+    </head>
+<body>
 <?php
 $login = array(
 	'name'	=> 'login',
@@ -31,8 +58,21 @@ $captcha = array(
 	'maxlength'	=> 8,
 );
 ?>
+<div class="login">
 <?php echo form_open($this->uri->uri_string()); ?>
-<table>
+<table width="400" align="center">
+	<tr>
+		<td colspan="3">
+		
+			<img src="http://www.raien.com.ar/img/logo.png" />
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+
+			<h3>Login</h3>
+		</td>
+	</tr>
 	<tr>
 		<td><?php echo form_label($login_label, $login['id']); ?></td>
 		<td><?php echo form_input($login); ?></td>
@@ -85,40 +125,20 @@ $captcha = array(
 			<?php echo form_checkbox($remember); ?>
 			<?php echo form_label('Remember me', $remember['id']); ?>
 			<?php echo anchor('/auth/forgot_password/', 'Forgot password'); ?>
-			<?php if ($this->config->item('allow_registration', 'tank_auth')) echo anchor('/auth/register/', 'Register'); ?>
+			
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<input type="submit" class="btn btn-default" value="Entrar" />
+			
+
 		</td>
 	</tr>
 </table>
-<?php echo form_submit('submit', 'Let me in'); ?>
 <?php echo form_close(); ?>
+</div>
 
-<?php if( $this->config->item('facebook_connect','tank_auth_social') ) {  ?>
-<table>
-	<tr>
-		<td><a href="<?php echo $this->tank_auth_social->facebookLoginURL( site_url().'auth_social/fblogin' ); ?>">Login With Facebook</a></td>
-	</tr>
-</table>
-
-		<div id="fb-root"></div>
-		<script src="http://connect.facebook.net/en_US/all.js"></script>
-		<script type="text/javascript">
-		  	FB.init({appId: "<?php echo $this->config->item('facebook_app_id','tank_auth_social'); ?>", status: true, cookie: true, xfbml: true});
-		  	FB.Event.subscribe('auth.sessionChange', function(response) {
-		    	if (response.session) 
-		    	{
-		      		// A user has logged in, and a new cookie has been saved
-					//window.location.reload(true);
-/*
-					FB.api('/me', function(response) {
-	                	alert(response.id);
-	                });
-*/
-		    	} 
-		    	else 
-		    	{
-		      		// The user has logged out, and the cookie has been cleared
-		    	}
-		  	});
-		</script>
-<?php } ?>
-
+    </div>    
+</body>
+</html>

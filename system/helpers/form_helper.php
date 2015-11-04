@@ -208,7 +208,7 @@ if ( ! function_exists('form_input'))
 			'value' => $value
 		);
 
-		return '<input '._parse_form_attributes($data, $defaults).$extra." />\n";
+		return '<input class="form-control"'._parse_form_attributes($data, $defaults).$extra." />\n";
 	}
 }
 
