@@ -1,2 +1,6 @@
 /* Overrides */
 
+.list-group-item {border:none;}
+
+/* fix width tinyeditor*/
+.tinyeditor{width: 100%!important}

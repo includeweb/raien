@@ -17,7 +17,7 @@
 		</ol>
 		<!-- aca contenido de la seccion-->
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-5">
 				<form method="post" action="#">
 				  <div class="form-group">
 				    <label for="nombre">Nombre</label>
@@ -28,11 +28,8 @@
 				    <textarea id="tinyeditor" style="width: 400px; height: 200px"></textarea>
 				    
 				  </div>
-				  <button type="submit" class="btn btn-default">Guardar</button>
-				</form>
-			</div>
-			<div class="col-md-4">
-				<div class="form-group">
+				 
+				 <div class="form-group">
 				    <label for="filedatasheet">Datasheet</label>
 				    <input type="file" id="filedatasheet">
 				    <p class="help-block">Formato: PDF</p>
@@ -41,6 +38,19 @@
 				    <label for="fileimage">Imagen</label>
 				    <input type="file" id="fileimage">
 				    <p class="help-block">Formato: JPG, PNG</p>
+			  	</div>
+				  <button type="submit" class="btn btn-default">Guardar</button>
+				</form>
+			</div>
+			<div class="col-md-4">
+
+				<div class="form-group">
+				    <label for="fileimage">Tipo</label>
+				    <select class="form-control">
+				    	<option>Seleccione</option>
+				    	
+				    </select>
+				    
 			  	</div>
 			</div>
 		</div>
