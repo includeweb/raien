@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 3.3.9
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-11-2015 a las 16:28:43
--- Versión del servidor: 5.5.24-log
--- Versión de PHP: 5.4.3
+-- Tiempo de generación: 11-11-2015 a las 07:29:45
+-- Versión del servidor: 5.5.8
+-- Versión de PHP: 5.3.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -35,6 +34,11 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
   PRIMARY KEY (`session_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Volcar la base de datos para la tabla `ci_sessions`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -50,11 +54,33 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=10 ;
 
 --
--- Volcado de datos para la tabla `login_attempts`
+-- Volcar la base de datos para la tabla `login_attempts`
 --
 
-INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-(9, '::1', 'testuser', '2015-11-03 16:23:52');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `products`
+--
+
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  `description` text,
+  `file_pdf` varchar(255) DEFAULT NULL,
+  `file_img` varchar(255) DEFAULT NULL,
+  `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcar la base de datos para la tabla `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `type_id`, `description`, `file_pdf`, `file_img`, `timestamp`) VALUES
+(1, 'Yanina Sisniega', 14, 'lallalalalal alal', 'Prorrateo.pdf', '35-jpg.jpg', '2015-11-11 00:34:52');
 
 -- --------------------------------------------------------
 
@@ -70,12 +96,41 @@ CREATE TABLE IF NOT EXISTS `roles` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Volcado de datos para la tabla `roles`
+-- Volcar la base de datos para la tabla `roles`
 --
 
 INSERT INTO `roles` (`id`, `role`, `default`) VALUES
 (1, 'admin', 0),
 (2, 'user', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `type`
+--
+
+CREATE TABLE IF NOT EXISTS `type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `imagen` text NOT NULL,
+  `imagenover` text NOT NULL,
+  `orden` int(11) NOT NULL,
+  `galimg` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+
+--
+-- Volcar la base de datos para la tabla `type`
+--
+
+INSERT INTO `type` (`id`, `name`, `imagen`, `imagenover`, `orden`, `galimg`) VALUES
+(16, 'Instrumentos de medición', 'instrumentosUP.jpg', 'instrumentosOVER.jpg', 5, 'inst de medicion.jpg'),
+(15, 'Sensores y Transductores', 'sensoresUP.jpg', 'sensoresOVER.jpg', 4, 'Sensors.jpg'),
+(14, 'PCs industriales', 'pcUP.jpg', 'pcOVER.jpg', 3, 'pc industrial.jpg'),
+(12, 'Adquisicion de Datos', 'adquisicionUP.jpg', 'adquisicionOVER.jpg', 1, 'Adquisicion.jpg'),
+(13, 'Automatizacion y control', 'automatizacioUP.jpg', 'automatizacioOVER.jpg', 2, 'control.jpg'),
+(17, 'Software de Ingenieria', 'softUP.jpg', 'softOVER.jpg', 6, 'etap.jpg'),
+(18, 'Sistemas Integrados', 'RAIEN_sistemasIntegradosUP.jpg', 'RAIEN_sistemasIntegradosOVER.jpg', 7, 'assembly line.jpg');
 
 -- --------------------------------------------------------
 
@@ -103,14 +158,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `role_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=8 ;
 
 --
--- Volcado de datos para la tabla `users`
+-- Volcar la base de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `email`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`, `role_id`) VALUES
-(6, '', '', 'admin', '$2a$08$btQwPc39FkF91QhzkCNY3.dN/hiih1w6mdRXRJ0WlFI3OYez03GwC', 'martinpandolfelli@gmail.com', 1, 0, NULL, NULL, NULL, NULL, 'd0c7eac9c16dbe732c55e61011b56f36', '::1', '2015-11-03 16:25:28', '2015-11-03 16:24:35', '2015-11-03 16:25:28', 1);
+(6, '', '', 'admin', '$2a$08$btQwPc39FkF91QhzkCNY3.dN/hiih1w6mdRXRJ0WlFI3OYez03GwC', 'martinpandolfelli@gmail.com', 1, 0, NULL, NULL, NULL, NULL, 'd0c7eac9c16dbe732c55e61011b56f36', '::1', '2015-11-03 16:25:28', '2015-11-03 16:24:35', '2015-11-03 13:25:28', 1),
+(7, '', '', 'hugomarcelo', '$2a$08$KDO5nWDCnCsoanefr5fF/eV6d9zkyReCOofsaJWC0G1tIlhgTsdyy', 'hugomarcelo@gmail.co', 1, 0, NULL, NULL, NULL, NULL, NULL, '127.0.0.1', '2015-11-11 01:21:26', '2015-11-11 01:20:04', '2015-11-10 21:21:26', 1);
 
 -- --------------------------------------------------------
 
@@ -127,6 +183,11 @@ CREATE TABLE IF NOT EXISTS `user_autologin` (
   PRIMARY KEY (`key_id`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Volcar la base de datos para la tabla `user_autologin`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -141,15 +202,12 @@ CREATE TABLE IF NOT EXISTS `user_profiles` (
   `facebook_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `facebook_token` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
 
 --
--- Volcado de datos para la tabla `user_profiles`
+-- Volcar la base de datos para la tabla `user_profiles`
 --
 
 INSERT INTO `user_profiles` (`id`, `user_id`, `country`, `website`, `facebook_id`, `facebook_token`) VALUES
-(1, 1, NULL, NULL, NULL, NULL);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+(1, 1, NULL, NULL, NULL, NULL),
+(2, 7, NULL, NULL, NULL, NULL);

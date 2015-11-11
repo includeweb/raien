@@ -22,25 +22,25 @@
 				
 				  <div class="form-group">
 				    <label for="nombre">Nombre</label>
-				    <input type="text" class="form-control" id="nombre" name="name" placeholder="Name">
+				    <input type="text" value="<?=$product->name?>" class="form-control" id="nombre" name="name" placeholder="Name">
 				  </div>
 				  <div class="form-group">
 				    <label for="descripcion">Descripción</label>
-				    <textarea id="tinyeditor" style="width: 400px; height: 200px" name="description"></textarea>
+				    <textarea id="tinyeditor" style="width: 400px; height: 200px" name="description"><?=$product->description?></textarea>
 				    
 				  </div>
 				 
 				 <div class="form-group">
-				    <label for="filedatasheet">Datasheet</label>
+				    <label for="filedatasheet">Datasheet <a href="<?=base_url('files/pdf/'.$product->id."/".$product->file_pdf)?>" target="_blank"> Ver pdf</a></label>
 				    <input type="file" id="filedatasheet" name="file_pdf" accept="application/pdf" >
 				    <p class="help-block">Formato: PDF</p>
 			  	</div>
 			  	<div class="form-group">
-				    <label for="fileimage">Imagen</label>
+				    <label for="fileimage">Imagen <a href="<?=base_url('files/images/'.$product->id."/".$product->file_img)?>" target="_blank"> Ver Imagen</a></label>
 				    <input type="file" id="fileimage" name="file_jpg" accept="image/*" >
 				    <p class="help-block">Formato: JPG, PNG</p>
 			  	</div>
-				  <button type="submit" class="btn btn-default" onClick="editor.post();" >Guardar</button>
+	  			<button type="submit" class="btn btn-default" onClick="editor.post();" >Guardar</button>
 			
 			</div>
 			<div class="col-md-4">
@@ -49,7 +49,7 @@
 				    <label for="fileimage">Tipo</label>
 				    <select class="form-control" name="type_id">
 				    	<?php foreach ($types->result() as $type) {?>
-				    		<option value ="<?=$type->id?>"><?=$type->name?></option>
+				    		<option value ="<?=$type->id?>" <?=($type->id == $product->type_id)? "selected":""?>><?=$type->name?></option>
 				    	<? } ?>   	
 				    </select>
 				    
