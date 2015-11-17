@@ -10,7 +10,7 @@
         <?php echo add_style('override');?>
         <?php echo add_jscript('jquery-1.11.1.min');?>		
         <?php echo add_jscript('bootstrap.min');?>
-     
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
       
 		
     </head>
@@ -25,7 +25,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Raien</a>
+      <a class="navbar-brand" href="#"><div class="pull-left"><img src="<?=base_url();?>images/logo.jpg" /></div><div class="logo"> Raien</div></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -34,13 +34,10 @@
          
      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?=$username;?> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="<?=base_url();?>auth/change_password">Cambiar contraseña</a></li>
             <li class="divider"></li>
             <li><a href="<?=base_url();?>auth/logout">Log out</a></li>
           </ul>
@@ -54,19 +51,19 @@
       <div class="row">
         <div class="col-md-2">
           <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Panel title</h3>
-            </div>
+           
             <div class="panel-body">
             <ul class="nav nav-pills nav-stacked">
               <li role="presentation" class="active"><a href="<?=base_url();?>dashboard">Dashboard</a></li>
               <li role="presentation"><a href="<?=base_url();?>dashboard/productos" class="list-group-item">Productos</a></li>
               <li role="presentation"><a href="<?=base_url();?>dashboard/marcas" class="list-group-item">Marcas</a></li>
+              <li role="presentation"><a href="<?=base_url();?>dashboard/marcas" class="list-group-item">Marcas</a></li>
+              <li role="presentation"><a href="<?=base_url();?>dashboard/contactos" class="list-group-item">Contactos</a></li>
             </ul>
             </div>
           </div>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10" id="content-app">
         <?php echo $content_for_layout?>
          
         </div>

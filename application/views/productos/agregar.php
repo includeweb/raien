@@ -11,9 +11,9 @@
 	</div>
 	<div class="panel-body">
 	   <ol class="breadcrumb">
-		  <li><a href="#">Home</a></li>
-		  <li><a href="#">Library</a></li>
-		  <li class="active">Data</li>
+		  <li><a href="#">Dashboard</a></li>
+		  <li><a href="#">Productos</a></li>
+		  <li class="active">Agregar producto</li>
 		</ol>
 		<!-- aca contenido de la seccion-->
 		<form method="post" action="" enctype="multipart/form-data">

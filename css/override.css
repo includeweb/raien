@@ -1,6 +1,66 @@
 /* Overrides */
 
-.list-group-item {border:none;}
+body{
+	font-family: 'Ubuntu', sans-serif!important;
+	background-color: #e7e9d4;
+}
 
+.list-group-item {border:none;}
+#content-app .panel-title{
+    margin-top: 9px;
+}
 /* fix width tinyeditor*/
 .tinyeditor{width: 100%!important}
+
+.navbar-default{
+	background-color: #414042;	
+	border-radius: 0;
+	border-bottom: 4px solid #dda527;
+}
+
+.panel-heading{
+	background-color: #58595b!important;	
+	border-radius: 0!important;
+	color:#fff!important;
+	font-weight: bold!important;
+}
+
+.btn-default{
+	border-radius: 0;
+	background-color: #ddd;
+}
+.btn-primary, .btn-success, .btn-danger, .btn-warning{
+	border-radius: 0;
+}
+
+.panel-title{
+	font-weight: bold;
+	letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
+
+.panel{border-radius: 0;}
+.navbar{min-height: 64px;}
+.navbar-brand{padding: 8px 15px;}
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #fff;
+    background-color: #b1b4b6;
+}
+
+.logo{
+	float: left;
+    width: 100px;
+    margin-top: 10px;
+    font-size: 30px;
+    color: #fff;
+    margin-left: 10px;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: #fff;
+}
+.navbar-default .navbar-nav>li>a:visited {
+    color: #fff;
+}

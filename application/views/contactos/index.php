@@ -93,8 +93,8 @@ function actualizar(){
 <div class="panel panel-default">
 	<div class="panel-heading">
 	<div class="row">
-		<div class="col-md-10"><h3 class="panel-title fix-title">Productos</h3></div>
-		<div class="col-md-2 text-right "><a href="<?=base_url();?>dashboard/agregar_producto" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</a></div>
+		<div class="col-md-10"><h3 class="panel-title fix-title">Contactos</h3></div>
+		
 	</div>
 	  
 	  

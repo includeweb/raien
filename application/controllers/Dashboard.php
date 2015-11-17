@@ -184,6 +184,13 @@ class Dashboard extends CI_Controller {
 		echo $this->load->view('productos/obtener_xls',$data,true);
 	}
 
+	public function contactos(){
+		$data['user_id']	= $this->tank_auth->get_user_id();
+		$data['username']	= $this->tank_auth->get_username();
+		$data['role'] = $this->tank_auth->get_role();
+		$this->layout->view('contactos/index', $data, $return=false);
+	}
+
 }
 
 /* End of file welcome.php */

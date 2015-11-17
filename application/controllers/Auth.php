@@ -8,6 +8,7 @@ class Auth extends CI_Controller
 
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
+		$this->load->library('layout');
 		if(version_compare(CI_VERSION,'2.1.0','<')){
 			$this->load->library('security');
 		}
@@ -364,7 +365,10 @@ class Auth extends CI_Controller
 					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
 				}
 			}
-			$this->load->view('auth/change_password_form', $data);
+			$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$data['role'] = $this->tank_auth->get_role();
+			$this->layout->view('auth/change_password_form', $data);
 		}
 	}
 
