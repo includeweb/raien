@@ -35,9 +35,12 @@ class Layout{
         $loadedData['content_for_layout'] = $this->obj->load->view($view,$data,true);
         $loadedData['content_for_sidebar'] = $this->sidebar;
 
-        foreach ($data as $key => $value) {
-            $loadedData[$key] = $value;
+        if($data != null){
+             foreach ($data as $key => $value) {
+                $loadedData[$key] = $value;
+            }
         }
+        
 
         if($this->sidebar != false){
              $loadedData['content_for_sidebar'] = $this->obj->load->view($this->sidebar,array(),true);
