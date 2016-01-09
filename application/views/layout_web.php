@@ -26,21 +26,18 @@
     <div class="container-fluid no-padding">
   		<!-- Top info -->
     	<div class="container">
-    		<div class="row">
-    			<div class="col-md-6">TELÉFONO:  011-4701-9316 & líneas rotativas       EMAIL: ventas@raien.com.ar</div>
-    			<div class="col-md-6">Youtube - Facebook - Blog
-    			</div>
-    		</div>
+    		
     	</div>
     	<!-- / Top info -->
     	
 
-		
-		<div class="row">
-			<!-- Navbar -->
-	    	<div class="container center-menu">
-	    		<nav class="navbar navbar-default">
-				
+	
+	    		<nav class="navbar navbar-default navbar-fixed-top raien-navbar">
+					<div class="container ">
+					<div class="top-info">
+		    			<div class="col-md-6">TELÉFONO:  011-4701-9316 & líneas rotativas       EMAIL: ventas@raien.com.ar</div>
+		    			<div class="col-md-6">Youtube - Facebook - Blog</div>
+    				</div>
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    <div class="navbar-header">
 				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -72,10 +69,9 @@
 				        <li><a href="#">ingeniería</a></li>
 				      </ul>
 				    </div><!-- /.navbar-collapse -->
-				  	
+				  	</div>
 				</nav>
-			</div>
-		</div>
+		
 		<div class="row">
 		<!-- Content -->
 		<?php echo $content_for_layout?>

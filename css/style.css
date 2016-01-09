@@ -16,3 +16,7 @@ body{
 .navbar{
 	    min-height: 95px;
 }
+.raien-navbar{
+	background-image: none;
+	background-color: transparent;
+}
