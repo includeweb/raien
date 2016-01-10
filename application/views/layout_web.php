@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Raien</title>
 
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
@@ -20,6 +20,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <?php echo add_style('style');?>
+    <?php echo add_style('font-awesome.min');?>
   </head>
   <body>
     <!-- Main container -->
@@ -35,7 +36,19 @@
 					<div class="container">
 						<div class="top-info">
 			    			<div class="col-md-6">TELÉFONO:  011-4701-9316 & líneas rotativas       EMAIL: ventas@raien.com.ar</div>
-			    			<div class="col-md-6">Youtube - Facebook - Blog</div>
+			    			<div class="col-md-6">
+			    				<div class="pull-right">
+				    				<a href="" target="_blank">
+				    					<img src="<?=base_url();?>images/web/youtube-icon.png" alt="Youtube">
+				    				</a>
+				    				<a href="" target="_blank">
+				    					<img src="<?=base_url();?>images/web/facebook-icon.png" alt="Facebook">
+				    				</a>	
+				    				<a href="" target="_blank">
+				    					<img src="<?=base_url();?>images/web/blogger-icon.png" alt="Blogger">
+				    				</a>
+			    				</div>
+			    			</div>
 	    				</div>
     				</div>
 				</nav>

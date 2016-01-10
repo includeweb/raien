@@ -1,4 +1,4 @@
-<div class="col-md-12 shadow">
+<div class="col-md-12 ">
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 	  <!-- Indicators -->
 	  <ol class="carousel-indicators">
@@ -9,7 +9,7 @@
 
 	  <!-- Wrapper for slides -->
 	  <div class="carousel-inner" role="listbox">
-	    <div class="item active">
+	    <div class="item active ">
 	      <img src="<?=base_url();?>images/web/slider-1.jpg" alt="...">
 	      <div class="carousel-caption">
 	        <img src="<?=base_url();?>images/web/slider-text.png" />
@@ -20,7 +20,8 @@
 	      <div class="carousel-caption">
 	        <img src="<?=base_url();?>images/web/slider-text.png" />
 	      </div>
-	    </div><div class="item">
+	    </div>
+	    <div class="item">
 	      <img src="<?=base_url();?>images/web/slider-3.jpg" alt="...">
 	      <div class="carousel-caption">
 	        <img src="<?=base_url();?>images/web/slider-text.png" />
