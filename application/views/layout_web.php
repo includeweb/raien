@@ -10,7 +10,7 @@
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700' rel='stylesheet' type='text/css'>
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -25,19 +25,23 @@
     <!-- Main container -->
     <div class="container-fluid no-padding">
   		<!-- Top info -->
-    	<div class="container">
+    	
     		
-    	</div>
+    	
     	<!-- / Top info -->
     	
 
-	
+				<nav class="navbar navbar-default navbar-fixed-top top-info-navbar hidden-xs">
+					<div class="container">
+						<div class="top-info">
+			    			<div class="col-md-6">TELÉFONO:  011-4701-9316 & líneas rotativas       EMAIL: ventas@raien.com.ar</div>
+			    			<div class="col-md-6">Youtube - Facebook - Blog</div>
+	    				</div>
+    				</div>
+				</nav>
 	    		<nav class="navbar navbar-default navbar-fixed-top raien-navbar">
 					<div class="container ">
-					<div class="top-info">
-		    			<div class="col-md-6">TELÉFONO:  011-4701-9316 & líneas rotativas       EMAIL: ventas@raien.com.ar</div>
-		    			<div class="col-md-6">Youtube - Facebook - Blog</div>
-    				</div>
+					
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    <div class="navbar-header">
 				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -46,7 +50,7 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="#"><img src="images/web/logo-raien.png" /></a>
+				      <a class="navbar-brand" href="#"><img src="<?=base_url();?>images/web/logo-raien.png" /></a>
 				    </div>
 
 				    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -58,15 +62,50 @@
 				        <li class="dropdown">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">productos <span class="caret"></span></a>
 				          <ul class="dropdown-menu">
-				            <li><a href="#">Action</a></li>
-				            <li><a href="#">Another action</a></li>
-				            <li><a href="#">Something else here</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">Separated link</a></li>
+				            <li>
+				            	<a href="#">
+				            		<div class="sub-navigation">
+				            			<div class="sub-navigation-icon">
+				            				<img src="<?=base_url();?>images/web/categoria-icon.png" />
+				            			</div>
+				            			<div class="sub-navigation-text">
+				            				Categoría
+				            			</div>
+				            		</div>
+				            	</a>
+				            </li>
+				            <li>
+				            	<a href="#">
+				            		<div class="sub-navigation">
+				            			<div class="sub-navigation-icon">
+				            				<img src="<?=base_url();?>images/web/aplicacion-icon.png" />
+				            			</div>
+				            			<div class="sub-navigation-text">
+				            				Aplicación
+				            			</div>
+				            		</div>
+				            	</a>
+				            </li>
+				            <li>
+				            	<a href="#">
+				            		<div class="sub-navigation">
+				            			<div class="sub-navigation-icon">
+				            				<img src="<?=base_url();?>images/web/marca-icon.png" />
+				            			</div>
+				            			<div class="sub-navigation-text">
+				            				Marca
+				            			</div>
+				            		</div>
+				            	</a>
+				            </li>
+				          
 				          </ul>
 				        </li>
-				        <li><a href="#">productos</a></li>
 				        <li><a href="#">ingeniería</a></li>
+				        <li><a href="#">capacitación</a></li>
+				        <li><a href="#">institucional</a></li>
+				        <li><a href="#">contacto</a></li>
+				        <li><a href="#">trabaja con raien</a></li>
 				      </ul>
 				    </div><!-- /.navbar-collapse -->
 				  	</div>
