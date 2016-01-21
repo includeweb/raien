@@ -94,6 +94,14 @@ body{
 	background-image: -webkit-linear-gradient(top,rgba(0,0,0,.8) 0,rgba(0,0,0,.0001) 100%);
 }
 
+
+/* BUSCADOR */
+.buscador{
+	background-color: #DB9805;
+	min-height: 95px;
+	padding: 30px 0px;
+}	 
+
 /* media queries */
 
 @media (min-width: 1200px){
