@@ -46,7 +46,7 @@
 
 <div class="row buscador" >
 	<div class="container">
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-12 col-xs-12">
 			<div class="input-group">
 		      <input type="text" class="form-control" placeholder="¿QUÉ PRODUCTO ESTÁ BUSCANDO?">
 		      <span class="input-group-btn">
@@ -54,9 +54,9 @@
 		      </span>
 		    </div><!-- /input-group -->
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-8 col-sm-12 col-xs-12">
 			<div class="row">
-				<div class="col-md-10 no-padding">
+				<div class="col-md-10 no-padding col-sm-12 col-xs-12">
 					<!-- Split button -->
 					<div class="btn-group separar">
 						<div class="btn-title">tipo de producto</div>
@@ -115,3 +115,14 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready();
+
+	function animateHover(element, class){
+		$(element).hover(
+		       function(){ $(this).addClass(class) },
+		       function(){ $(this).removeClass(class) }
+		)
+	}
+</script>
