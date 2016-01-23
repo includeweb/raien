@@ -44,9 +44,9 @@ body{
 }
 
 
-.nav > li.dropdown.open { position: static; }
-.nav > li.dropdown.open .dropdown-menu {display:table; width: 100%; text-align: center; left:0; right:0; border-radius: 0; }
-.dropdown-menu>li { display: table-cell; }
+.raien-navbar .nav > li.dropdown.open { position: static; }
+.raien-navbar .nav > li.dropdown.open .dropdown-menu {display:table; width: 100%; text-align: center; left:0; right:0; border-radius: 0; }
+.raien-navbar .dropdown-menu>li { display: table-cell; }
 
 .sub-navigation-icon{
 	width: 80px;
@@ -60,21 +60,21 @@ body{
 	color:#fff;
 	background-image: none;
 }
-.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+.raien-navbar .nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
 	background-color: transparent;
 	background-image: none;
 }
 
 .caret {
-	    width: 0;
-	    height: 0;
-	    margin-left: 2px;
-	    vertical-align: middle;
-	    border-top: 4px dashed;
-	    border-top: 4px solid\9;
-	    border-right: 4px solid transparent;
-	    border-left: 4px solid transparent;
-	}
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid\9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
 
 .sub-navigation-text{
 	padding: 8px 0px;
@@ -99,8 +99,60 @@ body{
 .buscador{
 	background-color: #DB9805;
 	min-height: 95px;
-	padding: 30px 0px;
+	padding: 36px 0px 30px 0px;
 }	 
+.buscador input[type="text"]{
+	height: 36px;
+	border-radius:0px;
+	background-color: transparent;
+	color: #fff!important;
+	border:1px solid #fff; 
+	margin-left:-1px;
+}
+
+.buscador button{
+	height: 36px;
+	border-radius:0px;
+	background-color:#e6b746;
+	color: #fff!important;
+	border:none!important;
+
+}
+
+::-webkit-input-placeholder { color: #fff!important;font-size: 12px; } /* WebKit */
+:-moz-placeholder { color: #fff!important;font-size: 12px; } /* Firefox 18- */
+::-moz-placeholder { color: #fff!important;font-size: 12px; } /* Firefox 19+ */
+:-ms-input-placeholder { color: #fff!important;font-size: 12px; } /* IE 10+ */
+.buscador .btn-group-lg>.btn, .btn-lg {
+    padding: 0px 8px 0px 8px;
+    font-size: 12px;
+    line-height: 1.3333333;
+    border-radius: 0px;
+    text-transform: uppercase;
+}
+.buscador .separar{
+	margin-right: 6px;
+}
+
+.buscador .fix-padding-btn{
+	padding: 0px 26px 0px 8px
+}
+.buscador .custom-dropdown{
+	background-color: transparent;
+	border:1px solid #fff!important;
+	margin-right: 1px;
+}
+
+.buscador .btn-title{
+	clear: both;
+	width: 150px;
+	font-size: 10px;
+	color: #fff;
+	text-transform: uppercase;
+	margin-top:-14px;
+
+}
+
 
 /* media queries */
 

@@ -56,11 +56,46 @@
 		</div>
 		<div class="col-md-8">
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-10 no-padding">
+					<!-- Split button -->
+					<div class="btn-group separar">
+						<div class="btn-title">tipo de producto</div>
+					  <button type="button" class="btn btn-lg fix-padding-btn custom-dropdown">seleccione un tipo</button>
+					  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    <span class="caret"></span>
+					    <span class="sr-only">Toggle Dropdown</span>
+					  </button>
+					  <ul class="dropdown-menu">
+					    <li><a href="#">Action</a></li>
+					    <li><a href="#">Another action</a></li>
+					    <li><a href="#">Something else here</a></li>
+					    <li role="separator" class="divider"></li>
+					    <li><a href="#">Separated link</a></li>
+					  </ul>
+					</div>
+				
+					<!-- Split button -->
+					<div class="btn-group separar">
+					<div class="btn-title">marca del producto</div>
+					  <button type="button" class="btn btn-lg custom-dropdown">seleccione una marca</button>
+					  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    <span class="caret"></span>
+					    <span class="sr-only">Toggle Dropdown</span>
+					  </button>
+					  <ul class="dropdown-menu">
+					    <li><a href="#">Action</a></li>
+					    <li><a href="#">Another action</a></li>
+					    <li><a href="#">Something else here</a></li>
+					    <li role="separator" class="divider"></li>
+					    <li><a href="#">Separated link</a></li>
+					  </ul>
+					</div>
+				
 					<!-- Split button -->
 					<div class="btn-group">
-					  <button type="button" class="btn btn-danger btn-lg">Action</button>
-					  <button type="button" class="btn btn-danger dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<div class="btn-title">producto</div>
+					  <button type="button" class="btn btn-lg custom-dropdown">seleccione un producto</button>
+					  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
@@ -73,41 +108,7 @@
 					  </ul>
 					</div>
 				</div>
-				<div class="col-md-3">
-					<!-- Split button -->
-					<div class="btn-group">
-					  <button type="button" class="btn btn-danger btn-lg">Action</button>
-					  <button type="button" class="btn btn-danger dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    <span class="caret"></span>
-					    <span class="sr-only">Toggle Dropdown</span>
-					  </button>
-					  <ul class="dropdown-menu">
-					    <li><a href="#">Action</a></li>
-					    <li><a href="#">Another action</a></li>
-					    <li><a href="#">Something else here</a></li>
-					    <li role="separator" class="divider"></li>
-					    <li><a href="#">Separated link</a></li>
-					  </ul>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<!-- Split button -->
-					<div class="btn-group">
-					  <button type="button" class="btn btn-danger btn-lg">Action</button>
-					  <button type="button" class="btn btn-danger dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    <span class="caret"></span>
-					    <span class="sr-only">Toggle Dropdown</span>
-					  </button>
-					  <ul class="dropdown-menu">
-					    <li><a href="#">Action</a></li>
-					    <li><a href="#">Another action</a></li>
-					    <li><a href="#">Something else here</a></li>
-					    <li role="separator" class="divider"></li>
-					    <li><a href="#">Separated link</a></li>
-					  </ul>
-					</div>
-				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
 				</div>
 			</div>
