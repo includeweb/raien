@@ -1,3 +1,19 @@
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+.wrapper {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -108px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+	height: 108px; /* .push must be the same height as .footer */
+}
+
 body{
 	padding: 0;
 	margin: 0;
@@ -84,6 +100,22 @@ body{
 	text-transform: uppercase;
 }
 
+.site-nav {
+	background-color: orange;
+	background-image: none;
+}
+
+.site-nav .row {
+	margin-top: 8px;
+}
+
+.raien-site-navbar {
+	top: 40px;
+	background-color: black;
+	text-transform: uppercase;
+	border: 0;
+}
+
 
 /* SLIDER */
 .carousel-caption{
@@ -151,6 +183,43 @@ body{
 	text-transform: uppercase;
 	margin-top:-14px;
 
+}
+
+/* CONTENT */
+.content {
+	margin-top: 131px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.content > .row > .col-md-3 {
+
+}
+
+.content > .row > .col-md-3 > .title-black{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.content > .row > .col-md-3 > .title-orange{
+	text-transform: uppercase;
+}
+
+.content > .row > .col-md-9 {
+	border-left: 1px solid gray;
+}
+
+
+/* FOOTER */
+.footer {
+	border-top: 1px solid gray;
+}
+
+.legals {
+	background-color: lightgray;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 10px 0;
 }
 
 

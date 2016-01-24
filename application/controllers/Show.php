@@ -18,6 +18,10 @@ class Show extends CI_Controller {
 		$this->layout->view('home');
 	}
 
+	function engineering() {
+		$this->layout->view('engineering');
+	}
+
 }
 
 
