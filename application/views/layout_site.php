@@ -11,6 +11,7 @@
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
 	<!-- Optional theme -->
 	 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -63,7 +64,7 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="#"><img src="<?=base_url();?>images/web/logo-raien.png" /></a>
+				      <a class="navbar-brand" href="#"><img src="http://placehold.it/40x40"></a>
 				    </div>
 
 				    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -73,7 +74,7 @@
 				        <li><a href="#">home</a></li>
 				        
 				        <li class="dropdown">
-				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">productos <span class="caret"></span></a>
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">productos</a>
 				          <ul class="dropdown-menu">
 				            <li>
 				            	<a href="#">
@@ -138,12 +139,24 @@
  	<div class="footer">
  		<div class="container">
  			<div class="row">
- 				<div class="col-md-6"><img src="<?=base_url();?>images/web/logo-raien.png" /></div>
- 				<div class="col-md-6"></div>
+ 				<div class="col-md-6">
+ 					<img src="http://placehold.it/270x85"><img src="http://placehold.it/85x85">
+ 				</div>
+ 				<div class="col-md-6">
+ 					<form class="form-inline">
+						<div class="form-group">
+							<div>¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>
+							<div class="input-group">
+								<input type="email" class="form-control" id="exampleInputAmount">
+								<div class="input-group-addon"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+							</div>
+						</div>
+					</form>
+ 				</div>
  			</div>
  		</div>
  		<div class="legals">
- 			Copyright
+ 			TODOS LOS DERECHOS RESERVADOS. RAIEN © 2015. TÉRMINOS Y CONDICIONES. POWERED BY QUTUWARA
  		</div>
  	</div>
   

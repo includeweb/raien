@@ -8,10 +8,10 @@ html, body {
 	min-height: 100%;
 	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
 	height: 100%;
-	margin: 0 auto -108px; /* the bottom margin is the negative value of the footer's height */
+	margin: 0 auto -169px; /* the bottom margin is the negative value of the footer's height */
 }
 .footer, .push {
-	height: 108px; /* .push must be the same height as .footer */
+	height: 169px; /* .push must be the same height as .footer */
 }
 
 body{
@@ -101,19 +101,32 @@ body{
 }
 
 .site-nav {
-	background-color: orange;
+	background-color: #DCA427;
 	background-image: none;
+	min-height: 50px;
 }
 
 .site-nav .row {
-	margin-top: 8px;
+	margin-top: 13px;
 }
 
 .raien-site-navbar {
-	top: 40px;
+	top: 50px;
 	background-color: black;
 	text-transform: uppercase;
 	border: 0;
+}
+
+.raien-site-navbar .navbar-header {
+	min-height: 56px;
+}
+
+.raien-site-navbar .navbar-brand {
+	padding: 8px 15px;
+}
+
+.raien-site-navbar .navbar-right {
+	margin-top: 3px;
 }
 
 
@@ -187,9 +200,9 @@ body{
 
 /* CONTENT */
 .content {
-	margin-top: 131px;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	margin-top: 106px;
+	padding-top: 35px;
+	padding-bottom: 50px;
 }
 
 .content > .row > .col-md-3 {
@@ -199,14 +212,21 @@ body{
 .content > .row > .col-md-3 > .title-black{
 	text-transform: uppercase;
 	font-weight: bold;
+	font-size: 22px;
 }
 
 .content > .row > .col-md-3 > .title-orange{
 	text-transform: uppercase;
+	font-size: 29px;
+	color: #DCA427;
 }
 
 .content > .row > .col-md-9 {
 	border-left: 1px solid gray;
+}
+
+.content > .row > .col-md-9 > div {
+	padding-left: 15px;
 }
 
 
@@ -215,12 +235,62 @@ body{
 	border-top: 1px solid gray;
 }
 
+.footer > .container {
+	padding-top: 20px;
+	padding-bottom: 15px;
+}
+
+.footer > .container .col-md-6:nth-child(1) {
+	border-right: 1px solid gray;
+	padding-top: 25px;
+	padding-bottom: 30px;
+}
+
+.footer > .container .col-md-6:nth-child(1) > img:nth-child(1){
+	margin-right: 50px;
+}
+
+.footer > .container .col-md-6:nth-child(2) {
+	padding-top: 35px;
+}
+
+.footer > .container .col-md-6:nth-child(2) > form {
+	margin-left: 108px;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 300;
+	font-size: 12px;
+}
+
 .legals {
-	background-color: lightgray;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 300;
+	font-size: 12px;
+	background-color: #E6E7E8;
 	text-align: center;
 	text-transform: uppercase;
-	padding: 10px 0;
+	padding: 25px 0;
 }
+
+/* INPUTS */
+
+input[type="text"],
+input[type="email"],
+.input-group-addon {
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+input[type="text"],
+input[type="email"] {
+	background-color: #E6E7E8;
+}
+
+.input-group-addon {
+	background-color: #DCA427;
+	color: #fff;
+}
+
 
 
 /* media queries */

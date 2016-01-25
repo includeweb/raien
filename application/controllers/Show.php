@@ -10,7 +10,7 @@ class Show extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->load->library('layout');
 		$this->load->model('Product_Model','product');
-		$this->layout->setLayout('layout_web');
+		$this->layout->setLayout('layout_site');
 		$this->layout->setFolder('site');
 	}
 
