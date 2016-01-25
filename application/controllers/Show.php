@@ -15,7 +15,7 @@ class Show extends CI_Controller {
 	}
 
 	function index(){
-		$this->layout->view('home');
+		$this->load->view('site/home');
 	}
 
 	function engineering() {
