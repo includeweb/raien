@@ -26,6 +26,11 @@ class Show extends CI_Controller {
 		$this->layout->view('contact');
 	}
 
+	function team() {
+		$this->layout->view('team');
+	}
+
+
 }
 
 
