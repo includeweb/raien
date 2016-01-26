@@ -31,7 +31,7 @@
     	<!-- / Top info -->
     	
 
-				<nav class="navbar navbar-default navbar-fixed-top top-info-navbar hidden-xs">
+				<nav class="navbar navbar-default  top-info-navbar">
 					<div class="container">
 						<div class="top-info">
 			    			<div class="col-md-6">TELÉFONO:  011-4701-9316 & líneas rotativas       EMAIL: ventas@raien.com.ar</div>
@@ -51,7 +51,7 @@
 	    				</div>
     				</div>
 				</nav>
-	    		<nav class="navbar navbar-default navbar-fixed-top raien-navbar">
+	    		<nav class="navbar navbar-default  raien-navbar">
 					<div class="container ">
 					
 				    <!-- Brand and toggle get grouped for better mobile display -->
@@ -126,8 +126,9 @@
 		
     </div>
     <div class="container-fluid no-padding">
+    <div class="mobile-header visible-sm visible-xs"></div>
 		<!-- Content -->
-<div class="row no-margin">
+<div class="row no-margin hidden-sm hidden-xs">
 	<div class="col-md-12 no-padding">
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		  <!-- Indicators -->
@@ -173,9 +174,10 @@
 	</div>
 </div>
 
-<div class="row buscador no-margin" >
+
+<div class="row buscador no-margin visible-lg" >
 	<div class="container">
-		<div class="col-md-4 col-sm-12 col-xs-12">
+		<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
 			<div class="input-group">
 		      <input type="text" class="form-control" placeholder="¿QUÉ PRODUCTO ESTÁ BUSCANDO?">
 		      <span class="input-group-btn">
@@ -183,7 +185,7 @@
 		      </span>
 		    </div><!-- /input-group -->
 		</div>
-		<div class="col-md-8 col-sm-12 col-xs-12">
+		<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 			<div class="row">
 				<div class="col-md-10 no-padding col-sm-12 col-xs-12">
 					<!-- Split button -->
@@ -244,9 +246,113 @@
 		</div>
 	</div>
 </div>
+<div class="buscador hidden-lg" id="buscador-mobile">
+	<div class="container">
+		<div class="row border">
+			<div class="col-md-3"></div>
+			<div class="col-md-6 ">
+				<div class="input-group">
+			      <input type="text" class="form-control" placeholder="¿QUÉ PRODUCTO ESTÁ BUSCANDO?">
+			      <span class="input-group-btn">
+			        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
+			      </span>
+			    </div><!-- /input-group -->
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row top30">
+			<div class="col-md-2 hidden-sm hidden-xs"></div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<!-- Split button -->
+				<div class="btn-group separar full-width">
+					<div class="btn-title">tipo de producto</div>
+				  <button type="button" class="btn btn-lg fix-padding-btn custom-dropdown">seleccione un tipo</button>
+				  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    <span class="caret"></span>
+				    <span class="sr-only">Toggle Dropdown</span>
+				  </button>
+				  <ul class="dropdown-menu">
+				    <li><a href="#">Action</a></li>
+				    <li><a href="#">Another action</a></li>
+				    <li><a href="#">Something else here</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="#">Separated link</a></li>
+				  </ul>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<!-- Split button -->
+				<div class="btn-group separar full-width">
+				<div class="btn-title">marca del producto</div>
+				  <button type="button" class="btn btn-lg fix-padding-btn-2 custom-dropdown">seleccione una marca</button>
+				  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    <span class="caret"></span>
+				    <span class="sr-only">Toggle Dropdown</span>
+				  </button>
+				  <ul class="dropdown-menu">
+				    <li><a href="#">Action</a></li>
+				    <li><a href="#">Another action</a></li>
+				    <li><a href="#">Something else here</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="#">Separated link</a></li>
+				  </ul>
+				</div>
+			</div>
+			<div class="col-md-2 hidden-sm hidden-xs"></div>
+		</div>
+		<div class="row top30">
+			<div class="col-md-2 hidden-sm hidden-xs"></div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<!-- Split button -->
+				<div class="btn-group">
+				<div class="btn-title">producto</div>
+				  <button type="button" class="btn btn-lg fix-padding-btn-3 custom-dropdown">seleccione un producto</button>
+				  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    <span class="caret"></span>
+				    <span class="sr-only">Toggle Dropdown</span>
+				  </button>
+				  <ul class="dropdown-menu">
+				    <li><a href="#">Action</a></li>
+				    <li><a href="#">Another action</a></li>
+				    <li><a href="#">Something else here</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="#">Separated link</a></li>
+				  </ul>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+</div>
 	<!-- / Content -->		
     </div>
  	<!-- / Main container -->
+ 	<div class="footer">
+ 		<div class="container">
+ 			<div class="row">
+ 				<div class="col-md-6">
+ 					<img src="http://placehold.it/270x85"><img src="http://placehold.it/85x85">
+ 				</div>
+ 				<div class="col-md-6">
+ 					<form class="form-inline">
+						<div class="form-group">
+							<div class="newsletter-text">¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>
+							<div class="input-group full-width">
+								<input type="email" class="form-control" id="exampleInputAmount">
+								<div class="input-group-addon"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+							</div>
+						</div>
+					</form>
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div class="legals">
+ 			TODOS LOS DERECHOS RESERVADOS. RAIEN © 2015. TÉRMINOS Y CONDICIONES. POWERED BY QUTUWARA
+ 		</div>
+ 	</div>
 
   <script type="text/javascript">
 	$(document).ready();

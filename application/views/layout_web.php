@@ -31,7 +31,7 @@
     	<!-- / Top info -->
     	
 
-				<nav class="navbar navbar-default navbar-fixed-top top-info-navbar hidden-xs">
+				<nav class="navbar navbar-default navbar-fixed-top top-info-navbar ">
 					<div class="container">
 						<div class="top-info">
 			    			<div class="col-md-6">TELÉFONO:  011-4701-9316 & líneas rotativas       EMAIL: ventas@raien.com.ar</div>
