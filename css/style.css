@@ -132,6 +132,10 @@ body{
 	margin-top: 3px;
 }
 
+.raien-site-navbar .navbar-nav>li>a {
+	color: #fff!important;
+}
+
 
 /* SLIDER */
 .carousel-caption{
@@ -212,6 +216,11 @@ body{
 
 }
 
+.content > .row > .col-md-3 > p {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px;
+}
+
 .content > .row > .col-md-3 > .title-black{
 	text-transform: uppercase;
 	font-weight: bold;
@@ -230,6 +239,34 @@ body{
 
 .content > .row > .col-md-9 > div {
 	padding-left: 15px;
+}
+
+.content > .row > .col-md-9 .form-group{
+	padding-top: 15px;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 10px;
+}
+
+.content > .row > .col-md-9 .form-group:nth-last-child(1){
+	padding-top: 25px;
+	font-weight: normal;
+	text-transform: none;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 12px;
+}
+
+.content > .row > .col-md-9 .form-group:nth-last-child(1) button{
+	padding: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-family: 'Raleway', sans-serif;
+	font-size: 12px;
+}
+
+.content > .row > .col-md-9 .form-group:nth-last-child(1) button > span{
+	font-size: 16px;
+	padding-right: 10px
 }
 
 
@@ -278,18 +315,22 @@ body{
 
 input[type="text"],
 input[type="email"],
-.input-group-addon {
-	border: 0;
-	border-radius: 0;
-	box-shadow: none;
+.input-group-addon,
+textarea,
+button {
+	border: 0!important;
+	border-radius: 0!important;
+	box-shadow: none!important;
 }
 
 input[type="text"],
-input[type="email"] {
-	background-color: #E6E7E8;
+input[type="email"],
+textarea {
+	background-color: #E6E7E8!important;
 }
 
-.input-group-addon {
+.input-group-addon,
+button {
 	background-color: #DCA427;
 	color: #fff;
 }
