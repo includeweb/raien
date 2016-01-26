@@ -261,8 +261,8 @@
 			<div class="col-md-3"></div>
 		</div>
 		<div class="row top30">
-			<div class="col-md-2"></div>
-			<div class="col-md-4">
+			<div class="col-md-2 hidden-sm hidden-xs"></div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
 				<!-- Split button -->
 				<div class="btn-group separar full-width">
 					<div class="btn-title">tipo de producto</div>
@@ -280,7 +280,7 @@
 				  </ul>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 col-sm-6 col-xs-12">
 				<!-- Split button -->
 				<div class="btn-group separar full-width">
 				<div class="btn-title">marca del producto</div>
@@ -298,11 +298,11 @@
 				  </ul>
 				</div>
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-md-2 hidden-sm hidden-xs"></div>
 		</div>
 		<div class="row top30">
-			<div class="col-md-2 visible-md"></div>
-			<div class="col-md-4 col-sm-12">
+			<div class="col-md-2 hidden-sm hidden-xs"></div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
 				<!-- Split button -->
 				<div class="btn-group">
 				<div class="btn-title">producto</div>
@@ -320,7 +320,7 @@
 				  </ul>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 col-sm-6 col-xs-12">
 				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
 			</div>
 			<div class="col-md-2"></div>
