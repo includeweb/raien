@@ -19,13 +19,19 @@ body{
 	margin: 0;
 	font-family: 'Raleway', sans-serif;
 }
+/* HELPERS */
+.top30{
+	margin-top: 30px; 
+}
 .no-padding{
 	padding: 0;
 }
 .no-margin{
 	margin: 0;
 }
-
+.full-width{
+	width: 100%;
+}
 .center-menu{
 	position: fixed;
 	z-index: 200;
@@ -39,19 +45,27 @@ body{
     min-height: 91px;
 }
 .raien-navbar{
-	background-image: -webkit-linear-gradient(top,rgba(0,0,0,.4) 0,rgba(0,0,0,.0001) 100%);
+	
 	background-color: transparent;
-	min-height: 120px;
-	top:0px;
+    min-height: 80px;
+    padding-top: 40px;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    border: none;
 }
 .top-info-navbar{
 	background-image: none;
 	background-color: transparent;
 	border:none;
 	-webkit-box-shadow:none;
+	position: absolute;
+	z-index: 200;
+	width: 100%;
 	box-shadow: none;
 	min-height: 40px;
-	background-image: -webkit-linear-gradient(top,rgba(0,0,0,.5) 0,rgba(0,0,0,.4) 100%);
+	padding:10px;
+	color:#fff;
 }
 
 .raien-navbar .navbar-nav>li>a {
@@ -141,7 +155,12 @@ body{
 .shadow{
 	background-image: -webkit-linear-gradient(top,rgba(0,0,0,.8) 0,rgba(0,0,0,.0001) 100%);
 }
+.mobile-header{
+	background-image: url('../images/web/bg-mobile.jpg');
+	min-height: 480px;
+	background-size: cover;
 
+}
 
 /* BUSCADOR */
 .buscador{
@@ -198,7 +217,21 @@ body{
 	color: #fff;
 	text-transform: uppercase;
 	margin-top:-14px;
+}
 
+#buscador-mobile .border{
+	border-bottom: 1px solid #fff;
+	padding-bottom:30px;
+}
+
+#buscador-mobile .fix-padding-btn{
+	padding: 0px 123px 0px 8px;
+}
+#buscador-mobile .fix-padding-btn-2{
+	padding: 0px 100px 0px 8px;
+}
+#buscador-mobile .fix-padding-btn-3{
+	padding: 0px 84px 0px 8px;
 }
 
 /* CONTENT */
@@ -244,7 +277,7 @@ body{
 }
 
 .footer > .container .col-md-6:nth-child(1) {
-	border-right: 1px solid gray;
+	border-right: 1px solid #CCCCCC;
 	padding-top: 25px;
 	padding-bottom: 30px;
 }
@@ -259,11 +292,13 @@ body{
 
 .footer > .container .col-md-6:nth-child(2) > form {
 	margin-left: 108px;
-	font-family: 'Ubuntu', sans-serif;
+	
 	font-weight: 300;
 	font-size: 12px;
 }
-
+.newsletter-text{
+	margin-bottom:8px!important;
+}
 .legals {
 	font-family: 'Ubuntu', sans-serif;
 	font-weight: 300;
@@ -272,6 +307,7 @@ body{
 	text-align: center;
 	text-transform: uppercase;
 	padding: 25px 0;
+	color: #7F7F7F;
 }
 
 /* INPUTS */
@@ -319,12 +355,15 @@ input[type="email"] {
 }
 
 @media (min-width: 768px){
-	.raien-navbar{
-		top: 40px;
-	}
+	
 	.dropdown-toggle{
 		text-align: center
 	}
+	.raien-navbar{
+		background-image: -webkit-linear-gradient(top,rgba(0,0,0,.5) 0,rgba(0,0,0,.10) 100%);
+		
+	}
+	
 	
 	}
 
