@@ -175,58 +175,25 @@
 </div>
 
 
-<div class="row buscador no-margin visible-lg" >
+<div class="row buscador no-margin " >
 	<div class="container">
 		<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
 			<div class="input-group">
 		      <input type="text" class="form-control" placeholder="¿QUÉ PRODUCTO ESTÁ BUSCANDO?">
 		      <span class="input-group-btn">
-		        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
+		        <button class="btn btn-default hidden-xs" type="button"><span class="glyphicon glyphicon-search"></span> BUSCAR</span></button>
+		        <button class="btn btn-default show-xs hidden-sm hidden-md hidden-lg" type="button"><span class="glyphicon glyphicon-search"></span></button>
 		      </span>
 		    </div><!-- /input-group -->
 		</div>
 		<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-			<div class="row">
-				<div class="col-md-10 no-padding col-sm-12 col-xs-12">
+			<div class="row ">
+				<div class="col-md-3 col-sm-12 no-padding-right separate-mobile">
 					<!-- Split button -->
-					<div class="btn-group separar">
+					<div class="btn-group full-width ">
 						<div class="btn-title">tipo de producto</div>
-					  <button type="button" class="btn btn-lg fix-padding-btn custom-dropdown">seleccione un tipo</button>
-					  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    <span class="caret"></span>
-					    <span class="sr-only">Toggle Dropdown</span>
-					  </button>
-					  <ul class="dropdown-menu">
-					    <li><a href="#">Action</a></li>
-					    <li><a href="#">Another action</a></li>
-					    <li><a href="#">Something else here</a></li>
-					    <li role="separator" class="divider"></li>
-					    <li><a href="#">Separated link</a></li>
-					  </ul>
-					</div>
-				
-					<!-- Split button -->
-					<div class="btn-group separar">
-					<div class="btn-title">marca del producto</div>
-					  <button type="button" class="btn btn-lg custom-dropdown">seleccione una marca</button>
-					  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    <span class="caret"></span>
-					    <span class="sr-only">Toggle Dropdown</span>
-					  </button>
-					  <ul class="dropdown-menu">
-					    <li><a href="#">Action</a></li>
-					    <li><a href="#">Another action</a></li>
-					    <li><a href="#">Something else here</a></li>
-					    <li role="separator" class="divider"></li>
-					    <li><a href="#">Separated link</a></li>
-					  </ul>
-					</div>
-				
-					<!-- Split button -->
-					<div class="btn-group">
-					<div class="btn-title">producto</div>
-					  <button type="button" class="btn btn-lg custom-dropdown">seleccione un producto</button>
-					  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <button type="button" class="btn btn-buscador">Action</button>
+					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
@@ -239,94 +206,50 @@
 					  </ul>
 					</div>
 				</div>
-				<div class="col-md-2">
+				<div class="col-md-3 col-sm-12  no-padding-right separate-mobile">
+					<!-- Split button -->
+					<div class="btn-group full-width">
+					<div class="btn-title">marca del producto</div>
+					  <button type="button" class="btn btn-buscador">Action</button>
+					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    <span class="caret"></span>
+					    <span class="sr-only">Toggle Dropdown</span>
+					  </button>
+					  <ul class="dropdown-menu">
+					    <li><a href="#">Action</a></li>
+					    <li><a href="#">Another action</a></li>
+					    <li><a href="#">Something else here</a></li>
+					    <li role="separator" class="divider"></li>
+					    <li><a href="#">Separated link</a></li>
+					  </ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-12  no-padding-right separate-mobile">
+					<!-- Split button -->
+					<div class="btn-group full-width">
+					<div class="btn-title">producto</div>
+					  <button type="button" class="btn btn-buscador">Action</button>
+					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    <span class="caret"></span>
+					    <span class="sr-only">Toggle Dropdown</span>
+					  </button>
+					  <ul class="dropdown-menu">
+					    <li><a href="#">Action</a></li>
+					    <li><a href="#">Another action</a></li>
+					    <li><a href="#">Something else here</a></li>
+					    <li role="separator" class="divider"></li>
+					    <li><a href="#">Separated link</a></li>
+					  </ul>
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-12 separate-mobile">
 					<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="buscador hidden-lg" id="buscador-mobile">
-	<div class="container">
-		<div class="row border">
-			<div class="col-md-3"></div>
-			<div class="col-md-6 ">
-				<div class="input-group">
-			      <input type="text" class="form-control" placeholder="¿QUÉ PRODUCTO ESTÁ BUSCANDO?">
-			      <span class="input-group-btn">
-			        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
-			      </span>
-			    </div><!-- /input-group -->
-			</div>
-			<div class="col-md-3"></div>
-		</div>
-		<div class="row top30">
-			<div class="col-md-2 hidden-sm hidden-xs"></div>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<!-- Split button -->
-				<div class="btn-group separar full-width">
-					<div class="btn-title">tipo de producto</div>
-				  <button type="button" class="btn btn-lg fix-padding-btn custom-dropdown">seleccione un tipo</button>
-				  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    <span class="caret"></span>
-				    <span class="sr-only">Toggle Dropdown</span>
-				  </button>
-				  <ul class="dropdown-menu">
-				    <li><a href="#">Action</a></li>
-				    <li><a href="#">Another action</a></li>
-				    <li><a href="#">Something else here</a></li>
-				    <li role="separator" class="divider"></li>
-				    <li><a href="#">Separated link</a></li>
-				  </ul>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<!-- Split button -->
-				<div class="btn-group separar full-width">
-				<div class="btn-title">marca del producto</div>
-				  <button type="button" class="btn btn-lg fix-padding-btn-2 custom-dropdown">seleccione una marca</button>
-				  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    <span class="caret"></span>
-				    <span class="sr-only">Toggle Dropdown</span>
-				  </button>
-				  <ul class="dropdown-menu">
-				    <li><a href="#">Action</a></li>
-				    <li><a href="#">Another action</a></li>
-				    <li><a href="#">Something else here</a></li>
-				    <li role="separator" class="divider"></li>
-				    <li><a href="#">Separated link</a></li>
-				  </ul>
-				</div>
-			</div>
-			<div class="col-md-2 hidden-sm hidden-xs"></div>
-		</div>
-		<div class="row top30">
-			<div class="col-md-2 hidden-sm hidden-xs"></div>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<!-- Split button -->
-				<div class="btn-group">
-				<div class="btn-title">producto</div>
-				  <button type="button" class="btn btn-lg fix-padding-btn-3 custom-dropdown">seleccione un producto</button>
-				  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    <span class="caret"></span>
-				    <span class="sr-only">Toggle Dropdown</span>
-				  </button>
-				  <ul class="dropdown-menu">
-				    <li><a href="#">Action</a></li>
-				    <li><a href="#">Another action</a></li>
-				    <li><a href="#">Something else here</a></li>
-				    <li role="separator" class="divider"></li>
-				    <li><a href="#">Separated link</a></li>
-				  </ul>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
-			</div>
-			<div class="col-md-2"></div>
-		</div>
-	</div>
-</div>
+
 	<!-- / Content -->		
     </div>
  	<!-- / Main container -->
