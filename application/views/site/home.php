@@ -129,7 +129,7 @@
     <div class="container-fluid no-padding">
     <div class="mobile-header visible-sm visible-xs"></div>
 		<!-- Content -->
-<div class="row no-margin hidden-sm hidden-xs">
+<div class="row no-margin hidden-sm hidden-xs" id="carousel-home">
 	<div class="col-md-12 no-padding">
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		  <!-- Indicators -->
@@ -164,11 +164,11 @@
 
 		  <!-- Controls -->
 		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    <div> <img src="<?=base_url();?>images/web/carousel-left.png" /></div>
 		    <span class="sr-only">Previous</span>
 		  </a>
 		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		   <div> <img src="<?=base_url();?>images/web/carosuel-right.png" /></div>
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
