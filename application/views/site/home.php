@@ -31,11 +31,11 @@
     	<!-- / Top info -->
     	
 
-				<nav class="navbar navbar-default  top-info-navbar">
+				<nav class="navbar navbar-default  top-info-navbar hidden-xs">
 					<div class="container">
-						<div class="top-info">
-			    			<div class="col-md-6">TELÉFONO:  011-4701-9316 & líneas rotativas       EMAIL: ventas@raien.com.ar</div>
-			    			<div class="col-md-6">
+						<div class="row">
+			    			<div class="col-md-6 col-xs-9">TELÉFONO:  011-4701-9316 & líneas rotativas       EMAIL: ventas@raien.com.ar</div>
+			    			<div class="col-md-6 col-xs-3">
 			    				<div class="pull-right">
 				    				<a href="" target="_blank">
 				    					<img src="<?=base_url();?>images/web/youtube-icon.png" alt="Youtube">
@@ -62,7 +62,8 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="#"><img src="<?=base_url();?>images/web/logo-raien.png" /></a>
+				      <a class="navbar-brand hidden-xs show-sm show-md show-lg" href="#" ><img src="<?=base_url();?>images/web/logo-raien.png" /></a>
+				      <a class="navbar-brand show-xs hidden-sm hidden-md hidden-lg" href="#"><img src="http://placehold.it/50x50" class="img-responsive"></a>
 				    </div>
 
 				    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -256,8 +257,11 @@
  	<div class="footer">
  		<div class="container">
  			<div class="row">
- 				<div class="col-md-6">
- 					<img src="http://placehold.it/270x85"><img src="http://placehold.it/85x85">
+ 				<div class="col-md-3">
+ 					<img src="http://placehold.it/270x85" class="img-responsive">
+ 				</div>
+ 				<div class="col-md-3">
+ 					<img src="http://placehold.it/85x85" class="img-responsive">
  				</div>
  				<div class="col-md-6">
  					<form class="form-inline">
