@@ -21,7 +21,7 @@ body{
 }
 /* HELPERS */
 .top30{
-	margin-top: 30px; 
+	margin-top: 30px;
 }
 .no-padding{
 	padding: 0;
@@ -51,10 +51,10 @@ body{
     min-height: 91px;
 }
 .raien-navbar{
-	
+
 	background-color: transparent;
     min-height: 80px;
-    
+
     position: absolute;
     z-index: 999;
     width: 100%;
@@ -92,7 +92,7 @@ body{
 	margin:auto;
 	padding: 10px 0px;
 	border-bottom:1px solid #CCCCCC;
-	
+
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
@@ -143,7 +143,7 @@ body{
 }
 
 .raien-site-navbar .navbar-brand {
-	padding: 8px 15px;
+	padding: 4px 15px;
 }
 
 .raien-site-navbar .navbar-right {
@@ -173,12 +173,12 @@ body{
 #carousel-home .left div{
 	left: 0;
 	position: absolute;
-	top: 40%;	
+	top: 40%;
 }
 #carousel-home .right div{
 	right: 0;
 	position: absolute;
-	top: 40%;	
+	top: 40%;
 }
 
 /* BUSCADOR */
@@ -188,7 +188,7 @@ body{
 	border-radius:0px;
 	background-color: transparent;
 	color: #fff!important;
-	border:1px solid #fff!important; 
+	border:1px solid #fff!important;
 	margin-left:-1px;
 }
 .buscador .btn-buscador-caret{
@@ -196,20 +196,20 @@ body{
 	position: absolute;
 	z-index: 200;
 	right: 15px;
-	margin-left:0px!important; 
+	margin-left:0px!important;
 	border-left:1px solid #fff;
 }
 .buscador{
 	background-color: #DB9805;
 	min-height: 95px;
 	padding: 36px 0px 30px 0px;
-}	 
+}
 .buscador input[type="text"]{
 	height: 36px;
 	border-radius:0px;
 	background-color: transparent;
 	color: #fff!important;
-	border:1px solid #fff; 
+	border:1px solid #fff;
 	margin-left:-1px;
 }
 
@@ -337,6 +337,110 @@ body{
 	padding-right: 10px
 }
 
+/* PRODUCTOS */
+.products .col-md-9{
+	border-left: 0!important;
+}
+
+.products .col-md-3 > div{
+	background-color: #aaa;
+	height: 570px;
+	color: #fff;
+	padding: 0 20px;
+}
+
+.products .col-md-3 > div > div{
+	padding: 10px 0;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	border-bottom: 1px solid #fff;
+}
+
+.products .breadcrumb {
+	background-color: #404041;
+}
+
+.products .col-md-4{
+	margin-bottom: 20px;
+}
+
+.products .col-md-4 > div {
+	height: 257px;
+	position: relative;
+}
+
+.products .col-md-4 > div {
+	text-align: center;
+}
+
+.products .col-md-4 > div > .background,
+.products .col-md-4 > div > .image {
+	position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.products .col-md-4 > div > .background {
+	background-color: #404041;
+	z-index: -1;
+	opacity: .8;
+}
+
+.products .col-md-4 > div > .background:hover {
+	background-color: yellow;
+}
+
+.products .col-md-4 > div > .image {
+	z-index: -2;
+}
+
+.products .col-md-4:nth-child(1) > div > .image {
+	background-image: url("../images/productos/1.jpg");
+}
+
+.products .col-md-4:nth-child(2) > div > .image {
+	background-image: url("../images/productos/2.jpg");
+}
+
+.products .col-md-4:nth-child(3) > div > .image {
+	background-image: url("../images/productos/3.jpg");
+}
+
+.products .col-md-4:nth-child(4) > div > .image {
+	background-image: url("../images/productos/4.jpg");
+}
+
+.products .col-md-4:nth-child(5) > div > .image {
+	background-image: url("../images/productos/5.jpg");
+}
+
+.products .col-md-4:nth-child(6) > div > .image {
+	background-image: url("../images/productos/6.jpg");
+}
+
+.products .col-md-4 > div > .text {
+	padding: 10px;
+	height: 100%;
+}
+
+.products .col-md-4 > div > .text > div {
+	border: 1px solid #fff;
+	height: 100%;
+	width: 100%;
+	display: table;
+}
+
+.products .col-md-4 > div > .text > div > span {
+	display: table-cell;
+  vertical-align: middle;
+	color: white;
+	text-transform: uppercase;
+}
 
 /* FOOTER */
 .footer {
@@ -507,14 +611,14 @@ td:nth-child(3) > span {
 }
 
 @media (min-width: 992px){
-	
+
 	.navbar-default .navbar-nav>li>a{
 		font-size: 9px;
 	}
 	.buscador .btn-buscador{
 		width: 90%!important;
 	}
-	
+
 	.caret {
 	    width: 10%;
 	    height: 0;
@@ -524,7 +628,7 @@ td:nth-child(3) > span {
 	    border-top: 4px solid\9 #fff;
 	    border-right: 4px solid transparent;
 	    border-left: 4px solid transparent;
-	    clear: both; 
+	    clear: both;
 	}
 
 	.site-nav .row {
@@ -551,16 +655,16 @@ td:nth-child(3) > span {
 	.dropdown-toggle{
 		text-align: center
 	}
-	
-	
-	
+
+
+
 }
 
 @media (max-width: 525px) {
 	.raien-site-navbar {
 		top: 64px;
 	}
-	
+
 }
 @media (min-width: 525px) {
 	.raien-site-navbar {
@@ -571,4 +675,3 @@ td:nth-child(3) > span {
 	}
 
 }
-
