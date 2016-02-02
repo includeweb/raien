@@ -142,7 +142,7 @@
  		<div class="container">
  			<div class="row">
  				<div class="col-md-6">
- 					<img src="http://placehold.it/270x85"><img src="http://placehold.it/85x85">
+ 					<img src="<?=base_url();?>images/logo_footer.png"><img src="<?=base_url();?>images/qr_footer.jpg">
  				</div>
  				<div class="col-md-6">
  					<form class="form-inline">
