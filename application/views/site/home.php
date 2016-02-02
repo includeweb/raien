@@ -31,11 +31,11 @@
     	<!-- / Top info -->
     	
 
-				<nav class="navbar navbar-default  top-info-navbar">
+				<nav class="navbar navbar-default  top-info-navbar hidden-xs">
 					<div class="container">
-						<div class="top-info">
-			    			<div class="col-md-6">TELÉFONO:  011-4701-9316 & líneas rotativas       EMAIL: ventas@raien.com.ar</div>
-			    			<div class="col-md-6">
+						<div class="row">
+			    			<div class="col-md-6 col-xs-9">TELÉFONO:  011-4701-9316 & líneas rotativas       EMAIL: ventas@raien.com.ar</div>
+			    			<div class="col-md-6 col-xs-3">
 			    				<div class="pull-right">
 				    				<a href="" target="_blank">
 				    					<img src="<?=base_url();?>images/web/youtube-icon.png" alt="Youtube">
@@ -62,7 +62,8 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="#"><img src="<?=base_url();?>images/web/logo-raien.png" /></a>
+				      <a class="navbar-brand hidden-xs show-sm show-md show-lg" href="#" ><img src="<?=base_url();?>images/web/logo-raien.png" /></a>
+				      <a class="navbar-brand show-xs hidden-sm hidden-md hidden-lg" href="#"><img src="http://placehold.it/50x50" class="img-responsive"></a>
 				    </div>
 
 				    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -128,7 +129,7 @@
     <div class="container-fluid no-padding">
     <div class="mobile-header visible-sm visible-xs"></div>
 		<!-- Content -->
-<div class="row no-margin hidden-sm hidden-xs">
+<div class="row no-margin hidden-sm hidden-xs" id="carousel-home">
 	<div class="col-md-12 no-padding">
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		  <!-- Indicators -->
@@ -163,11 +164,11 @@
 
 		  <!-- Controls -->
 		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    <div> <img src="<?=base_url();?>images/web/carousel-left.png" /></div>
 		    <span class="sr-only">Previous</span>
 		  </a>
 		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		   <div> <img src="<?=base_url();?>images/web/carosuel-right.png" /></div>
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
@@ -175,58 +176,25 @@
 </div>
 
 
-<div class="row buscador no-margin visible-lg" >
+<div class="row buscador no-margin " >
 	<div class="container">
 		<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
 			<div class="input-group">
 		      <input type="text" class="form-control" placeholder="¿QUÉ PRODUCTO ESTÁ BUSCANDO?">
 		      <span class="input-group-btn">
-		        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
+		        <button class="btn btn-default hidden-xs" type="button"><span class="glyphicon glyphicon-search"></span> BUSCAR</span></button>
+		        <button class="btn btn-default show-xs hidden-sm hidden-md hidden-lg" type="button"><span class="glyphicon glyphicon-search"></span></button>
 		      </span>
 		    </div><!-- /input-group -->
 		</div>
 		<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-			<div class="row">
-				<div class="col-md-10 no-padding col-sm-12 col-xs-12">
+			<div class="row ">
+				<div class="col-md-3 col-sm-12 no-padding-right separate-mobile">
 					<!-- Split button -->
-					<div class="btn-group separar">
+					<div class="btn-group full-width ">
 						<div class="btn-title">tipo de producto</div>
-					  <button type="button" class="btn btn-lg fix-padding-btn custom-dropdown">seleccione un tipo</button>
-					  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    <span class="caret"></span>
-					    <span class="sr-only">Toggle Dropdown</span>
-					  </button>
-					  <ul class="dropdown-menu">
-					    <li><a href="#">Action</a></li>
-					    <li><a href="#">Another action</a></li>
-					    <li><a href="#">Something else here</a></li>
-					    <li role="separator" class="divider"></li>
-					    <li><a href="#">Separated link</a></li>
-					  </ul>
-					</div>
-				
-					<!-- Split button -->
-					<div class="btn-group separar">
-					<div class="btn-title">marca del producto</div>
-					  <button type="button" class="btn btn-lg custom-dropdown">seleccione una marca</button>
-					  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    <span class="caret"></span>
-					    <span class="sr-only">Toggle Dropdown</span>
-					  </button>
-					  <ul class="dropdown-menu">
-					    <li><a href="#">Action</a></li>
-					    <li><a href="#">Another action</a></li>
-					    <li><a href="#">Something else here</a></li>
-					    <li role="separator" class="divider"></li>
-					    <li><a href="#">Separated link</a></li>
-					  </ul>
-					</div>
-				
-					<!-- Split button -->
-					<div class="btn-group">
-					<div class="btn-title">producto</div>
-					  <button type="button" class="btn btn-lg custom-dropdown">seleccione un producto</button>
-					  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <button type="button" class="btn btn-buscador">Action</button>
+					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
@@ -239,102 +207,61 @@
 					  </ul>
 					</div>
 				</div>
-				<div class="col-md-2">
+				<div class="col-md-3 col-sm-12  no-padding-right separate-mobile">
+					<!-- Split button -->
+					<div class="btn-group full-width">
+					<div class="btn-title">marca del producto</div>
+					  <button type="button" class="btn btn-buscador">Action</button>
+					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    <span class="caret"></span>
+					    <span class="sr-only">Toggle Dropdown</span>
+					  </button>
+					  <ul class="dropdown-menu">
+					    <li><a href="#">Action</a></li>
+					    <li><a href="#">Another action</a></li>
+					    <li><a href="#">Something else here</a></li>
+					    <li role="separator" class="divider"></li>
+					    <li><a href="#">Separated link</a></li>
+					  </ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-12  no-padding-right separate-mobile">
+					<!-- Split button -->
+					<div class="btn-group full-width">
+					<div class="btn-title">producto</div>
+					  <button type="button" class="btn btn-buscador">Action</button>
+					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    <span class="caret"></span>
+					    <span class="sr-only">Toggle Dropdown</span>
+					  </button>
+					  <ul class="dropdown-menu">
+					    <li><a href="#">Action</a></li>
+					    <li><a href="#">Another action</a></li>
+					    <li><a href="#">Something else here</a></li>
+					    <li role="separator" class="divider"></li>
+					    <li><a href="#">Separated link</a></li>
+					  </ul>
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-12 separate-mobile">
 					<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="buscador hidden-lg" id="buscador-mobile">
-	<div class="container">
-		<div class="row border">
-			<div class="col-md-3"></div>
-			<div class="col-md-6 ">
-				<div class="input-group">
-			      <input type="text" class="form-control" placeholder="¿QUÉ PRODUCTO ESTÁ BUSCANDO?">
-			      <span class="input-group-btn">
-			        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
-			      </span>
-			    </div><!-- /input-group -->
-			</div>
-			<div class="col-md-3"></div>
-		</div>
-		<div class="row top30">
-			<div class="col-md-2 hidden-sm hidden-xs"></div>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<!-- Split button -->
-				<div class="btn-group separar full-width">
-					<div class="btn-title">tipo de producto</div>
-				  <button type="button" class="btn btn-lg fix-padding-btn custom-dropdown">seleccione un tipo</button>
-				  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    <span class="caret"></span>
-				    <span class="sr-only">Toggle Dropdown</span>
-				  </button>
-				  <ul class="dropdown-menu">
-				    <li><a href="#">Action</a></li>
-				    <li><a href="#">Another action</a></li>
-				    <li><a href="#">Something else here</a></li>
-				    <li role="separator" class="divider"></li>
-				    <li><a href="#">Separated link</a></li>
-				  </ul>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<!-- Split button -->
-				<div class="btn-group separar full-width">
-				<div class="btn-title">marca del producto</div>
-				  <button type="button" class="btn btn-lg fix-padding-btn-2 custom-dropdown">seleccione una marca</button>
-				  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    <span class="caret"></span>
-				    <span class="sr-only">Toggle Dropdown</span>
-				  </button>
-				  <ul class="dropdown-menu">
-				    <li><a href="#">Action</a></li>
-				    <li><a href="#">Another action</a></li>
-				    <li><a href="#">Something else here</a></li>
-				    <li role="separator" class="divider"></li>
-				    <li><a href="#">Separated link</a></li>
-				  </ul>
-				</div>
-			</div>
-			<div class="col-md-2 hidden-sm hidden-xs"></div>
-		</div>
-		<div class="row top30">
-			<div class="col-md-2 hidden-sm hidden-xs"></div>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<!-- Split button -->
-				<div class="btn-group">
-				<div class="btn-title">producto</div>
-				  <button type="button" class="btn btn-lg fix-padding-btn-3 custom-dropdown">seleccione un producto</button>
-				  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    <span class="caret"></span>
-				    <span class="sr-only">Toggle Dropdown</span>
-				  </button>
-				  <ul class="dropdown-menu">
-				    <li><a href="#">Action</a></li>
-				    <li><a href="#">Another action</a></li>
-				    <li><a href="#">Something else here</a></li>
-				    <li role="separator" class="divider"></li>
-				    <li><a href="#">Separated link</a></li>
-				  </ul>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
-			</div>
-			<div class="col-md-2"></div>
-		</div>
-	</div>
-</div>
+
 	<!-- / Content -->		
     </div>
  	<!-- / Main container -->
  	<div class="footer">
  		<div class="container">
  			<div class="row">
- 				<div class="col-md-6">
- 					<img src="http://placehold.it/270x85"><img src="http://placehold.it/85x85">
+ 				<div class="col-md-3">
+ 					<img src="http://placehold.it/270x85" class="img-responsive">
+ 				</div>
+ 				<div class="col-md-3">
+ 					<img src="http://placehold.it/85x85" class="img-responsive">
  				</div>
  				<div class="col-md-6">
  					<form class="form-inline">
