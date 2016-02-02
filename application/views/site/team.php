@@ -1,13 +1,12 @@
-<div class="row">
+<div class="row team">
 	<div class="col-md-3">
 		<div class="title-black">NUESTRO ORGULLO:</div>
-		<div class="title-orange" style="font-size:40px; line-height:33px; padding-bottom:8px">NUESTRO EQUIPO</div>
-		<p>Lo más importante que tenemos en nuestra compañía es el equipo humano que la integra y le da vida día a día. Si desea ser parte de RAIEN ARGENTINA, envíenos su CV a: rrhh@raien.com.ar.</p>
+		<div class="title-orange">NUESTRO EQUIPO</div>
+		<p>Lo más importante que tenemos en nuestra compañía es el <b>equipo humano</b> que la integra y le da vida día a día.<br />Si desea ser parte de <b>RAIEN ARGENTINA</b>, envíenos su CV a: <a href="mailto:rrhh@raien.com.ar">rrhh@raien.com.ar</a>.</p>
 
 		<p>Sus datos serán almacenados en nuestra base de datos y lo estaremos contactando cuando surja una búsqueda acorde a su perfil.</p>
 
-		<p>Muchas gracias por su interés 
-		en RAIEN.</p>
+		<p class="orange">Muchas gracias por su interés en&nbsp;RAIEN.</p>
 	</div>
 	<div class="col-md-9">
 		<div>
@@ -26,12 +25,6 @@
 				  <div class="col-md-6">
 				    <label for="mail">Mail*</label>
 				    <input type="text" class="form-control required" id="mail">
-				  </div>
-			  </div>
-			  <div class="form-group">
-			  	<div class="col-md-12">
-				    <label for="consulta">Consulta</label>
-				    <textarea class="form-control required" id="consulta" rows="3"></textarea>
 				  </div>
 			  </div>
 			  <div class="form-group">

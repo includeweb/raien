@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row training">
 	<div class="col-md-3">
-		<div class="title-orange">CURSOS, CAPACITACIONES Y WORKSHOPS</div>
+		<div class="title-orange">CURSOS, CAPACITACIONES Y&nbsp;WORKSHOPS</div>
 		<p>Nuestro Servicio de Post-Venta ofrece capacitaciones in-company y workshops. Porque no sólo vendemos productos, sino que capacitamos al personal en su uso, hablándoles el mismo idioma y adentrándonos en sus compañías, atendiendo sus necesidades específicas.</p>
 	</div>
 	<div class="col-md-9">
@@ -8,7 +8,7 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th colspan="4">Diciembre</th>
+						<th colspan="4">D i c i e m b r e</th>
 					</tr>
 					<tr>
 						<th>Fecha</th>
