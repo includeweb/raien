@@ -10,10 +10,11 @@
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<link href='https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,700' rel='stylesheet' type='text/css'>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Optional theme -->
 	 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,8 +39,8 @@
 				<nav class="navbar navbar-default navbar-fixed-top site-nav">
 					<div class="container">
 						<div class="row">
-			    			<div class="col-md-6">TELÉFONO:  011-4701-9316 &amp; líneas rotativas       EMAIL: ventas@raien.com.ar</div>
-			    			<div class="col-md-6">
+			    			<div class="col-md-6 col-sm-6"><span>TELÉFONO: 011-4701-9316 &amp; líneas rotativas</span> EMAIL:&nbsp;ventas@raien.com.ar</div>
+			    			<div class="col-md-6 col-sm-6">
 			    				<div class="pull-right">
 				    				<a href="" target="_blank">
 				    					<img src="<?=base_url();?>images/web/youtube-icon.png" alt="Youtube">

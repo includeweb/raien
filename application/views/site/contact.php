@@ -1,16 +1,15 @@
 <div class="row">
 	<div class="col-md-3">
 		<div class="title-black">Contactanos</div>
-		<p>Contáctenos para obtener más información o solicitar cotizaciones. A la brevedad, un representante de RAIEN se estará comunicando con usted.</p>
-		<p>Si desconoce el producto adecuado para su aplicación, describa el tipo de producto e incluya un resumen de la aplicación. Nosotros lo guiaremos para encontrar precisamente lo que está necesitando.</p>
+		<p>Contáctenos para obtener más infor-mación o solicitar cotizaciones. A la brevedad, un representante de <b class="orange">RAIEN</b> se estará comunicando con usted.<br />Si desconoce el producto adecuado para su aplicación, describa el tipo de producto e incluya un resumen de la aplicación. Nosotros lo guiaremos para encontrar precisamente lo que está necesitando.</p>
 
-		<p>OFICINAS EN ARGENTINA<br />
+		<p><b class="orange">OFICINAS EN ARGENTINA</b><br />
 		CAPITAL FEDERAL<br />
 		Congreso 2171, piso 6 (C1428BVE)<br />
 		Tel: + 5411 4701-9316<br />
 		(VER EN MAPA)</p>
 
-		<p>OFICINAS EN CHILE<br />
+		<p><b class="orange">OFICINAS EN CHILE</b><br />
 		VIÑA DEL MAR<br />
 		1 Norte 461, Oficina 408<br />
 		Mesa Central: 56 32 2973672</p>

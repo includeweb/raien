@@ -5,7 +5,7 @@
 	</div>
 	<div class="col-md-9">
 		<div>
-			<p>Raien es una compañía tecnológicamente abierta, hecho que nos permite proveer en cada proyecto la solución que mejor se adapta a las necesidades del cliente.</p>
+			<p><b>RAIEN</b> es una compañía tecnológicamente abierta, hecho que nos permite proveer en cada proyecto la solución que mejor se adapta a las necesidades del cliente.</p>
 			<p>Contamos con un sólido equipo de profesionales y los recursos tecnológicos de última generación que nos permiten proveer:</p>
 			<ul>
 				<li>Selección de tecnologías</li>
@@ -16,11 +16,11 @@
 				<li>Optimización de procesos y estudios de ingeniería de valor</li>
 				<li>Estudios de dispersión y vibraciones</li>
 			</ul>
-			<p>Nos hemos consolidado como una compañía especialista en sistemas de medición. Ofrecemos sistemas de adquisición y registro automático de señales, monitoreo ambiental, computadoras industriales y portátiles, software para simulación y procesamiento de señales así como simulación de redes de distribución eléctrica y monitoreo de vibraciones. Integrando nuestros conocimientos, experiencia y metodologías de trabajo garantizamos la calidad de los productos y servicios que ofrecemos a nuestros clientes.</p>
+			<p>Nos hemos consolidado como una <b class="orange">compañía especialista en sistemas de medición</b>. Ofrecemos sistemas de adquisición y registro automático de señales, monitoreo ambiental, computadoras industriales y portátiles, software para simulación y procesamiento de señales así como simulación de redes de distribución eléctrica y monitoreo de vibraciones. Integrando nuestros conocimientos, experiencia y metodologías de trabajo garantizamos la calidad de los productos y servicios que ofrecemos a nuestros clientes.</p>
 
-			<p>Consultoría en Planificación y  Operación de Sistemas Eléctricos de Potencia Industriales</p>
+			<p><b>Consultoría en Planificación y Operación de Sistemas Eléctricos de Potencia Industriales</b></p>
 
-			<p>Como representantes de Operation Technology Inc., desarrolladores del software ETAP, nos especializamos en la realización de estudios eléctricos utilizando la última versión aprobada de ETAP, relativos a:</p>
+			<p>Como representantes de <b>Operation Technology Inc.</b>, desarrolladores del software <b>ETAP</b>, nos especializamos en la realización de estudios eléctricos utilizando la última versión aprobada de <b>ETAP</b>, relativos a:</p>
 			<ol>
 				<li>Flujo de potencia equilibrado </li>
 				<li>Flujo de potencia trifásico</li>
