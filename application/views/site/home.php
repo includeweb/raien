@@ -141,23 +141,24 @@
 
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner" role="listbox">
+		  	<div class="banner-centered">
+		  		<img src="<?=base_url();?>images/web/slider-text.png" />
+		  	</div>
 		    <div class="item active ">
 		      <img src="<?=base_url();?>images/web/slider-1.jpg" class="img-responsive">
-		      <div class="carousel-caption">
-		        <img src="<?=base_url();?>images/web/slider-text.png" />
-		      </div>
+		      
 		    </div>
 		    <div class="item">
 		      <img src="<?=base_url();?>images/web/slider-2.jpg" class="img-responsive">
-		      <div class="carousel-caption">
-		        <img src="<?=base_url();?>images/web/slider-text.png" />
-		      </div>
+		     
 		    </div>
 		    <div class="item">
 		      <img src="<?=base_url();?>images/web/slider-3.jpg" class="img-responsive">
-		      <div class="carousel-caption">
-		        <img src="<?=base_url();?>images/web/slider-text.png" />
-		      </div>
+		      
+		    </div>
+		    <div class="item">
+		      <img src="<?=base_url();?>images/web/slider-4.jpg" class="img-responsive">
+		      
 		    </div>
 		   
 		  </div>
@@ -182,7 +183,7 @@
 			<div class="input-group">
 		      <input type="text" class="form-control" placeholder="¿QUÉ PRODUCTO ESTÁ BUSCANDO?">
 		      <span class="input-group-btn">
-		        <button class="btn btn-default hidden-xs" type="button"><span class="glyphicon glyphicon-search"></span> BUSCAR</span></button>
+		        <button class="btn btn-default hidden-xs btn-raien" type="button"><span class="glyphicon glyphicon-search"></span> BUSCAR</span></button>
 		        <button class="btn btn-default show-xs hidden-sm hidden-md hidden-lg" type="button"><span class="glyphicon glyphicon-search"></span></button>
 		      </span>
 		    </div><!-- /input-group -->
@@ -198,12 +199,10 @@
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
-					  <ul class="dropdown-menu">
-					    <li><a href="#">Action</a></li>
-					    <li><a href="#">Another action</a></li>
-					    <li><a href="#">Something else here</a></li>
-					    <li role="separator" class="divider"></li>
-					    <li><a href="#">Separated link</a></li>
+					  <ul class="dropdown-menu dropdown-buscador">
+						  <?foreach ($tipos as $tipo){ ?>
+						    <li><a href="#"><?=$tipo->name;?></a></li>
+						  <? } ?>  
 					  </ul>
 					</div>
 				</div>
@@ -216,11 +215,11 @@
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
-					  <ul class="dropdown-menu">
+					  <ul class="dropdown-menu dropdown-buscador">
 					    <li><a href="#">Action</a></li>
 					    <li><a href="#">Another action</a></li>
 					    <li><a href="#">Something else here</a></li>
-					    <li role="separator" class="divider"></li>
+					    
 					    <li><a href="#">Separated link</a></li>
 					  </ul>
 					</div>
@@ -234,17 +233,17 @@
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
-					  <ul class="dropdown-menu">
+					  <ul class="dropdown-menu dropdown-buscador">
 					    <li><a href="#">Action</a></li>
 					    <li><a href="#">Another action</a></li>
 					    <li><a href="#">Something else here</a></li>
-					    <li role="separator" class="divider"></li>
+					    
 					    <li><a href="#">Separated link</a></li>
 					  </ul>
 					</div>
 				</div>
 				<div class="col-md-2 col-sm-12 separate-mobile">
-					<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
+					<button type="submit" class="btn btn-default btn-raien"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
 				</div>
 			</div>
 		</div>
@@ -257,13 +256,13 @@
  	<div class="footer">
  		<div class="container">
  			<div class="row">
- 				<div class="col-md-3">
- 					<img src="http://placehold.it/270x85" class="img-responsive">
+ 				<div class="col-md-3 col-sm-3 col-xs-6">
+ 					<img src="<?=base_url();?>images/logo_footer.png" class="img-responsive">
  				</div>
- 				<div class="col-md-3">
- 					<img src="http://placehold.it/85x85" class="img-responsive">
+ 				<div class="col-md-3 col-sm-3 col-xs-6">
+ 					<img src="<?=base_url();?>images/qr_footer.jpg" class="img-responsive">
  				</div>
- 				<div class="col-md-6">
+ 				<div class="col-md-6 col-sm-6 col-xs-12">
  					<form class="form-inline">
 						<div class="form-group">
 							<div class="newsletter-text">¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>

@@ -66,6 +66,13 @@ p > b {
 	background-image: -webkit-linear-gradient(top,rgba(0,0,0,.5) 0,rgba(0,0,0,.10) 100%);
 
 }
+.raien-navbar .navbar-nav>li>a:hover{
+	font-weight: bold;
+	color:#fff;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+	background-color: transparent;
+}
 .navbar-header{
     min-height: 91px;
 }
@@ -90,6 +97,7 @@ p > b {
 	box-shadow: none;
 	min-height: 40px;
 	padding:10px;
+	font-size: 12px;
 	color:#fff;
 }
 
@@ -101,7 +109,12 @@ p > b {
 	margin-top: 21px;
 }
 
-
+.navbar-toggle{
+	margin-top: 26px;	
+}
+.navbar-right a.navbar-toggle{
+	text-align: left!important;
+}
 .raien-navbar .nav > li.dropdown.open { position: static; }
 .raien-navbar .nav > li.dropdown.open .dropdown-menu {display:table; width: 100%; text-align: center; left:0; right:0; border-radius: 0; }
 .raien-navbar .dropdown-menu>li { display: table-cell; }
@@ -202,7 +215,13 @@ p > b {
 	background-size: cover;
 
 }
-
+.banner-centered{
+	z-index: 99;
+	position: absolute;
+	top:35%;
+	left:50%;
+	margin-left: -183px;
+}
 #carousel-home .left div{
 	left: 0;
 	position: absolute;
@@ -215,15 +234,33 @@ p > b {
 }
 
 /* BUSCADOR */
+.buscador .dropdown-menu{
+	background-color: #DB9805;
+	box-shadow: none;
+	border:1px solid #fff;
+	border-radius: 0;
+}
+.buscador .dropdown-menu a{
+	color:#fff;
+}
+.buscador .dropdown-menu li{
+	border-bottom:1px solid #fff;
+	padding:8px 0px;
+}
 .buscador .btn-buscador{
 	width: 93%;
 	height: 36px;
 	border-radius:0px;
 	background-color: transparent;
 	color: #fff!important;
-	border:1px solid #fff!important;
+	border-bottom:1px solid #fff!important;
+	border-left:1px solid #fff!important;
+	border-top:1px solid #fff!important;
 	margin-left:-1px;
 }
+/*.buscador .dropdown-buscador {
+    width: 93%;
+}*/
 .buscador .btn-buscador-caret{
 	width: 24px;
 	position: absolute;
@@ -231,6 +268,9 @@ p > b {
 	right: 15px;
 	margin-left:0px!important;
 	border-left:1px solid #fff;
+}
+.btn-raien:hover, .btn-raien:focus, .btn-raien:active{
+	background-color: #b58e34!important;
 }
 .buscador{
 	background-color: #DB9805;
@@ -700,7 +740,20 @@ td:nth-child(3) > span {
 	font-size: 20px;
 	color: #fff;
 }
+.buscador .btn-buscador {
+    width: 94%;
+}
 
+.buscador .dropdown-buscador {
+   /* width: 90%;*/
+    margin-top: -2px;
+    margin-left: -1px;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #b58e34;
+}
 
 /* media queries */
 
@@ -721,7 +774,9 @@ td:nth-child(3) > span {
 	.buscador .btn-buscador{
 		width: 90%!important;
 	}
-
+	/*.buscador .dropdown-buscador {
+	    width: 90%!important;
+	}*/
 	.caret {
 	    width: 10%;
 	    height: 0;
@@ -781,12 +836,13 @@ td:nth-child(3) > span {
 		background-image: -webkit-linear-gradient(top,rgba(0,0,0,.5) 0,rgba(0,0,0,.10) 100%);
 	}
 	.dropdown-toggle{
-		text-align: center
+		text-align: center;
 	}
 
 	.site-nav .row {
 		margin-top: 9px;
 	}
+
 	
 }
 
@@ -798,17 +854,23 @@ td:nth-child(3) > span {
 	
 }
 
+@media (min-width: 600px) {
+	.buscador .btn-buscador{
+		width: 97%;
+	}
+	/*.buscador .dropdown-buscador {
+	    width: 97%;
+	}*/
+}
 @media (max-width: 525px) {
-	
+	.dropdown-toggle{
+		text-align: center;
+	}
 	.site-nav .row {
 		padding: 7px 0;
 	}
 	
-
-	.buscador .btn-buscador{
-		width: 97%;
-	}
-
+	
 	.footer > .container .col-md-6:nth-child(1) > img:nth-child(1){
 		width: 64%;
 		margin: 0;
@@ -824,4 +886,40 @@ td:nth-child(3) > span {
 	.content > .row > .col-md-9 .form-group .col-md-6:first-child{
 		padding-bottom: 15px;
 	}
+}
+
+
+@media (max-width: 1100px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+  	
+    /* since 3.1.0 */
+    .navbar-collapse.collapse.in { 
+        display: block!important;
+    }
+    .collapsing {
+        overflow: hidden!important;
+    }
 }
