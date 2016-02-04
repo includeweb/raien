@@ -312,6 +312,10 @@ p > b {
 }
 
 /* CONTENT */
+.content > .about ul {
+	list-style-type: square;
+}
+
 .content {
 	margin-top: 106px;
 	padding-top: 35px;
@@ -409,8 +413,10 @@ p > b {
 	margin-bottom: 20px;
 }
 
+
 /* PRODUCTOS */
-.products .col-md-9{
+.products .col-md-9,
+.about .col-md-9{
 	border-left: 0!important;
 }
 
@@ -512,6 +518,21 @@ p > b {
   vertical-align: middle;
 	color: white;
 	text-transform: uppercase;
+}
+
+.content > .brands > .col-md-9 .col-md-3 > div {
+	border: 1px solid lightgray;
+	background-color: #fff;
+	padding: 0;
+	height: auto;
+	margin-top: 20px;
+	overflow: hidden;
+}
+
+.content > .brands > .col-md-9 .col-md-3 > div > img{
+	width: 100%;
+	padding: 15px;
+
 }
 
 
@@ -769,17 +790,33 @@ td:nth-child(3) > span {
 	
 }
 
-@media (max-width: 525px) {
+@media (max-width: 444px) {
 	.raien-site-navbar {
 		top: 64px;
 	}
 
+	
+}
+
+@media (max-width: 525px) {
+	
 	.site-nav .row {
 		padding: 7px 0;
 	}
+	
 
 	.buscador .btn-buscador{
 		width: 97%;
+	}
+
+	.footer > .container .col-md-6:nth-child(1) > img:nth-child(1){
+		width: 64%;
+		margin: 0;
+	}
+
+	.footer > .container .col-md-6:nth-child(1) > img:last-child{
+		width: 18%;
+		float: right;
 	}
 }
 

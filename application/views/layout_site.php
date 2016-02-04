@@ -142,10 +142,10 @@
  	<div class="footer">
  		<div class="container">
  			<div class="row">
- 				<div class="col-md-6">
+ 				<div class="col-md-6 one-half">
  					<img src="<?=base_url();?>images/logo_footer.png"><img src="<?=base_url();?>images/qr_footer.jpg">
  				</div>
- 				<div class="col-md-6">
+ 				<div class="col-md-6 one-half last">
  					<form class="form-inline">
 						<div class="form-group">
 							<div>¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>

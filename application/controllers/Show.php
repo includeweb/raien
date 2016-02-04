@@ -35,7 +35,26 @@ class Show extends CI_Controller {
 	}
 
 	function products() {
-		$this->layout->view('products');
+		//$this->layout->view('products');
+		if ($_GET['vista'] == 'category') {
+			$this->layout->view('product_default');
+		}
+		else {
+			if ($_GET['vista'] == 'application') {
+				$this->layout->view('product_default');
+			}
+			else {
+				$query = $this->db->get('marcas');
+				$data = array (
+					'result' => $query->result()
+				);
+				$this->layout->view('brands', $data);
+			}
+		}
+	}
+
+	function about() {
+		$this->layout->view('about');
 	}
 
 
