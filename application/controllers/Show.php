@@ -17,7 +17,7 @@ class Show extends CI_Controller {
 	function index(){
 		$data['tipos'] = $this->product->get_type()->result();
 		$data['marcas'] = $this->product->get_type()->result();
-	
+
 		$this->load->view('site/home', $data);
 	}
 
@@ -37,13 +37,13 @@ class Show extends CI_Controller {
 		$this->layout->view('training');
 	}
 
-	function products() {
+	function products($vista) {
 		//$this->layout->view('products');
-		if ($_GET['vista'] == 'category') {
+		if ($vista == 'category') {
 			$this->layout->view('product_default');
 		}
 		else {
-			if ($_GET['vista'] == 'application') {
+			if ($vista == 'application') {
 				$this->layout->view('product_default');
 			}
 			else {
