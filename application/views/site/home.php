@@ -127,7 +127,11 @@
 		
     </div>
     <div class="container-fluid no-padding">
-    <div class="mobile-header visible-sm visible-xs"></div>
+    <div class="mobile-header visible-sm visible-xs">
+    	<div class="col-md-12 text-center" style="padding-top:200px;">
+		  		<img src="<?=base_url();?>images/web/slider-text.png" width="200"/>
+		  	</div>
+    </div>
 		<!-- Content -->
 <div class="row no-margin hidden-sm hidden-xs" id="carousel-home">
 	<div class="col-md-12 no-padding">
