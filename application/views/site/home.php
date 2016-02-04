@@ -142,19 +142,19 @@
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner" role="listbox">
 		    <div class="item active ">
-		      <img src="<?=base_url();?>images/web/slider-1.jpg" alt="...">
+		      <img src="<?=base_url();?>images/web/slider-1.jpg" class="img-responsive">
 		      <div class="carousel-caption">
 		        <img src="<?=base_url();?>images/web/slider-text.png" />
 		      </div>
 		    </div>
 		    <div class="item">
-		      <img src="<?=base_url();?>images/web/slider-2.jpg" alt="...">
+		      <img src="<?=base_url();?>images/web/slider-2.jpg" class="img-responsive">
 		      <div class="carousel-caption">
 		        <img src="<?=base_url();?>images/web/slider-text.png" />
 		      </div>
 		    </div>
 		    <div class="item">
-		      <img src="<?=base_url();?>images/web/slider-3.jpg" alt="...">
+		      <img src="<?=base_url();?>images/web/slider-3.jpg" class="img-responsive">
 		      <div class="carousel-caption">
 		        <img src="<?=base_url();?>images/web/slider-text.png" />
 		      </div>

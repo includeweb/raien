@@ -85,7 +85,7 @@ p > b {
 	border:none;
 	-webkit-box-shadow:none;
 	position: absolute;
-	z-index: 200;
+	z-index: 9999;
 	width: 100%;
 	box-shadow: none;
 	min-height: 40px;
