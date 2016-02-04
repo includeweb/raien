@@ -63,7 +63,7 @@
 				        <span class="icon-bar"></span>
 				      </button>
 				      <a class="navbar-brand hidden-xs show-sm show-md show-lg" href="#" ><img src="<?=base_url();?>images/web/logo-raien.png" /></a>
-				      <a class="navbar-brand show-xs hidden-sm hidden-md hidden-lg" href="#"><img src="http://placehold.it/50x50" class="img-responsive"></a>
+				      <a class="navbar-brand show-xs hidden-sm hidden-md hidden-lg" href="#"><img src="<?=base_url();?>images/web/logo-mobile.png" class="img-responsive"></a>
 				    </div>
 
 				    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -261,7 +261,7 @@
  		<div class="container">
  			<div class="row">
  				<div class="col-md-3 col-sm-3 col-xs-6">
- 					<img src="<?=base_url();?>images/logo_footer.png" class="img-responsive">
+ 					<img src="<?=base_url();?>images/web/logo_footer.png" class="img-responsive">
  				</div>
  				<div class="col-md-3 col-sm-3 col-xs-6">
  					<img src="<?=base_url();?>images/qr_footer.jpg" class="img-responsive">
