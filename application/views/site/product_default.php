@@ -10,25 +10,28 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="breadcrumb">
-
+					Productos > <?=$breadcrumb?>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4 col-sm-6">
-				<div>
-					<div class="text">
-						<div>
-							<span>Sistemas integrados</span>
+			<?php foreach ($result as $row) { ?>
+				<div class="col-md-4 col-sm-6">
+					<div>
+						<div class="text">
+							<div>
+								<span><?=$row->nombre?></span>
+							</div>
+						</div>
+						<div class="image" style="background-image: url('<?=base_url();?>images/productos/<?=$row->galimg?>')">
+						</div>
+						<div class="background">
 						</div>
 					</div>
-					<div class="image">
-					</div>
-					<div class="background">
-					</div>
 				</div>
-			</div>
-			<div class="col-md-4  col-sm-6">
+			<?php } ?>
+
+			<!-- <div class="col-md-4  col-sm-6">
 				<div>
 					<div class="text">
 						<div>
@@ -92,7 +95,7 @@
 					<div class="background">
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>

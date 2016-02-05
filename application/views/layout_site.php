@@ -80,7 +80,7 @@
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">productos</a>
 				          <ul class="dropdown-menu">
 				            <li>
-				            	<a href="#">
+				            	<a href="<?=base_url();?>show/products/categoria">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
 				            				<img src="<?=base_url();?>images/web/categoria-icon.png" />
@@ -92,7 +92,7 @@
 				            	</a>
 				            </li>
 				            <li>
-				            	<a href="#">
+				            	<a href="<?=base_url();?>show/products/aplicacion">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
 				            				<img src="<?=base_url();?>images/web/aplicacion-icon.png" />
@@ -104,7 +104,7 @@
 				            	</a>
 				            </li>
 				            <li>
-				            	<a href="#">
+				            	<a href="<?=base_url();?>show/products/marca">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
 				            				<img src="<?=base_url();?>images/web/marca-icon.png" />

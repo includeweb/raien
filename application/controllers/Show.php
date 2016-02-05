@@ -39,18 +39,21 @@ class Show extends CI_Controller {
 
 	function products($vista) {
 		//$this->layout->view('products');
-		if ($vista == 'category') {
-			$this->layout->view('product_default');
+		if ($vista == 'categoria') {
+			$data['result'] = $this->db->get('tipo')->result();
+			$data['breadcrumb'] = "Categoría";
+			$this->layout->view('product_default', $data);
 		}
 		else {
-			if ($vista == 'application') {
-				$this->layout->view('product_default');
+			if ($vista == 'aplicacion') {
+				$data['result'] = $this->db->get('industria')->result();
+				$data['breadcrumb'] = "Aplicación";
+				$this->layout->view('product_default', $data);
 			}
 			else {
 				$query = $this->db->get('marcas');
-				$data = array (
-					'result' => $query->result()
-				);
+				$data['result'] = $query->result();
+				$data['breadcrumb'] = "Marcas";
 				$this->layout->view('brands', $data);
 			}
 		}

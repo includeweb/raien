@@ -110,7 +110,7 @@ p > b {
 }
 
 .navbar-toggle{
-	margin-top: 26px;	
+	margin-top: 26px;
 }
 .navbar-right a.navbar-toggle{
 	text-align: left!important;
@@ -473,10 +473,16 @@ p > b {
 	text-transform: uppercase;
 	font-weight: bold;
 	border-bottom: 1px solid #fff;
+	font-size: 12px;
 }
 
 .products .breadcrumb {
 	background-color: #404041;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 12px;
+	border-radius: 0;
+	padding: 10px 15px;
 }
 
 .products .col-md-4{
@@ -516,7 +522,7 @@ p > b {
 .products .col-md-4 > div > .image {
 	z-index: -2;
 }
-
+/*
 .products .col-md-4:nth-child(1) > div > .image {
 	background-image: url("../images/productos/1.jpg");
 }
@@ -540,7 +546,7 @@ p > b {
 .products .col-md-4:nth-child(6) > div > .image {
 	background-image: url("../images/productos/6.jpg");
 }
-
+*/
 .products .col-md-4 > div > .text {
 	padding: 10px;
 	height: 100%;
@@ -843,7 +849,7 @@ td:nth-child(3) > span {
 		margin-top: 9px;
 	}
 
-	
+
 }
 
 @media (max-width: 444px) {
@@ -851,7 +857,7 @@ td:nth-child(3) > span {
 		top: 64px;
 	}
 
-	
+
 }
 
 @media (min-width: 600px) {
@@ -869,8 +875,8 @@ td:nth-child(3) > span {
 	.site-nav .row {
 		padding: 7px 0;
 	}
-	
-	
+
+
 	.footer > .container .col-md-6:nth-child(1) > img:nth-child(1){
 		width: 64%;
 		margin: 0;
@@ -914,9 +920,9 @@ td:nth-child(3) > span {
         padding-top: 10px;
         padding-bottom: 10px;
     }
-  	
+
     /* since 3.1.0 */
-    .navbar-collapse.collapse.in { 
+    .navbar-collapse.collapse.in {
         display: block!important;
     }
     .collapsing {
