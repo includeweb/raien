@@ -37,25 +37,54 @@ class Show extends CI_Controller {
 		$this->layout->view('training');
 	}
 
-	function products($vista) {
+	function products($vista = 1) {
+		$data['categorias'] = $this->db->get('tipo')->result();
+		$data['aplicaciones'] = $this->db->get('industria')->result();
+		$data['marcas'] = $this->db->get('marcas')->result();
 		//$this->layout->view('products');
-		if ($vista == 'categoria') {
-			$data['result'] = $this->db->get('tipo')->result();
-			$data['breadcrumb'] = "Categoría";
-			$this->layout->view('product_default', $data);
-		}
-		else {
-			if ($vista == 'aplicacion') {
+		// if ($vista == 'categoria') {
+		// 	$data['result'] = $this->db->get('tipo')->result();
+		// 	$data['breadcrumb'] = "Categoría";
+		// 	$this->layout->view('product_default', $data);
+		// }
+		// else {
+		// 	if ($vista == 'aplicacion') {
+		// 		$data['result'] = $this->db->get('industria')->result();
+		// 		$data['breadcrumb'] = "Aplicación";
+		// 		$this->layout->view('product_default', $data);
+		// 	}
+		// 	else {
+		// 		$query = $this->db->get('marcas');
+		// 		$data['result'] = $query->result();
+		// 		$data['breadcrumb'] = "Marcas";
+		// 		$this->layout->view('brands', $data);
+		// 	}
+		// }
+
+		switch ($vista) {
+			case 'categoria':
+				$data['result'] = $this->db->get('tipo')->result();
+				$data['breadcrumb'] = "Categoría";
+				$this->layout->view('product_default', $data);
+				break;
+
+			case 'aplicacion':
 				$data['result'] = $this->db->get('industria')->result();
 				$data['breadcrumb'] = "Aplicación";
 				$this->layout->view('product_default', $data);
-			}
-			else {
-				$query = $this->db->get('marcas');
-				$data['result'] = $query->result();
+				break;
+
+			case 'marcas':
+				$data['result'] = $this->db->get('marcas')->result();
 				$data['breadcrumb'] = "Marcas";
 				$this->layout->view('brands', $data);
-			}
+				break;
+
+			default:
+				$data['breadcrumb'] = null;
+				$data['result'] = [];
+				$this->layout->view('product_default', $data);
+				break;
 		}
 	}
 

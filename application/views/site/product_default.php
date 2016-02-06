@@ -4,18 +4,25 @@
 			<div>
 				Categoría
 			</div>
+			<ul>
+				<?php foreach ($categorias as $categoria) { ?>
+					<li><?=$categoria->nombre?></li>
+				<?php } ?>
+			</ul>
 		</div>
 	</div>
 	<div class="col-md-9">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="breadcrumb">
-					Productos > <?=$breadcrumb?>
+					Productos <?php if ($breadcrumb) echo '> '.$breadcrumb ?>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<?php foreach ($result as $row) { ?>
+			<?php
+			if (!empty($result)) {
+			foreach ($result as $row) { ?>
 				<div class="col-md-4 col-sm-6">
 					<div>
 						<div class="text">
@@ -29,7 +36,7 @@
 						</div>
 					</div>
 				</div>
-			<?php } ?>
+			<?php } } ?>
 
 			<!-- <div class="col-md-4  col-sm-6">
 				<div>
