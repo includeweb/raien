@@ -775,6 +775,9 @@ td:nth-child(3) > span {
     background-color: #b58e34;
 }
 
+/*ANIMATIONS*/
+.animate-hide{display: none;}
+
 /* media queries */
 
 @media (min-width: 1200px){

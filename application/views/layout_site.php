@@ -24,6 +24,7 @@
     <![endif]-->
     <?php echo add_style('style');?>
     <?php echo add_style('font-awesome.min');?>
+    <?php echo add_style('animate');?>
   </head>
   <body>
   <div class="wrapper">

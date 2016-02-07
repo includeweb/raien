@@ -1,8 +1,20 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.img-1').addClass('fadeInLeft').fadeIn('slow');
+		setTimeout(function(){
+			$('.img-2').addClass('fadeInLeft').fadeIn('slow');
+		}, 200);
+		setTimeout(function(){
+			$('.img-3').addClass('fadeInLeft').fadeIn('slow');
+		}, 400);
+		
+	});
+</script>
 <div class="row about">
 	<div class="col-md-3">
-		<div><img src="http://placehold.it/240x160"></div>
-		<div><img src="http://placehold.it/240x160"></div>
-		<div><img src="http://placehold.it/240x160"></div>
+		<div class="img-1 animated animate-hide"><img src="http://placehold.it/240x160"></div>
+		<div class="img-2 animated animate-hide"><img src="http://placehold.it/240x160"></div>
+		<div class="img-3 animated animate-hide"><img src="http://placehold.it/240x160"></div>
 	</div>
 	<div class="col-md-9">
 		<div>

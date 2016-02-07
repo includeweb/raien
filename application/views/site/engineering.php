@@ -1,7 +1,16 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.title-black').addClass('fadeInLeft').fadeIn('slow');
+		setTimeout(function(){
+			$('.title-orange').addClass('fadeInLeft').fadeIn('slow');
+		}, 500);
+		
+	});
+</script>
 <div class="row">
 	<div class="col-md-3">
-		<div class="title-black">Venta, post-venta</div>
-		<div class="title-orange">y consultoria</div>
+		<div class="title-black animated animate-hide">Venta, post-venta</div>
+		<div class="title-orange animated animate-hide">y consultoria</div>
 	</div>
 	<div class="col-md-9">
 		<div>
