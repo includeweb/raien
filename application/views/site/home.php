@@ -198,7 +198,7 @@
 					<!-- Split button -->
 					<div class="btn-group full-width ">
 						<div class="btn-title">tipo de producto</div>
-					  <button type="button" class="btn btn-buscador">Action</button>
+					  <button type="button" class="btn btn-buscador">Seleccione un tipo</button>
 					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
@@ -212,10 +212,10 @@
 				</div>
 				<div class="col-md-3 col-sm-12  no-padding-right separate-mobile">
 					<!-- Split button -->
-					<div class="btn-group full-width">
+					<div class="btn-group full-width" >
 					<div class="btn-title">marca del producto</div>
-					  <button type="button" class="btn btn-buscador">Action</button>
-					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <button type="button" class="btn btn-buscador" disabled="disabled">Seleccione una marca</button>
+					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
@@ -232,8 +232,8 @@
 					<!-- Split button -->
 					<div class="btn-group full-width">
 					<div class="btn-title">producto</div>
-					  <button type="button" class="btn btn-buscador">Action</button>
-					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <button type="button" class="btn btn-buscador" disabled="disabled">Seleccione un producto</button>
+					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
