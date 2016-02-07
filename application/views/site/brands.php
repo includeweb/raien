@@ -4,13 +4,32 @@
 			<div>
 				Categoría
 			</div>
+			<ul>
+				<?php foreach ($categorias as $categoria) { ?>
+					<li><?=$categoria->nombre?></li>
+				<?php } ?>
+			</ul>
+			<div>
+				Aplicación
+			</div>
+			<ul>
+				<?php foreach ($aplicaciones as $aplicacion) { ?>
+					<li><?=$aplicacion->nombre?></li>
+				<?php } ?>
+			</ul>
+			<div>
+				Marcas
+			</div>
+			<ul>
+					<li><a href="<?=base_url();?>show/products/marcas">Ver todas</a></li>
+			</ul>
 		</div>
 	</div>
 	<div class="col-md-9">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="breadcrumb">
-
+					Productos <?php if ($breadcrumb) echo '> '.$breadcrumb ?>
 				</div>
 			</div>
 		</div>

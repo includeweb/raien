@@ -9,6 +9,20 @@
 					<li><?=$categoria->nombre?></li>
 				<?php } ?>
 			</ul>
+			<div>
+				Aplicación
+			</div>
+			<ul>
+				<?php foreach ($aplicaciones as $aplicacion) { ?>
+					<li><?=$aplicacion->nombre?></li>
+				<?php } ?>
+			</ul>
+			<div>
+				Marcas
+			</div>
+			<ul>
+					<li><a href="<?=base_url();?>show/products/marcas">Ver todas</a></li>
+			</ul>
 		</div>
 	</div>
 	<div class="col-md-9">

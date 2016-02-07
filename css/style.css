@@ -462,7 +462,7 @@ p > b {
 
 .products .col-md-3 > div{
 	background-color: #aaa;
-	height: 570px;
+	/*height: 570px;*/
 	color: #fff;
 	padding: 0 20px;
 }
