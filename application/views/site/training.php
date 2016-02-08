@@ -8,7 +8,7 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th colspan="4">D i c i e m b r e</th>
+						<th colspan="4">Diciembre</th>
 					</tr>
 					<tr>
 						<th>Fecha</th>

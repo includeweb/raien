@@ -1,125 +1,99 @@
-<div class="row products">
-	<div class="col-md-3">
-		<div>
-			<div>
-				Categoría
+
+<div class="col-md-9">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="breadcrumb">
+				Productos <?php if ($breadcrumb) echo '> '.$breadcrumb ?>
 			</div>
-			<ul>
-				<?php foreach ($categorias as $categoria) { ?>
-					<li><?=$categoria->nombre?></li>
-				<?php } ?>
-			</ul>
-			<div>
-				Aplicación
-			</div>
-			<ul>
-				<?php foreach ($aplicaciones as $aplicacion) { ?>
-					<li><?=$aplicacion->nombre?></li>
-				<?php } ?>
-			</ul>
-			<div>
-				Marcas
-			</div>
-			<ul>
-					<li><a href="<?=base_url();?>show/products/marcas">Ver todas</a></li>
-			</ul>
 		</div>
 	</div>
-	<div class="col-md-9">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="breadcrumb">
-					Productos <?php if ($breadcrumb) echo '> '.$breadcrumb ?>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<?php
-			if (!empty($result)) {
-			foreach ($result as $row) { ?>
-				<div class="col-md-4 col-sm-6">
-					<div>
-						<div class="text">
-							<div>
-								<span><?=$row->nombre?></span>
-							</div>
-						</div>
-						<div class="image" style="background-image: url('<?=base_url();?>images/productos/<?=$row->galimg?>')">
-						</div>
-						<div class="background">
+	<div class="row">
+		<?php
+		if (!empty($result)) {
+		foreach ($result as $row) { ?>
+			<div class="col-md-4 col-sm-6">
+				<div>
+					<div class="text">
+						<div>
+							<span><?=$row->nombre?></span>
 						</div>
 					</div>
+					<div class="image" style="background-image: url('<?=base_url();?>images/productos/<?=$row->galimg?>')">
+					</div>
+					<div class="background">
+					</div>
 				</div>
-			<?php } } ?>
+			</div>
+		<?php } } ?>
 
-			<!-- <div class="col-md-4  col-sm-6">
-				<div>
-					<div class="text">
-						<div>
-							<span>software de ingeniería</span>
-						</div>
+		<!-- <div class="col-md-4  col-sm-6">
+			<div>
+				<div class="text">
+					<div>
+						<span>software de ingeniería</span>
 					</div>
-					<div class="image">
-					</div>
-					<div class="background">
-					</div>
+				</div>
+				<div class="image">
+				</div>
+				<div class="background">
 				</div>
 			</div>
-			<div class="col-md-4  col-sm-6">
-				<div>
-					<div class="text">
-						<div>
-							<span>adquisición de datos y control</span>
-						</div>
-					</div>
-					<div class="image">
-					</div>
-					<div class="background">
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4  col-sm-6">
-				<div>
-					<div class="text">
-						<div>
-							<span>pcs industriales</span>
-						</div>
-					</div>
-					<div class="image">
-					</div>
-					<div class="background">
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4  col-sm-6">
-				<div>
-					<div class="text">
-						<div>
-							<span>instrumentos de laboratorio</span>
-						</div>
-					</div>
-					<div class="image">
-					</div>
-					<div class="background">
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4  col-sm-6">
-				<div>
-					<div class="text">
-						<div>
-							<span>sensores y transductores</span>
-						</div>
-					</div>
-					<div class="image">
-					</div>
-					<div class="background">
-					</div>
-				</div>
-			</div> -->
 		</div>
+		<div class="col-md-4  col-sm-6">
+			<div>
+				<div class="text">
+					<div>
+						<span>adquisición de datos y control</span>
+					</div>
+				</div>
+				<div class="image">
+				</div>
+				<div class="background">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4  col-sm-6">
+			<div>
+				<div class="text">
+					<div>
+						<span>pcs industriales</span>
+					</div>
+				</div>
+				<div class="image">
+				</div>
+				<div class="background">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4  col-sm-6">
+			<div>
+				<div class="text">
+					<div>
+						<span>instrumentos de laboratorio</span>
+					</div>
+				</div>
+				<div class="image">
+				</div>
+				<div class="background">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4  col-sm-6">
+			<div>
+				<div class="text">
+					<div>
+						<span>sensores y transductores</span>
+					</div>
+				</div>
+				<div class="image">
+				</div>
+				<div class="background">
+				</div>
+			</div>
+		</div> -->
 	</div>
 </div>
+
 
 <script>
 	$(document).ready(function() {

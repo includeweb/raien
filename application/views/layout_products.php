@@ -132,9 +132,43 @@
 
 	    </div>
 	    <div class="container content">
-			<!-- Content -->
-			<?php echo $content_for_layout?>
-			<!-- / Content -->
+	    	<div class="row products">
+				<div class="col-md-3">
+					<div id="accordion">
+						<div>
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> Categoría</a>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in colapsable" role="tabpanel" aria-labelledby="headingOne">
+							<ul>
+								<?php foreach ($categorias as $categoria) { ?>
+									<li><?=$categoria->nombre?></li>
+								<?php } ?>
+							</ul>
+						</div>
+						<div>
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> Aplicación</a>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse in colapsable" role="tabpanel" aria-labelledby="headingTwo">
+							<ul>
+								<?php foreach ($aplicaciones as $aplicacion) { ?>
+									<li><?=$aplicacion->nombre?></li>
+								<?php } ?>
+							</ul>
+						</div>
+						<div>
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> Marcas</a>
+						</div>
+						<div id="collapseThree" class="panel-collapse collapse in colapsable" role="tabpanel" aria-labelledby="headingThree">
+							<ul>
+									<li><a href="<?=base_url();?>show/products/marcas">Ver todas</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- Content -->
+				<?php echo $content_for_layout?>
+				<!-- / Content -->
+			</div>
 	    </div>
 	    <div class="push"></div>
     </div>
@@ -169,5 +203,37 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+    	$.fn.animateRotate = function(startAngle, endAngle, duration, easing, complete){
+		    return this.each(function(){
+		        var elem = $(this);
+
+		        $({deg: startAngle}).animate({deg: endAngle}, {
+		            duration: duration,
+		            easing: easing,
+		            step: function(now){
+		                elem.css({
+		                  '-moz-transform':'rotate('+now+'deg)',
+		                  '-webkit-transform':'rotate('+now+'deg)',
+		                  '-o-transform':'rotate('+now+'deg)',
+		                  '-ms-transform':'rotate('+now+'deg)',
+		                  'transform':'rotate('+now+'deg)'
+		                });
+		            },
+		            complete: complete || $.noop
+		        });
+		    });
+		};
+
+		$('.colapsable').on('hide.bs.collapse', function() {
+			$(this).prev().find('.glyphicon-triangle-bottom').animateRotate(0, -90);
+			// $(this).prev().find('.glyphicon-triangle-bottom').addClass('rotateHide');
+		});
+
+		$('.colapsable').on('show.bs.collapse', function() {
+			$(this).prev().find('.glyphicon-triangle-bottom').animateRotate(-90, 0);
+		});
+    </script>
   </body>
 </html>

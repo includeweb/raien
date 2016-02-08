@@ -473,21 +473,39 @@ p > b {
 .products .col-md-3 > div > div{
 	padding: 10px 0;
 	text-align: center;
-	text-transform: uppercase;
-	font-weight: bold;
 	border-bottom: 1px solid #fff;
-	font-size: 12px;
 }
 
-.products .col-md-3 > div > ul{
+.products .col-md-3 > div > div > a{
+	font-family: 'Raleway', sans-serif;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 12px;
+	letter-spacing: 3px;
+}
+
+.products .col-md-3 > div > .colapsable{
+	padding: 0;
+	margin: 0;
+	border-bottom: 0;
+}
+
+.products .col-md-3 > div > .colapsable > ul{
 	list-style-type: none;
 	padding: 15px 10px;
 }
 
-.products .col-md-3 > div > ul > li{
+.products .col-md-3 > div > .colapsable > ul > li{
 	text-transform: uppercase;
 	font-size: 10px;
 	padding-bottom: 5px;
+	text-align: left;
+}
+
+.products .col-md-3 > div > .colapsable > ul > li > a {
+	color: #fff;
 }
 
 .products .breadcrumb {
@@ -580,7 +598,7 @@ p > b {
 	text-transform: uppercase;
 }
 
-.content > .brands > .col-md-9 .col-md-3 > div {
+.brands .col-md-3 > div {
 	border: 1px solid lightgray;
 	background-color: #fff;
 	padding: 0;
@@ -589,7 +607,7 @@ p > b {
 	overflow: hidden;
 }
 
-.content > .brands > .col-md-9 .col-md-3 > div > img{
+.brands .col-md-3 > div > img{
 	width: 100%;
 	padding: 15px;
 
@@ -698,10 +716,13 @@ thead > tr:nth-child(2) > th {
 
 th {
 	color: #fff;
+	letter-spacing: 4px;
+	font-weight: 300;
 }
 
 td {
 	background-color: #E6E7E8;
+	font-weight: 400;
 }
 
 th, td {
@@ -712,14 +733,6 @@ th, td {
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 13px;
 	vertical-align: middle!important;
-}
-
-th {
-	font-weight: 300;
-}
-
-td {
-	font-weight: 400;
 }
 
 th:nth-child(1) {

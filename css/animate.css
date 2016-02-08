@@ -3338,3 +3338,32 @@
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
+
+@-webkit-keyframes rotateHide {
+  0% { 
+    -webkit-transform: rotate(0deg); 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    -webkit-transform: rotate(-90deg); 
+    transform: rotate(-90deg); 
+  }
+}
+
+@keyframes rotateHide {
+  0% { 
+    -webkit-transform: rotate(0deg); 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    -webkit-transform: rotate(-90deg); 
+    transform: rotate(-90deg); 
+  }
+}
+
+.rotateHide {
+  -webkit-animation-name: rotateHide;
+  animation-name: rotateHide;
+  animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
+}

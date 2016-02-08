@@ -38,6 +38,7 @@ class Show extends CI_Controller {
 	}
 
 	function products($vista = 1) {
+		$this->layout->setLayout('layout_products');
 		$data['categorias'] = $this->db->get('tipo')->result();
 		$data['aplicaciones'] = $this->db->get('industria')->result();
 		$data['marcas'] = $this->db->get('marcas')->result();
