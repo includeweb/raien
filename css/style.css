@@ -126,6 +126,22 @@ p > b {
 	border-bottom:1px solid #CCCCCC;
 
 }
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    color: #262626;
+    text-decoration: none;
+    background-color: transparent;
+}
+.sub-navigation{
+	width: 150px;
+	margin:auto;
+	transition:all ease .5s;
+	
+	color: #666666;
+}
+.sub-navigation:hover{
+	background-color: #DB9805;
+	color:#fff;
+}
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
 	color:#fff;
@@ -149,7 +165,7 @@ p > b {
 
 .sub-navigation-text{
 	padding: 8px 0px;
-	color: #666666;
+	
 	font-size: 10px;
 	font-weight:700;
 	text-transform: uppercase;
