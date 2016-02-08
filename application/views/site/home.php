@@ -76,7 +76,7 @@
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">productos <span class="caret"></span></a>
 				          <ul class="dropdown-menu">
 				            <li>
-				            	<a href="#">
+				            	<a href="#" class="subnavigation-item" data-img="<?=base_url();?>images/web/categoria-icon.png" data-hover="<?=base_url();?>images/web/categoria-icon-hover.png">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
 				            				<img src="<?=base_url();?>images/web/categoria-icon.png" />
@@ -88,7 +88,7 @@
 				            	</a>
 				            </li>
 				            <li>
-				            	<a href="#">
+				            	<a href="#" class="subnavigation-item" data-img="<?=base_url();?>images/web/aplicacion-icon.png" data-hover="<?=base_url();?>images/web/aplicacion-icon-hover.png">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
 				            				<img src="<?=base_url();?>images/web/aplicacion-icon.png" />
@@ -100,7 +100,7 @@
 				            	</a>
 				            </li>
 				            <li>
-				            	<a href="#">
+				            	<a href="#" class="subnavigation-item" data-img="<?=base_url();?>images/web/marca-icon.png" data-hover="<?=base_url();?>images/web/marca-icon-hover.png">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
 				            				<img src="<?=base_url();?>images/web/marca-icon.png" />
@@ -205,7 +205,7 @@
 					  </button>
 					  <ul class="dropdown-menu dropdown-buscador">
 						  <?foreach ($tipos as $tipo){ ?>
-						    <li><a href="#"><?=$tipo->name;?></a></li>
+						    <li><a href="#"><?=$tipo->nombre;?></a></li>
 						  <? } ?>  
 					  </ul>
 					</div>
@@ -284,21 +284,33 @@
  		</div>
  	</div>
 
-  <script type="text/javascript">
-	$(document).ready();
-
-	function animateHover(element, class){
-		$(element).hover(
-		       function(){ $(this).addClass(class) },
-		       function(){ $(this).removeClass(class) }
-		)
-	}
-</script>
+ 
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+   <script type="text/javascript">
+	$(document).ready(function(){
+
+			$('.subnavigation-item').hover(
+				
+		       	function(){ 
+		       		var hover = $(this).data('hover'); 
+		       		 
+		       		$(this).find('img').attr('src', hover) 
+		       	},
+		       	function(){ 
+
+		       		var img = $(this).data('img'); 
+		       		$(this).find('img').attr('src', img) 
+		       	}
+			);
+		
+	});
+
+	
+</script>
   </body>
 </html>

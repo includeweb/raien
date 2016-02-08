@@ -2,7 +2,11 @@
 class Product_Model extends CI_MODEL
 {
     function get_type(){
-    	$rs = $this->db->get('type');
+        $rs = $this->db->get('type');
+        return $rs;
+    }
+    function get_tipos(){
+    	$rs = $this->db->get('tipo');
     	return $rs;
     }
 

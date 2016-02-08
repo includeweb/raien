@@ -15,8 +15,8 @@ class Show extends CI_Controller {
 	}
 
 	function index(){
-		$data['tipos'] = $this->product->get_type()->result();
-		$data['marcas'] = $this->product->get_type()->result();
+		$data['tipos'] = $this->product->get_tipos()->result();
+		$data['marcas'] = $this->product->get_tipos()->result();
 
 		$this->load->view('site/home', $data);
 	}
