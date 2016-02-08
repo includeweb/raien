@@ -37,7 +37,7 @@ class Show extends CI_Controller {
 		$this->layout->view('training');
 	}
 
-	function products($vista = 1) {
+	function products($vista = null) {
 		$this->layout->setLayout('layout_products');
 		$data['categorias'] = $this->db->get('tipo')->result();
 		$data['aplicaciones'] = $this->db->get('industria')->result();

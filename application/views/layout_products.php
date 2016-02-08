@@ -141,7 +141,7 @@
 						<div id="collapseOne" class="panel-collapse collapse in colapsable" role="tabpanel" aria-labelledby="headingOne">
 							<ul>
 								<?php foreach ($categorias as $categoria) { ?>
-									<li><?=$categoria->nombre?></li>
+									<li><a href="<?=base_url();?>show/products/categoria/<?=seoUrl($categoria->nombre)?>"><?=$categoria->nombre?></a></li>
 								<?php } ?>
 							</ul>
 						</div>
@@ -151,7 +151,7 @@
 						<div id="collapseTwo" class="panel-collapse collapse in colapsable" role="tabpanel" aria-labelledby="headingTwo">
 							<ul>
 								<?php foreach ($aplicaciones as $aplicacion) { ?>
-									<li><?=$aplicacion->nombre?></li>
+									<li><a href="<?=base_url();?>show/products/aplicacion/<?=seoUrl($aplicacion->nombre)?>"><?=$aplicacion->nombre?></a></li>
 								<?php } ?>
 							</ul>
 						</div>

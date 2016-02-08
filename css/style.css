@@ -521,17 +521,18 @@ p > b {
 	margin-bottom: 20px;
 }
 
-.products .col-md-4 > div {
+.products .col-md-4 div {
 	height: 257px;
 	position: relative;
-}
-
-.products .col-md-4 > div {
 	text-align: center;
 }
 
-.products .col-md-4 > div > .background,
-.products .col-md-4 > div > .image {
+.products .col-md-4 > a {
+	text-decoration: none;	
+}
+
+.products .col-md-4 div > .background,
+.products .col-md-4 div > .image {
 	position: absolute;
   top: 0;
   bottom: 0;
@@ -541,17 +542,17 @@ p > b {
   height: 100%;
 }
 
-.products .col-md-4 > div > .background {
+.products .col-md-4 div > .background {
 	background-color: #404041;
 	z-index: -1;
 	opacity: .8;
 }
 
-.products .col-md-4 > div > .background:hover {
+.products .col-md-4 div > .background:hover {
 	background-color: yellow;
 }
 
-.products .col-md-4 > div > .image {
+.products .col-md-4 div > .image {
 	z-index: -2;
 }
 /*
@@ -579,19 +580,19 @@ p > b {
 	background-image: url("../images/productos/6.jpg");
 }
 */
-.products .col-md-4 > div > .text {
+.products .col-md-4 div > .text {
 	padding: 10px;
 	height: 100%;
 }
 
-.products .col-md-4 > div > .text > div {
+.products .col-md-4 div > .text > div {
 	border: 1px solid #fff;
 	height: 100%;
 	width: 100%;
 	display: table;
 }
 
-.products .col-md-4 > div > .text > div > span {
+.products .col-md-4 div > .text > div > span {
 	display: table-cell;
   vertical-align: middle;
 	color: white;
