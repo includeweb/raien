@@ -81,7 +81,7 @@
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">productos</a>
 				          <ul class="dropdown-menu">
 				            <li>
-				            	<a href="<?=base_url();?>show/products/categoria">
+				            	<a href="<?=base_url();?>show/products/categorias">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
 				            				<img src="<?=base_url();?>images/web/categoria-icon.png" />
@@ -93,7 +93,7 @@
 				            	</a>
 				            </li>
 				            <li>
-				            	<a href="<?=base_url();?>show/products/aplicacion">
+				            	<a href="<?=base_url();?>show/products/aplicaciones">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
 				            				<img src="<?=base_url();?>images/web/aplicacion-icon.png" />
@@ -141,7 +141,7 @@
 						<div id="collapseOne" class="panel-collapse collapse in colapsable" role="tabpanel" aria-labelledby="headingOne">
 							<ul>
 								<?php foreach ($categorias as $categoria) { ?>
-									<li><a href="<?=base_url();?>show/products/categoria/<?=seoUrl($categoria->nombre)?>"><?=$categoria->nombre?></a></li>
+									<li><a href="<?=base_url();?>show/products/categorias/<?=seoUrl($categoria->nombre)?>"><?=$categoria->nombre?></a></li>
 								<?php } ?>
 							</ul>
 						</div>
@@ -151,7 +151,7 @@
 						<div id="collapseTwo" class="panel-collapse collapse in colapsable" role="tabpanel" aria-labelledby="headingTwo">
 							<ul>
 								<?php foreach ($aplicaciones as $aplicacion) { ?>
-									<li><a href="<?=base_url();?>show/products/aplicacion/<?=seoUrl($aplicacion->nombre)?>"><?=$aplicacion->nombre?></a></li>
+									<li><a href="<?=base_url();?>show/products/aplicaciones/<?=seoUrl($aplicacion->nombre)?>"><?=$aplicacion->nombre?></a></li>
 								<?php } ?>
 							</ul>
 						</div>

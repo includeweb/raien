@@ -4,7 +4,7 @@
 		setTimeout(function(){
 			$('.title-orange').addClass('fadeInLeft').fadeIn('slow');
 		}, 500);
-		
+
 	});
 </script>
 <div class="row">
@@ -14,16 +14,18 @@
 	</div>
 	<div class="col-md-9">
 		<div>
-			<p><b>RAIEN</b> es una compañía tecnológicamente abierta, hecho que nos permite proveer en cada proyecto la solución que mejor se adapta a las necesidades del cliente.</p>
-			<p>Contamos con un sólido equipo de profesionales y los recursos tecnológicos de última generación que nos permiten proveer:</p>
+			<p><b>RAIEN</b> se consolida como una empresa especialista en sistemas de medición, integrando sistemas de adquisición y registro automático de señales, monitoreo ambiental, incluyendo computadoras industriales y portátiles, software para simulación y procesamiento de señales, así como también simulación de redes de distribución eléctrica y monitoreo de vibraciones. La suma de nuestras capacidades tecnológicas, experiencia, y metodologías de trabajo y control, garantizan la calidad de los productos y servicios que ofrecemos a nuestros clientes.</p>
+			<p>Somos una compañía tecnológicamente abierta, hecho que nos permite proveer en cada proyecto la solución que mejor se adapta a las necesidades del cliente.</p>
+			<p>Contamos con un sólido equipo de profesionales y recursos tecnológicos de última generación, que nos permiten proveer:</p>
 			<ul>
 				<li>Selección de tecnologías</li>
-				<li>Ingeniería conceptual</li>
-				<li>Ingeniería básica</li>
-				<li>Ingeniería de detalle</li>
+				<li>Ingeniería conceptual, básica y de detalle</li>
 				<li>Evaluación de desempeño de instalaciones y resolución de problemas en planta</li>
-				<li>Optimización de procesos y estudios de ingeniería de valor</li>
-				<li>Estudios de dispersión y vibraciones</li>
+				<li>Optimización de procesos</li>
+				<li>Estudios de vibraciones en turbo-maquinaria</li>
+				<li>Análisis experimental de tensiones</li>
+				<li>Consultoría en Diseño y Operación de Sistemas Eléctricos de Potencia</li>
+				<li>Control de acceso</li>
 			</ul>
 			<p>Nos hemos consolidado como una <b class="orange">compañía especialista en sistemas de medición</b>. Ofrecemos sistemas de adquisición y registro automático de señales, monitoreo ambiental, computadoras industriales y portátiles, software para simulación y procesamiento de señales así como simulación de redes de distribución eléctrica y monitoreo de vibraciones. Integrando nuestros conocimientos, experiencia y metodologías de trabajo garantizamos la calidad de los productos y servicios que ofrecemos a nuestros clientes.</p>
 
