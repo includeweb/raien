@@ -26,7 +26,7 @@
 
 ?>
 
-<div class="col-md-9">
+<div class="col-md-9 details">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="breadcrumb">
@@ -53,7 +53,8 @@
 	<div class="row">
 		<?php foreach ($marcasSubcategoria as $row) { ?>
 			<div class="col-md-3">
-				<img src="<?=base_url();?>images/productos/logos/<?=$row->imagen?>" style="width:100%" />
+				<!-- <img src="<?=base_url();?>images/productos/logos/<?=$row->imagen?>" style="width:100%" /> -->
+				<img src="http://placehold.it/155x90">
 			</div>
 		<?php } ?>
 	</div>
