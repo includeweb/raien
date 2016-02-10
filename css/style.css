@@ -531,6 +531,12 @@ p > b {
 	font-size: 12px;
 	border-radius: 0;
 	padding: 10px 15px;
+	letter-spacing: 4px;
+}
+
+.products .breadcrumb > a {
+	color: #fff;
+	letter-spacing: 2px;
 }
 
 .products .col-md-4{

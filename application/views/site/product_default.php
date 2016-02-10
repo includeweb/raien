@@ -23,7 +23,9 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="breadcrumb">
-				Productos <?php if ($breadcrumb) echo '> '.$breadcrumb ?>
+				<a href="<?=base_url();?>show/products/">Productos</a> <?php if ($breadcrumb) { ?>
+																			&gt; <a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>"><?=$breadcrumb?></a>
+																		<?php } ?>
 			</div>
 		</div>
 	</div>
