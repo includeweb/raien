@@ -117,18 +117,3 @@
 		</div> -->
 	</div>
 </div>
-
-
-<script defer>
-	$(document).ready(function() {
-		$('.col-md-4 > a').mouseenter(function() {
-			//$(this).find('.background').css('background-color', '#DCA427');
-			$(this).find('.background').addClass('hover');
-		});
-
-		$('.col-md-4 > a').mouseleave(function() {
-			//$(this).find('.background').css('background-color', '#404041');
-			$(this).find('.background').removeClass('hover');
-		});
-	});
-</script>

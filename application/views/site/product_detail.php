@@ -50,9 +50,9 @@
 			<?=$subcategoria->nombre?>
 		</div>
 	</div>
-	<div class="row">
+	<div class="img-carousel">
 		<?php foreach ($marcasSubcategoria as $row) { ?>
-			<div class="col-md-3">
+			<div>
 				<!-- <img src="<?=base_url();?>images/productos/logos/<?=$row->imagen?>" style="width:100%" /> -->
 				<img src="http://placehold.it/155x90">
 			</div>
