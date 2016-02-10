@@ -54,7 +54,7 @@
 		<?php foreach ($marcasSubcategoria as $row) { ?>
 			<div>
 				<!-- <img src="<?=base_url();?>images/productos/logos/<?=$row->imagen?>" style="width:100%" /> -->
-				<img src="http://placehold.it/155x90">
+				<img src="http://placehold.it/155x90" class="img-responsive">
 			</div>
 		<?php } ?>
 	</div>

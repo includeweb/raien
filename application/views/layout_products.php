@@ -291,7 +291,18 @@
 				    // instead of a settings object
 				  ]
 				});
+				setTimeout(test, 1000);
+
 			});
+			function test(){
+					var width = $('.img-carousel').width() - 27; 
+					console.log(width);
+					console.log('otro '+(width/4));
+					$('.slick-slide img').each(function(){
+						$(this).width((width/4))
+					});
+					
+				}
 		</script>
   </body>
 </html>
