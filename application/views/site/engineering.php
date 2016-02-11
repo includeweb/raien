@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script type="text/javascript" defer>
 	$(document).ready(function(){
 		$('.title-black').addClass('fadeInLeft').fadeIn('slow');
 		setTimeout(function(){

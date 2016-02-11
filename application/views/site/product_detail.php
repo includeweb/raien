@@ -30,7 +30,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="breadcrumb">
-				Productos <?php if ($breadcrumb) echo '> '.$breadcrumb ?>
+				<a href="<?=base_url();?>show/products/">Productos</a><?php if ($breadcrumb) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/"><?=$breadcrumb;?></a><?php } ?><?php if ($subcategoria) { ?><span> &gt; </span><?=$subcategoria->nombre;?><?php } ?>
 			</div>
 		</div>
 	</div>
@@ -52,10 +52,71 @@
 	</div>
 	<div class="img-carousel">
 		<?php foreach ($marcasSubcategoria as $row) { ?>
-			<div>
-				<!-- <img src="<?=base_url();?>images/productos/logos/<?=$row->imagen?>" style="width:100%" /> -->
-				<img src="http://placehold.it/155x90" class="img-responsive">
+			<div class="brands-carousel">
+				<div data-id='<?=$row->id?>'>
+					<img src="<?=base_url();?>images/productos/logos/<?=$row->imagen?>" style="width:100%" />
+					<!-- <img src="http://placehold.it/155x90" class="img-responsive"> -->
+				</div>
 			</div>
 		<?php } ?>
 	</div>
+	<div class="row">
+		<div class="col-md-12 product-gallery">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-4">
+						<!-- <img src="http://placehold.it/155x90" class="img-responsive"> -->
+					</div>
+					<div class="col-md-8">
+						<!-- <div>Tekscan's patented tactile force and pressure sensing solutions provide our customers with the actionable information they need to optimize product design and improve clinical and research outcomes. Our sensors and systems are used across a wide range of applications within test and measurement, medical, dental, and retail; as stand-alone solutions or as embedded technology to create better and differentiated products. Our passion for innovation, broad expertise and commitment to quality help turn your vision into reality.</div> -->
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<!-- <div class="col-md-4 col-sm-6">
+						<a href="">
+							<div>
+								<div class="text">
+								</div>
+								<div class="image" style="http://placehold.it/155x90">
+								</div>
+								<div class="background">
+								</div>
+							</div>
+						</a>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
+<script type="text/javascript" defer>
+	$('.brands-carousel > div').click(function() {
+		$(this).addClass('active');
+		$(this).parent().siblings().find('.active').removeClass('active');
+		$.ajax({
+			method: "GET",
+			url: "<?=base_url();?>show/getProducts/<?=seoUrl($breadcrumb);?>/<?=$url;?>/"+($(this).data("id"))
+		}).done(function(data) {
+			var json = $.parseJSON(data);
+			var brandImg = '<img src="<?=base_url();?>images/productos/logos/'+json.productos[0].imagen+'" />';
+			var brandText = '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
+
+			var gallery = '';
+
+			json['productos'].forEach(function(elem, index, array) {
+				gallery += '<div class="col-md-4 col-sm-6"><a href="#"><div><div class="text">'+elem.nombre+'</div><div class="image" style="http://placehold.it/155x90"></div><div class="background"></div></div></a></div>';
+			});
+			$('.product-gallery').fadeOut(function() {
+				$('.product-gallery > .container-fluid:first-child .col-md-4').html(brandImg);
+				$('.product-gallery > .container-fluid:first-child .col-md-8').html(brandText);
+				$('.product-gallery > .container-fluid:last-child .row').html(gallery);
+
+				$('.product-gallery').fadeIn();
+			})
+		});
+
+	});
+</script>

@@ -78,20 +78,67 @@ class Show extends CI_Controller {
 		}
 		else {
 			$data['url'] = $subcategoria;
-			$this->db->select('marcas.id, marcas.nombre, marcas.imagen');
-			$this->db->where('url', $subcategoria);
-			$this->db->from($tabla);
-			$this->db->join('productos', 'productos.tipo = '.$tabla.'.id');
-			$this->db->join('marcas', 'marcas.id = productos.marca');
-			$this->db->distinct();
-			$query = $this->db->get();
-			$data['marcasSubcategoria'] = $query->result();
-			$this->layout->view('product_detail', $data);
+
+			switch ($vista) {
+				case 'categorias':
+				$this->db->select('marcas.id, marcas.nombre, marcas.imagen');
+				$this->db->where($tabla.'.url', $subcategoria);
+				$this->db->from($tabla);
+				$this->db->join('productos', 'productos.'.$tabla.' = '.$tabla.'.id');
+				$this->db->join('marcas', 'marcas.id = productos.marca');
+				$this->db->distinct();
+				$query = $this->db->get();
+				$data['marcasSubcategoria'] = $query->result();
+				$this->layout->view('product_detail', $data);
+				break;
+
+				case 'aplicaciones':
+				$this->db->select('marcas.id, marcas.nombre, marcas.imagen');
+				$this->db->where($tabla.'.url', $subcategoria);
+				$this->db->from($tabla);
+				$this->db->join('pindustria', 'pindustria.idindustria = '.$tabla.'.id');
+				$this->db->join('productos', 'productos.id = pindustria.idproducto');
+				$this->db->join('marcas', 'marcas.id = productos.marca');
+				$this->db->distinct();
+				$query = $this->db->get();
+				$data['marcasSubcategoria'] = $query->result();
+				$this->layout->view('product_detail', $data);
+				break;
+			}
 		}
 	}
 
 	function about() {
 		$this->layout->view('about');
+	}
+
+	function getProducts($vista, $subcategoria, $marca) {
+		switch ($vista) {
+			case 'categorias':
+			$this->db->select('marcas.nombre marca, marcas.imagen, productos.id, productos.nombre, productos.manual, productos.notaapp, productos.producto');
+			$this->db->where('tipo.url', $subcategoria);
+			$this->db->where('marcas.id', $marca);
+			$this->db->from('tipo');
+			$this->db->join('productos', 'productos.tipo = tipo.id');
+			$this->db->join('marcas', 'marcas.id = productos.marca');
+			$query = $this->db->get();
+			break;
+
+			case 'aplicaciones':
+			$this->db->select('marcas.nombre marca, marcas.imagen, productos.id, productos.nombre, productos.manual, productos.notaapp, productos.producto');
+			$this->db->where('industria.url', $subcategoria);
+			$this->db->where('marcas.id', $marca);
+			$this->db->from('industria');
+			$this->db->join('pindustria', 'pindustria.idindustria = industria.id');
+			$this->db->join('productos', 'productos.id = pindustria.idproducto');
+			$this->db->join('marcas', 'marcas.id = productos.marca');
+			$query = $this->db->get();
+			break;
+		}
+		//die($this->db->last_query());
+		$data['productos'] = $query->result();
+		$jsonstring = json_encode($data);
+		echo $jsonstring;
 	}
 
 

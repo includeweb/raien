@@ -23,9 +23,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="breadcrumb">
-				<a href="<?=base_url();?>show/products/">Productos</a> <?php if ($breadcrumb) { ?>
-																			&gt; <a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>"><?=$breadcrumb?></a>
-																		<?php } ?>
+				<a href="<?=base_url();?>show/products/">Productos</a><?php if ($breadcrumb) { ?><span> &gt; </span><?=$breadcrumb;?><?php } ?>
 			</div>
 		</div>
 	</div>

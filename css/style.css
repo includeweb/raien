@@ -543,12 +543,16 @@ p > b {
 	font-size: 12px;
 	border-radius: 0;
 	padding: 10px 15px;
-	letter-spacing: 4px;
+	letter-spacing: 2px;
 }
 
 .products .breadcrumb > a {
 	color: #fff;
 	letter-spacing: 2px;
+}
+
+.products .breadcrumb > span {
+	letter-spacing: 4px;
 }
 
 .products .col-md-4{
@@ -650,6 +654,64 @@ p > b {
 	width: 100%;
 	padding: 15px;
 
+}
+
+.brands-carousel > div {
+	cursor: pointer;
+	border: 1px solid #EBECEE;
+}
+
+.brands-carousel > div.active {
+	border: 1px solid #717175;
+	outline: none;
+}
+
+.brands-carousel:hover, .brands-carousel:active, .brands-carousel:focus {
+    outline: none;
+}
+
+.brands-carousel > div > img {
+	margin: 0 auto;
+	padding: 5px 20px;
+}
+
+.product-gallery {
+	display: none;
+}
+
+.product-gallery > .container-fluid {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #ECEDEF;
+	margin-top: 20px;
+}
+
+.product-gallery > .container-fluid:first-child .col-md-4 {
+	border-right: 1px solid #fff;
+	margin-bottom: 0!important;
+}
+
+.product-gallery > .container-fluid:first-child img {
+	margin: 0 auto;
+	width: 100%;
+	padding: 0 20px;
+}
+
+.product-gallery > .container-fluid:first-child .col-md-8 > div {
+	font-size: 10px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 500;
+	padding-left: 50px;
+	padding-right: 20px;
+	padding-top: 3px;
+}
+
+.product-gallery > .container-fluid:last-child .col-md-4 {
+	margin-bottom: 20px;
+}
+
+.product-gallery > .container-fluid:last-child .col-md-4 > a > div {
+	background-color: #fff;
 }
 
 
