@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-02-2016 a las 19:09:01
+-- Tiempo de generación: 11-02-2016 a las 05:30:11
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -327,6 +327,8 @@ INSERT INTO `galeriahome` (`id`, `imagen`, `titulo`, `texto`, `imagenc`, `orden`
 CREATE TABLE IF NOT EXISTS `industria` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` text NOT NULL,
+  `url` text NOT NULL,
+  `galimg` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
@@ -334,15 +336,15 @@ CREATE TABLE IF NOT EXISTS `industria` (
 -- Volcado de datos para la tabla `industria`
 --
 
-INSERT INTO `industria` (`id`, `nombre`) VALUES
-(6, 'TRANSPORTE'),
-(5, 'PETROQUÍMICA'),
-(4, 'INVESTIGACIÓN Y LABORATORIO'),
-(3, 'ENERGÍA'),
-(1, 'MANUFACTURA'),
-(7, 'COMUNICACIONES'),
-(8, 'AEROESPACIAL'),
-(9, 'MAQUINARIA');
+INSERT INTO `industria` (`id`, `nombre`, `url`, `galimg`) VALUES
+(6, 'TRANSPORTE', 'transporte', 'control.jpg'),
+(5, 'PETROQUÍMICA', 'petroquimica', 'control.jpg'),
+(4, 'INVESTIGACIÓN Y LABORATORIO', 'investigacion-y-laboratorio', 'control.jpg'),
+(3, 'ENERGÍA', 'energia', 'control.jpg'),
+(1, 'MANUFACTURA', 'manufactura', 'control.jpg'),
+(7, 'COMUNICACIONES', 'comunicaciones', 'control.jpg'),
+(8, 'AEROESPACIAL', 'aeroespacial', 'control.jpg'),
+(9, 'MAQUINARIA', 'maquinaria', 'control.jpg');
 
 -- --------------------------------------------------------
 
@@ -406,19 +408,19 @@ CREATE TABLE IF NOT EXISTS `marcas` (
 --
 
 INSERT INTO `marcas` (`id`, `nombre`, `imagen`) VALUES
-(9, 'GAMRY', 'GAMRY.jpg'),
-(8, 'ETAP', 'ETAP.jpg'),
-(10, 'TEKSCAN', 'TEKSCAN.jpg'),
-(11, 'CRYSTAL INSTRUMENTS', 'CRYSTAL.jpg'),
-(13, 'AKCP', 'AKCP.jpg'),
-(15, 'PACE SCIENTIFIC', 'PACE.jpg'),
-(16, 'IEI', 'iei.jpg'),
-(18, 'KEITHLEY', 'keithley.jpg'),
-(19, 'MEGGITT', 'MEGGITT.jpg'),
-(26, 'MACROSENSORS', '476979_Logo4.jpg'),
-(23, 'AMETEK', 'AMETEK.jpg'),
-(25, 'ICP DAS', 'ICP.jpg'),
-(28, 'HBM', 'HBM-logo.jpg');
+(9, 'GAMRY', 'GAMRY.png'),
+(8, 'ETAP', 'ETAP.png'),
+(10, 'TEKSCAN', 'TEKSCAN.png'),
+(11, 'CRYSTAL INSTRUMENTS', 'CRYSTAL.png'),
+(13, 'AKCP', 'AKCP.png'),
+(15, 'PACE SCIENTIFIC', 'PACE.png'),
+(16, 'IEI', 'iei.png'),
+(18, 'KEITHLEY', 'keithley.png'),
+(19, 'MEGGITT', 'MEGGITT.png'),
+(26, 'MACROSENSORS', '476979_Logo4.png'),
+(23, 'AMETEK', 'AMETEK.png'),
+(25, 'ICP DAS', 'ICP.png'),
+(28, 'HBM', 'HBM-logo.png');
 
 -- --------------------------------------------------------
 

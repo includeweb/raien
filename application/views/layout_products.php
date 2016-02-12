@@ -232,6 +232,8 @@
 		    });
 		};
 
+		
+
 		$('.colapsable').on('hide.bs.collapse', function() {
 			$(this).prev().find('.glyphicon-triangle-bottom').animateRotate(0, -90);
 			// $(this).prev().find('.glyphicon-triangle-bottom').addClass('rotateHide');
@@ -240,9 +242,11 @@
 		$('.colapsable').on('show.bs.collapse', function() {
 			$(this).prev().find('.glyphicon-triangle-bottom').animateRotate(-90, 0);
 		});
+
+
     </script>
 
-		
+
 
 		<script>
 			$(document).ready(function() {
@@ -296,18 +300,18 @@
 				    // instead of a settings object
 				  ]
 				});
-				setTimeout(test, 1000);
+				// setTimeout(test, 1000);
 
 			});
-			function test(){
-					var width = $('.img-carousel').width() - 27;
-					console.log(width);
-					console.log('otro '+(width/4));
-					$('.slick-slide div').each(function(){
-						$(this).width((width/4))
-					});
-
-				}
+			// function test(){
+			// 		var width = $('.img-carousel').width() - 27;
+			// 		console.log(width);
+			// 		console.log('otro '+(width/4));
+			// 		$('.slick-slide div').each(function(){
+			// 			$(this).width((width/4))
+			// 		});
+			//
+			// 	}
 		</script>
   </body>
 </html>

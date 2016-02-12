@@ -93,6 +93,27 @@
 </div>
 
 <script type="text/javascript" defer>
+	// $.fn.animateHeight = function(startHeight, endHeight, duration, easing, complete){
+	// 	return this.each(function(){
+	// 			var elem = $(this);
+	//
+	// 			$({deg: startHeight}).animate({deg: endHeight}, {
+	// 					duration: duration,
+	// 					easing: easing,
+	// 					step: function(now){
+	// 							elem.css({
+	// 								'-moz-transform':'height('+now+'%)',
+	// 								'-webkit-transform':'height('+now+'%)',
+	// 								'-o-transform':'height('+now+'%)',
+	// 								'-ms-transform':'height('+now+'%)',
+	// 								'transform':'height('+now+'%)'
+	// 							});
+	// 					},
+	// 					complete: complete || $.noop
+	// 			});
+	// 	});
+	// };
+
 	$('.brands-carousel > div').click(function() {
 		$(this).addClass('active');
 		$(this).parent().siblings().find('.active').removeClass('active');
@@ -107,7 +128,7 @@
 			var gallery = '';
 
 			json['productos'].forEach(function(elem, index, array) {
-				gallery += '<div class="col-md-4 col-sm-6"><a href="#"><div><div class="text">'+elem.nombre+'</div><div class="image" style="http://placehold.it/155x90"></div><div class="background"></div></div></a></div>';
+				gallery += '<div class="col-md-4 col-sm-6"><a href="#"><div><div class="image" style="http://placehold.it/155x90"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
 			});
 			$('.product-gallery').fadeOut(function() {
 				$('.product-gallery > .container-fluid:first-child .col-md-4').html(brandImg);
@@ -115,6 +136,14 @@
 				$('.product-gallery > .container-fluid:last-child .row').html(gallery);
 
 				$('.product-gallery').fadeIn();
+
+				$('.product-gallery .col-md-4 > a > div').mouseenter(function() {
+					$(this).find('.background').animate({height: "100%"}, 300);
+				});
+
+				$('.product-gallery .col-md-4 > a > div').mouseleave(function() {
+					$(this).find('.background').animate({height: "40%"}, 300);
+				});
 			})
 		});
 
