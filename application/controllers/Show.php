@@ -37,30 +37,49 @@ class Show extends CI_Controller {
 		$this->layout->view('training');
 	}
 
+	function about() {
+		$this->layout->view('about');
+	}
+
+	function getCategorias() {
+		$this->db->select('*');
+		$this->db->from('tipos');
+		$this->db->where('tipos.nombre', 'Categoria');
+		$this->db->join('categorias', 'tipos.id = categorias.tipo_id', 'left');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	function getAplicaciones() {
+		$this->db->select('*');
+		$this->db->from('tipos');
+		$this->db->where('tipos.nombre', 'Aplicacion');
+		$this->db->join('categorias', 'tipos.id = categorias.tipo_id');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	function products($vista = null, $subcategoria = null) {
 		$this->layout->setLayout('layout_products');
-		$data['categorias'] = $this->db->get('tipo')->result();
-		$data['aplicaciones'] = $this->db->get('industria')->result();
+		$data['categorias'] = $this->getCategorias();
+		//die($this->db->last_query());
+		$data['aplicaciones'] = $this->getAplicaciones();
 		$data['marcas'] = $this->db->get('marcas')->result();
 
 		switch ($vista) {
-			case 'categorias':
-			$data['result'] = $this->db->get('tipo')->result();
-			$data['breadcrumb'] = "Categorías";
-			$tabla = 'tipo';
+			case 'categoria':
+			$data['result'] = $data['categorias'];
+			$data['breadcrumb'] = 'Categoria';
 			//$this->layout->view('product_default', $data);
 			break;
 
-			case 'aplicaciones':
-			$data['result'] = $this->db->get('industria')->result();
-			$data['breadcrumb'] = "Aplicaciones";
-			$tabla = 'industria';
+			case 'aplicacion':
+			$data['result'] = $data['aplicaciones'];
 			//$this->layout->view('product_default', $data);
 			break;
 
 			case 'marcas':
-			$data['result'] = $this->db->get('marcas')->result();
-			$data['breadcrumb'] = "Marcas";
+			$data['result'] = $data['marcas'];
 			$this->layout->view('brands', $data);
 			return;
 			break;
@@ -106,10 +125,6 @@ class Show extends CI_Controller {
 				break;
 			}
 		}
-	}
-
-	function about() {
-		$this->layout->view('about');
 	}
 
 	function getProducts($vista, $subcategoria, $marca) {

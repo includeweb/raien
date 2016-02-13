@@ -36,10 +36,10 @@
 					<div>
 						<div class="text">
 							<div>
-								<span><?=$row->nombre?></span>
+								<span><?=$row->descripcion?></span>
 							</div>
 						</div>
-						<div class="image" style="background-image: url('<?=base_url();?>images/productos/<?=$row->galimg?>')">
+						<div class="image" style="background-image: url('<?=base_url();?>images/productos/<?=$row->url?>')">
 						</div>
 						<div class="background">
 						</div>

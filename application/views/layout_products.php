@@ -145,7 +145,7 @@
 						<div id="collapseOne" class="panel-collapse collapse in colapsable" role="tabpanel" aria-labelledby="headingOne">
 							<ul>
 								<?php foreach ($categorias as $categoria) { ?>
-									<li><a href="<?=base_url();?>show/products/categorias/<?=seoUrl($categoria->nombre)?>"><?=$categoria->nombre?></a></li>
+									<li><a href="<?=base_url();?>show/products/categorias/<?=seoUrl($categoria->descripcion)?>"><?=$categoria->descripcion?></a></li>
 								<?php } ?>
 							</ul>
 						</div>
@@ -155,7 +155,7 @@
 						<div id="collapseTwo" class="panel-collapse collapse in colapsable" role="tabpanel" aria-labelledby="headingTwo">
 							<ul>
 								<?php foreach ($aplicaciones as $aplicacion) { ?>
-									<li><a href="<?=base_url();?>show/products/aplicaciones/<?=seoUrl($aplicacion->nombre)?>"><?=$aplicacion->nombre?></a></li>
+									<li><a href="<?=base_url();?>show/products/aplicaciones/<?=seoUrl($aplicacion->descripcion)?>"><?=$aplicacion->descripcion?></a></li>
 								<?php } ?>
 							</ul>
 						</div>
@@ -232,7 +232,7 @@
 		    });
 		};
 
-		
+
 
 		$('.colapsable').on('hide.bs.collapse', function() {
 			$(this).prev().find('.glyphicon-triangle-bottom').animateRotate(0, -90);

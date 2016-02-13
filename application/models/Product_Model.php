@@ -6,7 +6,7 @@ class Product_Model extends CI_MODEL
         return $rs;
     }
     function get_tipos(){
-    	$rs = $this->db->get('tipo');
+    	$rs = $this->db->get('categorias');
     	return $rs;
     }
 
@@ -29,7 +29,7 @@ class Product_Model extends CI_MODEL
 
     function update_product($id,$update){
 		$this->db->where('id', $id);
-		$this->db->update('products', $update); 
+		$this->db->update('products', $update);
     }
 
 
