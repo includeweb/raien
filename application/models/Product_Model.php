@@ -23,7 +23,7 @@ class Product_Model extends CI_MODEL
     }
 
     function get_product($product_id){
-    	$rs = $this->db->get_where('products',array('id'=>$product_id));
+    	$rs = $this->db->get_where('productos',array('id'=>$product_id));
     	return $rs->row();
     }
 

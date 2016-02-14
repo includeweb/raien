@@ -30,7 +30,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="breadcrumb">
-				<a href="<?=base_url();?>show/products/">Productos</a><?php if ($breadcrumb) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/"><?=$breadcrumb;?></a><?php } ?><?php if ($subcategoria) { ?><span> &gt; </span><?=$subcategoria->nombre;?><?php } ?>
+				<a href="<?=base_url();?>show/products/">Productos</a><?php if ($breadcrumb) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/"><?=$breadcrumb;?></a><?php } ?><?php if ($subcategoria) { ?><span> &gt; </span><?=$subcategoria->descripcion;?><?php } ?>
 			</div>
 		</div>
 	</div>
@@ -40,27 +40,27 @@
 			if (!empty($result)) {
 			foreach ($result as $row) { ?>
 				<div class="thumbnails">
-					<a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/<?=seoUrl($row->nombre)?>"><img src="<?=base_url();?>images/productos/<?=$row->galimg?>" alt="" /></a>
+					<a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/<?=seoUrl($row->descripcion)?>"><img src="<?=base_url();?>images/productos/<?=$row->url?>.jpg" alt="" /></a>
 				</div>
 			<?php } } ?>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12 title">
-			<?=$subcategoria->nombre?>
+			<?=$subcategoria->descripcion?>
 		</div>
 	</div>
 	<div class="img-carousel">
 		<?php foreach ($marcasSubcategoria as $row) { ?>
 			<div class="brands-carousel">
 				<div data-id='<?=$row->id?>'>
-					<img src="<?=base_url();?>images/productos/logos/<?=$row->imagen?>" style="width:100%" />
+					<img src="<?=base_url();?>images/productos/logos/<?=seoUrl($row->nombre)?>.png" style="width:100%" />
 					<!-- <img src="http://placehold.it/155x90" class="img-responsive"> -->
 				</div>
 			</div>
 		<?php } ?>
 	</div>
-	<div class="row">
+	<div class="row" id="gallery">
 		<div class="col-md-12 product-gallery">
 			<div class="container-fluid">
 				<div class="row">
@@ -90,29 +90,12 @@
 			</div>
 		</div>
 	</div>
+	<div class="row hidden" id="product-details">
+
+	</div>
 </div>
 
 <script type="text/javascript" defer>
-	// $.fn.animateHeight = function(startHeight, endHeight, duration, easing, complete){
-	// 	return this.each(function(){
-	// 			var elem = $(this);
-	//
-	// 			$({deg: startHeight}).animate({deg: endHeight}, {
-	// 					duration: duration,
-	// 					easing: easing,
-	// 					step: function(now){
-	// 							elem.css({
-	// 								'-moz-transform':'height('+now+'%)',
-	// 								'-webkit-transform':'height('+now+'%)',
-	// 								'-o-transform':'height('+now+'%)',
-	// 								'-ms-transform':'height('+now+'%)',
-	// 								'transform':'height('+now+'%)'
-	// 							});
-	// 					},
-	// 					complete: complete || $.noop
-	// 			});
-	// 	});
-	// };
 
 	$('.brands-carousel > div').click(function() {
 		$(this).addClass('active');
@@ -122,13 +105,13 @@
 			url: "<?=base_url();?>show/getProducts/<?=seoUrl($breadcrumb);?>/<?=$url;?>/"+($(this).data("id"))
 		}).done(function(data) {
 			var json = $.parseJSON(data);
-			var brandImg = '<img src="<?=base_url();?>images/productos/logos/'+json.productos[0].imagen+'" />';
+			var brandImg = '<img src="<?=base_url();?>images/productos/logos/'+json.productos[0].imagen+'.png" />';
 			var brandText = '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
 
 			var gallery = '';
 
 			json['productos'].forEach(function(elem, index, array) {
-				gallery += '<div class="col-md-4 col-sm-6"><a href="#"><div><div class="image" style="http://placehold.it/155x90"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
+				gallery += '<div class="col-md-4 col-sm-6"><a href="javascript:void(0)" onclick="showDetails('+elem.id+');" data-id="'+elem.id+'"><div><div class="image" style="http://placehold.it/155x90"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
 			});
 			$('.product-gallery').fadeOut(function() {
 				$('.product-gallery > .container-fluid:first-child .col-md-4').html(brandImg);
@@ -138,14 +121,33 @@
 				$('.product-gallery').fadeIn();
 
 				$('.product-gallery .col-md-4 > a > div').mouseenter(function() {
+					$(this).find('.background').stop();
 					$(this).find('.background').animate({height: "100%"}, 300);
 				});
 
 				$('.product-gallery .col-md-4 > a > div').mouseleave(function() {
+					$(this).find('.background').stop();
 					$(this).find('.background').animate({height: "40%"}, 300);
 				});
 			})
 		});
 
 	});
+
+
+	function showDetails(id) {
+		$.ajax({
+			method: "GET",
+			url: "<?=base_url();?>show/getProduct/"+id
+		}).done(function(data) {
+			console.log(data);
+			var product = $.parseJSON(data);
+			$('#product-details').html(product.nombre);
+		});
+
+		$('#gallery').fadeOut(function() {
+			$('#product-details').removeClass('hidden');
+			$('#product-details').fadeIn();
+		});
+	}
 </script>

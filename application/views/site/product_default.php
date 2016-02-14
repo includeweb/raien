@@ -32,14 +32,14 @@
 		if (!empty($result)) {
 		foreach ($result as $row) { ?>
 			<div class="col-md-4 col-sm-6">
-				<a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/<?=seoUrl($row->nombre)?>">
+				<a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/<?=$row->url?>">
 					<div>
 						<div class="text">
 							<div>
 								<span><?=$row->descripcion?></span>
 							</div>
 						</div>
-						<div class="image" style="background-image: url('<?=base_url();?>images/productos/<?=$row->url?>')">
+						<div class="image" style="background-image: url('<?=base_url();?>images/productos/<?=$row->url?>.jpg')">
 						</div>
 						<div class="background">
 						</div>

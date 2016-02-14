@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-02-2016 a las 19:48:15
+-- Tiempo de generación: 14-02-2016 a las 18:59:08
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -41,17 +41,17 @@ CREATE TABLE IF NOT EXISTS `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `tipo_id`, `nombre`, `descripcion`, `imagen`, `url`) VALUES
-(1, 1, 'SI', 'Software de Ingenieria', '', ''),
-(2, 2, 'E', 'Energia', '', ''),
-(3, 2, 'PI', 'Plantas Industriales', '', ''),
-(4, 1, 'IL', 'Instrumentos de Laboratorio', '', ''),
-(5, 2, 'ID', 'Investigacion y desarollo', '', ''),
-(6, 1, 'ADC', 'Adquisicion de Datos y Control', '', ''),
-(7, 2, 'T', 'Telecomunicaciones', '', ''),
-(8, 2, 'ICM', 'Ingenieria Civil y Mecanica', '', ''),
-(9, 1, 'ST', 'Sensores y Transductores', '', ''),
-(10, 1, 'SI', 'Sistemas integrados', '', ''),
-(11, 1, 'PCI', 'PCs Industriales', '', '');
+(1, 1, 'SI', 'Software de Ingenieria', '', 'software-de-ingenieria'),
+(2, 2, 'E', 'Energia', '', 'energia'),
+(3, 2, 'PI', 'Plantas Industriales', '', 'plantas-industriales'),
+(4, 1, 'IL', 'Instrumentos de Laboratorio', '', 'instrumentos-de-laboratorio'),
+(5, 2, 'ID', 'Investigacion y desarrollo', '', 'investigacion-y-desarrollo'),
+(6, 1, 'ADC', 'Adquisicion de Datos y Control', '', 'adquisicion-de-datos-y-control'),
+(7, 2, 'T', 'Telecomunicaciones', '', 'telecomunicaciones'),
+(8, 2, 'ICM', 'Ingenieria Civil y Mecanica', '', 'ingenieria-civil-y-mecanica'),
+(9, 1, 'ST', 'Sensores y Transductores', '', 'sensores-y-transductores'),
+(10, 1, 'SI', 'Sistemas integrados', '', 'sistemas-integrados'),
+(11, 1, 'PCI', 'PCs Industriales', '', 'pcs-industriales');
 
 -- --------------------------------------------------------
 
@@ -100,19 +100,19 @@ CREATE TABLE IF NOT EXISTS `marcas` (
 --
 
 INSERT INTO `marcas` (`id`, `nombre`, `imagen`) VALUES
-(9, 'GAMRY', 'GAMRY.jpg'),
-(8, 'ETAP', 'ETAP.jpg'),
-(10, 'TEKSCAN', 'TEKSCAN.jpg'),
-(11, 'CRYSTAL INSTRUMENTS', 'CRYSTAL.jpg'),
-(13, 'AKCP', 'AKCP.jpg'),
-(15, 'PACE SCIENTIFIC', 'PACE.jpg'),
-(16, 'IEI', 'iei.jpg'),
-(18, 'KEITHLEY', 'keithley.jpg'),
-(19, 'MEGGITT', 'MEGGITT.jpg'),
-(26, 'MACROSENSORS', '476979_Logo4.jpg'),
-(23, 'AMETEK', 'AMETEK.jpg'),
-(25, 'ICP DAS', 'ICP.jpg'),
-(28, 'HBM', 'HBM-logo.jpg');
+(9, 'GAMRY', 'gamry'),
+(8, 'ETAP', 'etap'),
+(10, 'TEKSCAN', 'tekscan'),
+(11, 'CRYSTAL INSTRUMENTS', 'crystal-instruments'),
+(13, 'AKCP', 'akcp'),
+(15, 'PACE SCIENTIFIC', 'pace-scientific'),
+(16, 'IEI', 'iei'),
+(18, 'KEITHLEY', 'keithley'),
+(19, 'MEGGITT', 'meggitt'),
+(26, 'MACROSENSORS', 'macrosensors'),
+(23, 'AMETEK', 'ametek'),
+(25, 'ICP DAS', 'icp-das'),
+(28, 'HBM', 'hbm');
 
 -- --------------------------------------------------------
 
