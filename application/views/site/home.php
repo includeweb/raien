@@ -75,7 +75,7 @@
 				        <li class="dropdown">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">productos <span class="caret"></span></a>
 				          <ul class="dropdown-menu">
-				            <li>
+				            <li class="sub-navigation-li">
 				            	<a href="#" class="subnavigation-item" data-img="<?=base_url();?>images/web/categoria-icon.png" data-hover="<?=base_url();?>images/web/categoria-icon-hover.png">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
@@ -87,7 +87,7 @@
 				            		</div>
 				            	</a>
 				            </li>
-				            <li>
+				            <li class="sub-navigation-li">
 				            	<a href="#" class="subnavigation-item" data-img="<?=base_url();?>images/web/aplicacion-icon.png" data-hover="<?=base_url();?>images/web/aplicacion-icon-hover.png">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
@@ -99,7 +99,7 @@
 				            		</div>
 				            	</a>
 				            </li>
-				            <li>
+				            <li class="sub-navigation-li">
 				            	<a href="#" class="subnavigation-item" data-img="<?=base_url();?>images/web/marca-icon.png" data-hover="<?=base_url();?>images/web/marca-icon-hover.png">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
@@ -197,34 +197,30 @@
 				<div class="col-md-3 col-sm-12 no-padding-right separate-mobile">
 					<!-- Split button -->
 					<div class="btn-group full-width ">
-						<div class="btn-title">tipo de producto</div>
-					  <button type="button" class="btn btn-buscador">Seleccione un tipo</button>
+						<div class="btn-title ">tipo de producto</div>
+					  <button type="button" class="btn btn-buscador categoria_nombre">Seleccione un tipo</button>
 					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
 					  <ul class="dropdown-menu dropdown-buscador">
-						  <?foreach ($tipos as $tipo){ ?>
-						    <li><a href="#"><?=$tipo->nombre;?></a></li>
+						  <?foreach ($categorias as $categoria){ ?>
+						    <li><a href="javascript:void(0);" class="categoria" data-id="<?=$categoria->id;?>"><?=$categoria->descripcion;?></a></li>
 						  <? } ?>  
 					  </ul>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-12  no-padding-right separate-mobile">
+				<div class="col-md-3 col-sm-12  no-padding-right separate-mobile marcas-container">
 					<!-- Split button -->
 					<div class="btn-group full-width" >
-					<div class="btn-title">marca del producto</div>
-					  <button type="button" class="btn btn-buscador" disabled="disabled">Seleccione una marca</button>
+					<div class="btn-title ">marca del producto</div>
+					  <button type="button" class="btn btn-buscador marca_nombre" disabled="disabled">Seleccione una marca</button>
 					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
-					  <ul class="dropdown-menu dropdown-buscador">
-					    <li><a href="#">Action</a></li>
-					    <li><a href="#">Another action</a></li>
-					    <li><a href="#">Something else here</a></li>
-					    
-					    <li><a href="#">Separated link</a></li>
+					  <ul class="dropdown-menu dropdown-buscador marcas-listado">
+					    					   
 					  </ul>
 					</div>
 				</div>
@@ -307,6 +303,34 @@
 		       		$(this).find('img').attr('src', img) 
 		       	}
 			);
+
+			$('.categoria').click(function(){
+
+				var categoria_id = $(this).data('id');
+				
+				$('.marcas-listado').html('');
+				$.ajax({
+					  method: "POST",
+					  url: "<?=base_url();?>show/traerMarcaPorCategoria",
+					  data: { categoria_id: categoria_id}
+					})
+					  .done(function(msg) {
+					  	$('.marcas-container button').removeAttr('disabled');
+					  	if(msg != "error"){
+
+					  		var json = $.parseJSON(msg);
+					  		$('.categoria_nombre').html(json[0].codigo);
+					  	 	for(var i = 0; i <= (json.length - 1 ); i++){
+					  	 		$('.marcas-listado').append('<li><a href="#">'+json[i].nombre+'</a></li>');
+					  	 	}
+					  	}else{
+					  		$('.marcas-listado').html('<li><a href="javascript:void(0);">No se encontraron marcas.</a></li>');
+					  	}
+					  	
+						//$('.categoria_nombre').html(msg.);
+					  });
+					  
+			});
 		
 	});
 

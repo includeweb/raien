@@ -15,8 +15,12 @@ class Show extends CI_Controller {
 	}
 
 	function index(){
-		$data['tipos'] = $this->product->get_tipos()->result();
-		$data['marcas'] = $this->product->get_tipos()->result();
+		/*$data['tipos'] = $this->product->get_tipos()->result();
+		$data['marcas'] = $this->product->get_tipos()->result();*/
+		$this->db->select('*');
+		$this->db->from('categorias');
+		$this->db->where('tipo_id', CATEGORIA);
+		$data['categorias'] = $this->db->get()->result();
 
 		$this->load->view('site/home', $data);
 	}
@@ -164,6 +168,32 @@ class Show extends CI_Controller {
 		echo $jsonstring;
 	}
 
+	function traerMarcaPorCategoria(){
+		/*$categoria_id = $this->input->post('categoria_id');
+		$this->db->select('m.nombre');
+		$this->db->from('productos_categorias pc');
+		$this->db->where('pc.categoria_id', $categoria_id);
+		$this->db->join('productos p', 'pc.producto_id = p.id');
+		$this->db->join('marcas m', 'p.marca = m.id');*/
+		$categoria_id = $this->input->post('categoria_id');
+		$this->db->distinct();
+		$this->db->select('m.nombre, c.nombre as codigo');
+		$this->db->from('marcas m');
+		$this->db->join('productos p', 'm.id = p.marca', 'LEFT');
+		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id' ,'LEFT');
+		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
+		$this->db->where('pc.categoria_id', $categoria_id);
+		$data = $this->db->get()->result();
+
+		if($data){
+			$json = json_encode($data);
+			echo $json;
+		}else{
+			echo 'error';
+		}
+		
+		
+	}
 }
 
 
