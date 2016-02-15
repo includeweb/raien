@@ -77,10 +77,10 @@
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 				      <ul class="nav navbar-nav navbar-right">
-				        <li><a href="<?=base_url();?>show">home</a></li>
+				        <li><a href="<?=base_url();?>show" title="home">home</a></li>
 
 				        <li class="dropdown">
-				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">productos</a>
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="productos">productos</a>
 				          <ul class="dropdown-menu">
 				            <li>
 				            	<a href="<?=base_url();?>show/products/categorias">
@@ -121,11 +121,11 @@
 
 				          </ul>
 				        </li>
-				        <li><a href="<?=base_url();?>show/engineering">ingeniería</a></li>
-				        <li><a href="<?=base_url();?>show/training">capacitación</a></li>
-				        <li><a href="#">institucional</a></li>
-				        <li><a href="<?=base_url();?>show/contact">contacto</a></li>
-				        <li><a href="<?=base_url();?>show/team">trabaja con raien</a></li>
+				        <li><a href="<?=base_url();?>show/engineering" title="ingeniería">ingeniería</a></li>
+				        <li><a href="<?=base_url();?>show/training" title="capacitación">capacitación</a></li>
+				        <li><a href="#" title="institucional">institucional</a></li>
+				        <li><a href="<?=base_url();?>show/contact" title="contacto">contacto</a></li>
+				        <li><a href="<?=base_url();?>show/team" title="trabaja con raien">trabaja con raien</a></li>
 				      </ul>
 				    </div><!-- /.navbar-collapse -->
 				  	</div>

@@ -187,6 +187,7 @@ p > b {
 	padding-right: 20px;
 }
 
+
 .raien-site-navbar {
 	top: 50px;
 	background-color: #404041;
@@ -206,6 +207,10 @@ p > b {
 	margin-top: 3px;
 }
 
+.raien-site-navbar .navbar-toggle{
+	margin-top: 12px;
+}
+
 .raien-site-navbar .navbar-nav>li>a {
 	color: #fff!important;
 	font-size: 13px;
@@ -214,6 +219,16 @@ p > b {
 
 .raien-site-navbar .navbar-nav>li>a:hover {
 	font-weight: 700;
+}
+
+.raien-site-navbar .navbar-nav>li>a::after {
+	display:block;
+	content:attr(title);
+	font-weight:bold;
+	height:1px;
+	color:transparent;
+	overflow:hidden;
+	visibility:hidden;
 }
 
 .sub-navigation-li:first-child{
@@ -733,7 +748,7 @@ p > b {
 	margin-bottom: 20px;
 }
 
-.product-gallery > .container-fluid:first-child .col-md-4 {
+.product-gallery > .container-fluid:first-child .col-sm-4 {
 	border-right: 1px solid #fff;
 	margin-bottom: 0!important;
 }
@@ -744,7 +759,7 @@ p > b {
 	padding: 0 20px;
 }
 
-.product-gallery > .container-fluid:first-child .col-md-8 > div {
+.product-gallery > .container-fluid:first-child .col-sm-8 > div {
 	font-size: 10px;
 	font-family: 'Raleway', sans-serif;
 	font-weight: 500;

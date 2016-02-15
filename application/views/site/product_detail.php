@@ -64,10 +64,10 @@
 		<div class="col-md-12 product-gallery">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-4">
+					<div class="col-sm-4">
 						<!-- <img src="http://placehold.it/155x90" class="img-responsive"> -->
 					</div>
-					<div class="col-md-8">
+					<div class="col-sm-8">
 						<!-- <div>Tekscan's patented tactile force and pressure sensing solutions provide our customers with the actionable information they need to optimize product design and improve clinical and research outcomes. Our sensors and systems are used across a wide range of applications within test and measurement, medical, dental, and retail; as stand-alone solutions or as embedded technology to create better and differentiated products. Our passion for innovation, broad expertise and commitment to quality help turn your vision into reality.</div> -->
 					</div>
 				</div>
@@ -113,9 +113,17 @@
 			json['productos'].forEach(function(elem, index, array) {
 				gallery += '<div class="col-md-4 col-sm-6"><a href="javascript:void(0)" onclick="showDetails('+elem.id+');" data-id="'+elem.id+'"><div><div class="image" style="http://placehold.it/155x90"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
 			});
+			if ($('#gallery').hasClass('hidden')) {
+				$('#product-details').fadeOut(function() {
+					$('#product-details').addClass('hidden');
+					$('#gallery').removeClass('hidden');
+					$('#gallery').fadeIn();
+				});
+			}
+
 			$('.product-gallery').fadeOut(function() {
-				$('.product-gallery > .container-fluid:first-child .col-md-4').html(brandImg);
-				$('.product-gallery > .container-fluid:first-child .col-md-8').html(brandText);
+				$('.product-gallery > .container-fluid:first-child .col-sm-4').html(brandImg);
+				$('.product-gallery > .container-fluid:first-child .col-sm-8').html(brandText);
 				$('.product-gallery > .container-fluid:last-child .row').html(gallery);
 
 				$('.product-gallery').fadeIn();
@@ -136,6 +144,8 @@
 
 
 	function showDetails(id) {
+		$(window).scrollTop(0);
+
 		$.ajax({
 			method: "GET",
 			url: "<?=base_url();?>show/getProduct/"+id
@@ -143,11 +153,14 @@
 			console.log(data);
 			var product = $.parseJSON(data);
 			$('#product-details').html(product.nombre);
+
+			$('#gallery').fadeOut(function() {
+				$('#gallery').addClass('hidden');
+				$('#product-details').removeClass('hidden');
+				$('#product-details').fadeIn();
+			});
 		});
 
-		$('#gallery').fadeOut(function() {
-			$('#product-details').removeClass('hidden');
-			$('#product-details').fadeIn();
-		});
+		
 	}
 </script>
