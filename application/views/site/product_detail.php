@@ -53,7 +53,7 @@
 	<div class="img-carousel">
 		<?php foreach ($marcasSubcategoria as $row) { ?>
 			<div class="brands-carousel">
-				<div data-id='<?=$row->id?>'>
+				<div data-id="<?=$row->id?>" data-image="<?=$row->imagen?>">
 					<img src="<?=base_url();?>images/productos/logos/<?=seoUrl($row->nombre)?>.png" style="width:100%" />
 					<!-- <img src="http://placehold.it/155x90" class="img-responsive"> -->
 				</div>
@@ -91,18 +91,62 @@
 		</div>
 	</div>
 	<div class="row hidden" id="product-details">
+		<div class="col-md-12">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-4">
+						<img src="http://placehold.it/220x250" />
+					</div>
+					<div class="col-md-4">
+						<div>
+							<div id="category">
 
+							</div>
+							<div id="product-name">
+
+							</div>
+						</div>
+						<div id="brand-img">
+
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-md-4">
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<span>
+							<a href="">DESCARGAR ESPECIFICACIONES</a>
+						</span>
+						<span>
+							<a href="javascript:void(0)" onclick="goBack();">VOLVER</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
 <script type="text/javascript" defer>
 
+	var marca;
+	var categoria = '<?=$subcategoria->descripcion?>';
+
 	$('.brands-carousel > div').click(function() {
+		marca = $(this).data('image');
 		$(this).addClass('active');
 		$(this).parent().siblings().find('.active').removeClass('active');
 		$.ajax({
 			method: "GET",
-			url: "<?=base_url();?>show/getProducts/<?=seoUrl($breadcrumb);?>/<?=$url;?>/"+($(this).data("id"))
+			url: "<?=base_url();?>show/getProducts/<?=seoUrl($breadcrumb);?>/<?=$url;?>/"+($(this).data('id'))
 		}).done(function(data) {
 			var json = $.parseJSON(data);
 			var brandImg = '<img src="<?=base_url();?>images/productos/logos/'+json.productos[0].imagen+'.png" />';
@@ -152,7 +196,10 @@
 		}).done(function(data) {
 			console.log(data);
 			var product = $.parseJSON(data);
-			$('#product-details').html(product.nombre);
+			$('#product-details .container-fluid .col-md-12').html(product.notaapp);
+			$('#product-name').html(product.nombre);
+			$('#category').html(categoria);
+			$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>')
 
 			$('#gallery').fadeOut(function() {
 				$('#gallery').addClass('hidden');
@@ -160,7 +207,14 @@
 				$('#product-details').fadeIn();
 			});
 		});
+	}
 
-		
+	function goBack() {
+		$(window).scrollTop(0);
+		$('#product-details').fadeOut(function() {
+			$('#product-details').addClass('hidden');
+			$('#gallery').removeClass('hidden');
+			$('#gallery').fadeIn();
+		});
 	}
 </script>
