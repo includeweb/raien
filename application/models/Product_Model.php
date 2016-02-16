@@ -6,21 +6,22 @@ class Product_Model extends CI_MODEL
         return $rs;
     }
     function get_tipos(){
-    	$rs = $this->db->get('categorias');
+    	$rs = $this->db->get('tipos');
+    	return $rs;
+    }
+
+    function list_productos(){
+    	$this->db->select('p.*,m.nombre as marca');
+    	$this->db->join('marcas m','p.marca_id = m.id');
+    	$rs = $this->db->get('productos p');
     	return $rs;
     }
 
     function add_product($insert){
-    	$this->db->insert('products',$insert);
+    	$this->db->insert('productos',$insert);
     	return $this->db->insert_id();
     }
 
-    function list_products(){
-    	$this->db->select('p.*,t.name as type');
-    	$this->db->join('type t','p.type_id = t.id');
-    	$rs = $this->db->get('products p');
-    	return $rs;
-    }
 
     function get_product($product_id){
     	$rs = $this->db->get_where('productos',array('id'=>$product_id));
@@ -29,7 +30,7 @@ class Product_Model extends CI_MODEL
 
     function update_product($id,$update){
 		$this->db->where('id', $id);
-		$this->db->update('products', $update);
+		$this->db->update('productos', $update);
     }
 
 

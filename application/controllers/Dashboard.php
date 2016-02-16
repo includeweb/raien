@@ -35,9 +35,9 @@ class Dashboard extends CI_Controller {
 
 		if($_POST){
 			
-				$insert['name'] = $_POST['name'];
-				$insert['description'] = $_POST['description'];
-				$insert['type_id'] = $_POST['type_id'];
+				$insert['nombre'] = $_POST['name'];
+				$insert['descripcion'] = $_POST['description'];
+				$insert['marca_id'] = $_POST['marca_id'];
 				$insert['file_pdf'] = $_FILES['file_pdf']['name'];
 				$insert['file_img'] = $_FILES['file_jpg']['name'];
 				$product_id = $this->product->add_product($insert);
@@ -45,7 +45,7 @@ class Dashboard extends CI_Controller {
 				redirect('Dashboard/productos');
 		}
 
-		$data['types'] = $this->product->get_type();
+		$data['marcas'] = $this->db->get('marcas');
 		$data['user_id']	= $this->tank_auth->get_user_id();
 		$data['username']	= $this->tank_auth->get_username();
 		$data['role'] = $this->tank_auth->get_role();
@@ -53,14 +53,32 @@ class Dashboard extends CI_Controller {
 		$this->layout->view('productos/agregar', $data, $return=false);
 	}	
 
+	
+		
+	public function get_product(){
+		$id = $_POST['id'];
+		
+		if($_POST){
+			
+		//	$this->db->where('p.id',$id);
+			$rs = $this->db->get_where('productos',array('id'=>$id));
+			$products = $rs->row();
+			echo json_encode($products);
+			
+		}
+
+	}
+	
+	
+	
 	public function editar_producto($product_id){
 
 		if($_POST){
 
 			
-			$update['name'] = $_POST['name'];
-			$update['description'] = $_POST['description'];
-			$update['type_id'] = $_POST['type_id'];
+			$update['nombre'] = $_POST['name'];
+			$update['descripcion'] = $_POST['description'];
+			$update['marca_id'] = $_POST['type_id'];
 
 			if($this->upload($product_id)){
 
@@ -80,7 +98,7 @@ class Dashboard extends CI_Controller {
 		
 		}
 
-		$data['types'] = $this->product->get_type();
+		$data['marcas'] = $this->db->get('marcas');
 		$data['user_id']	= $this->tank_auth->get_user_id();
 		$data['username']	= $this->tank_auth->get_username();
 		$data['role'] = $this->tank_auth->get_role();
@@ -122,16 +140,16 @@ class Dashboard extends CI_Controller {
 
 		if(!empty($data)){
 		
-			$array = array('p.name' => $data, 
-				'p.description' => $data, 
+			$array = array('p.nombre' => $data, 
+				'p.descripcion' => strip_tags($data), 
 				'p.file_pdf' => $data, 
-				't.name' => $data, 
+				'm.nombre' => $data, 
 				'p.file_img' => $data
 				);
 			$this->db->or_like($array);
 		}
 		$this->db->limit($resultados);
-		$rs = $this->product->list_products();
+		$rs = $this->product->list_productos();
 		$products = $rs->result();
 		echo json_encode($products);
 	}
@@ -142,15 +160,15 @@ class Dashboard extends CI_Controller {
 
 		if(!empty($data)){
 		
-			$array = array('p.name' => $data, 
-				'p.description' => $data, 
+			$array = array('p.nombre' => $data, 
+				'p.descripcion' => strip_tags($data), 
 				'p.file_pdf' => $data, 
-				't.name' => $data, 
+				'm.nombre' => $data, 
 				'p.file_img' => $data
 				);
 			$this->db->or_like($array);
 		}
-		$rs = $this->product->list_products();
+		$rs = $this->product->list_productos();
 		echo  $rs->num_rows();
 	}
 
@@ -167,11 +185,11 @@ class Dashboard extends CI_Controller {
 		
 		if($_POST){
 			if(!empty($data)){
-			
-				$array = array('p.name' => $data, 
-					'p.description' => $data, 
+		
+				$array = array('p.nombre' => $data, 
+					'p.descripcion' => strip_tags($data), 
 					'p.file_pdf' => $data, 
-					't.name' => $data, 
+					'm.nombre' => $data, 
 					'p.file_img' => $data
 					);
 				$this->db->or_like($array);
