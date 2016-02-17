@@ -7,14 +7,14 @@
 		setTimeout(function(){
 			$('.img-3').addClass('fadeInLeft').fadeIn('slow');
 		}, 400);
-		
+
 	});
 </script>
 <div class="row about">
 	<div class="col-md-3">
-		<div class="img-1 animated animate-hide"><img src="http://placehold.it/240x160"></div>
-		<div class="img-2 animated animate-hide"><img src="http://placehold.it/240x160"></div>
-		<div class="img-3 animated animate-hide"><img src="http://placehold.it/240x160"></div>
+		<div class="img-1 animated animate-hide"><img class="img-responsive" src="<?=base_url();?>images/about/foto1.jpg"></div>
+		<div class="img-2 animated animate-hide"><img class="img-responsive" src="<?=base_url();?>images/about/foto2.jpg"></div>
+		<div class="img-3 animated animate-hide"><img class="img-responsive" src="<?=base_url();?>images/about/foto3.jpg"></div>
 	</div>
 	<div class="col-md-9">
 		<div>

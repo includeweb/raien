@@ -25,11 +25,11 @@
     <!-- Main container -->
     <div class="container-fluid no-padding">
   		<!-- Top info -->
-    	
-    		
-    	
+
+
+
     	<!-- / Top info -->
-    	
+
 
 				<nav class="navbar navbar-default  top-info-navbar hidden-xs">
 					<div class="container">
@@ -42,7 +42,7 @@
 				    				</a>
 				    				<a href="" target="_blank">
 				    					<img src="<?=base_url();?>images/web/facebook-icon.png" alt="Facebook">
-				    				</a>	
+				    				</a>
 				    				<a href="" target="_blank">
 				    					<img src="<?=base_url();?>images/web/blogger-icon.png" alt="Blogger">
 				    				</a>
@@ -53,7 +53,7 @@
 				</nav>
 	    		<nav class="navbar navbar-default  raien-navbar">
 					<div class="container ">
-					
+
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    <div class="navbar-header">
 				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -68,15 +68,15 @@
 
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				      
+
 				      <ul class="nav navbar-nav navbar-right">
 				        <li><a href="<?=base_url();?>show">home</a></li>
-				        
+
 				        <li class="dropdown">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">productos <span class="caret"></span></a>
 				          <ul class="dropdown-menu">
 				            <li class="sub-navigation-li">
-				            	<a href="#" class="subnavigation-item" data-img="<?=base_url();?>images/web/categoria-icon.png" data-hover="<?=base_url();?>images/web/categoria-icon-hover.png">
+				            	<a href="<?=base_url();?>show/products/categoria" class="subnavigation-item" data-img="<?=base_url();?>images/web/categoria-icon.png" data-hover="<?=base_url();?>images/web/categoria-icon-hover.png">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
 				            				<img src="<?=base_url();?>images/web/categoria-icon.png" />
@@ -88,7 +88,7 @@
 				            	</a>
 				            </li>
 				            <li class="sub-navigation-li">
-				            	<a href="#" class="subnavigation-item" data-img="<?=base_url();?>images/web/aplicacion-icon.png" data-hover="<?=base_url();?>images/web/aplicacion-icon-hover.png">
+				            	<a href="<?=base_url();?>show/products/aplicacion" class="subnavigation-item" data-img="<?=base_url();?>images/web/aplicacion-icon.png" data-hover="<?=base_url();?>images/web/aplicacion-icon-hover.png">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
 				            				<img src="<?=base_url();?>images/web/aplicacion-icon.png" />
@@ -100,7 +100,7 @@
 				            	</a>
 				            </li>
 				            <li class="sub-navigation-li">
-				            	<a href="#" class="subnavigation-item" data-img="<?=base_url();?>images/web/marca-icon.png" data-hover="<?=base_url();?>images/web/marca-icon-hover.png">
+				            	<a href="<?=base_url();?>show/products/marcas" class="subnavigation-item" data-img="<?=base_url();?>images/web/marca-icon.png" data-hover="<?=base_url();?>images/web/marca-icon-hover.png">
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
 				            				<img src="<?=base_url();?>images/web/marca-icon.png" />
@@ -111,20 +111,20 @@
 				            		</div>
 				            	</a>
 				            </li>
-				          
+
 				          </ul>
 				        </li>
 				        <li><a href="<?=base_url();?>show/engineering">ingeniería</a></li>
 				        <li><a href="<?=base_url();?>show/training">capacitación</a></li>
-				        <li><a href="#">institucional</a></li>
+				        <li><a href="<?=base_url();?>show/about">institucional</a></li>
 				        <li><a href="<?=base_url();?>show/contact">contacto</a></li>
 				        <li><a href="<?=base_url();?>show/team">trabaja con raien</a></li>
 				      </ul>
 				    </div><!-- /.navbar-collapse -->
 				  	</div>
 				</nav>
-		
-		
+
+
     </div>
     <div class="container-fluid no-padding">
     <div class="mobile-header visible-sm visible-xs">
@@ -150,21 +150,21 @@
 		  	</div>
 		    <div class="item active ">
 		      <img src="<?=base_url();?>images/web/slider-1.jpg" class="img-responsive">
-		      
+
 		    </div>
 		    <div class="item">
 		      <img src="<?=base_url();?>images/web/slider-2.jpg" class="img-responsive">
-		     
+
 		    </div>
 		    <div class="item">
 		      <img src="<?=base_url();?>images/web/slider-3.jpg" class="img-responsive">
-		      
+
 		    </div>
 		    <div class="item">
 		      <img src="<?=base_url();?>images/web/slider-4.jpg" class="img-responsive">
-		      
+
 		    </div>
-		   
+
 		  </div>
 
 		  <!-- Controls -->
@@ -204,9 +204,9 @@
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
 					  <ul class="dropdown-menu dropdown-buscador">
-						  <?foreach ($categorias as $categoria){ ?>
+						  <?php foreach ($categorias as $categoria){ ?>
 						    <li><a href="javascript:void(0);" class="categoria" data-id="<?=$categoria->id;?>"><?=$categoria->descripcion;?></a></li>
-						  <? } ?>  
+						  <?php } ?>
 					  </ul>
 					</div>
 				</div>
@@ -220,7 +220,7 @@
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
 					  <ul class="dropdown-menu dropdown-buscador marcas-listado">
-					    					   
+
 					  </ul>
 					</div>
 				</div>
@@ -237,7 +237,7 @@
 					    <li><a href="#">Action</a></li>
 					    <li><a href="#">Another action</a></li>
 					    <li><a href="#">Something else here</a></li>
-					    
+
 					    <li><a href="#">Separated link</a></li>
 					  </ul>
 					</div>
@@ -250,7 +250,7 @@
 	</div>
 </div>
 
-	<!-- / Content -->		
+	<!-- / Content -->
     </div>
  	<!-- / Main container -->
  	<div class="footer">
@@ -280,7 +280,7 @@
  		</div>
  	</div>
 
- 
+
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -291,23 +291,23 @@
 	$(document).ready(function(){
 
 			$('.subnavigation-item').hover(
-				
-		       	function(){ 
-		       		var hover = $(this).data('hover'); 
-		       		 
-		       		$(this).find('img').attr('src', hover) 
-		       	},
-		       	function(){ 
 
-		       		var img = $(this).data('img'); 
-		       		$(this).find('img').attr('src', img) 
+		       	function(){
+		       		var hover = $(this).data('hover');
+
+		       		$(this).find('img').attr('src', hover)
+		       	},
+		       	function(){
+
+		       		var img = $(this).data('img');
+		       		$(this).find('img').attr('src', img)
 		       	}
 			);
 
 			$('.categoria').click(function(){
 
 				var categoria_id = $(this).data('id');
-				
+
 				$('.marcas-listado').html('');
 				$.ajax({
 					  method: "POST",
@@ -326,15 +326,15 @@
 					  	}else{
 					  		$('.marcas-listado').html('<li><a href="javascript:void(0);">No se encontraron marcas.</a></li>');
 					  	}
-					  	
+
 						//$('.categoria_nombre').html(msg.);
 					  });
-					  
+
 			});
-		
+
 	});
 
-	
+
 </script>
   </body>
 </html>

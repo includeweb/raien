@@ -21,7 +21,6 @@ class Show extends CI_Controller {
 		$this->db->from('categorias');
 		$this->db->where('tipo_id', CATEGORIA);
 		$data['categorias'] = $this->db->get()->result();
-
 		$this->load->view('site/home', $data);
 	}
 
@@ -92,7 +91,7 @@ class Show extends CI_Controller {
 
 			default:
 			$data['breadcrumb'] = null;
-			$data['result'] = [];
+			$data['result'] = null;
 			$this->layout->view('product_default', $data);
 			return;
 			break;
@@ -111,9 +110,9 @@ class Show extends CI_Controller {
 			$this->db->join('tipos', 'tipos.id = categorias.tipo_id');
 			$this->db->join('productos_categorias', 'productos_categorias.categoria_id = categorias.id');
 			$this->db->join('productos', 'productos.id = productos_categorias.producto_id');
-			$this->db->join('marcas', 'marcas.id = productos.marca');
+			$this->db->join('marcas', 'marcas.id = productos.marca_id');
 			$this->db->distinct();
-			$query = $this->db->get();	
+			$query = $this->db->get();
 			$data['marcasSubcategoria'] = $query->result();
 			$this->layout->view('product_detail', $data);
 
@@ -143,18 +142,18 @@ class Show extends CI_Controller {
 				$this->layout->view('product_detail', $data);
 				break;
 			}*/
-			
+
 		}
 	}
 
 	function getProducts($vista, $subcategoria, $marca) {
-		$this->db->select('marcas.nombre marca, marcas.imagen, productos.id, productos.nombre, productos.manual, productos.notaapp, productos.producto');
+		$this->db->select('marcas.nombre marca, marcas.imagen, productos.id, productos.nombre, productos.file_pdf, productos.descripcion, productos.file_img');
 		$this->db->where('categorias.url', $subcategoria);
 		$this->db->where('marcas.id', $marca);
 		$this->db->from('categorias');
 		$this->db->join('productos_categorias', 'productos_categorias.categoria_id = categorias.id');
 		$this->db->join('productos', 'productos.id = productos_categorias.producto_id');
-		$this->db->join('marcas', 'marcas.id = productos.marca');
+		$this->db->join('marcas', 'marcas.id = productos.marca_id');
 		$query = $this->db->get();
 		//die($this->db->last_query());
 		$data['productos'] = $query->result();
@@ -179,7 +178,7 @@ class Show extends CI_Controller {
 		$this->db->distinct();
 		$this->db->select('m.nombre, c.nombre as codigo');
 		$this->db->from('marcas m');
-		$this->db->join('productos p', 'm.id = p.marca', 'LEFT');
+		$this->db->join('productos p', 'm.id = p.marca_id', 'LEFT');
 		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id' ,'LEFT');
 		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
 		$this->db->where('pc.categoria_id', $categoria_id);
@@ -191,8 +190,8 @@ class Show extends CI_Controller {
 		}else{
 			echo 'error';
 		}
-		
-		
+
+
 	}
 }
 

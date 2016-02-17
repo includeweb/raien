@@ -231,6 +231,16 @@ p > b {
 	visibility:hidden;
 }
 
+.raien-site-navbar .nav > li.dropdown.open {
+    position: static;
+}
+.raien-site-navbar .nav > li.dropdown.open .dropdown-menu {
+    display:table; width: 100%; text-align: center; left:0; right:0;
+}
+.raien-site-navbar .dropdown-menu>li {
+    display: table-cell;
+}
+
 .sub-navigation-li:first-child{
 	border-right: 1px solid #ccc;
 }
@@ -393,6 +403,14 @@ p > b {
 /* CONTENT */
 .content > .about ul {
 	list-style-type: square;
+}
+
+.content > .about .col-md-3 > div {
+	padding-bottom: 5px;
+}
+
+.content > .about .col-md-3 > div > img {
+	margin: 0 auto;
 }
 
 .content {
