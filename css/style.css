@@ -63,7 +63,10 @@ p > b {
 
 /* NAVBAR */
 .raien-navbar{
-	background-image: -webkit-linear-gradient(top,rgba(0,0,0,.5) 0,rgba(0,0,0,.10) 100%);
+	/*background-image: -webkit-linear-gradient(top,rgba(0,0,0,.5) 0,rgba(0,0,0,.10) 100%);*/
+	border-bottom: 1px solid #fff!important;
+	margin-top: 20px;
+    padding-bottom: 13px;
 
 }
 .raien-navbar .navbar-nav>li>a:hover{
@@ -181,12 +184,22 @@ p > b {
 	font-weight: 400;
 	font-size: 10px;
 	text-transform: uppercase;
+	margin-bottom: 0;
+	border: 0;
+	border-radius: 0;
 }
 
 .site-nav .col-md-6 > span {
 	padding-right: 20px;
 }
 
+.home-nav {
+	background-color: transparent;
+	position: absolute;
+    z-index: 9999;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+}
 
 .raien-site-navbar {
 	top: 50px;
@@ -329,10 +342,26 @@ p > b {
 .buscador input[type="text"]{
 	height: 36px;
 	border-radius:0px;
-	background-color: transparent;
+	background-color: #DB9805!important;
 	color: #000!important;
-	border:1px solid #fff;
+	border:1px solid #fff!important;
 	margin-left:-1px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: black!important;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: black!important;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: black!important;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: black!important;
+}
+:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color:    #909;
 }
 
 .buscador button{
@@ -1134,7 +1163,7 @@ td:nth-child(3) > span {
 @media (min-width: 768px){
 	.raien-navbar{
 		padding-top: 40px;
-		background-image: -webkit-linear-gradient(top,rgba(0,0,0,.5) 0,rgba(0,0,0,.10) 100%);
+		/*background-image: -webkit-linear-gradient(top,rgba(0,0,0,.5) 0,rgba(0,0,0,.10) 100%);*/
 	}
 	.dropdown-toggle{
 		text-align: center;

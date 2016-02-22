@@ -10,7 +10,9 @@
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700' rel='stylesheet' type='text/css'>
+	
+	<link href='https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,700' rel='stylesheet' type='text/css'>
 	<!-- Optional theme -->
 	 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,10 +33,10 @@
     	<!-- / Top info -->
 
 
-				<nav class="navbar navbar-default  top-info-navbar hidden-xs">
+				<nav class="navbar navbar-default site-nav hidden-xs home-nav">
 					<div class="container">
 						<div class="row">
-			    			<div class="col-md-6 col-xs-9">TELÉFONO:  011-4701-9316 & líneas rotativas       EMAIL: ventas@raien.com.ar</div>
+			    			<div class="col-md-6 col-xs-9"><span>TELÉFONO:  011-4701-9316 &amp; líneas rotativas</span> EMAIL: ventas@raien.com.ar</div>
 			    			<div class="col-md-6 col-xs-3">
 			    				<div class="pull-right">
 				    				<a href="" target="_blank">
@@ -256,16 +258,13 @@
  	<div class="footer">
  		<div class="container">
  			<div class="row">
- 				<div class="col-md-3 col-sm-3 col-xs-6">
- 					<img src="<?=base_url();?>images/web/logo_footer.png" class="img-responsive">
+ 				<div class="col-md-6 one-half">
+ 					<img src="<?=base_url();?>images/logo_footer.png"><img src="<?=base_url();?>images/qr_footer.jpg">
  				</div>
- 				<div class="col-md-3 col-sm-3 col-xs-6">
- 					<img src="<?=base_url();?>images/qr_footer.jpg" class="img-responsive">
- 				</div>
- 				<div class="col-md-6 col-sm-6 col-xs-12">
+ 				<div class="col-md-6 one-half last">
  					<form class="form-inline">
 						<div class="form-group">
-							<div class="newsletter-text">¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>
+							<div>¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>
 							<div class="input-group full-width">
 								<input type="email" class="form-control" id="exampleInputAmount">
 								<div class="input-group-addon"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
