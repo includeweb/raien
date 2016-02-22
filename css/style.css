@@ -855,6 +855,10 @@ p > b {
 	width: 60%;
 }
 
+.top-info > .col-md-4 {
+	height: 250px;
+}
+
 #product-name {
 	font-family: 'Raleway', sans-serif;
   font-size: 24px;
@@ -869,10 +873,22 @@ p > b {
 	width: 100px;
 }
 
-#category {
+#category,
+#other-products {
 	font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+#other-products > strong {
+	font-size: 10px;
+	font-weight: 800;
+}
+
+#other-products-carousel .col-md-4 {
+	font-size: 6px;
+	overflow: hidden;
+	height: 80px;
 }
 
 #brand-img {

@@ -53,7 +53,7 @@
 	<div class="img-carousel">
 		<?php foreach ($marcasSubcategoria as $row) { ?>
 			<div class="brands-carousel">
-				<div data-id="<?=$row->id?>" data-image="<?=$row->imagen?>">
+				<div data-id="<?=$row->id?>" data-image="<?=$row->imagen?>" data-name="<?=$row->nombre?>">
 					<img src="<?=base_url();?>images/productos/logos/<?=seoUrl($row->nombre)?>.png" style="width:100%" />
 					<!-- <img src="http://placehold.it/155x90" class="img-responsive"> -->
 				</div>
@@ -93,7 +93,7 @@
 	<div class="row hidden" id="product-details">
 		<div class="col-md-12">
 			<div class="container-fluid">
-				<div class="row">
+				<div class="row top-info">
 					<div class="col-md-4">
 						<img src="http://placehold.it/220x250" />
 					</div>
@@ -112,7 +112,8 @@
 						<div class="clearfix"></div>
 					</div>
 					<div class="col-md-4">
-
+						<div id="other-products"></div>
+						<div id="other-products-carousel" class="container-fluid"></div>
 					</div>
 				</div>
 				<div class="row">
@@ -139,9 +140,13 @@
 
 	var marca;
 	var categoria = '<?=$subcategoria->descripcion?>';
+	var nombreMarca;
+	var productosRelacionados;
+	var carousel = 0;
 
 	$('.brands-carousel > div').click(function() {
 		marca = $(this).data('image');
+		nombreMarca = $(this).data('name');
 		$(this).addClass('active');
 		$(this).parent().siblings().find('.active').removeClass('active');
 		$.ajax({
@@ -149,6 +154,7 @@
 			url: "<?=base_url();?>show/getProducts/<?=seoUrl($breadcrumb);?>/<?=$url;?>/"+($(this).data('id'))
 		}).done(function(data) {
 			var json = $.parseJSON(data);
+			productosRelacionados = json['productos'];
 			var brandImg = '<img src="<?=base_url();?>images/productos/logos/'+json.productos[0].imagen+'.png" />';
 			var brandText = '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
 
@@ -188,7 +194,15 @@
 
 
 	function showDetails(id) {
+		var carouselString = '';
 		$(window).scrollTop(0);
+
+		if (carousel) {
+			$('#other-products-carousel').slick('unslick');
+		}
+		else {
+			carousel = 1;
+		}
 
 		$.ajax({
 			method: "GET",
@@ -199,7 +213,56 @@
 			$('#product-details .container-fluid .col-md-12').html(product.notaapp);
 			$('#product-name').html(product.nombre);
 			$('#category').html(categoria);
-			$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>')
+			$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
+			$('#other-products').html('Otros productos <strong>'+nombreMarca+'</strong>');
+			carouselString += '<div class="row">';
+			var i = 0;
+			productosRelacionados.forEach(function(elem, index, array) {
+				if (i == 9) {
+					i = 0;
+					carouselString += '</div><div class="row">';
+				}
+				carouselString += '<div class="col-md-4">'+elem.nombre+'</div>';
+				i++;
+			});
+			carouselString += '</div>';
+			$('#other-products-carousel').html(carouselString);
+			$('#other-products-carousel').slick({
+				  dots: false,
+				  infinite: false,
+				  speed: 300,
+				  slidesToShow: 1,
+				  slidesToScroll: 1,
+					focusOnSelect: false,
+				  responsive: [
+				    {
+				      breakpoint: 1024,
+				      settings: {
+				        slidesToShow: 3,
+				        slidesToScroll: 3,
+				        infinite: true,
+				        dots: false
+				      }
+				    },
+				    {
+				      breakpoint: 600,
+				      settings: {
+				        slidesToShow: 2,
+				        slidesToScroll: 2
+				      }
+				    },
+				    {
+				      breakpoint: 480,
+				      settings: {
+				        slidesToShow: 1,
+				        slidesToScroll: 1
+				      }
+				    }
+				    // You can unslick at a given breakpoint now by adding:
+				    // settings: "unslick"
+				    // instead of a settings object
+				  ]
+				});
 
 			$('#gallery').fadeOut(function() {
 				$('#gallery').addClass('hidden');
