@@ -846,11 +846,11 @@ p > b {
 	margin-top: 15px;
 }
 
-#product-details .container-fluid .col-md-4:nth-child(2){
+#product-details .top-info > .col-md-4:nth-child(2){
 	border-bottom: 1px solid #717175;
 }
 
-#product-details .container-fluid .col-md-4:nth-child(2) > div:first-child{
+#product-details .top-info > .col-md-4:nth-child(2) > div:first-child{
 	float: left;
 	width: 60%;
 }
@@ -888,6 +888,12 @@ p > b {
 #other-products-carousel .col-md-4 {
 	font-size: 6px;
 	overflow: hidden;
+	height: 80px;
+}
+
+#other-products-carousel .col-md-4 > div {
+	width: 100%;
+	background-color: gray;
 	height: 80px;
 }
 
@@ -1151,7 +1157,7 @@ td:nth-child(3) > span {
 		margin-left: 15px;
 	}
 
-	#product-details .container-fluid .col-md-4:nth-child(2){
+	#product-details .top-info > .col-md-4:nth-child(2){
 		padding: 0;
 	}
 

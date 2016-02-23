@@ -94,10 +94,10 @@
 		<div class="col-md-12">
 			<div class="container-fluid">
 				<div class="row top-info">
-					<div class="col-md-4">
+					<div class="col-lg-4">
 						<img src="http://placehold.it/220x250" />
 					</div>
-					<div class="col-md-4">
+					<div class="col-lg-4">
 						<div>
 							<div id="category">
 
@@ -111,7 +111,7 @@
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-lg-4 hidden-md hidden-sm hidden-xs">
 						<div id="other-products"></div>
 						<div id="other-products-carousel" class="container-fluid"></div>
 					</div>
@@ -197,12 +197,12 @@
 		var carouselString = '';
 		$(window).scrollTop(0);
 
-		if (carousel) {
-			$('#other-products-carousel').slick('unslick');
-		}
-		else {
-			carousel = 1;
-		}
+		// if (carousel) {
+		// 	$('#other-products-carousel').slick('unslick');
+		// }
+		// else {
+		// 	carousel = 1;
+		// }
 
 		$.ajax({
 			method: "GET",
@@ -210,59 +210,60 @@
 		}).done(function(data) {
 			console.log(data);
 			var product = $.parseJSON(data);
-			$('#product-details .container-fluid .col-md-12').html(product.notaapp);
+			$('#product-details .container-fluid .col-md-12').html(product.descripcion);
 			$('#product-name').html(product.nombre);
 			$('#category').html(categoria);
 			$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
 			$('#other-products').html('Otros productos <strong>'+nombreMarca+'</strong>');
 			carouselString += '<div class="row">';
 			var i = 0;
-			productosRelacionados.forEach(function(elem, index, array) {
-				if (i == 9) {
-					i = 0;
-					carouselString += '</div><div class="row">';
-				}
-				carouselString += '<div class="col-md-4">'+elem.nombre+'</div>';
-				i++;
-			});
+			// productosRelacionados.forEach(function(elem, index, array) {
+			// 	if (i == 9) {
+			// 		i = 0;
+			// 		carouselString += '</div><div class="row">';
+			// 	}
+			// 	// carouselString += '<div class="col-md-4">'+elem.nombre+'</div>';
+			// 	carouselString += '<div class="col-md-4"><div> </div></div>';
+			// 	i++;
+			// });
 			carouselString += '</div>';
-			$('#other-products-carousel').html(carouselString);
-			$('#other-products-carousel').slick({
-				  dots: false,
-				  infinite: false,
-				  speed: 300,
-				  slidesToShow: 1,
-				  slidesToScroll: 1,
-					focusOnSelect: false,
-				  responsive: [
-				    {
-				      breakpoint: 1024,
-				      settings: {
-				        slidesToShow: 3,
-				        slidesToScroll: 3,
-				        infinite: true,
-				        dots: false
-				      }
-				    },
-				    {
-				      breakpoint: 600,
-				      settings: {
-				        slidesToShow: 2,
-				        slidesToScroll: 2
-				      }
-				    },
-				    {
-				      breakpoint: 480,
-				      settings: {
-				        slidesToShow: 1,
-				        slidesToScroll: 1
-				      }
-				    }
-				    // You can unslick at a given breakpoint now by adding:
-				    // settings: "unslick"
-				    // instead of a settings object
-				  ]
-				});
+			// $('#other-products-carousel').html(carouselString);
+			// $('#other-products-carousel').slick({
+			// 	  dots: false,
+			// 	  infinite: false,
+			// 	  speed: 300,
+			// 	  slidesToShow: 1,
+			// 	  slidesToScroll: 1,
+			// 		focusOnSelect: false,
+			// 	  responsive: [
+			// 	    {
+			// 	      breakpoint: 1024,
+			// 	      settings: {
+			// 	        slidesToShow: 3,
+			// 	        slidesToScroll: 3,
+			// 	        infinite: true,
+			// 	        dots: false
+			// 	      }
+			// 	    },
+			// 	    {
+			// 	      breakpoint: 600,
+			// 	      settings: {
+			// 	        slidesToShow: 2,
+			// 	        slidesToScroll: 2
+			// 	      }
+			// 	    },
+			// 	    {
+			// 	      breakpoint: 480,
+			// 	      settings: {
+			// 	        slidesToShow: 1,
+			// 	        slidesToScroll: 1
+			// 	      }
+			// 	    }
+			// 	    // You can unslick at a given breakpoint now by adding:
+			// 	    // settings: "unslick"
+			// 	    // instead of a settings object
+			// 	  ]
+			// 	});
 
 			$('#gallery').fadeOut(function() {
 				$('#gallery').addClass('hidden');
