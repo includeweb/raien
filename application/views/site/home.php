@@ -53,8 +53,8 @@
 	    				</div>
     				</div>
 				</nav>
-	    		<nav class="navbar navbar-default  raien-navbar">
-					<div class="container ">
+	    		<nav class="navbar navbar-default  raien-navbar" id="navbar-desktop">
+					<div class="container">
 
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    <div class="navbar-header">
@@ -72,11 +72,11 @@
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 				      <ul class="nav navbar-nav navbar-right">
-				        <li><a href="<?=base_url();?>show">home</a></li>
+				        <li><a href="<?=base_url();?>show" title="Home">home</a></li>
 
 				        <li class="dropdown">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">productos <span class="caret"></span></a>
-				          <ul class="dropdown-menu">
+				          <ul class="dropdown-menu centered-submenu">
 				            <li class="sub-navigation-li">
 				            	<a href="<?=base_url();?>show/products/categoria" class="subnavigation-item" data-img="<?=base_url();?>images/web/categoria-icon.png" data-hover="<?=base_url();?>images/web/categoria-icon-hover.png">
 				            		<div class="sub-navigation">
@@ -116,15 +116,19 @@
 
 				          </ul>
 				        </li>
-				        <li><a href="<?=base_url();?>show/engineering">ingeniería</a></li>
-				        <li><a href="<?=base_url();?>show/training">capacitación</a></li>
-				        <li><a href="<?=base_url();?>show/about">institucional</a></li>
-				        <li><a href="<?=base_url();?>show/contact">contacto</a></li>
-				        <li><a href="<?=base_url();?>show/team">trabaja con raien</a></li>
+				        <li><a href="<?=base_url();?>show/engineering" title="Ingeniería">ingeniería</a></li>
+				        <li><a href="<?=base_url();?>show/training" title="Capacitación">capacitación</a></li>
+				        <li><a href="<?=base_url();?>show/about" title="Institucional">institucional</a></li>
+				        <li><a href="<?=base_url();?>show/contact" title="Contacto">contacto</a></li>
+				        <li><a href="<?=base_url();?>show/team" title="Trabajá con Raien">Trabajá con raien</a></li>
 				      </ul>
 				    </div><!-- /.navbar-collapse -->
+
 				  	</div>
 				</nav>
+				
+
+			
 
 
     </div>
@@ -194,7 +198,7 @@
 		      </span>
 		    </div><!-- /input-group -->
 		</div>
-		<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+		<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 borde">
 			<div class="row ">
 				<div class="col-md-3 col-sm-12 no-padding-right separate-mobile">
 					<!-- Split button -->
@@ -255,7 +259,7 @@
 	<!-- / Content -->
     </div>
  	<!-- / Main container -->
- 	<div class="footer">
+ 	<div class="footer top30">
  		<div class="container">
  			<div class="row">
  				<div class="col-md-6 one-half">
