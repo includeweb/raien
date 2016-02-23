@@ -67,6 +67,7 @@ p > b {
 	border-bottom: 1px solid #fff!important;
 	margin-top: 20px;
     padding-bottom: 13px;
+    border-radius: 0;
 
 }
 .raien-navbar .navbar-nav>li>a:hover{
@@ -168,8 +169,8 @@ p > b {
 	background-image: none;
 }
 .centered-submenu{
-	width: 100%;
-	margin:auto;
+	margin: auto;
+    width: 1125px;
 }
 .caret {
     width: 0;
