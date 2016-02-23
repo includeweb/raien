@@ -913,7 +913,7 @@ p > b {
 
 /* FOOTER */
 .footer {
-	border-top: 1px solid gray;
+	border-top: 1px solid #BFBFBF;
 }
 
 .footer > .container {
@@ -1074,6 +1074,9 @@ td:nth-child(3) > span {
     width: 94%;
 }
 
+.buscador .borde{
+	border-left: 1px solid #fff;
+}
 .buscador .dropdown-buscador {
    /* width: 90%;*/
     margin-top: -2px;
