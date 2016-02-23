@@ -53,7 +53,7 @@
 	    				</div>
     				</div>
 				</nav>
-	    		<nav class="navbar navbar-default  raien-navbar">
+	    		<nav class="navbar navbar-default  raien-navbar" id="navbar-desktop">
 					<div class="container">
 
 				    <!-- Brand and toggle get grouped for better mobile display -->
@@ -69,7 +69,7 @@
 				    </div>
 
 				    <!-- Collect the nav links, forms, and other content for toggling -->
-				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				    <div class="collapse navbar-collapse" >
 
 				      <ul class="nav navbar-nav navbar-right">
 				        <li><a href="<?=base_url();?>show" title="Home">home</a></li>
@@ -123,9 +123,12 @@
 				        <li><a href="<?=base_url();?>show/team" title="Trabajá con Raien">Trabajá con raien</a></li>
 				      </ul>
 				    </div><!-- /.navbar-collapse -->
+
 				  	</div>
 				</nav>
-				<nav class="navbar navbar-default  raien-navbar-mobile">
+				
+
+				<nav class="navbar navbar-default  raien-navbar" id="navbar-mobile">
 					<div class="container">
 
 				    <!-- Brand and toggle get grouped for better mobile display -->
@@ -141,7 +144,7 @@
 				    </div>
 
 				    <!-- Collect the nav links, forms, and other content for toggling -->
-				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				    <div class="collapse navbar-collapse" >
 
 				      <ul class="nav navbar-nav navbar-right">
 				        <li><a href="<?=base_url();?>show" title="Home">home</a></li>
@@ -150,7 +153,16 @@
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">productos <span class="caret"></span></a>
 				          <ul class="dropdown-menu centered-submenu">
 				            <li class="sub-navigation-li">
-				            	<a href="<?=base_url();?>show/products/categoria" >Categoría</a>
+				            	<a href="<?=base_url();?>show/products/categoria" class="subnavigation-item" data-img="<?=base_url();?>images/web/categoria-icon.png" data-hover="<?=base_url();?>images/web/categoria-icon-hover.png">
+				            		<div class="sub-navigation">
+				            			<div class="sub-navigation-icon">
+				            				<img src="<?=base_url();?>images/web/categoria-icon.png" />
+				            			</div>
+				            			<div class="sub-navigation-text">
+				            				Categoría
+				            			</div>
+				            		</div>
+				            	</a>
 				            </li>
 				            <li class="sub-navigation-li">
 				            	<a href="<?=base_url();?>show/products/aplicacion" class="subnavigation-item" data-img="<?=base_url();?>images/web/aplicacion-icon.png" data-hover="<?=base_url();?>images/web/aplicacion-icon-hover.png">
@@ -186,10 +198,10 @@
 				        <li><a href="<?=base_url();?>show/team" title="Trabajá con Raien">Trabajá con raien</a></li>
 				      </ul>
 				    </div><!-- /.navbar-collapse -->
+
 				  	</div>
 				</nav>
-
-
+				
 
 
     </div>

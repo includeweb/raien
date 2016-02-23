@@ -1088,6 +1088,12 @@ td:nth-child(3) > span {
     background-color: #b58e34;
 }
 
+#navbar-default{
+	display: none;
+}
+#navbar-mobile{
+	display: block;
+}
 /*ANIMATIONS*/
 .animate-hide{display: none;}
 
@@ -1198,6 +1204,12 @@ td:nth-child(3) > span {
 }
 
 @media (min-width: 768px){
+	#navbar-default{
+		display: block;
+	}
+	#navbar-mobile{
+		display: none;
+	}
 	.raien-navbar{
 		padding-top: 40px;
 		/*background-image: -webkit-linear-gradient(top,rgba(0,0,0,.5) 0,rgba(0,0,0,.10) 100%);*/
