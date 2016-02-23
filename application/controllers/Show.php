@@ -178,7 +178,7 @@ class Show extends CI_Controller {
 		$this->db->distinct();
 		$this->db->select('m.nombre, c.nombre as codigo');
 		$this->db->from('marcas m');
-		$this->db->join('productos p', 'm.id = p.marca_id', 'LEFT');
+		$this->db->join('productos p', 'm.id = p.marca', 'LEFT');
 		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id' ,'LEFT');
 		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
 		$this->db->where('pc.categoria_id', $categoria_id);
