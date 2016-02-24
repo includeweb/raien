@@ -1082,7 +1082,7 @@ td:nth-child(3) > span {
 }
 
 .buscador .borde{
-	border-left: 1px solid #fff;
+	border-left: none;
 }
 .buscador .dropdown-buscador {
    /* width: 90%;*/
@@ -1111,6 +1111,9 @@ td:nth-child(3) > span {
 }
 
 @media (min-width: 992px){
+	.buscador .borde{
+		border-left: 1px solid #fff;
+	}
 	.dropdown-toggle{
 		text-align: center;
 	}
