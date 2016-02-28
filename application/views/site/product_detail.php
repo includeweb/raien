@@ -94,11 +94,11 @@
 		<div class="col-md-12">
 			<div class="container-fluid">
 				<div class="row top-info">
-					<div class="col-lg-4">
+					<div class="col-md-4">
 						<img src="http://placehold.it/220x250" />
 					</div>
-					<div class="col-lg-4">
-						<div>
+					<div class="col-lg-4 col-md-8">
+						<div class="product-info">
 							<div id="category">
 
 							</div>
@@ -112,8 +112,10 @@
 						<div class="clearfix"></div>
 					</div>
 					<div class="col-lg-4 hidden-md hidden-sm hidden-xs">
-						<div id="other-products"></div>
-						<div id="other-products-carousel" class="container-fluid"></div>
+						<div id="more-products">
+							<div id="other-products"></div>
+							<div id="other-products-carousel" class="container-fluid"></div>
+						</div>
 					</div>
 				</div>
 				<div class="row">
@@ -197,12 +199,12 @@
 		var carouselString = '';
 		$(window).scrollTop(0);
 
-		// if (carousel) {
-		// 	$('#other-products-carousel').slick('unslick');
-		// }
-		// else {
-		// 	carousel = 1;
-		// }
+		if (carousel) {
+			$('#other-products-carousel').slick('unslick');
+		}
+		else {
+			carousel = 1;
+		}
 
 		$.ajax({
 			method: "GET",
@@ -215,59 +217,81 @@
 			$('#category').html(categoria);
 			$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
 			$('#other-products').html('Otros productos <strong>'+nombreMarca+'</strong>');
-			carouselString += '<div class="row">';
+			carouselString += '<div class="carousel-row">';
 			var i = 0;
-			// productosRelacionados.forEach(function(elem, index, array) {
-			// 	if (i == 9) {
-			// 		i = 0;
-			// 		carouselString += '</div><div class="row">';
-			// 	}
-			// 	// carouselString += '<div class="col-md-4">'+elem.nombre+'</div>';
-			// 	carouselString += '<div class="col-md-4"><div> </div></div>';
-			// 	i++;
-			// });
+			productosRelacionados.forEach(function(elem, index, array) {
+				if (i == 9) {
+					i = 0;
+					carouselString += '</div><div class="carousel-row">';
+				}
+				carouselString += '<div class="carousel-col"><a href="javascript:void(0)" onclick="changeProduct('+elem.id+');" data-id="'+elem.id+'"><div>'+elem.nombre+'</div></a></div>';
+				// carouselString += '<div class="carousel-col"><div> </div></div>';
+				i++;
+			});
 			carouselString += '</div>';
-			// $('#other-products-carousel').html(carouselString);
-			// $('#other-products-carousel').slick({
-			// 	  dots: false,
-			// 	  infinite: false,
-			// 	  speed: 300,
-			// 	  slidesToShow: 1,
-			// 	  slidesToScroll: 1,
-			// 		focusOnSelect: false,
-			// 	  responsive: [
-			// 	    {
-			// 	      breakpoint: 1024,
-			// 	      settings: {
-			// 	        slidesToShow: 3,
-			// 	        slidesToScroll: 3,
-			// 	        infinite: true,
-			// 	        dots: false
-			// 	      }
-			// 	    },
-			// 	    {
-			// 	      breakpoint: 600,
-			// 	      settings: {
-			// 	        slidesToShow: 2,
-			// 	        slidesToScroll: 2
-			// 	      }
-			// 	    },
-			// 	    {
-			// 	      breakpoint: 480,
-			// 	      settings: {
-			// 	        slidesToShow: 1,
-			// 	        slidesToScroll: 1
-			// 	      }
-			// 	    }
-			// 	    // You can unslick at a given breakpoint now by adding:
-			// 	    // settings: "unslick"
-			// 	    // instead of a settings object
-			// 	  ]
-			// 	});
+			
 
 			$('#gallery').fadeOut(function() {
 				$('#gallery').addClass('hidden');
 				$('#product-details').removeClass('hidden');
+				$('#product-details').fadeIn(function(){
+					$('#other-products-carousel').html(carouselString);
+					$('#other-products-carousel').slick({
+					  dots: false,
+					  infinite: false,
+					  speed: 300,
+					  slidesToShow: 1,
+					  slidesToScroll: 1,
+						focusOnSelect: false,
+						prevArrow: '<button type="button" class="slick-prev"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>',
+						nextArrow: '<button type="button" class="slick-next"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button>',
+					  responsive: [
+					    {
+					      breakpoint: 1024,
+					      settings: {
+					        slidesToShow: 3,
+					        slidesToScroll: 3,
+					        infinite: true,
+					        dots: false
+					      }
+					    },
+					    {
+					      breakpoint: 600,
+					      settings: {
+					        slidesToShow: 2,
+					        slidesToScroll: 2
+					      }
+					    },
+					    {
+					      breakpoint: 480,
+					      settings: {
+					        slidesToShow: 1,
+					        slidesToScroll: 1
+					      }
+					    }
+					    // You can unslick at a given breakpoint now by adding:
+					    // settings: "unslick"
+					    // instead of a settings object
+					  ]
+					});
+				});
+			});
+		});
+	}
+
+	function changeProduct(id) {
+		$('#product-details').fadeOut(function() {
+			$.ajax({
+				method: "GET",
+				url: "<?=base_url();?>show/getProduct/"+id
+			}).done(function(data) {
+				console.log(data);
+				var product = $.parseJSON(data);
+				$('#product-details .container-fluid .col-md-12').html(product.descripcion);
+				$('#product-name').html(product.nombre);
+				$('#category').html(categoria);
+				$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
+				$('#other-products').html('Otros productos <strong>'+nombreMarca+'</strong>');
 				$('#product-details').fadeIn();
 			});
 		});

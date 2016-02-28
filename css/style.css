@@ -855,7 +855,7 @@ p > b {
 	border-bottom: 1px solid #717175;
 }
 
-#product-details .container-fluid {
+#product-details > .col-md-12 > .container-fluid {
 	background-color: #ECEDEF;
 }
 
@@ -878,7 +878,7 @@ p > b {
 
 #product-name {
 	font-family: 'Raleway', sans-serif;
-  font-size: 24px;
+  font-size: 14px;
   font-weight: 800;
   color: #DCA427;
   letter-spacing: 3px;
@@ -886,8 +886,18 @@ p > b {
   padding-bottom: 5px;
 }
 
+.product-info {
+	width: 55%;
+	float: left;
+}
+
 #brand-img > img{
 	width: 100px;
+}
+
+#more-products {
+	background-color: #D1D2D4;
+	padding-bottom: 25px;
 }
 
 #category,
@@ -897,21 +907,76 @@ p > b {
   letter-spacing: 2px;
 }
 
+#other-products {
+	padding-left: 15px;
+	padding-bottom: 20px;
+}
+
 #other-products > strong {
 	font-size: 10px;
 	font-weight: 800;
 }
 
-#other-products-carousel .col-md-4 {
-	font-size: 6px;
-	overflow: hidden;
-	height: 80px;
+#other-products-carousel {
+	padding-right: 30px;
+	padding-left: 30px;
 }
 
-#other-products-carousel .col-md-4 > div {
+#other-products-carousel .carousel-col {
+	font-size: 6px;
+	overflow: hidden;
+	margin-bottom: 5px;
+	width: 30%;
+	float: left;
+}
+
+.carousel-col:nth-child(2),
+.carousel-col:nth-child(5),
+.carousel-col:nth-child(8) {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+#other-products-carousel .carousel-col > a > div {
 	width: 100%;
 	background-color: gray;
-	height: 80px;
+	height: 58px;
+	font-size: 8px;
+	text-transform: uppercase;
+	overflow: hidden;
+	word-break: break-word;
+	color: #fff;
+	padding: 0 3px;
+}
+
+/*#other-products-carousel .row:first-child{
+	margin-top: 0;
+}*/
+
+#other-products-carousel .slick-prev {
+	position: absolute;
+    z-index: 10;
+    top: 44%;
+    left: 0;
+}
+
+#other-products-carousel .slick-next {
+	position: absolute;
+    z-index: 10;
+    top: 44%;
+    right: 0;
+}
+
+#other-products-carousel .slick-next,
+#other-products-carousel .slick-prev  {
+	padding: 1px 0 1px 1px;
+    width: 15px;
+    background-color: gray;
+}
+
+#other-products-carousel .slick-next > span,
+#other-products-carousel .slick-prev > span  {
+	font-size: 13px;
 }
 
 #brand-img {
