@@ -59,7 +59,7 @@
 	    				</div>
     				</div>
 				</nav>
-	    		<nav class="navbar navbar-default navbar-fixed-top raien-site-navbar">
+	    		<nav class="navbar navbar-default navbar-fixed-top raien-site-navbar" id="navbar-desktop">
 					<div class="container ">
 
 				    <!-- Brand and toggle get grouped for better mobile display -->
@@ -70,7 +70,7 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="#"><img src="<?=base_url();?>images/logo.jpg"></a>
+				      <a class="navbar-brand" href="#"><img src="<?=base_url();?>images/web/logo-interna.png"></a>
 				    </div>
 
 				    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -81,7 +81,7 @@
 
 				        <li class="dropdown">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="productos">productos</a>
-				          <ul class="dropdown-menu">
+				          <ul class="dropdown-menu centered-submenu">
 				            <li>
 				            	<a href="<?=base_url();?>show/products/categorias">
 				            		<div class="sub-navigation">

@@ -230,21 +230,17 @@
 					  </ul>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-12  no-padding-right separate-mobile">
+				<div class="col-md-3 col-sm-12  no-padding-right separate-mobile productos-container">
 					<!-- Split button -->
 					<div class="btn-group full-width">
 					<div class="btn-title">producto</div>
-					  <button type="button" class="btn btn-buscador" disabled="disabled">Seleccione un producto</button>
+					  <button type="button" class="btn btn-buscador producto_nombre" disabled="disabled">Seleccione un producto</button>
 					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
-					  <ul class="dropdown-menu dropdown-buscador">
-					    <li><a href="#">Action</a></li>
-					    <li><a href="#">Another action</a></li>
-					    <li><a href="#">Something else here</a></li>
-
-					    <li><a href="#">Separated link</a></li>
+					  <ul class="dropdown-menu dropdown-buscador productos-listado">
+					    
 					  </ul>
 					</div>
 				</div>
@@ -291,6 +287,9 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
    <script type="text/javascript">
+
+   	var categoria_selected;
+   	var marca_selected;
 	$(document).ready(function(){
 
 			$('.subnavigation-item').hover(
@@ -310,7 +309,7 @@
 			$('.categoria').click(function(){
 
 				var categoria_id = $(this).data('id');
-
+				categoria_selected = $(this).data('id');
 				$('.marcas-listado').html('');
 				$.ajax({
 					  method: "POST",
@@ -324,7 +323,7 @@
 					  		var json = $.parseJSON(msg);
 					  		$('.categoria_nombre').html(json[0].codigo);
 					  	 	for(var i = 0; i <= (json.length - 1 ); i++){
-					  	 		$('.marcas-listado').append('<li><a href="#">'+json[i].nombre+'</a></li>');
+					  	 		$('.marcas-listado').append('<li><a href="javascript:void(0);" class="marca" data-id="'+json[i].marca_id+'">'+json[i].nombre+'</a></li>');
 					  	 	}
 					  	}else{
 					  		$('.marcas-listado').html('<li><a href="javascript:void(0);">No se encontraron marcas.</a></li>');
@@ -334,6 +333,34 @@
 					  });
 
 			});
+
+			$('.marcas-listado').on('click', '.marca', (function(){
+
+				var marca_id = $(this).data('id');
+				marca_selected = $(this).data('id');
+				$('.productos-listado').html('');
+				$.ajax({
+					  method: "POST",
+					  url: "<?=base_url();?>show/getProducts/0/"+categoria_selected+'/'+marca_selected
+					
+					})
+					  .done(function(msg) {
+					  	$('.productos-container button').removeAttr('disabled');
+					  	if(msg != "error"){
+
+					  		var json = $.parseJSON(msg);
+					  		$('.producto_nombre').html(json[0].codigo);
+					  	 	for(var i = 0; i <= (json.length - 1 ); i++){
+					  	 		$('.productos-listado').append('<li><a href="#">'+json[i].nombre+'</a></li>');
+					  	 	}
+					  	}else{
+					  		$('.productos-listado').html('<li><a href="javascript:void(0);">No se encontraron marcas.</a></li>');
+					  	}
+
+						//$('.categoria_nombre').html(msg.);
+					  });
+
+			}));
 
 	});
 

@@ -146,7 +146,7 @@ class Show extends CI_Controller {
 		}
 	}
 
-	function getProducts($vista, $subcategoria, $marca) {
+	function getProducts($vista = null, $subcategoria, $marca) {
 		$this->db->select('marcas.nombre marca, marcas.imagen, productos.id, productos.nombre, productos.file_pdf, productos.descripcion, productos.file_img');
 		$this->db->where('categorias.url', $subcategoria);
 		$this->db->where('marcas.id', $marca);
@@ -176,7 +176,7 @@ class Show extends CI_Controller {
 		$this->db->join('marcas m', 'p.marca = m.id');*/
 		$categoria_id = $this->input->post('categoria_id');
 		$this->db->distinct();
-		$this->db->select('m.nombre, c.nombre as codigo');
+		$this->db->select('m.nombre, c.nombre as codigo, m.id as marca_id');
 		$this->db->from('marcas m');
 		$this->db->join('productos p', 'm.id = p.marca', 'LEFT');
 		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id' ,'LEFT');
