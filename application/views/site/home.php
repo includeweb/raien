@@ -10,7 +10,9 @@
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700' rel='stylesheet' type='text/css'>
+	
+	<link href='https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,700' rel='stylesheet' type='text/css'>
 	<!-- Optional theme -->
 	 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,10 +33,10 @@
     	<!-- / Top info -->
 
 
-				<nav class="navbar navbar-default  top-info-navbar hidden-xs">
+				<nav class="navbar navbar-default site-nav hidden-xs home-nav">
 					<div class="container">
 						<div class="row">
-			    			<div class="col-md-6 col-xs-9">TELÉFONO:  011-4701-9316 & líneas rotativas       EMAIL: ventas@raien.com.ar</div>
+			    			<div class="col-md-6 col-xs-9"><span>TELÉFONO:  011-4701-9316 &amp; líneas rotativas</span> EMAIL: ventas@raien.com.ar</div>
 			    			<div class="col-md-6 col-xs-3">
 			    				<div class="pull-right">
 				    				<a href="" target="_blank">
@@ -51,8 +53,8 @@
 	    				</div>
     				</div>
 				</nav>
-	    		<nav class="navbar navbar-default  raien-navbar">
-					<div class="container ">
+	    		<nav class="navbar navbar-default  raien-navbar" id="navbar-desktop">
+					<div class="container">
 
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    <div class="navbar-header">
@@ -70,11 +72,11 @@
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 				      <ul class="nav navbar-nav navbar-right">
-				        <li><a href="<?=base_url();?>show">home</a></li>
+				        <li><a href="<?=base_url();?>show" title="Home">home</a></li>
 
 				        <li class="dropdown">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">productos <span class="caret"></span></a>
-				          <ul class="dropdown-menu">
+				          <ul class="dropdown-menu centered-submenu">
 				            <li class="sub-navigation-li">
 				            	<a href="<?=base_url();?>show/products/categoria" class="subnavigation-item" data-img="<?=base_url();?>images/web/categoria-icon.png" data-hover="<?=base_url();?>images/web/categoria-icon-hover.png">
 				            		<div class="sub-navigation">
@@ -114,15 +116,19 @@
 
 				          </ul>
 				        </li>
-				        <li><a href="<?=base_url();?>show/engineering">ingeniería</a></li>
-				        <li><a href="<?=base_url();?>show/training">capacitación</a></li>
-				        <li><a href="<?=base_url();?>show/about">institucional</a></li>
-				        <li><a href="<?=base_url();?>show/contact">contacto</a></li>
-				        <li><a href="<?=base_url();?>show/team">trabaja con raien</a></li>
+				        <li><a href="<?=base_url();?>show/engineering" title="Ingeniería">ingeniería</a></li>
+				        <li><a href="<?=base_url();?>show/training" title="Capacitación">capacitación</a></li>
+				        <li><a href="<?=base_url();?>show/about" title="Institucional">institucional</a></li>
+				        <li><a href="<?=base_url();?>show/contact" title="Contacto">contacto</a></li>
+				        <li><a href="<?=base_url();?>show/team" title="Trabajá con Raien">Trabajá con raien</a></li>
 				      </ul>
 				    </div><!-- /.navbar-collapse -->
+
 				  	</div>
 				</nav>
+				
+
+			
 
 
     </div>
@@ -192,7 +198,7 @@
 		      </span>
 		    </div><!-- /input-group -->
 		</div>
-		<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+		<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 borde">
 			<div class="row ">
 				<div class="col-md-3 col-sm-12 no-padding-right separate-mobile">
 					<!-- Split button -->
@@ -224,21 +230,17 @@
 					  </ul>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-12  no-padding-right separate-mobile">
+				<div class="col-md-3 col-sm-12  no-padding-right separate-mobile productos-container">
 					<!-- Split button -->
 					<div class="btn-group full-width">
 					<div class="btn-title">producto</div>
-					  <button type="button" class="btn btn-buscador" disabled="disabled">Seleccione un producto</button>
+					  <button type="button" class="btn btn-buscador producto_nombre" disabled="disabled">Seleccione un producto</button>
 					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
-					  <ul class="dropdown-menu dropdown-buscador">
-					    <li><a href="#">Action</a></li>
-					    <li><a href="#">Another action</a></li>
-					    <li><a href="#">Something else here</a></li>
-
-					    <li><a href="#">Separated link</a></li>
+					  <ul class="dropdown-menu dropdown-buscador productos-listado">
+					    
 					  </ul>
 					</div>
 				</div>
@@ -253,19 +255,16 @@
 	<!-- / Content -->
     </div>
  	<!-- / Main container -->
- 	<div class="footer">
+ 	<div class="footer top30">
  		<div class="container">
  			<div class="row">
- 				<div class="col-md-3 col-sm-3 col-xs-6">
- 					<img src="<?=base_url();?>images/web/logo_footer.png" class="img-responsive">
+ 				<div class="col-md-6 one-half">
+ 					<img src="<?=base_url();?>images/logo_footer.png"><img src="<?=base_url();?>images/qr_footer.jpg">
  				</div>
- 				<div class="col-md-3 col-sm-3 col-xs-6">
- 					<img src="<?=base_url();?>images/qr_footer.jpg" class="img-responsive">
- 				</div>
- 				<div class="col-md-6 col-sm-6 col-xs-12">
+ 				<div class="col-md-6 one-half last">
  					<form class="form-inline">
 						<div class="form-group">
-							<div class="newsletter-text">¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>
+							<div>¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>
 							<div class="input-group full-width">
 								<input type="email" class="form-control" id="exampleInputAmount">
 								<div class="input-group-addon"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
@@ -288,6 +287,9 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
    <script type="text/javascript">
+
+   	var categoria_selected;
+   	var marca_selected;
 	$(document).ready(function(){
 
 			$('.subnavigation-item').hover(
@@ -307,7 +309,7 @@
 			$('.categoria').click(function(){
 
 				var categoria_id = $(this).data('id');
-
+				categoria_selected = $(this).data('id');
 				$('.marcas-listado').html('');
 				$.ajax({
 					  method: "POST",
@@ -321,7 +323,7 @@
 					  		var json = $.parseJSON(msg);
 					  		$('.categoria_nombre').html(json[0].codigo);
 					  	 	for(var i = 0; i <= (json.length - 1 ); i++){
-					  	 		$('.marcas-listado').append('<li><a href="#">'+json[i].nombre+'</a></li>');
+					  	 		$('.marcas-listado').append('<li><a href="javascript:void(0);" class="marca" data-id="'+json[i].marca_id+'">'+json[i].nombre+'</a></li>');
 					  	 	}
 					  	}else{
 					  		$('.marcas-listado').html('<li><a href="javascript:void(0);">No se encontraron marcas.</a></li>');
@@ -331,6 +333,34 @@
 					  });
 
 			});
+
+			$('.marcas-listado').on('click', '.marca', (function(){
+
+				var marca_id = $(this).data('id');
+				marca_selected = $(this).data('id');
+				$('.productos-listado').html('');
+				$.ajax({
+					  method: "POST",
+					  url: "<?=base_url();?>show/getProducts/0/"+categoria_selected+'/'+marca_selected
+					
+					})
+					  .done(function(msg) {
+					  	$('.productos-container button').removeAttr('disabled');
+					  	if(msg != "error"){
+
+					  		var json = $.parseJSON(msg);
+					  		$('.producto_nombre').html(json[0].codigo);
+					  	 	for(var i = 0; i <= (json.length - 1 ); i++){
+					  	 		$('.productos-listado').append('<li><a href="#">'+json[i].nombre+'</a></li>');
+					  	 	}
+					  	}else{
+					  		$('.productos-listado').html('<li><a href="javascript:void(0);">No se encontraron marcas.</a></li>');
+					  	}
+
+						//$('.categoria_nombre').html(msg.);
+					  });
+
+			}));
 
 	});
 
