@@ -24,8 +24,13 @@
 		}
 	}
 
+
+
 	
 ?>
+
+
+
 
 <div class="col-md-9 details">
 	<div class="row">
@@ -141,8 +146,9 @@
 	</div>
 </div>
 
+<input type="hidden" id="marca_id" value="<?=$marca_id;?>">
+<input type="hidden" id="producto_id" value="<?=$producto_id;?>">
 <script type="text/javascript" defer>
-
 
 	var marca;
 	var categoria = '<?=$subcategoria->descripcion?>';
@@ -197,6 +203,57 @@
 		});
 
 	});
+
+function showProducts(id, callback) {
+		marca = $(this).data('image');
+		nombreMarca = $(this).data('name');
+		$(this).addClass('active');
+		$(this).parent().siblings().find('.active').removeClass('active');
+		$.ajax({
+			method: "GET",
+			url: "<?=base_url();?>show/getProducts/<?=seoUrl($breadcrumb);?>/<?=$url;?>/"+id
+		}).done(function(data) {
+			var json = $.parseJSON(data);
+			productosRelacionados = json['productos'];
+			var brandImg = '<img src="<?=base_url();?>images/productos/logos/'+json.productos[0].imagen+'.png" />';
+			var brandText = '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
+
+			var gallery = '';
+
+			json['productos'].forEach(function(elem, index, array) {
+				gallery += '<div class="col-md-4 col-sm-6"><a href="javascript:void(0)" onclick="showDetails('+elem.id+');" data-id="'+elem.id+'"><div><div class="image" style="http://placehold.it/155x90"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
+			});
+			if ($('#gallery').hasClass('hidden')) {
+				$('#product-details').fadeOut(function() {
+					$('#product-details').addClass('hidden');
+					$('#gallery').removeClass('hidden');
+					$('#gallery').fadeIn();
+				});
+			}
+
+			$('.product-gallery').fadeOut(function() {
+				$('.product-gallery > .container-fluid:first-child .col-sm-4').html(brandImg);
+				$('.product-gallery > .container-fluid:first-child .col-sm-8').html(brandText);
+				$('.product-gallery > .container-fluid:last-child .row').html(gallery);
+
+				$('.product-gallery').fadeIn();
+
+				$('.product-gallery .col-md-4 > a > div').mouseenter(function() {
+					$(this).find('.background').stop();
+					$(this).find('.background').animate({height: "100%"}, 300);
+				});
+
+				$('.product-gallery .col-md-4 > a > div').mouseleave(function() {
+					$(this).find('.background').stop();
+					$(this).find('.background').animate({height: "40%"}, 300);
+				});
+			})
+			callback();
+		});
+		
+
+	}
+
 
 
 	function showDetails(id) {
@@ -312,8 +369,10 @@
 		});
 	}
 
-
-	if('<?=$marca_id;?>' != '' && '<?=$product_id;?>' != ''){
+	var marca_id = $('#marca_id').val();
+	var producto_id = $('#producto_id').val();
+	if(marca_id != '' && producto_id != ''){
+		showProducts(marca_id, showDetails(producto_id));
 		
 	}
 </script>
