@@ -245,7 +245,7 @@
 					</div>
 				</div>
 				<div class="col-md-2 col-sm-12 separate-mobile">
-					<button type="submit" class="btn btn-default btn-raien"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
+					<button type="submit" class="btn btn-default btn-raien" id="search-form-2"><span class="glyphicon glyphicon-search"></span> BUSCAR</button>
 				</div>
 			</div>
 		</div>
@@ -290,6 +290,9 @@
 
    	var categoria_selected;
    	var marca_selected;
+   	var producto_selected;
+   	var base_url = '<?=base_url();?>'+'show/product/';
+
 	$(document).ready(function(){
 
 			$('.subnavigation-item').hover(
@@ -323,7 +326,7 @@
 					  		var json = $.parseJSON(msg);
 					  		$('.categoria_nombre').html(json[0].codigo);
 					  	 	for(var i = 0; i <= (json.length - 1 ); i++){
-					  	 		$('.marcas-listado').append('<li><a href="javascript:void(0);" class="marca" data-id="'+json[i].marca_id+'">'+json[i].nombre+'</a></li>');
+					  	 		$('.marcas-listado').append('<li><a href="javascript:void(0);" class="marca" data-id="'+json[i].marca_id+'" data-nombre="'+json[i].nombre+'">'+json[i].nombre+'</a></li>');
 					  	 	}
 					  	}else{
 					  		$('.marcas-listado').html('<li><a href="javascript:void(0);">No se encontraron marcas.</a></li>');
@@ -336,12 +339,15 @@
 
 			$('.marcas-listado').on('click', '.marca', (function(){
 
+				var marca_nombre = $(this).data('nombre');
 				var marca_id = $(this).data('id');
 				marca_selected = $(this).data('id');
+
+				$('.marca_nombre').html(marca_nombre);
 				$('.productos-listado').html('');
 				$.ajax({
 					  method: "POST",
-					  url: "<?=base_url();?>show/getProducts/0/"+categoria_selected+'/'+marca_selected
+					  url: "<?=base_url();?>show/getProductsHome/"+categoria_selected+'/'+marca_selected
 					
 					})
 					  .done(function(msg) {
@@ -349,18 +355,35 @@
 					  	if(msg != "error"){
 
 					  		var json = $.parseJSON(msg);
-					  		$('.producto_nombre').html(json[0].codigo);
+					  		
+					  		
 					  	 	for(var i = 0; i <= (json.length - 1 ); i++){
-					  	 		$('.productos-listado').append('<li><a href="#">'+json[i].nombre+'</a></li>');
+					  	 		$('.productos-listado').append('<li><a href="javascript:void(0);" class="producto" data-id="'+json[i].id+'" data-nombre="'+json[i].nombre+'">'+json[i].nombre+'</a></li>');
 					  	 	}
 					  	}else{
-					  		$('.productos-listado').html('<li><a href="javascript:void(0);">No se encontraron marcas.</a></li>');
+					  		$('.productos-listado').html('<li><a href="javascript:void(0);">No se encontraron productos.</a></li>');
 					  	}
 
 						//$('.categoria_nombre').html(msg.);
 					  });
 
 			}));
+
+			$('.productos-listado').on('click', '.producto', (function(){
+
+				var producto_nombre = $(this).data('nombre');
+				var producto_id = $(this).data('id');
+				producto_selected = $(this).data('id');
+
+				$('.producto_nombre').html(producto_nombre);
+			}));
+
+			$('#search-form-2').click(function(e){
+				e.preventDefault;
+				var url = base_url+producto_selected;
+				
+
+			});
 
 	});
 

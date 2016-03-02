@@ -178,7 +178,7 @@ class Show extends CI_Controller {
 		$this->db->distinct();
 		$this->db->select('m.nombre, c.nombre as codigo, m.id as marca_id');
 		$this->db->from('marcas m');
-		$this->db->join('productos p', 'm.id = p.marca', 'LEFT');
+		$this->db->join('productos p', 'm.id = p.marca_id', 'LEFT');
 		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id' ,'LEFT');
 		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
 		$this->db->where('pc.categoria_id', $categoria_id);
@@ -192,6 +192,20 @@ class Show extends CI_Controller {
 		}
 
 
+	}
+	function getProductsHome($subcategoria, $marca) {
+		$this->db->select('marcas.nombre marca, marcas.imagen, productos.id, productos.nombre, productos.file_pdf, productos.descripcion, productos.file_img');
+		$this->db->where('categorias.id', $subcategoria);
+		$this->db->where('marcas.id', $marca);
+		$this->db->from('categorias');
+		$this->db->join('productos_categorias', 'productos_categorias.categoria_id = categorias.id');
+		$this->db->join('productos', 'productos.id = productos_categorias.producto_id');
+		$this->db->join('marcas', 'marcas.id = productos.marca_id');
+		$query = $this->db->get();
+		//die($this->db->last_query());
+		$data = $query->result();
+		$jsonstring = json_encode($data);
+		echo $jsonstring;
 	}
 }
 
