@@ -96,7 +96,9 @@
 			<div class="container-fluid">
 				<div class="row top-info">
 					<div class="col-md-4">
-						<img src="http://placehold.it/220x250" />
+						<div id="product-img">
+
+						</div>
 					</div>
 					<div class="col-lg-4 col-md-8">
 						<div class="product-info">
@@ -218,6 +220,7 @@
 			$('#product-name').html(product.nombre);
 			$('#category').html(categoria);
 			$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
+			$('#product-img').html('<img src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" />');
 			$('#other-products').html('Otros productos <strong>'+nombreMarca+'</strong>');
 			carouselString += '<div class="carousel-row">';
 			var i = 0;
@@ -231,7 +234,7 @@
 				i++;
 			});
 			carouselString += '</div>';
-			
+
 
 			$('#gallery').fadeOut(function() {
 				$('#gallery').addClass('hidden');
@@ -293,6 +296,7 @@
 				$('#product-name').html(product.nombre);
 				$('#category').html(categoria);
 				$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
+				$('#product-img').html('<img src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" />');
 				$('#other-products').html('Otros productos <strong>'+nombreMarca+'</strong>');
 				$('#product-details').fadeIn();
 			});
