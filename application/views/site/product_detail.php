@@ -24,6 +24,7 @@
 		}
 	}
 
+	
 ?>
 
 <div class="col-md-9 details">
@@ -139,6 +140,7 @@
 </div>
 
 <script type="text/javascript" defer>
+
 
 	var marca;
 	var categoria = '<?=$subcategoria->descripcion?>';
@@ -304,5 +306,10 @@
 			$('#gallery').removeClass('hidden');
 			$('#gallery').fadeIn();
 		});
+	}
+
+
+	if('<?=$marca_id;?>' != '' && '<?=$product_id;?>' != ''){
+		
 	}
 </script>

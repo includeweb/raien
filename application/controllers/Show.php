@@ -62,7 +62,14 @@ class Show extends CI_Controller {
 		return $query->result();
 	}
 
-	function products($vista = null, $subcategoria = null) {
+	function products($vista = null, $subcategoria = null, $marca_id = null, $producto_id = null) {
+
+		if(isset($marca_id) && isset($producto_id)){
+			$data['producto'] = $producto_id; 
+			$data['marca'] = $marca_id; 
+		}
+
+
 		$this->layout->setLayout('layout_products');
 		$data['categoria'] = $this->getCategorias();
 		//die($this->db->last_query());
@@ -176,7 +183,7 @@ class Show extends CI_Controller {
 		$this->db->join('marcas m', 'p.marca = m.id');*/
 		$categoria_id = $this->input->post('categoria_id');
 		$this->db->distinct();
-		$this->db->select('m.nombre, c.nombre as codigo, m.id as marca_id');
+		$this->db->select('m.nombre, c.nombre as codigo, m.id as marca_id, c.url');
 		$this->db->from('marcas m');
 		$this->db->join('productos p', 'm.id = p.marca_id', 'LEFT');
 		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id' ,'LEFT');

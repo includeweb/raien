@@ -211,7 +211,7 @@
 					  </button>
 					  <ul class="dropdown-menu dropdown-buscador">
 						  <?php foreach ($categorias as $categoria){ ?>
-						    <li><a href="javascript:void(0);" class="categoria" data-id="<?=$categoria->id;?>"><?=$categoria->descripcion;?></a></li>
+						    <li><a href="javascript:void(0);" class="categoria" data-id="<?=$categoria->id;?>" data-url="<?=$categoria->url;?>"><?=$categoria->descripcion;?></a></li>
 						  <?php } ?>
 					  </ul>
 					</div>
@@ -291,7 +291,8 @@
    	var categoria_selected;
    	var marca_selected;
    	var producto_selected;
-   	var base_url = '<?=base_url();?>'+'show/product/';
+   	var categoria_selected_url;
+   	var base_url = '<?=base_url();?>'+'show/products/categoria/';
 
 	$(document).ready(function(){
 
@@ -313,6 +314,8 @@
 
 				var categoria_id = $(this).data('id');
 				categoria_selected = $(this).data('id');
+				categoria_selected_url = $(this).data('url');
+
 				$('.marcas-listado').html('');
 				$.ajax({
 					  method: "POST",
@@ -380,8 +383,8 @@
 
 			$('#search-form-2').click(function(e){
 				e.preventDefault;
-				var url = base_url+producto_selected;
-				
+				var url = base_url+categoria_selected_url+'/'+marca_selected+'/'+producto_selected;
+				window.location = url;
 
 			});
 
