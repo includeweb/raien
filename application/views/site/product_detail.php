@@ -26,7 +26,7 @@
 
 
 
-	
+
 ?>
 
 
@@ -59,7 +59,7 @@
 	<div class="img-carousel">
 		<?php foreach ($marcasSubcategoria as $row) { ?>
 			<div class="brands-carousel">
-				<div data-id="<?=$row->id?>" data-image="<?=$row->imagen?>" data-name="<?=$row->nombre?>">
+				<div data-id="<?=$row->id?>" data-image="<?=$row->imagen?>" data-name="<?=$row->nombre?>" id="marca-<?=$row->id?>">
 					<img src="<?=base_url();?>images/productos/logos/<?=seoUrl($row->nombre)?>.png" style="width:100%" />
 					<!-- <img src="http://placehold.it/155x90" class="img-responsive"> -->
 				</div>
@@ -148,6 +148,7 @@
 
 <input type="hidden" id="marca_id" value="<?=$marca_id;?>">
 <input type="hidden" id="producto_id" value="<?=$producto_id;?>">
+<input type="hidden" id="url" value="<?=$this->uri->segment(4)?>">
 <script type="text/javascript" defer>
 
 	var marca;
@@ -155,6 +156,7 @@
 	var nombreMarca;
 	var productosRelacionados;
 	var carousel = 0;
+	var url;
 
 	$('.brands-carousel > div').click(function() {
 		marca = $(this).data('image');
@@ -211,9 +213,10 @@ function showProducts(id, callback) {
 		$(this).parent().siblings().find('.active').removeClass('active');
 		$.ajax({
 			method: "GET",
-			url: "<?=base_url();?>show/getProducts/<?=seoUrl($breadcrumb);?>/<?=$url;?>/"+id
+			url: "<?=base_url();?>show/getProducts/categoria/"+url+"/"+id
 		}).done(function(data) {
 			var json = $.parseJSON(data);
+			console.log(json);
 			productosRelacionados = json['productos'];
 			var brandImg = '<img src="<?=base_url();?>images/productos/logos/'+json.productos[0].imagen+'.png" />';
 			var brandText = '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
@@ -248,9 +251,9 @@ function showProducts(id, callback) {
 					$(this).find('.background').animate({height: "40%"}, 300);
 				});
 			})
-			callback();
+			callback+'()';
 		});
-		
+
 
 	}
 
@@ -371,8 +374,52 @@ function showProducts(id, callback) {
 
 	var marca_id = $('#marca_id').val();
 	var producto_id = $('#producto_id').val();
-	if(marca_id != '' && producto_id != ''){
-		showProducts(marca_id, showDetails(producto_id));
-		
+	url = $('#url').val();
+	//alert(url);
+	if(marca_id != 0 && producto_id != 0){
+		//showProducts(marca_id, showDetails(producto_id));
+		// $('#marca-'+marca_id).click();
+		marca = $('#marca-'+marca_id).data('image');
+		nombreMarca = $('#marca-'+marca_id).data('name');
+		$('#marca-'+marca_id).addClass('active');
+		$('#marca-'+marca_id).parent().siblings().find('.active').removeClass('active');
+		$.ajax({
+			method: "GET",
+			url: "<?=base_url();?>show/getProducts/categoria/"+url+"/"+marca_id
+		}).done(function(data) {
+			var json = $.parseJSON(data);
+			console.log(json);
+			productosRelacionados = json['productos'];
+			var brandImg = '<img src="<?=base_url();?>images/productos/logos/'+json.productos[0].imagen+'.png" />';
+			var brandText = '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
+			var gallery = '';
+			json['productos'].forEach(function(elem, index, array) {
+				gallery += '<div class="col-md-4 col-sm-6"><a href="javascript:void(0)" onclick="showDetails('+elem.id+');" data-id="'+elem.id+'"><div><div class="image" style="http://placehold.it/155x90"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
+			});
+			// if ($('#gallery').hasClass('hidden')) {
+			// 	$('#product-details').hide(function() {
+			// 		$('#product-details').addClass('hidden');
+			// 		$('#gallery').removeClass('hidden');
+			// 		$('#gallery').show();
+			// 	});
+			// }
+
+			$('.product-gallery > .container-fluid:first-child .col-sm-4').html(brandImg);
+			$('.product-gallery > .container-fluid:first-child .col-sm-8').html(brandText);
+			$('.product-gallery > .container-fluid:last-child .row').html(gallery);
+
+			$('.product-gallery').show();
+
+			$('.product-gallery .col-md-4 > a > div').mouseenter(function() {
+				$(this).find('.background').stop();
+				$(this).find('.background').animate({height: "100%"}, 300);
+			});
+
+			$('.product-gallery .col-md-4 > a > div').mouseleave(function() {
+				$(this).find('.background').stop();
+				$(this).find('.background').animate({height: "40%"}, 300);
+			});
+			showDetails(producto_id);
+		});
 	}
 </script>

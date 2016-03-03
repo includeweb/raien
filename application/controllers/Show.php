@@ -30,7 +30,7 @@ class Show extends CI_Controller {
 
 	function contact() {
 		$this->layout->view('contact');
-	}	
+	}
 	function add_contact() {
 		if($_POST){
 			$insert['nombre'] = $this->input->post('nombre');
@@ -78,10 +78,11 @@ class Show extends CI_Controller {
 	function products($vista = null, $subcategoria = null, $marca_id = null, $producto_id = null) {
 
 		if(isset($marca_id) && isset($producto_id)){
-
-			$data['producto_id'] = $producto_id; 
-			$data['marca_id'] = $marca_id; 
-
+			$data['producto_id'] = $producto_id;
+			$data['marca_id'] = $marca_id;
+		} else {
+			$data['producto_id'] = 0;
+			$data['marca_id'] = 0; 
 		}
 
 
