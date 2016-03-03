@@ -1185,12 +1185,13 @@ td:nth-child(3) > span {
 .separate-mobile{
 		margin-top: 0px;
 	}
-}
-
-@media (min-width: 992px){
 	.buscador .borde{
 		border-left: 1px solid #fff;
 	}
+}
+
+@media (min-width: 992px){
+	
 	.dropdown-toggle{
 		text-align: center;
 	}
