@@ -44,7 +44,8 @@ class Admin extends CI_Controller {
 			
 		}
 
-	}
+	}	
+
 
 	public function editar_producto($id){
 
@@ -105,6 +106,41 @@ class Admin extends CI_Controller {
 			} else {
 			    return false;
 			}
+		}
+
+	}
+
+	public function contactos(){
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		} else {
+			$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$data['role'] = $this->tank_auth->get_role();
+		}
+		$this->layout->view('contactos',$data);
+
+	}
+
+	public function get_contactos(){
+		$rows = $this->db->get('contacts');
+		$array = array();
+		foreach ($rows->result() as $row) {
+			$array[] = $row;
+		}
+		echo json_encode($array);
+	}
+
+	public function get_contact(){
+		$id = $_POST['id'];
+		
+		if($_POST){
+			
+		//	$this->db->where('id',$id);
+			$rs = $this->db->get_where('contacts',array('id'=>$id));
+			$products = $rs->row();
+			echo json_encode($products);
+			
 		}
 
 	}

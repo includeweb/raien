@@ -54,18 +54,15 @@
            
             <div class="panel-body">
             <ul class="nav nav-pills nav-stacked">
-              <li role="presentation" class="active"><a href="<?=base_url();?>dashboard">Dashboard</a></li>
-              <li role="presentation"><a href="<?=base_url();?>dashboard/productos" class="list-group-item">Productos</a></li>
-              <li role="presentation"><a href="<?=base_url();?>dashboard/marcas" class="list-group-item">Marcas</a></li>
-              <li role="presentation"><a href="<?=base_url();?>dashboard/marcas" class="list-group-item">Marcas</a></li>
-              <li role="presentation"><a href="<?=base_url();?>dashboard/contactos" class="list-group-item">Contactos</a></li>
+              <li role="presentation" class="active"><a href="<?=base_url();?>admin">Admin</a></li>
+              <li role="presentation"><a href="<?=base_url();?>admin" class="list-group-item">Productos</a></li>
+              <li role="presentation"><a href="<?=base_url();?>admin/contactos" class="list-group-item">Contactos</a></li>
             </ul>
             </div>
           </div>
         </div>
         <div class="col-md-10" id="content-app">
-        <?php echo $content_for_layout?>
-         
+          <?php echo $content_for_layout?>
         </div>
       </div>
           

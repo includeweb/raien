@@ -1,3 +1,39 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#submit").click(function(e){
+		
+		if($('#my_form')[0].checkValidity()){
+			e.preventDefault();
+			var nombre = $("#nombre").val();
+			var empresa = $("#empresa").val();
+			var direccion = $("#direccion").val();
+			var ciudad = $("#ciudad").val();
+			var pais = $("#pais").val();
+			var telefono = $("#telefono").val();
+			var email = $("#email").val();
+			var consulta = $("#consulta").val();
+			$.post('<?=base_url("show/add_contact")?>',
+				{
+					nombre:nombre,
+					empresa:empresa,
+					direccion:direccion,
+					ciudad:ciudad,
+					pais:pais,
+					telefono:telefono,
+					email:email,
+					consulta:consulta
+				},
+				function(){
+					alert("Se envio su consulta en breve nos comunicaremos con usted");
+					$('#my_form')[0].reset();
+				});
+
+		}
+		
+	});
+});
+</script>
+
 <div class="row">
 	<div class="col-md-3">
 		<div class="title-black">Contactanos</div>
@@ -16,47 +52,47 @@
 	</div>
 	<div class="col-md-9">
 		<div>
-			<form class="form-horizontal">
+			<form class="form-horizontal" id="my_form">
 			  <div class="form-group">
 			  	<div class="col-md-12">
 				    <label for="nombre">Nombre y apellido*</label>
-				    <input type="text" class="form-control required" id="nombre">
+				    <input type="text" class="form-control " required id="nombre">
 				  </div>
 			  </div>
 			  <div class="form-group">
 			  	<div class="col-md-6">
 				    <label for="empresa">Empresa*</label>
-				    <input type="text" class="form-control required" id="empresa">
+				    <input type="text" class="form-control " required id="empresa">
 				  </div>
 				  <div class="col-md-6">
 				    <label for="direccion">Dirección</label>
-				    <input type="text" class="form-control required" id="direccion">
+				    <input type="text" class="form-control " required id="direccion">
 				  </div>
 			  </div>
 			  <div class="form-group">
 			  	<div class="col-md-6">
 				    <label for="ciudad">Ciudad</label>
-				    <input type="text" class="form-control required" id="ciudad">
+				    <input type="text" class="form-control " required id="ciudad">
 				  </div>
 				  <div class="col-md-6">
 				    <label for="pais">País</label>
-				    <input type="text" class="form-control required" id="pais">
+				    <input type="text" class="form-control " required id="pais">
 				  </div>
 			  </div>
 			  <div class="form-group">
 			  	<div class="col-md-6">
 				    <label for="telefono">Teléfono*</label>
-				    <input type="text" class="form-control required" id="telefono">
+				    <input type="text" class="form-control " required id="telefono">
 				  </div>
 				  <div class="col-md-6">
 				    <label for="mail">Mail*</label>
-				    <input type="text" class="form-control required" id="mail">
+				    <input type="text" class="form-control " required id="email">
 				  </div>
 			  </div>
 			  <div class="form-group">
 			  	<div class="col-md-12">
 				    <label for="consulta">Consulta</label>
-				    <textarea class="form-control required" id="consulta" rows="3"></textarea>
+				    <textarea class="form-control " required id="consulta" rows="3"></textarea>
 				  </div>
 			  </div>
 			  <div class="form-group">
@@ -64,7 +100,7 @@
 				    <div>Los campos con asteriscos (*) son obligatorios.</div>
 				  </div>
 				  <div class="col-md-6">
-				    <button type="submit"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Enviar</button>
+				    <button type="submit" id="submit"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Enviar</button>
 				  </div>
 			  </div>
 			</form>

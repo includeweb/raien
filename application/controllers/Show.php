@@ -30,6 +30,19 @@ class Show extends CI_Controller {
 
 	function contact() {
 		$this->layout->view('contact');
+	}	
+	function add_contact() {
+		if($_POST){
+			$insert['nombre'] = $this->input->post('nombre');
+			$insert['empresa'] = $this->input->post('empresa');
+			$insert['direccion'] = $this->input->post('direccion');
+			$insert['ciudad'] = $this->input->post('ciudad');
+			$insert['pais'] = $this->input->post('pais');
+			$insert['telefono'] = $this->input->post('telefono');
+			$insert['email'] = $this->input->post('email');
+			$insert['consulta'] = $this->input->post('consulta');
+			$this->db->insert('contacts',$insert);
+		}
 	}
 
 	function team() {

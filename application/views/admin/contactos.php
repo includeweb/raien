@@ -7,16 +7,10 @@
         result = 20;
 
 
-        $.post( base_url+"admin/products_get", function( data ) {
-            contenedor = $("#content_news");
-            table = $("#table_news");
+        $.post( base_url+"admin/get_contactos", function( data ) {
+            contenedor = $("#content_contactos");
+            table = $("#table_contactos");
             acction = [{
-                            "link":base_url+'admin/editar_producto/',
-                            "button":'' ,
-                            "rel":'',
-                            "class":'glyphicon glyphicon-pencil' ,
-                            "parameter": 'id'
-                        },{
                             "link":'#',
                             "button":'',
                             "rel":'id',
@@ -42,10 +36,10 @@
         $("body").on('click','.remove',function(){
             var id = $(this).attr('rel');
             $.confirm({
-                text: "Desea eliminar esta nota?",
+                text: "Desea eliminar este Contacto?",
                 title: "Confirmation required",
                 confirm: function(button) {
-                   news_delete(id)
+                   contact_delete(id)
                 },
                 cancel: function(button) {
                     
@@ -59,51 +53,30 @@
             });
 
         });
-    
-        $("body").on('click','.ver_pdf',function(){
-          var id =  $(this).data("id");  
-          var data =  $(this).attr("rel");  
-          var url = base_url+'files/pdf/'+id+'/'+data
-          window.open(url,'_blank');
-        }); 
 
-        $("body").on('click','.ver_img',function(){
-            var id =  $(this).data("id");
+        $("body").on('click','.edition', function(){
+            var id = $(this).attr('rel');
             $.ajax({
-                url: "<?=base_url('admin/get_product')?>",
+                url: "<?=base_url('admin/get_contact')?>",
                 data: {id:id},
                 type: "POST",
                 datatype: 'json',
                 success: function(data){        
-                    products = JSON.parse(data);
-                    var img = base_url+"files/images/"+id+"/"+products.file_img;
-                    $('#title').html('Foto del Producto');
-                    $('#body').html("<img src=\""+img+"\" alt=\"Smiley face\">");
+                    contact = JSON.parse(data);
+                    $('#title').html('Consulta de '+contact.nombre);
+                    $('#body').html(contact.consulta);
                     $('#my_modal').modal('show');
+
                 }  
             });
+
         });
 
-        $("body").on('click','.edition', function(){
-        var id = $(this).attr('rel');
-        $.ajax({
-            url: "<?=base_url('admin/get_product')?>",
-            data: {id:id},
-            type: "POST",
-            datatype: 'json',
-            success: function(data){        
-                products = JSON.parse(data);
-                $('#title').html('Descripción del Producto');
-                $('#body').html(products.descripcion);
-                $('#my_modal').modal('show');
-
-            }  
-        });
-    });
 
     });
 
-function news_delete(id){
+
+function contact_delete(id){
     $.post( base_url+"admin/news_delete",{id:id},function(data){
         $("#"+id).remove().fadeOut(); 
     });
@@ -118,6 +91,7 @@ function news_delete(id){
         <button class="btn-admin-return" id="report"><i class="fa fa-download"></i>Exportar Reporte</button>
     </div>
 </div>
+
 <div class="row std-article std-admin">
     <div class="col-md-6 pull-left">
         <label for="result">Buscar:</label>
@@ -131,25 +105,29 @@ function news_delete(id){
         <span>De: </span><span id="numRows"></span>
     </div>
 </div>
+
 <div class="row std-article std-admin">
     <div class="col-xs-12">
         <table class="table table-hover">
-            <thead id="table_news">
+            <thead id="table_contactos">
               <tr>
                 <th rel="id"><a href="javascript:void(0)" class="asc" >Id</a></th>
-                <th rel="nombre"><a href="javascript:void(0)" class="asc" >Fecha</a></th>
-                <th rel="descripcion" class="editable"><a href="javascript:void(0)" class="asc" >Publicación</a></th>
-                <th rel="file_pdf" class="view" data-class ="ver_pdf glyphicon glyphicon-floppy-save"><a href="javascript:void(0)" class="asc" >Documentación</a></th>
-                <th rel="file_img" class="view" data-class ="ver_img glyphicon glyphicon-picture"><a href="javascript:void(0)" class="asc" >Foto</a></th>
+                <th rel="nombre"><a href="javascript:void(0)" class="asc" >Nombre</a></th>
+                <th rel="empresa"><a href="javascript:void(0)" class="asc" >Empresa</a></th>
+                <th rel="direccion"><a href="javascript:void(0)" class="asc" >Dirección</a></th>
+                <th rel="ciudad"><a href="javascript:void(0)" class="asc" >Ciudad</a></th>
+                <th rel="pais"><a href="javascript:void(0)" class="asc" >País</a></th>
+                <th rel="telefono"><a href="javascript:void(0)" class="asc" >Telefono</a></th>
+                <th rel="email"><a href="javascript:void(0)" class="asc" >Email</a></th>
+                <th rel="consulta" class="editable"><a href="javascript:void(0)" class="asc" >Consulta</a></th>
                 <th rel="acction">Acciones</th>
               </tr>
             </thead>
-            <tbody id="content_news">
+            <tbody id="content_contactos">
             </tbody>
         </table> 
     </div>
-</div>
-<div class="modal fade" tabindex="-1" role="dialog" id="my_modal">
+</div><div class="modal fade" tabindex="-1" role="dialog" id="my_modal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
