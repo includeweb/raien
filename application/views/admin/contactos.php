@@ -5,8 +5,6 @@
 
     $(document).ready(function () {
         result = 20;
-
-
         $.post( base_url+"admin/get_contactos", function( data ) {
             contenedor = $("#content_contactos");
             table = $("#table_contactos");

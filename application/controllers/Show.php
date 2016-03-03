@@ -164,6 +164,7 @@ class Show extends CI_Controller {
 				$this->layout->view('product_detail', $data);
 				break;
 			}*/
+			
 
 		}
 	}
