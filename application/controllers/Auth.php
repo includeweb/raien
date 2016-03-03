@@ -17,7 +17,6 @@ class Auth extends CI_Controller
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 	}
-	
 
 	function index()
 	{

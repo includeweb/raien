@@ -110,7 +110,6 @@ class Admin extends CI_Controller {
 
 	}
 
-	
 	public function contactos(){
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect('/auth/login/');
