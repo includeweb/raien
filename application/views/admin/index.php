@@ -110,45 +110,60 @@ function news_delete(id){
 }
 
 </script>
-<div class="row std-article std-admin">
-    <div class="col-sm-6">
-        <h2>Listado de Noticias</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-10"><h3 class="panel-title fix-title">Contactos </h3></div>
+            <div class="col-md-2 text-right "><a href="<?=base_url();?>dashboard/agregar_producto" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</a></div>
+        </div>   
     </div>
-    <div class="col-sm-6">
-        <button class="btn-admin-return" id="report"><i class="fa fa-download"></i>Exportar Reporte</button>
+
+    <div class="panel-body">
+        <div class="row">
+            <form id="my_form" method="POST" action="<?=base_url('dashboard/obtener_xls')?>" >
+                
+                <div class="col-md-3 pull-left col-sm-12">
+                        <div class="form-group">
+                            <label for="result">Buscar:</label>
+                            <input type="text" name="buscador" id="buscador" class="form-control">
+                        </div>
+                    </div>          
+                    <div class="col-md-5 pull-left col-sm-12">
+                        <div class="form-group">
+                            <label for="result">Mostrar:</label>
+                            <select  id="result" name="result" class="form-control">
+                            <option value="">Seleccione</option>
+                            </select>
+                            <span>De: </span><span id="numRows"></span>
+                        </div>
+                        
+                    </div>              
+                    <div class="col-md-4 col-sm-12">
+                        <label>Exportar</label><br>
+                        <a href="dashboard/obtener_xls" class="btn btn-default pull-left" id="report" ><span class="glyphicon glyphicon-download"></span> Reporte</a>
+                    </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <thead id="table_news">
+                      <tr>
+                        <th rel="id"><a href="javascript:void(0)" class="asc" >Id</a></th>
+                        <th rel="nombre"><a href="javascript:void(0)" class="asc" >Fecha</a></th>
+                        <th rel="descripcion" class="editable"><a href="javascript:void(0)" class="asc" >Publicación</a></th>
+                        <th rel="file_pdf" class="view" data-class ="ver_pdf glyphicon glyphicon-floppy-save"><a href="javascript:void(0)" class="asc" >Documentación</a></th>
+                        <th rel="file_img" class="view" data-class ="ver_img glyphicon glyphicon-picture"><a href="javascript:void(0)" class="asc" >Foto</a></th>
+                        <th rel="acction">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody id="content_news">
+                    </tbody>
+                </table>          
+            </div>
+        </div>
     </div>
-</div>
-<div class="row std-article std-admin">
-    <div class="col-md-6 pull-left">
-        <label for="result">Buscar:</label>
-        <input type="text" name="buscador" id="buscador" class="form-control">
-    </div>          
-    <div class="col-md-6 pull-left">
-        <label for="result">Mostrar:</label>
-        <select  id="result" name="result" class="form-control">
-            <option value="">Seleccione</option>
-        </select>
-        <span>De: </span><span id="numRows"></span>
-    </div>
-</div>
-<div class="row std-article std-admin">
-    <div class="col-xs-12">
-        <table class="table table-hover">
-            <thead id="table_news">
-              <tr>
-                <th rel="id"><a href="javascript:void(0)" class="asc" >Id</a></th>
-                <th rel="nombre"><a href="javascript:void(0)" class="asc" >Fecha</a></th>
-                <th rel="descripcion" class="editable"><a href="javascript:void(0)" class="asc" >Publicación</a></th>
-                <th rel="file_pdf" class="view" data-class ="ver_pdf glyphicon glyphicon-floppy-save"><a href="javascript:void(0)" class="asc" >Documentación</a></th>
-                <th rel="file_img" class="view" data-class ="ver_img glyphicon glyphicon-picture"><a href="javascript:void(0)" class="asc" >Foto</a></th>
-                <th rel="acction">Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="content_news">
-            </tbody>
-        </table> 
-    </div>
-</div>
+</div>    
 <div class="modal fade" tabindex="-1" role="dialog" id="my_modal">
   <div class="modal-dialog">
     <div class="modal-content">
