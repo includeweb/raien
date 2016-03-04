@@ -230,6 +230,21 @@ class Show extends CI_Controller {
 		$jsonstring = json_encode($data);
 		echo $jsonstring;
 	}
+
+	function getProductHome($producto){
+		$this->db->select('p.id as producto, c.url as categoria, m.id as marca, c.tipo_id');
+		$this->db->from('productos p');
+		$this->db->limit(1);
+		$this->db->like('p.nombre', $producto);
+		$this->db->join('marcas m', 'p.marca_id = m.id');
+		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id');
+		$this->db->join('categorias c', 'pc.categoria_id = c.id');
+		$query = $this->db->get();
+		$data = $query->row();
+		$jsonstring = json_encode($data);
+		echo $jsonstring;
+
+	}
 }
 
 

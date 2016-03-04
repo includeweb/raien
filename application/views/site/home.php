@@ -191,9 +191,9 @@
 	<div class="container">
 		<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
 			<div class="input-group">
-		      <input type="text" class="form-control" placeholder="¿QUÉ PRODUCTO ESTÁ BUSCANDO?">
+		      <input type="text" class="form-control" placeholder="¿QUÉ PRODUCTO ESTÁ BUSCANDO?" id="input-product">
 		      <span class="input-group-btn">
-		        <button class="btn btn-default hidden-xs btn-raien" type="button"><span class="glyphicon glyphicon-search"></span> BUSCAR</span></button>
+		        <button class="btn btn-default hidden-xs btn-raien" type="button" id="search-form-1"><span class="glyphicon glyphicon-search"></span> BUSCAR</span></button>
 		        <button class="btn btn-default show-xs hidden-sm hidden-md hidden-lg" type="button"><span class="glyphicon glyphicon-search"></span></button>
 		      </span>
 		    </div><!-- /input-group -->
@@ -388,6 +388,25 @@
 
 			});
 
+			$('#search-form-1').click(function(e){
+				e.preventDefault;
+				var producto = $('#input-product').val();
+				$.ajax({
+					  method: "POST",
+					  url: "<?=base_url();?>show/getProductHome/"+producto
+					
+					}).done(function(data) {
+					  	var json = $.parseJSON(data)
+					  	if(data.tipo_id == 1){
+					  		var url = base_url+json.categoria+'/'+json.marca+'/'+json.producto;
+					  	}else{
+					  		var url = '<?=base_url();?>'+'show/products/aplicacion/'+json.categoria+'/'+json.marca+'/'+json.producto;
+					  	}
+					  	
+					  	
+						window.location = url;
+					  });
+			});
 	});
 
 
