@@ -153,8 +153,8 @@
 						<div class="form-group">
 							<div>¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>
 							<div class="input-group full-width">
-								<input type="email" class="form-control" id="exampleInputAmount">
-								<div class="input-group-addon"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								<input type="email" class="form-control" id="email">
+								<div class="input-group-addon"><a href="javascript:void(0);" id="news"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></div>
 							</div>
 						</div>
 					</form>
@@ -171,5 +171,22 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  	<script type="text/javascript">
+  		$(document).ready(function() {
+				$('#news').click(function(){
+					var mail = $('#email').val();
+					$.ajax({
+							  method: "POST",
+							  url: "<?=base_url();?>show/newsletter",
+							  data: { mail: mail}
+							})
+							  .done(function(msg) {
+							  	$('.last').html('Recibimos sus datos correctamente.');
+							  });
+
+					});
+				});
+			
+  	</script>
   </body>
 </html>

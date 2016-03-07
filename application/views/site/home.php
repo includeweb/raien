@@ -191,7 +191,7 @@
 	<div class="container">
 		<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
 			<div class="input-group">
-		      <input type="text" class="form-control" placeholder="¿QUÉ PRODUCTO ESTÁ BUSCANDO?" id="input-product">
+		      <input type="text" class="form-control" placeholder="¿QUÉ PRODUCTO ESTÁ BUSCANDO?" id="input-product" style="color:#fff">
 		      <span class="input-group-btn">
 		        <button class="btn btn-default hidden-xs btn-raien" type="button" id="search-form-1"><span class="glyphicon glyphicon-search"></span> BUSCAR</span></button>
 		        <button class="btn btn-default show-xs hidden-sm hidden-md hidden-lg" type="button"><span class="glyphicon glyphicon-search"></span></button>
@@ -266,8 +266,8 @@
 						<div class="form-group">
 							<div>¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>
 							<div class="input-group full-width">
-								<input type="email" class="form-control" id="exampleInputAmount">
-								<div class="input-group-addon"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								<input type="email" class="form-control" id="email">
+								<div class="input-group-addon"><a href="javascript:void(0);" id="news"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></div>
 							</div>
 						</div>
 					</form>
@@ -295,6 +295,20 @@
    	var base_url = '<?=base_url();?>'+'show/products/categoria/';
 
 	$(document).ready(function(){
+
+		$('#news').click(function(){
+			var mail = $('#email').val();
+			$.ajax({
+					  method: "POST",
+					  url: "<?=base_url();?>show/newsletter",
+					  data: { mail: mail}
+					})
+					  .done(function(msg) {
+					  	$('.last').html('Recibimos sus datos correctamente.');
+					  });
+
+			});
+		});
 
 			$('.subnavigation-item').hover(
 

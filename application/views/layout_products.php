@@ -189,8 +189,8 @@
 						<div class="form-group">
 							<div>¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>
 							<div class="input-group full-width">
-								<input type="email" class="form-control" id="exampleInputAmount">
-								<div class="input-group-addon"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								<input type="email" class="form-control" id="email">
+								<div class="input-group-addon"><a href="javascript:void(0);" id="news"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></div>iv>
 							</div>
 						</div>
 					</form>
@@ -250,6 +250,20 @@
 
 		<script>
 			$(document).ready(function() {
+				$('#news').click(function(){
+					var mail = $('#email').val();
+					$.ajax({
+							  method: "POST",
+							  url: "<?=base_url();?>show/newsletter",
+							  data: { mail: mail}
+							})
+							  .done(function(msg) {
+							  	$('.last').html('Recibimos sus datos correctamente.');
+							  });
+
+					});
+				});
+			
 				$('.col-md-4 > a').mouseenter(function() {
 					//$(this).find('.background').css('background-color', '#DCA427');
 					$(this).find('.background').addClass('hover');

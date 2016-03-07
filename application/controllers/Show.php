@@ -265,15 +265,20 @@ class Show extends CI_Controller {
 		$this->db->from('productos p');
 		$this->db->limit(1);
 		$this->db->like('p.nombre', $producto);
-		$this->db->join('marcas m', 'p.marca_id = m.id');
-		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id');
-		$this->db->join('categorias c', 'pc.categoria_id = c.id');
+		$this->db->join('marcas m', 'p.marca_id = m.id', 'LEFT');
+		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id', 'LEFT');
+		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
 		$query = $this->db->get();
 		$data = $query->row();
 
 		$jsonstring = json_encode($data);
 		echo $jsonstring;
 
+	}
+
+	function newsletter(){
+		$insert['email'] = $this->input->post('mail'); 
+		$this->db->insert('newsletter', $insert);
 	}
 }
 
