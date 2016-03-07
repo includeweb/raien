@@ -6,7 +6,7 @@
 
     $(document).ready(function () {
         result = 20;
-        $.post( base_url+"admin/get_contactos", function( data ) {
+        $.post( base_url+"admin/get_cvs", function( data ) {
             contenedor = $("#content_contactos");
             table = $("#table_contactos");
             acction = [{
@@ -25,6 +25,14 @@
             selectedRow(json);
         });
 
+        $("body").on('click','.ver_pdf',function(){
+          var id =  $(this).data("id");  
+          var data =  $(this).attr("rel");  
+          var url = base_url+'files/cv/'+data
+          window.open(url,'_blank');
+        }); 
+
+
         $("#report").click(function(){
             var d = new Date();
             var strDate = d.getFullYear() + "_" + (d.getMonth()+1) + "_" + d.getDate();
@@ -38,7 +46,7 @@
                 text: "Desea eliminar este Contacto?",
                 title: "Confirmation required",
                 confirm: function(button) {
-                   contact_delete(id)
+                   cv_delete(id)
                 },
                 cancel: function(button) {
                     
@@ -53,28 +61,10 @@
 
         });
 
-        $("body").on('click','.edition', function(){
-            var id = $(this).attr('rel');
-            $.ajax({
-                url: "<?=base_url('admin/get_contact')?>",
-                data: {id:id},
-                type: "POST",
-                datatype: 'json',
-                success: function(data){        
-                    contact = JSON.parse(data);
-                    $('#title').html('Consulta de '+contact.nombre);
-                    $('#body').html(contact.consulta);
-                    $('#my_modal').modal('show');
-
-                }  
-            });
-
-        });
-
     });
 
-function contact_delete(id){
-    $.post( base_url+"admin/contact_delete",{id:id},function(data){
+function cv_delete(id){
+    $.post( base_url+"admin/cv_delete",{id:id},function(data){
         $("#"+id).remove().fadeOut(); 
     });
 }
@@ -84,7 +74,7 @@ function contact_delete(id){
 <div class="panel panel-default">
     <div class="panel-heading">
         <div class="row">
-            <div class="col-md-10"><h3 class="panel-title fix-title">Contactos </h3></div>
+            <div class="col-md-10"><h3 class="panel-title fix-title">CVS</h3></div>
             <div class="col-md-2 text-right "></div>
         </div>
     </div>
@@ -117,18 +107,16 @@ function contact_delete(id){
             <div class="col-md-12">
                 <table class="table table-hover">
                     <thead id="table_contactos">
-                      <tr>
                         <th rel="id"><a href="javascript:void(0)" class="asc" >Id</a></th>
                         <th rel="nombre"><a href="javascript:void(0)" class="asc" >Nombre</a></th>
-                        <th rel="empresa"><a href="javascript:void(0)" class="asc" >Empresa</a></th>
-                        <th rel="direccion"><a href="javascript:void(0)" class="asc" >Dirección</a></th>
-                        <th rel="ciudad"><a href="javascript:void(0)" class="asc" >Ciudad</a></th>
-                        <th rel="pais"><a href="javascript:void(0)" class="asc" >País</a></th>
                         <th rel="telefono"><a href="javascript:void(0)" class="asc" >Telefono</a></th>
                         <th rel="email"><a href="javascript:void(0)" class="asc" >Email</a></th>
-                        <th rel="consulta" class="editable"><a href="javascript:void(0)" class="asc" >Consulta</a></th>
+                        <th rel="filename" 
+                            class="view"
+                            data-class ="ver_pdf glyphicon glyphicon-floppy-save">
+                         <a href="javascript:void(0)" class="asc" >Curriculum</a>
+                        </th>
                         <th rel="acction">Acciones</th>
-                      </tr>
                     </thead>
                     <tbody id="content_contactos">
                     </tbody>
@@ -137,19 +125,3 @@ function contact_delete(id){
         </div>
     </div>
 </div>
-<div class="modal fade" tabindex="-1" role="dialog" id="my_modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="title"></h4>
-      </div>
-      <div class="modal-body" id="body">
-    
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->

@@ -1,4 +1,5 @@
 <?php echo add_jscript('function');?>  
+ <?php echo add_jscript('jquery.confirm');?>
 <script type="text/javascript">     
     
     var base_url = "<?php echo base_url()?>";
@@ -42,10 +43,10 @@
         $("body").on('click','.remove',function(){
             var id = $(this).attr('rel');
             $.confirm({
-                text: "Desea eliminar esta nota?",
+                text: "Desea eliminar este Producto?",
                 title: "Confirmation required",
                 confirm: function(button) {
-                   news_delete(id)
+                   producto_delete(id)
                 },
                 cancel: function(button) {
                     
@@ -103,8 +104,8 @@
 
     });
 
-function news_delete(id){
-    $.post( base_url+"admin/news_delete",{id:id},function(data){
+function producto_delete(id){
+    $.post( base_url+"admin/producto_delete",{id:id},function(data){
         $("#"+id).remove().fadeOut(); 
     });
 }

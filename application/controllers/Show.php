@@ -46,7 +46,26 @@ class Show extends CI_Controller {
 	}
 
 	function team() {
-		$this->layout->view('team');
+		$data['insert'] = '';
+		if($_POST){
+
+			$insert['nombre'] = $this->input->post("nombre");
+			$insert['telefono'] = $this->input->post("telefono");
+			$insert['email'] = $this->input->post("email");
+			if(!empty($_FILES['myFile']['name'])){
+				$folder = DIRECTORY_UPLOAD ."/cv/";
+				$filename = rand(0,100000).preg_replace('/\s+/', '',$_FILES['myFile']['name']);
+				$file = $folder ."/".$filename;
+				if (move_uploaded_file($_FILES['myFile']['tmp_name'], $file)) {
+				    $insert['filename'] = $filename;
+				    $data['insert'] = 'Muchas gracias por su confianza. Nos contactaremos a la brevedad.';
+				    $this->db->insert('teams',$insert);
+				} 
+			}
+		}
+
+	
+		$this->layout->view('team',$data);
 	}
 
 	function training() {

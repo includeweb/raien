@@ -145,4 +145,39 @@ class Admin extends CI_Controller {
 
 	}
 
+	public function cvs(){
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		} else {
+			$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$data['role'] = $this->tank_auth->get_role();
+		}
+		$this->layout->view('cvs',$data);
+	}
+
+	public function get_cvs(){
+		$rows = $this->db->get('teams');
+		$array = array();
+		foreach ($rows->result() as $row) {
+			$array[] = $row;
+		}
+		echo json_encode($array);
+	}
+
+	public function cv_delete(){
+		$id = $_POST['id'];
+		$this->db->delete('teams',array('id'=>$id));
+	}	
+
+	public function contact_delete(){
+		$id = $_POST['id'];
+		$this->db->delete('contacts',array('id'=>$id));
+	}	
+
+	public function producto_delete(){
+		$id = $_POST['id'];
+		$this->db->delete('productos',array('id'=>$id));
+	}
+
 }

@@ -44,7 +44,7 @@
 			<div class="col-md-4">
 
 				<div class="form-group">
-				    <label for="fileimage">Tipo</label>
+				    <label for="fileimage">Marca</label>
 				    <select class="form-control" name="marca_id">
 				    	<option value =" ">seleccione</option>
 				    	<?php foreach ($marcas->result() as $marca) {?>

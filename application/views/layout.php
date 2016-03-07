@@ -57,6 +57,7 @@
               <li role="presentation" class="active"><a href="<?=base_url();?>admin">Admin</a></li>
               <li role="presentation"><a href="<?=base_url();?>admin" class="list-group-item">Productos</a></li>
               <li role="presentation"><a href="<?=base_url();?>admin/contactos" class="list-group-item">Contactos</a></li>
+              <li role="presentation"><a href="<?=base_url();?>admin/cvs" class="list-group-item">CVS</a></li>
             </ul>
             </div>
           </div>

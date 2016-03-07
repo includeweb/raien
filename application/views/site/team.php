@@ -8,7 +8,30 @@
 			$('.text').addClass('fadeInLeft').fadeIn('slow');
 		}, 400);
 		
+
+		$('#fileForm').formValidation({
+		       framework: 'bootstrap',
+		       icon: {
+		           valid: 'glyphicon glyphicon-ok',
+		           invalid: 'glyphicon glyphicon-remove',
+		           validating: 'glyphicon glyphicon-refresh'
+		       },
+		       fields: {
+		           avatar: {
+		               validators: {
+		                   file: {
+		                       extension: 'doc,pdf',
+		                       type: 'application/msword,application/pdf',
+		                       message: 'Solo documentos o pdf'
+		                   }
+		               }
+		           }
+		       }
+		   });
+
 	});
+
+
 </script>
 <div class="row team">
 	<div class="col-md-3">
@@ -23,31 +46,42 @@
 		</div>
 	</div>
 	<div class="col-md-9">
+		<?php if(!empty($insert)){?>
+			<div class="alert alert-success alert-dismissible" role="alert">
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			   <?=$insert?>
+			</div>
+		<?php } ?>
 		<div>
-			<form class="form-horizontal">
+			<form action=""  class="form-horizontal" method="post" enctype="multipart/form-data" id="fileForm">
 			  <div class="form-group">
 			  	<div class="col-md-12">
 				    <label for="nombre">Nombre y apellido*</label>
-				    <input type="text" class="form-control required" id="nombre">
+				    <input type="text" class="form-control required" name="nombre" id="nombre" required>
 				  </div>
 			  </div>
 			  <div class="form-group">
 			  	<div class="col-md-6">
 				    <label for="telefono">Teléfono*</label>
-				    <input type="text" class="form-control required" id="telefono">
+				    <input type="text" class="form-control required"  name="telefono" id="telefono" required>
 				  </div>
 				  <div class="col-md-6">
 				    <label for="mail">Mail*</label>
-				    <input type="text" class="form-control required" id="mail">
+				    <input type="text" class="form-control required" name="email" id="email" required>
 				  </div>
 			  </div>
 			  <div class="form-group">
 			  	<div class="col-md-6">
 			  		<div>Subir curriculum</div>
-				    <input id="uploadFile" placeholder="Choose File" disabled="disabled" />
+				    <input id="uploadFile" placeholder="Choose File"  disabled="disabled" />
 					<div class="fileUpload btn btn-primary">
 					    <span>Upload</span>
-					    <input id="uploadBtn" type="file" class="upload" />
+					    <input id="uploadBtn" 
+					    type="file" 
+					     name="myFile" 
+					     class="upload" 
+					     required  accept=",.doc, .docx,application/pdf"/>
+
 					</div>
 				  </div>
 				  <div class="col-md-6">
