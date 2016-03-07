@@ -106,6 +106,10 @@ class Show extends CI_Controller {
 
 
 		$this->layout->setLayout('layout_products');
+		$this->db->select('*');
+		$this->db->from('productos');
+		$this->db->where('id', $producto_id);
+		$producto = $this->db->get()->row();
 		$data['categoria'] = $this->getCategorias();
 		//die($this->db->last_query());
 		$data['aplicacion'] = $this->getAplicaciones();
@@ -115,18 +119,21 @@ class Show extends CI_Controller {
 			case 'categoria':
 			$data['result'] = $data['categoria'];
 			$data['breadcrumb'] = 'Categoria';
+			$data['producto'] = $producto;
 			//$this->layout->view('product_default', $data);
 			break;
 
 			case 'aplicacion':
 			$data['result'] = $data['aplicacion'];
 			$data['breadcrumb'] = 'Aplicación';
+			$data['producto'] = $producto;
 			//$this->layout->view('product_default', $data);
 			break;
 
 			case 'marcas':
 			$data['result'] = $data['marcas'];
 			$data['breadcrumb'] = 'Marcas';
+			$data['producto'] = $producto;
 			$this->layout->view('brands', $data);
 			return;
 			break;
@@ -134,6 +141,7 @@ class Show extends CI_Controller {
 			default:
 			$data['breadcrumb'] = null;
 			$data['result'] = null;
+			$data['producto'] = $producto;
 			$this->layout->view('product_default', $data);
 			return;
 			break;
@@ -144,6 +152,7 @@ class Show extends CI_Controller {
 
 		}
 		else {
+			$data['producto'] = $producto;
 			$data['url'] = $subcategoria;
 
 			$this->db->select('marcas.id, marcas.nombre, marcas.imagen, tipos.nombre tipo');
@@ -156,6 +165,7 @@ class Show extends CI_Controller {
 			$this->db->distinct();
 			$query = $this->db->get();
 			$data['marcasSubcategoria'] = $query->result();
+
 			$this->layout->view('product_detail', $data);
 
 			/*switch ($vista) {
@@ -236,7 +246,7 @@ class Show extends CI_Controller {
 
 	}
 	function getProductsHome($subcategoria, $marca) {
-		$this->db->select('marcas.nombre marca, marcas.imagen, productos.id, productos.nombre, productos.file_pdf, productos.descripcion, productos.file_img');
+		$this->db->select('marcas.nombre marca, marcas.imagen, productos.id, productos.nombre');
 		$this->db->where('categorias.id', $subcategoria);
 		$this->db->where('marcas.id', $marca);
 		$this->db->from('categorias');
@@ -260,6 +270,7 @@ class Show extends CI_Controller {
 		$this->db->join('categorias c', 'pc.categoria_id = c.id');
 		$query = $this->db->get();
 		$data = $query->row();
+
 		$jsonstring = json_encode($data);
 		echo $jsonstring;
 

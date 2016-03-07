@@ -345,7 +345,7 @@
 				var marca_nombre = $(this).data('nombre');
 				var marca_id = $(this).data('id');
 				marca_selected = $(this).data('id');
-
+				
 				$('.marca_nombre').html(marca_nombre);
 				$('.productos-listado').html('');
 				$.ajax({
