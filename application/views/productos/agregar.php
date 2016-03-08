@@ -11,8 +11,8 @@
 	</div>
 	<div class="panel-body">
 	   <ol class="breadcrumb">
-		  <li><a href="#">Dashboard</a></li>
-		  <li><a href="#">Productos</a></li>
+		  <li><a href="<?=base_url();?>admin">Dashboard</a></li>
+		  <li><a href="<?=base_url();?>admin/productos">Productos</a></li>
 		  <li class="active">Agregar producto</li>
 		</ol>
 		<!-- aca contenido de la seccion-->

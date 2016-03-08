@@ -1,7 +1,16 @@
+<script type="text/javascript" defer>
+	$(document).ready(function(){
+		$('.title-orange').addClass('fadeInLeft').fadeIn('slow');
+		setTimeout(function(){
+			$('.p').addClass('fadeInLeft').fadeIn('slow');
+		}, 500);
+
+	});
+</script>
 <div class="row training">
 	<div class="col-md-3">
-		<div class="title-orange">CURSOS, CAPACITACIONES Y&nbsp;WORKSHOPS</div>
-		<p>Nuestro Servicio de Post-Venta ofrece capacitaciones in-company y workshops. Porque no sólo vendemos productos, sino que capacitamos al personal en su uso, hablándoles el mismo idioma y adentrándonos en sus compañías, atendiendo sus necesidades específicas.</p>
+		<div class="title-orange animated animate-hide">CURSOS, CAPACITACIONES Y&nbsp;WORKSHOPS</div>
+		<p class="p animated animate-hide">Nuestro Servicio de Post-Venta ofrece capacitaciones in-company y workshops. Porque no sólo vendemos productos, sino que capacitamos al personal en su uso, hablándoles el mismo idioma y adentrándonos en sus compañías, atendiendo sus necesidades específicas.</p>
 	</div>
 	<div class="col-md-9">
 		<div class="table-responsive">

@@ -29,7 +29,11 @@
 ?>
 
 
-
+<style type="text/css">
+.products .col-md-4 div > .image {
+	z-index: 0;
+}
+</style>
 
 <div class="col-md-9 details">
 	<div class="row">

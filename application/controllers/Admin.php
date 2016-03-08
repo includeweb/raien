@@ -19,8 +19,21 @@ class Admin extends CI_Controller {
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$data['role'] = $this->tank_auth->get_role();
+			$data['active_tab'] = 'dashboard';
 		}
 		$this->layout->view('index',$data);
+	}
+
+	public function productos(){
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		} else {
+			$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$data['role'] = $this->tank_auth->get_role();
+			$data['active_tab'] = 'productos';
+		}
+		$this->layout->view('productos',$data);
 	}
 
 	public function products_get(){
@@ -73,7 +86,7 @@ class Admin extends CI_Controller {
 			redirect('admin');
 		
 		}
-
+		$data['active_tab'] = 'productos';
 		$data['marcas'] = $this->db->get('marcas');
 		$data['user_id']	= $this->tank_auth->get_user_id();
 		$data['username']	= $this->tank_auth->get_username();
@@ -117,6 +130,7 @@ class Admin extends CI_Controller {
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$data['role'] = $this->tank_auth->get_role();
+			$data['active_tab'] = 'contactos';
 		}
 		$this->layout->view('contactos',$data);
 
@@ -152,6 +166,7 @@ class Admin extends CI_Controller {
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$data['role'] = $this->tank_auth->get_role();
+			$data['active_tab'] = 'cvs';
 		}
 		$this->layout->view('cvs',$data);
 	}

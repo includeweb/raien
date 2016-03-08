@@ -54,10 +54,10 @@
            
             <div class="panel-body">
             <ul class="nav nav-pills nav-stacked">
-              <li role="presentation" class="active"><a href="<?=base_url();?>admin">Admin</a></li>
-              <li role="presentation"><a href="<?=base_url();?>admin" class="list-group-item">Productos</a></li>
-              <li role="presentation"><a href="<?=base_url();?>admin/contactos" class="list-group-item">Contactos</a></li>
-              <li role="presentation"><a href="<?=base_url();?>admin/cvs" class="list-group-item">CVS</a></li>
+              <li role="presentation" class="dashboard-tab <?if($active_tab == 'dashboard'){echo "active";}?>"><a href="<?=base_url();?>admin">Dashboard</a></li>
+              <li role="presentation" class="productos-tab <?if($active_tab == 'productos'){echo "active";}?>"><a href="<?=base_url();?>admin/productos" class="list-group-item">Productos</a></li>
+              <li role="presentation" class="contactos-tab <?if($active_tab == 'contactos'){echo "active";}?>"><a href="<?=base_url();?>admin/contactos" class="list-group-item">Contactos</a></li>
+              <li role="presentation" class="cvs-tab <?if($active_tab == 'cvs'){echo "active";}?>"><a href="<?=base_url();?>admin/cvs" class="list-group-item">CVS</a></li>
             </ul>
             </div>
           </div>

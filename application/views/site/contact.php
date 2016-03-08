@@ -1,5 +1,17 @@
 <script type="text/javascript">
 $(document).ready(function(){
+	$('.title-black').addClass('fadeInLeft').fadeIn('slow');
+		setTimeout(function(){
+			$('.p1').addClass('fadeInLeft').fadeIn('slow');
+		}, 200);
+		setTimeout(function(){
+			$('.p2').addClass('fadeInLeft').fadeIn('slow');
+		}, 400);
+		setTimeout(function(){
+			$('.p3').addClass('fadeInLeft').fadeIn('slow');
+		}, 600);
+		
+
 	$("#submit").click(function(e){
 		
 		if($('#my_form')[0].checkValidity()){
@@ -36,16 +48,16 @@ $(document).ready(function(){
 
 <div class="row">
 	<div class="col-md-3">
-		<div class="title-black">Contactanos</div>
-		<p>Contáctenos para obtener más infor-mación o solicitar cotizaciones. A la brevedad, un representante de <b class="orange">RAIEN</b> se estará comunicando con usted.<br />Si desconoce el producto adecuado para su aplicación, describa el tipo de producto e incluya un resumen de la aplicación. Nosotros lo guiaremos para encontrar precisamente lo que está necesitando.</p>
+		<div class="title-black animated animate-hide">Contactanos</div>
+		<p class="p1 animated animate-hide">Contáctenos para obtener más infor-mación o solicitar cotizaciones. A la brevedad, un representante de <b class="orange">RAIEN</b> se estará comunicando con usted.<br />Si desconoce el producto adecuado para su aplicación, describa el tipo de producto e incluya un resumen de la aplicación. Nosotros lo guiaremos para encontrar precisamente lo que está necesitando.</p>
 
-		<p><b class="orange">OFICINAS EN ARGENTINA</b><br />
+		<p class="p2 animated animate-hide"><b class="orange">OFICINAS EN ARGENTINA</b><br />
 		CAPITAL FEDERAL<br />
 		Congreso 2171, piso 6 (C1428BVE)<br />
 		Tel: + 5411 4701-9316<br />
 		(VER EN MAPA)</p>
 
-		<p><b class="orange">OFICINAS EN CHILE</b><br />
+		<p class="p3 animated animate-hide"><b class="orange">OFICINAS EN CHILE</b><br />
 		VIÑA DEL MAR<br />
 		1 Norte 461, Oficina 408<br />
 		Mesa Central: 56 32 2973672</p>

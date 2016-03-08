@@ -29,6 +29,12 @@
     <?php echo add_style('style');?>
     <?php echo add_style('font-awesome.min');?>
     <?php echo add_style('animate');?>
+    <style type="text/css">
+    	.products .col-md-4 div > .background.hover {
+		    background-color: #DCA427;
+		  
+		}
+	</style>
   </head>
   <body>
   <div class="wrapper">
@@ -262,7 +268,7 @@
 							  });
 
 					});
-				});
+				
 			
 				$('.col-md-4 > a').mouseenter(function() {
 					//$(this).find('.background').css('background-color', '#DCA427');

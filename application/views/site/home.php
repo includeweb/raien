@@ -308,7 +308,7 @@
 					  });
 
 			});
-		});
+		
 
 			$('.subnavigation-item').hover(
 

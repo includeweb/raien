@@ -261,7 +261,7 @@ class Show extends CI_Controller {
 	}
 
 	function getProductHome($producto){
-		$this->db->select('p.id as producto, c.url as categoria, m.id as marca, c.tipo_id');
+		$this->db->select('p.id as producto,marca.nombre as marca_nombre, p.nombre as producto_nombre, c.url as categoria, m.id as marca, c.tipo_id');
 		$this->db->from('productos p');
 		$this->db->limit(1);
 		$this->db->like('p.nombre', $producto);
