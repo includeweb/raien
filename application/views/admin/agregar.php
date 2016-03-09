@@ -74,7 +74,7 @@ $(document).ready(function(){
 			  	</div>
 			  	<div class="form-group">
 				    <label for="fileimage">Imagen</label>
-				    <input type="file" id="fileimage" name="file_jpg" accept="image/*" >
+				    <input type="file" id="fileimage" name="file_jpg[]" multiple="multiple" accept="image/*" >
 				    <p class="help-block">Formato: JPG, PNG</p>
 			  	</div>
 				  <button type="submit" class="btn btn-default" onClick="editor.post();" >Guardar</button>

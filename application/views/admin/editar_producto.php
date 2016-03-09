@@ -1,20 +1,58 @@
 <?php echo add_jscript('tiny.editor.packed');?>
+<?php echo add_jscript('jquery.multi-select');?>   
+<?php echo add_style('multi-select');?>  
 <?php echo add_style('edit');?>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$('#categorias').multiSelect({
+	  selectableHeader: "<input type='text' class='search-input form-control' autocomplete='off' placeholder='categoria'>",
+	  selectionHeader: "<input type='text' class='search-input form-control' autocomplete='off' placeholder='categoria'>",
+	  afterInit: function(ms){
+	    var that = this,
+	        $selectableSearch = that.$selectableUl.prev(),
+	        $selectionSearch = that.$selectionUl.prev(),
+	        selectableSearchString = '#'+that.$container.attr('id')+' .ms-elem-selectable:not(.ms-selected)',
+	        selectionSearchString = '#'+that.$container.attr('id')+' .ms-elem-selection.ms-selected';
+
+	    that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+	    .on('keydown', function(e){
+	      if (e.which === 40){
+	        that.$selectableUl.focus();
+	        return false;
+	      }
+	    });
+
+	    that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+	    .on('keydown', function(e){
+	      if (e.which == 40){
+	        that.$selectionUl.focus();
+	        return false;
+	      }
+	    });
+	  },
+	  afterSelect: function(){
+	    this.qs1.cache();
+	    this.qs2.cache();
+	  },
+	  afterDeselect: function(){
+	    this.qs1.cache();
+	    this.qs2.cache();
+	  }
+	}); 
+});
+</script>
 <div class="panel panel-default">
 	<div class="panel-heading">
 	<div class="row">
 		<div class="col-md-10"><h3 class="panel-title">Agregar Producto</h3></div>
-		<div class="col-md-2 text-right"><a href="<?=base_url('admin')?>" class="btn btn-default">Volver</a></div>
+		<div class="col-md-2 text-right"><a href="<?=base_url('admin/productos')?>" class="btn btn-default">Volver</a></div>
 	</div>
 	  
 	  
 	</div>
 	<div class="panel-body">
-	   <ol class="breadcrumb">
-		  <li><a href="#">Home</a></li>
-		  <li><a href="#">Library</a></li>
-		  <li class="active">Data</li>
-		</ol>
+
 		<!-- aca contenido de la seccion-->
 		<form method="post" action="" enctype="multipart/form-data">
 		<div class="row">
@@ -35,7 +73,7 @@
 			  	</div>
 			  	<div class="form-group">
 				    <label for="fileimage">Imagen <a href="<?=base_url('files/images/'.$product->id."/".$product->file_img)?>" target="_blank"> Ver Imagen</a></label>
-				    <input type="file" id="fileimage" name="file_jpg" accept="image/*" >
+				    <input type="file" id="fileimage" name="file_jpg[]" accept="image/*" multiple="multiple">
 				    <p class="help-block">Formato: JPG, PNG</p>
 			  	</div>
 	  			<button type="submit" class="btn btn-default" onClick="editor.post();" >Guardar</button>
@@ -51,8 +89,18 @@
 				    		<option value ="<?=$marca->id?>" <?=($marca->id == $product->marca_id)? "selected":""?>><?=$marca->nombre?></option>
 				    	<? } ?>   	
 				    </select>
-				    
 			  	</div>
+				<div class="form-group">
+					<label  for="fileimage">categorias</label>
+					<select multiple class="form-control" name="categoria_id[]" id="categorias" required>
+						<?php foreach ($categorias->result() as $categoria) {?>
+							<option value ="<?=$categoria->id?>" 
+							<?=(in_array($categoria->id,$selected_categorias))? "selected":""?>  >
+							<?=$categoria->descripcion?>
+							</option>
+						<? } ?>   	
+					</select>
+				</div>
 			</div>
 		</div>
 	</form>

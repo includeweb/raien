@@ -19,7 +19,7 @@ class Admin extends CI_Controller {
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$data['role'] = $this->tank_auth->get_role();
-			$data['active_tab'] = 'dashboard';
+			$data['active_tab'] = 'admin';
 		}
 		$this->layout->view('index',$data);
 	}
@@ -66,15 +66,15 @@ class Admin extends CI_Controller {
 				$insert['descripcion'] = $_POST['description'];
 				$insert['marca_id'] = $_POST['marca_id'];
 				$insert['file_pdf'] = $_FILES['file_pdf']['name'];
-				$insert['file_img'] = $_FILES['file_jpg']['name'];
+				$insert['file_img'] = $_FILES['file_jpg']['name'][0];
 				$product_id = $this->product->add_product($insert);
-				$this->upload($product_id );
+				$this->upload($product_id);
 				$this->db->delete('productos_categorias',array('producto_id'=>$product_id));
 				foreach ($_POST['categoria_id'] as $key => $value) {
 					$this->db->insert('productos_categorias',array('producto_id'=>$product_id,'categoria_id'=>$value));
 				}
 		
-				redirect('Dashboard/productos');
+				redirect('admin/productos');
 		}
 		$data['active_tab'] = 'productos';
 		$data['marcas'] = $this->db->get('marcas');
@@ -102,14 +102,18 @@ class Admin extends CI_Controller {
 					$update['file_pdf'] = $_FILES['file_pdf']['name'];
 				}				
 
-				if(!empty($_FILES['file_jpg']['name'])){
-					$update['file_img'] = $_FILES['file_jpg']['name'];
+				if(!empty($_FILES['file_jpg']['name'][0])){
+					$update['file_img'] = $_FILES['file_jpg']['name'][0];
 				}
 				
 			}
 
 			$this->db->where('id',$id);
 			$this->db->update('productos',$update);
+			$this->db->delete('productos_categorias',array('producto_id'=>$id));
+			foreach ($_POST['categoria_id'] as $key => $value) {
+				$this->db->insert('productos_categorias',array('producto_id'=>$id,'categoria_id'=>$value));
+			}
 			redirect('admin');
 		
 		}
@@ -120,19 +124,65 @@ class Admin extends CI_Controller {
 		$data['role'] = $this->tank_auth->get_role();
 
 		$data['product'] = $this->db->get_where('productos',array('id'=>$id))->row();
+		$data['categorias'] = $this->db->get('categorias');
+		$data['selected_categorias'] = $this->caategoria_by_producto($id);
 		$this->layout->view('editar_producto', $data);
 	}
+	
+	public function caategoria_by_producto($product_id){
+		$rs = $this->db->get_where('productos_categorias',array('producto_id'=>$product_id));
+		
+		$array = array();
+		
+		if($rs->num_rows() > 0){
 
+			foreach($rs->result() as $categoria){ 
+				$array[] = $categoria->categoria_id;
+			}
+			
+		}
+		return $array;
+	}
+	
 	public function upload($product_id){
 
 		if(!empty($_FILES['file_jpg']['name'])){
-			$folder = DIRECTORY_UPLOAD ."/images/".$product_id;
+			/*$folder = DIRECTORY_UPLOAD ."/images/".$product_id;
 		  	mkdir($folder,0777,TRUE);
 			$file = $folder ."/". basename($_FILES['file_jpg']['name']);
 			if (move_uploaded_file($_FILES['file_jpg']['tmp_name'], $file)) {
 			    return true;
 			} else {
 			    return false;
+			}*/
+			$total = count($_FILES['file_jpg']['name']);
+			for($i=0; $i<$total; $i++) {
+				
+				$folder = DIRECTORY_UPLOAD ."/images/".$product_id;
+				if(!file_exists($folder)){
+					mkdir($folder,0777,TRUE);
+				}
+				
+				$filename = basename($_FILES['file_jpg']['name'][$i]);
+				$file = $folder."/".$filename;
+			
+				$tmpFilePath = $_FILES['file_jpg']['tmp_name'][$i];
+				if ($tmpFilePath != ""){
+					$newFilePath = "./uploadFiles/" . $_FILES['file_jpg']['name'][$i];
+					if(move_uploaded_file($tmpFilePath, $file)){
+						$return = true;	
+						$this->db->insert('imagen_productos',
+							array(
+							'producto_id'=>$product_id,
+							'filename'=>$filename
+							)
+						);	
+					}
+				}
+			}
+			
+			if(isset($return )){
+				return true;
 			}
 
 		}

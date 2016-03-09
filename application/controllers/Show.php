@@ -320,6 +320,29 @@ class Show extends CI_Controller {
 		$insert['email'] = $this->input->post('mail'); 
 		$this->db->insert('newsletter', $insert);
 	}
+
+	function generateUrl(){
+		$this->db->select('id, nombre');
+		$this->db->from('productos');
+		$productos = $this->db->get()->result();
+
+		foreach ($productos as $producto) {
+			$final = $this->toAscii($producto->nombre);
+			$update['url'] = $final;
+			$this->db->update('productos', $update);
+			$this->db->where('id', $producto->id);
+		}
+	}
+	
+	function toAscii($str) {
+
+		 $clean = preg_replace("/[^a-zA-Z0-9\/_|+-]/", '', $str);
+		 $clean = strtolower(trim($str, '-'));
+		 $clean = preg_replace("/[\/_|+()™,; -]+/", '-', $clean);
+
+		 return $clean;
+
+	}
 }
 
 
