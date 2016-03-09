@@ -94,15 +94,24 @@ class Show extends CI_Controller {
 		return $query->result();
 	}
 
-	function products($vista = null, $subcategoria = null, $marca_id = null, $producto_id = null) {
+	function products($vista = null, $subcategoria = null, $marca_nombre = null, $producto_nombre = null) {
 
-		if(isset($marca_id) && isset($producto_id)){
+		/*if(isset($marca_id) && isset($producto_id)){
 			$data['producto_id'] = $producto_id;
 			$data['marca_id'] = $marca_id;
 		} else {
 			$data['producto_id'] = 0;
 			$data['marca_id'] = 0; 
-		}
+		}*/
+		/*echo 'vista '.$vista.'<br>';
+		echo 'subcategoria '.$subcategoria.'<br>';*/
+		
+		
+		$marca_id = $this->traerMarcaPorNombre($marca_nombre);
+		$producto_id = $this->traerProductoPorNombre($producto_nombre);
+		/*echo 'marca_id '.$marca_id.'<br>';
+		echo 'producto_id '.$producto_id.'<br>';*/
+		
 
 
 		$this->layout->setLayout('layout_products');
@@ -114,7 +123,8 @@ class Show extends CI_Controller {
 		//die($this->db->last_query());
 		$data['aplicacion'] = $this->getAplicaciones();
 		$data['marcas'] = $this->db->get('marcas')->result();
-
+		$data['producto_id'] = $producto_id;
+		$data['marca_id'] = $marca_id;
 		switch ($vista) {
 			case 'categoria':
 			$data['result'] = $data['categoria'];
@@ -260,8 +270,39 @@ class Show extends CI_Controller {
 		echo $jsonstring;
 	}
 
+	public function getProductById(){
+		$this->db->select('nombre');
+		$this->db->from('productos');
+		$this->db->where('id', $this->input->post('producto_id'));
+		
+		$data = $this->db->get()->row();
+		$jsonstring = json_encode($data);
+		echo $jsonstring;
+	}
+
+	public function traerMarcaPorNombre($marca_nombre){
+		$this->db->select('id');
+		$this->db->from('marcas');
+		$this->db->like('nombre', $marca_nombre);
+		
+		$data = $this->db->get()->row();
+
+		return $data->id;
+		
+	}
+
+	public function traerProductoPorNombre($producto_nombre){
+		$this->db->select('id');
+		$this->db->from('productos');
+		$this->db->like('nombre', $producto_nombre);
+		
+		$data = $this->db->get()->row();
+
+		return $data->id;
+		
+	}
 	function getProductHome($producto){
-		$this->db->select('p.id as producto,marca.nombre as marca_nombre, p.nombre as producto_nombre, c.url as categoria, m.id as marca, c.tipo_id');
+		$this->db->select('p.id as producto, m.nombre as marca_nombre, p.nombre as producto_nombre, c.url as categoria, m.id as marca, c.tipo_id');
 		$this->db->from('productos p');
 		$this->db->limit(1);
 		$this->db->like('p.nombre', $producto);

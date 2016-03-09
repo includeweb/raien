@@ -357,14 +357,13 @@
 			$('.marcas-listado').on('click', '.marca', (function(){
 
 				var marca_nombre = $(this).data('nombre');
-				var marca_id = $(this).data('id');
-				marca_selected = $(this).data('id');
+				var marca_id = $(this).data('id');		
 				
 				$('.marca_nombre').html(marca_nombre);
 				$('.productos-listado').html('');
 				$.ajax({
 					  method: "POST",
-					  url: "<?=base_url();?>show/getProductsHome/"+categoria_selected+'/'+marca_selected
+					  url: "<?=base_url();?>show/getProductsHome/"+categoria_selected+'/'+marca_id
 					
 					})
 					  .done(function(msg) {
@@ -372,8 +371,7 @@
 					  	if(msg != "error"){
 
 					  		var json = $.parseJSON(msg);
-					  		
-					  		
+					  		marca_selected = json[0].marca;
 					  	 	for(var i = 0; i <= (json.length - 1 ); i++){
 					  	 		$('.productos-listado').append('<li><a href="javascript:void(0);" class="producto" data-id="'+json[i].id+'" data-nombre="'+json[i].nombre+'">'+json[i].nombre+'</a></li>');
 					  	 	}
@@ -390,14 +388,25 @@
 
 				var producto_nombre = $(this).data('nombre');
 				var producto_id = $(this).data('id');
-				producto_selected = $(this).data('id');
+				
+				$.ajax({
+					  method: "POST",
+					  url: "<?=base_url();?>show/getProductById/",
+					  data: {producto_id : producto_id}
+					
+					}).done(function(data) {
+					  	var json = $.parseJSON(data)
+					  	producto_selected = json.nombre;
+					  });
 
 				$('.producto_nombre').html(producto_nombre);
 			}));
 
 			$('#search-form-2').click(function(e){
 				e.preventDefault;
-				var url = base_url+categoria_selected_url+'/'+marca_selected+'/'+producto_selected;
+		
+				var url = base_url+categoria_selected_url.replace(/ /g,"-").toLowerCase()+'/'+marca_selected.replace(/ /g,"-").toLowerCase()+'/'+producto_selected.replace(/ /g,"-").toLowerCase();
+			
 				window.location = url;
 
 			});

@@ -114,14 +114,14 @@ function producto_delete(id){
 <div class="panel panel-default">
     <div class="panel-heading">
         <div class="row">
-            <div class="col-md-10"><h3 class="panel-title fix-title">Contactos </h3></div>
-            <div class="col-md-2 text-right "><a href="<?=base_url();?>dashboard/agregar_producto" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</a></div>
+            <div class="col-md-10"><h3 class="panel-title fix-title">Productos </h3></div>
+            <div class="col-md-2 text-right "><a href="<?=base_url();?>admin/agregar_producto" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</a></div>
         </div>   
     </div>
 
     <div class="panel-body">
         <div class="row">
-            <form id="my_form" method="POST" action="<?=base_url('dashboard/obtener_xls')?>" >
+            <form id="my_form" method="POST" action="<?=base_url('admin/obtener_xls')?>" >
                 
                 <div class="col-md-3 pull-left col-sm-12">
                         <div class="form-group">
@@ -141,7 +141,7 @@ function producto_delete(id){
                     </div>              
                     <div class="col-md-4 col-sm-12">
                         <label>Exportar</label><br>
-                        <a href="dashboard/obtener_xls" class="btn btn-default pull-left" id="report" ><span class="glyphicon glyphicon-download"></span> Reporte</a>
+                        <a href="admin/obtener_xls" class="btn btn-default pull-left" id="report" ><span class="glyphicon glyphicon-download"></span> Reporte</a>
                     </div>
             </form>
         </div>

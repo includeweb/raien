@@ -58,6 +58,33 @@ class Admin extends CI_Controller {
 		}
 
 	}	
+	public function agregar_producto(){
+
+		if($_POST){
+			
+				$insert['nombre'] = $_POST['name'];
+				$insert['descripcion'] = $_POST['description'];
+				$insert['marca_id'] = $_POST['marca_id'];
+				$insert['file_pdf'] = $_FILES['file_pdf']['name'];
+				$insert['file_img'] = $_FILES['file_jpg']['name'];
+				$product_id = $this->product->add_product($insert);
+				$this->upload($product_id );
+				$this->db->delete('productos_categorias',array('producto_id'=>$product_id));
+				foreach ($_POST['categoria_id'] as $key => $value) {
+					$this->db->insert('productos_categorias',array('producto_id'=>$product_id,'categoria_id'=>$value));
+				}
+		
+				redirect('Dashboard/productos');
+		}
+		$data['active_tab'] = 'productos';
+		$data['marcas'] = $this->db->get('marcas');
+		$data['user_id']	= $this->tank_auth->get_user_id();
+		$data['username']	= $this->tank_auth->get_username();
+		$data['role'] = $this->tank_auth->get_role();
+		$data['categorias'] = $this->db->get('categorias');
+
+		$this->layout->view('agregar', $data, $return=false);
+	}	
 
 
 	public function editar_producto($id){
