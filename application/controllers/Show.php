@@ -162,6 +162,7 @@ class Show extends CI_Controller {
 
 		}
 		else {
+
 			$data['producto'] = $producto;
 			$data['url'] = $subcategoria;
 
@@ -209,7 +210,7 @@ class Show extends CI_Controller {
 	}
 
 	function getProducts($vista = null, $subcategoria, $marca) {
-		$this->db->select('marcas.nombre marca, marcas.imagen, productos.id, productos.nombre, productos.file_pdf, productos.descripcion, productos.file_img');
+		$this->db->select('marcas.nombre marca, marcas.imagen, productos.id, productos.nombre , productos.file_pdf, productos.descripcion, productos.file_img');
 		$this->db->where('categorias.url', $subcategoria);
 		$this->db->where('marcas.id', $marca);
 		$this->db->from('categorias');
