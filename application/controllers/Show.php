@@ -94,7 +94,7 @@ class Show extends CI_Controller {
 		return $query->result();
 	}
 
-	function products($vista = null, $subcategoria = null, $marca_nombre = null, $producto_nombre = null) {
+	function products($vista = null, $subcategoria = null, $marca_nombre = null, $producto_url = null) {
 
 		/*if(isset($marca_id) && isset($producto_id)){
 			$data['producto_id'] = $producto_id;
@@ -108,10 +108,8 @@ class Show extends CI_Controller {
 		
 		
 		$marca_id = $this->traerMarcaPorNombre($marca_nombre);
-		$producto_id = $this->traerProductoPorNombre($producto_nombre);
-		/*echo 'marca_id '.$marca_id.'<br>';
-		echo 'producto_id '.$producto_id.'<br>';*/
-		
+		$producto_id = $this->traerProductoPorUrl($producto_url);
+	
 
 
 		$this->layout->setLayout('layout_products');
@@ -210,7 +208,7 @@ class Show extends CI_Controller {
 	}
 
 	function getProducts($vista = null, $subcategoria, $marca) {
-		$this->db->select('marcas.nombre marca, marcas.imagen, productos.id, productos.nombre , productos.file_pdf, productos.descripcion, productos.file_img');
+		$this->db->select('marcas.nombre marca, marcas.imagen, productos.url as urlRedirect, productos.id, productos.nombre , productos.file_pdf, productos.descripcion, productos.file_img');
 		$this->db->where('categorias.url', $subcategoria);
 		$this->db->where('marcas.id', $marca);
 		$this->db->from('categorias');
@@ -292,10 +290,10 @@ class Show extends CI_Controller {
 		
 	}
 
-	public function traerProductoPorNombre($producto_nombre){
+	public function traerProductoPorUrl($producto_url){
 		$this->db->select('id');
 		$this->db->from('productos');
-		$this->db->like('nombre', $producto_nombre);
+		$this->db->like('url', $producto_url);
 		
 		$data = $this->db->get()->row();
 

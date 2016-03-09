@@ -175,13 +175,14 @@
 			productosRelacionados = json['productos'];
 			var brandImg = '<img src="<?=base_url();?>images/productos/logos/'+json.productos[0].imagen+'.png" />';
 			var brandText = '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
-			var path = "<?echo $_SERVER['HTTP_HOST'];?>"
-
-			var url2 = 'http://<?=$_SERVER["REQUEST_URI"];?>'+'/'+json.productos[0].marca+'/'+json.productos[0].nombre; 
+			
+			
 			var gallery = '';
-
+			
 			json['productos'].forEach(function(elem, index, array) {
-				gallery +='<div class="col-md-4 col-sm-6"><a href="javascript:void(0)" onclick="location.href = '+url2+'" data-id="'+elem.id+'"><div><div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
+				var urlRedirect = '<?=base_url();?>'+'show/'+'<?=$this->uri->segment(2);?>'+'/'+'<?=$this->uri->segment(3);?>'+'/'+'<?=$this->uri->segment(4);?>'+'/'+codeUrl(elem.marca)+'/'+codeUrl(elem.urlRedirect); 
+		
+				gallery +='<div class="col-md-4 col-sm-6"><a href="'+urlRedirect+'" data-id="'+elem.id+'"><div><div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
 			});
 			if ($('#gallery').hasClass('hidden')) {
 				$('#product-details').fadeOut(function() {
@@ -222,16 +223,17 @@ function showProducts(id, callback) {
 			url: "<?=base_url();?>show/getProducts/categoria/"+url+"/"+id
 		}).done(function(data) {
 			var json = $.parseJSON(data);
-			var path = "<?echo $_SERVER['HTTP_HOST'];?>"
-			var url2 = 'http://<?=$_SERVER["REQUEST_URI"];?>'+'/'+json.productos[0].marca+'/'+json.productos[0].nombre; 
+			
 			productosRelacionados = json['productos'];
 			var brandImg = '<img src="<?=base_url();?>images/productos/logos/'+json.productos[0].imagen+'.png" />';
 			var brandText = '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
-
+			
 			var gallery = '';
-
+			console.log('json2 '+json);
 			json['productos'].forEach(function(elem, index, array) {
-				gallery += '<div class="col-md-4 col-sm-6"><a href="javascript:void(0)" onclick="location.href = '+url2+'" data-id="'+elem.id+'"><div><div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
+				console.log('1 '+elem.url);
+				var urlRedirect = '<?=base_url();?>'+'show/'+'<?=$this->uri->segment(2);?>'+'/'+'<?=$this->uri->segment(3);?>'+'/'+'<?=$this->uri->segment(4);?>'+'/'+codeUrl(elem.marca)+'/'+codeUrl(elem.urlRedirect);
+				gallery += '<div class="col-md-4 col-sm-6"><a href="'+urlRedirect+'"   data-id="'+elem.id+'"><div><div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
 			});
 			if ($('#gallery').hasClass('hidden')) {
 				$('#product-details').fadeOut(function() {
@@ -428,5 +430,19 @@ function showProducts(id, callback) {
 			});
 			showDetails(producto_id);
 		});
+	}
+
+	$('.col-md-4 col-sm-6').on('click', 'link-product', function(){
+		var url = $(this).data('url');
+		alert(url);
+	});
+
+	function codeUrl(url){
+		var urlFinal = url.toLowerCase().replace(/ /g,"-");
+		var specialChars = "!@#$^&%*()+=[]\/{}|:<>?,.";
+		for (var i = 0; i < specialChars.length; i++) {
+		    urlFinal = urlFinal.replace(new RegExp("\\" + specialChars[i], 'gi'), '');
+		}
+		return urlFinal;
 	}
 </script>
