@@ -222,10 +222,26 @@ class Show extends CI_Controller {
 		echo $jsonstring;
 	}
 
-	function getProduct($productId) {
+	/*function getProduct($productId) {
 		$product = $this->product->get_product($productId);
 		$jsonstring = json_encode($product);
 		echo $jsonstring;
+	}*/
+
+	function getProduct($productId){
+		$this->db->select('p.url as producto_url, m.nombre as marca_nombre, c.url as categoria');
+		$this->db->from('productos p');
+		$this->db->limit(1);
+		$this->db->where('p.id', $productId);
+		$this->db->join('marcas m', 'p.marca_id = m.id', 'LEFT');
+		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id', 'LEFT');
+		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
+		$query = $this->db->get();
+		$data = $query->row();
+
+		$jsonstring = json_encode($data);
+		echo $jsonstring;
+
 	}
 
 	function traerMarcaPorCategoria(){
@@ -329,9 +345,12 @@ class Show extends CI_Controller {
 		foreach ($productos as $producto) {
 			$final = $this->toAscii($producto->nombre);
 			$update['url'] = $final;
-			$this->db->update('productos', $update);
 			$this->db->where('id', $producto->id);
+			$this->db->update('productos', $update);
+			
+			echo "update ".$producto->id.' with '.$final.'<hr>';
 		}
+		
 	}
 	
 	function toAscii($str) {

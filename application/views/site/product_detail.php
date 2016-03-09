@@ -298,7 +298,7 @@ function showProducts(id, callback) {
 					i = 0;
 					carouselString += '</div><div class="carousel-row">';
 				}
-				carouselString += '<div class="carousel-col"><a href="javascript:void(0)" onclick="changeProduct('+elem.id+');" data-id="'+elem.id+'"><div style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')">'+elem.nombre+'</div></a></div>';
+				carouselString += '<div class="carousel-col"><a href="'+elem.producto_url+'" onclick="changeProduct('+elem.id+');" data-id="'+elem.id+'"><div style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')">'+elem.nombre+'</div></a></div>';
 				// carouselString += '<div class="carousel-col"><div> </div></div>';
 				i++;
 			});
