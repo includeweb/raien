@@ -70,6 +70,19 @@ p > b {
     border-radius: 0;
 
 }
+.navbar-default .navbar-nav>li>a:after {
+			display:block;
+			content:attr(title);
+			font-weight:bold;
+			height:1px;
+			color:transparent;
+			overflow:hidden;
+			visibility:hidden;
+}
+
+#navbnar-desktop 	.navbar-nav>li.dropdown{
+	width: 122px;
+}
 .raien-navbar .navbar-nav>li>a:hover{
 	font-weight: bold;
 	color:#fff;
@@ -265,7 +278,7 @@ p > b {
 	overflow:hidden;
 	visibility:hidden;
 }
-.raien-navbar .navbar-nav>li>a::after {
+#navbar-desktop .navbar-nav>li>a::after {
 	display:block;
 	content:attr(title);
 	font-weight:bold;

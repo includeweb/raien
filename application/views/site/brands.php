@@ -32,7 +32,7 @@
 		<?php foreach ($result as $row) { ?>
 		<div class="col-md-3 col-xs-6">
 			<div>
-				<img src="<?=base_url();?>images/productos/logos/<?=seoUrl($row->nombre)?>.png">
+				<a href="<?=base_url();?>show/products/"><img src="<?=base_url();?>images/productos/logos/<?=seoUrl($row->nombre)?>.png" class="img-responsive"></a>
 				<!-- <img src="http://placehold.it/155x90"> -->
 			</div>
 		</div>

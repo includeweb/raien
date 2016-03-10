@@ -42,16 +42,16 @@
 				<nav class="navbar navbar-default navbar-fixed-top site-nav">
 					<div class="container">
 						<div class="row">
-			    			<div class="col-md-6 col-sm-6"><span>TELÉFONO: 011-4701-9316 &amp; líneas rotativas</span> EMAIL:&nbsp;ventas@raien.com.ar</div>
+			    			<div class="col-md-6 col-sm-6"><span>TELÉFONO: 011-4701-9316 &amp; líneas rotativas</span> EMAIL:&nbsp;<a href="mailto:ventas@raien.com.ar" style="color:#fff">ventas@raien.com.ar</a></div>
 			    			<div class="col-md-6 col-sm-6">
 			    				<div class="pull-right">
-				    				<a href="" target="_blank">
+				    				<a href="https://www.facebook.com/raienargentina/" target="_blank">
 				    					<img src="<?=base_url();?>images/web/youtube-icon.png" alt="Youtube">
 				    				</a>
-				    				<a href="" target="_blank">
+				    				<a href="https://www.youtube.com/user/RaienArgentina" target="_blank">
 				    					<img src="<?=base_url();?>images/web/facebook-icon.png" alt="Facebook">
 				    				</a>
-				    				<a href="" target="_blank">
+				    				<a href="http://raienargentina.blogspot.com.ar/" target="_blank">
 				    					<img src="<?=base_url();?>images/web/blogger-icon.png" alt="Blogger">
 				    				</a>
 			    				</div>
@@ -70,7 +70,7 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="#"><img src="<?=base_url();?>images/web/logo-interna.png"></a>
+				      <a class="navbar-brand" href="#"><img src="<?=base_url();?>images/web/logo-interna.png" style="margin-top: 3px;"></a>
 				    </div>
 
 				    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -153,7 +153,7 @@
 						<div class="form-group">
 							<div>¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>
 							<div class="input-group full-width">
-								<input type="email" class="form-control" id="email">
+								<input type="email" class="form-control required email" id="email">
 								<div class="input-group-addon"><a href="javascript:void(0);" id="news"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></div>
 							</div>
 						</div>
@@ -171,20 +171,27 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  	<script src="<?=base_url();?>js/jquery.validate_es.js"></script>
   	<script type="text/javascript">
   		$(document).ready(function() {
-				$('#news').click(function(){
-					var mail = $('#email').val();
-					$.ajax({
-							  method: "POST",
-							  url: "<?=base_url();?>show/newsletter",
-							  data: { mail: mail}
-							})
-							  .done(function(msg) {
-							  	$('.last').html('Recibimos sus datos correctamente.');
-							  });
+				$('.form-inline').validate();
 
-					});
+					$('#news').click(function(){
+						if ($(".form-inline").valid()) {
+							var mail = $('#email').val();
+					        	$.ajax({
+								  method: "POST",
+								  url: "<?=base_url();?>show/newsletter",
+								  data: { mail: mail}
+								})
+								  .done(function(msg) {
+								  	$('.last').html('Recibimos sus datos correctamente.');
+								  });
+
+					    }
+						
+					
+						});
 				});
 			
   	</script>

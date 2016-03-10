@@ -36,16 +36,16 @@
 				<nav class="navbar navbar-default site-nav hidden-xs home-nav">
 					<div class="container">
 						<div class="row">
-			    			<div class="col-md-6 col-xs-9"><span>TELÉFONO:  011-4701-9316 &amp; líneas rotativas</span> EMAIL: ventas@raien.com.ar</div>
+			    			<div class="col-md-6 col-xs-9"><span>TELÉFONO:  011-4701-9316 &amp; líneas rotativas</span> EMAIL: <a href="mailto:ventas@raien.com.ar" style="color:#fff">ventas@raien.com.ar</a></div>
 			    			<div class="col-md-6 col-xs-3">
 			    				<div class="pull-right">
-				    				<a href="" target="_blank">
+				    				<a href="https://www.facebook.com/raienargentina/" target="_blank">
 				    					<img src="<?=base_url();?>images/web/youtube-icon.png" alt="Youtube">
 				    				</a>
-				    				<a href="" target="_blank">
+				    				<a href="https://www.youtube.com/user/RaienArgentina" target="_blank">
 				    					<img src="<?=base_url();?>images/web/facebook-icon.png" alt="Facebook">
 				    				</a>
-				    				<a href="" target="_blank">
+				    				<a href="http://raienargentina.blogspot.com.ar/" target="_blank">
 				    					<img src="<?=base_url();?>images/web/blogger-icon.png" alt="Blogger">
 				    				</a>
 			    				</div>
@@ -74,7 +74,7 @@
 				      <ul class="nav navbar-nav navbar-right">
 				        <li><a href="<?=base_url();?>show" title="Home" class="active-menu">home</a></li>
 
-				        <li class="dropdown">
+				        <li class="dropdown" style="width:120px;">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Productos">productos <span class="caret"></span></a>
 				          <ul class="dropdown-menu centered-submenu">
 				            <li class="sub-navigation-li">

@@ -195,8 +195,8 @@
 						<div class="form-group">
 							<div>¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>
 							<div class="input-group full-width">
-								<input type="email" class="form-control" id="email">
-								<div class="input-group-addon"><a href="javascript:void(0);" id="news"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></div>iv>
+								<input type="email" class="form-control required email" id="email">
+								<div class="input-group-addon"><a href="javascript:void(0);" id="news"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></div>
 							</div>
 						</div>
 					</form>
@@ -215,7 +215,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
-
+    <script src="<?=base_url();?>js/jquery.validate_es.js"></script>
     <script type="text/javascript">
     	$.fn.animateRotate = function(startAngle, endAngle, duration, easing, complete){
 		    return this.each(function(){
@@ -256,9 +256,12 @@
 
 		<script>
 			$(document).ready(function() {
+				$('.form-inline').validate();
+
 				$('#news').click(function(){
-					var mail = $('#email').val();
-					$.ajax({
+					if ($(".form-inline").valid()) {
+						var mail = $('#email').val();
+				        	$.ajax({
 							  method: "POST",
 							  url: "<?=base_url();?>show/newsletter",
 							  data: { mail: mail}
@@ -267,6 +270,9 @@
 							  	$('.last').html('Recibimos sus datos correctamente.');
 							  });
 
+				    }
+					
+				
 					});
 				
 			
