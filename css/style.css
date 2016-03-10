@@ -1384,3 +1384,24 @@ td:nth-child(3) > span {
 #news .glyphicon-ok{
 	color:#fff!important;
 }
+
+label.error{
+	display: block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-style: italic;
+    font-size: 12px;
+    position: absolute;
+    z-index: 500;
+    color:#f00;
+    font-weight: normal;
+    top: 39px;
+}
+
+.active-menu{
+	font-weight: bold!important;
+}
+
+.legals a{
+	color:#7F7F7F;
+}

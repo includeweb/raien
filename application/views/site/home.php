@@ -72,13 +72,13 @@
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 				      <ul class="nav navbar-nav navbar-right">
-				        <li><a href="<?=base_url();?>show" title="Home">home</a></li>
+				        <li><a href="<?=base_url();?>show" title="Home" class="active-menu">home</a></li>
 
 				        <li class="dropdown">
-				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">productos <span class="caret"></span></a>
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Productos">productos <span class="caret"></span></a>
 				          <ul class="dropdown-menu centered-submenu">
 				            <li class="sub-navigation-li">
-				            	<a href="<?=base_url();?>show/products/categoria" class="subnavigation-item" data-img="<?=base_url();?>images/web/categoria-icon.png" data-hover="<?=base_url();?>images/web/categoria-icon-hover.png">
+				            	<a href="<?=base_url();?>show/products/categoria" class="subnavigation-item" data-img="<?=base_url();?>images/web/categoria-icon.png" data-hover="<?=base_url();?>images/web/categoria-icon-hover.png" >
 				            		<div class="sub-navigation">
 				            			<div class="sub-navigation-icon">
 				            				<img src="<?=base_url();?>images/web/categoria-icon.png" />
@@ -204,7 +204,7 @@
 					<!-- Split button -->
 					<div class="btn-group full-width ">
 						<div class="btn-title ">tipo de producto</div>
-					  <button type="button" class="btn btn-buscador categoria_nombre">Seleccione un tipo</button>
+					  <button type="button" class="btn btn-buscador categoria_nombre" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Seleccione un tipo</button>
 					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
@@ -220,7 +220,7 @@
 					<!-- Split button -->
 					<div class="btn-group full-width" >
 					<div class="btn-title ">marca del producto</div>
-					  <button type="button" class="btn btn-buscador marca_nombre" disabled="disabled">Seleccione una marca</button>
+					  <button type="button" class="btn btn-buscador marca_nombre" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Seleccione una marca</button>
 					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
@@ -234,7 +234,7 @@
 					<!-- Split button -->
 					<div class="btn-group full-width">
 					<div class="btn-title">producto</div>
-					  <button type="button" class="btn btn-buscador producto_nombre" disabled="disabled">Seleccione un producto</button>
+					  <button type="button" class="btn btn-buscador producto_nombre" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Seleccione un producto</button>
 					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
@@ -266,7 +266,7 @@
 						<div class="form-group">
 							<div>¿LE GUSTARÍA RECIBIR NUESTRO NEWSLETTER?</div>
 							<div class="input-group full-width">
-								<input type="email" class="form-control" id="email">
+								<input type="email" class="form-control required" id="email">
 								<div class="input-group-addon"><a href="javascript:void(0);" id="news"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></div>
 							</div>
 						</div>
@@ -275,7 +275,7 @@
  			</div>
  		</div>
  		<div class="legals">
- 			TODOS LOS DERECHOS RESERVADOS. RAIEN © 2015. TÉRMINOS Y CONDICIONES. POWERED BY QUTUWARA
+ 			TODOS LOS DERECHOS RESERVADOS. RAIEN © 2015. TÉRMINOS Y CONDICIONES. POWERED BY <a href="http://www.qutuwara.com" target="_blank">QUTUWARA</a>
  		</div>
  	</div>
 
@@ -284,6 +284,7 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="<?=base_url();?>js/jquery.validate_es.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
    <script type="text/javascript">
@@ -295,10 +296,12 @@
    	var base_url = '<?=base_url();?>'+'show/products/categoria/';
 
 	$(document).ready(function(){
+		$('.form-inline').validate();
 
 		$('#news').click(function(){
-			var mail = $('#email').val();
-			$.ajax({
+			if ($(".form-inline").valid()) {
+				var mail = $('#email').val();
+		        	$.ajax({
 					  method: "POST",
 					  url: "<?=base_url();?>show/newsletter",
 					  data: { mail: mail}
@@ -307,6 +310,9 @@
 					  	$('.last').html('Recibimos sus datos correctamente.');
 					  });
 
+		    }
+			
+		
 			});
 		
 

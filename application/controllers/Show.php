@@ -25,11 +25,13 @@ class Show extends CI_Controller {
 	}
 
 	function engineering() {
-		$this->layout->view('engineering');
+		$data['active_tab'] = 'ingenieria';
+ 		$this->layout->view('engineering', $data);
 	}
 
 	function contact() {
-		$this->layout->view('contact');
+		$data['active_tab'] = 'contacto';
+		$this->layout->view('contact', $data);
 	}
 	function add_contact() {
 		if($_POST){
@@ -46,6 +48,7 @@ class Show extends CI_Controller {
 	}
 
 	function team() {
+		$data['active_tab'] = 'team';
 		$data['insert'] = '';
 		if($_POST){
 
@@ -69,11 +72,13 @@ class Show extends CI_Controller {
 	}
 
 	function training() {
-		$this->layout->view('training');
+		$data['active_tab'] = 'capacitacion';
+		$this->layout->view('training', $data);
 	}
 
 	function about() {
-		$this->layout->view('about');
+		$data['active_tab'] = 'institucional';
+		$this->layout->view('about', $data);
 	}
 
 	function getCategorias() {

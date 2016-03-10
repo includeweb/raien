@@ -121,11 +121,11 @@
 
 				          </ul>
 				        </li>
-				        <li><a href="<?=base_url();?>show/engineering" title="ingeniería">ingeniería</a></li>
-				        <li><a href="<?=base_url();?>show/training" title="capacitación">capacitación</a></li>
-				        <li><a href="<?=base_url();?>show/about" title="institucional">institucional</a></li>
-				        <li><a href="<?=base_url();?>show/contact" title="contacto">contacto</a></li>
-				        <li><a href="<?=base_url();?>show/team" title="trabaja con raien">trabaja con raien</a></li>
+				        <li><a href="<?=base_url();?>show/engineering" title="ingeniería" class="<?if($active_tab == 'ingenieria'){echo "active-menu";}?>">ingeniería</a></li>
+				        <li><a href="<?=base_url();?>show/training" title="capacitación" class="<?if($active_tab == 'capacitacion'){echo "active-menu";}?>">capacitación</a></li>
+				        <li><a href="<?=base_url();?>show/about" title="institucional" class="<?if($active_tab == 'institucional'){echo "active-menu";}?>">institucional</a></li>
+				        <li><a href="<?=base_url();?>show/contact" title="contacto" class="<?if($active_tab == 'contacto'){echo "active-menu";}?>">contacto</a></li>
+				        <li><a href="<?=base_url();?>show/team" title="trabaja con raien" class="<?if($active_tab == 'team'){echo "active-menu";}?>">trabaja con raien</a></li>
 				      </ul>
 				    </div><!-- /.navbar-collapse -->
 				  	</div>
