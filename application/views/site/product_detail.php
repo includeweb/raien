@@ -318,7 +318,7 @@ function showProducts(id, callback) {
 					  slidesToShow: 1,
 					  slidesToScroll: 1,
 						focusOnSelect: false,
-						prevArrow: '<button type="button" class="slick-prev"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>',
+						prevArrow: '<button type="button" class="slick-prev">asd</span></button>',
 						nextArrow: '<button type="button" class="slick-next"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button>',
 					  responsive: [
 					    {
@@ -349,6 +349,7 @@ function showProducts(id, callback) {
 					    // instead of a settings object
 					  ]
 					});
+				
 				});
 			});
 		});

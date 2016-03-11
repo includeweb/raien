@@ -761,6 +761,7 @@ p > b {
 
 .brands-carousel > div {
 	cursor: pointer;
+	    min-height: 118px;
 	border: 1px solid #EBECEE;
 	width: 190px!important;
 }
@@ -781,6 +782,26 @@ p > b {
 .brands-carousel > div.active {
 	border: 1px solid #717175;
 	outline: none;
+	
+
+}
+.slick-list{
+	overflow: visible;
+}
+.brands-carousel > div.active:after {
+	border-top: 10px solid #717175;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    bottom: 0px;
+    content: "";
+    position: relative;
+    left: 107px;
+    margin-left: -21px;
+    width: 0;
+    top: 28px;
+    height: 0;
+    z-index: 9999;
+
 }
 
 .brands-carousel:hover, .brands-carousel:active, .brands-carousel:focus {
@@ -1421,8 +1442,10 @@ label.error{
 }
 
 .producto-relacionado-nombre{
-	opacity: .5;
+	opacity: .7;
 	width:100%;
+	color:#fff;
+	font-weight: bold;
 	background-color:#000; 
 	height: 58px;
 	padding: 4px;
@@ -1436,7 +1459,7 @@ label.error{
 }
 
 .product-descrpition-title{
-width: 100%;
+	width: 100%;
 	clear: both;
 }
 .product-description{
@@ -1444,3 +1467,29 @@ width: 100%;
 	clear: both;
 	margin-top: 30px;
 }
+.slick-slider .slick-prev{
+	display: inline-block;
+    position: absolute;
+    z-index: 200;
+    top: 57px;
+    width: 18px;
+    background-color: #aaa;
+    overflow: hidden;
+}
+.slick-slider .slick-next{
+	display: inline-block;
+    position: absolute;
+    z-index: 200;
+    top: 57px;
+    right: 0px;
+    width: 18px;
+    overflow: hidden;
+    background-color: #aaa;
+}
+.slick-prev:before, .slick-next:before {
+    font-family: "Glyphicons Halflings", "slick", sans-serif;
+    font-size: 12px;
+}
+
+.slick-prev:before { content: "\e257"; }
+.slick-next:before { content: "\e258"; }
