@@ -78,7 +78,7 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="#"><img src="<?=base_url();?>images/web/logo-interna.png"></a>
+				      <a class="navbar-brand" href="#"><img src="<?=base_url();?>images/web/logo-interna.png" style="margin-top: 3px;"></a>
 				    </div>
 
 				    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -88,7 +88,7 @@
 				        <li><a href="<?=base_url();?>show" title="home">home</a></li>
 
 				        <li class="dropdown">
-				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="productos">productos</a>
+				          <a href="#" class="dropdown-toggle active-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="productos">productos</a>
 				          <ul class="dropdown-menu centered-submenu">
 				            <li>
 				            	<a href="<?=base_url();?>show/products/categoria">

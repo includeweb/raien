@@ -48,7 +48,8 @@
 			<?php
 			if (!empty($result)) {
 			foreach ($result as $row) { ?>
-				<div class="thumbnails">
+			
+				<div class="thumbnails <?if(seoUrl($row->descripcion) == $this->uri->segment(4)){echo "active-category";}?>" >
 					<a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/<?=seoUrl($row->descripcion)?>"><img src="<?=base_url();?>images/productos/<?=$row->url?>.jpg" alt="" /></a>
 				</div>
 			<?php } } ?>
@@ -284,7 +285,6 @@ function showProducts(id, callback) {
 			method: "GET",
 			url: "<?=base_url();?>show/getProduct/"+id
 		}).done(function(data) {
-			console.log(data);
 			var product = $.parseJSON(data);
 			$('#product-details .container-fluid .product-description').html(product.descripcion);
 			$('#product-name').html(product.nombre);
@@ -318,7 +318,7 @@ function showProducts(id, callback) {
 					  slidesToShow: 1,
 					  slidesToScroll: 1,
 						focusOnSelect: false,
-						prevArrow: '<button type="button" class="slick-prev">asd</span></button>',
+						prevArrow: '<button type="button" class="slick-prev"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>',
 						nextArrow: '<button type="button" class="slick-next"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button>',
 					  responsive: [
 					    {

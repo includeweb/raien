@@ -100,7 +100,7 @@ class Show extends CI_Controller {
 	}
 
 	function products($vista = null, $subcategoria = null, $marca_nombre = null, $producto_url = null) {
-
+		$data['active_tab'] = 'productos';
 		/*if(isset($marca_id) && isset($producto_id)){
 			$data['producto_id'] = $producto_id;
 			$data['marca_id'] = $marca_id;

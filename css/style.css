@@ -785,9 +785,7 @@ p > b {
 	
 
 }
-.slick-list{
-	overflow: visible;
-}
+
 .brands-carousel > div.active:after {
 	border-top: 10px solid #717175;
     border-left: 10px solid transparent;
@@ -1491,5 +1489,8 @@ label.error{
     font-size: 12px;
 }
 
-.slick-prev:before { content: "\e257"; }
-.slick-next:before { content: "\e258"; }
+.active-category{
+	border:1px solid #DCA427;
+    opacity: 0.6;
+    
+}
