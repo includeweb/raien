@@ -139,7 +139,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<span>
-							<a href="<?=base_url();?>files/pdf/<?=$producto_id;?>/<?=$producto->file_pdf;?>">DESCARGAR ESPECIFICACIONES</a>
+							<a href="<?=base_url();?>files/pdf/<?=$producto_id;?>/<?=$producto->file_pdf;?>" target="_blank">DESCARGAR ESPECIFICACIONES</a>
 						</span>
 						<span>
 							<a href="javascript:void(0)" onclick="goBack();">VOLVER</a>
