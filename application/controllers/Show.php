@@ -114,7 +114,7 @@ class Show extends CI_Controller {
 		
 		$marca_id = $this->traerMarcaPorNombre($marca_nombre);
 		$producto_id = $this->traerProductoPorUrl($producto_url);
-	
+		
 
 
 		$this->layout->setLayout('layout_products');

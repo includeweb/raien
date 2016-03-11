@@ -807,8 +807,9 @@ p > b {
 	color: #fff;
 	text-transform: uppercase;
 	font-family: 'Raleway', sans-serif;
-	font-size: 12px;
-	font-weight: 700;
+	font-size: 10px;
+	font-weight: 800;
+    letter-spacing: 2px;
 }
 
 .product-gallery .background > div:first-child > div:nth-child(1) {
@@ -1417,4 +1418,29 @@ label.error{
 
 .legals a{
 	color:#7F7F7F;
+}
+
+.producto-relacionado-nombre{
+	opacity: .5;
+	width:100%;
+	background-color:#000; 
+	height: 58px;
+	padding: 4px;
+}
+
+.cambiar-producto-relacionado {
+	text-decoration: none;
+}
+.cambiar-producto-relacionado:hover {
+	text-decoration: none;
+}
+
+.product-descrpition-title{
+width: 100%;
+	clear: both;
+}
+.product-description{
+	width: 100%;
+	clear: both;
+	margin-top: 30px;
 }

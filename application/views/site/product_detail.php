@@ -77,7 +77,7 @@
 						<!-- <img src="http://placehold.it/155x90" class="img-responsive"> -->
 					</div>
 					<div class="col-sm-8">
-						<!-- <div>Tekscan's patented tactile force and pressure sensing solutions provide our customers with the actionable information they need to optimize product design and improve clinical and research outcomes. Our sensors and systems are used across a wide range of applications within test and measurement, medical, dental, and retail; as stand-alone solutions or as embedded technology to create better and differentiated products. Our passion for innovation, broad expertise and commitment to quality help turn your vision into reality.</div> -->
+						
 					</div>
 				</div>
 			</div>
@@ -131,7 +131,8 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-
+						<div class="product-descrpition-title">Descripción</div>
+						<div class="product-description"></div>
 					</div>
 				</div>
 				<div class="row">
@@ -182,7 +183,7 @@
 			json['productos'].forEach(function(elem, index, array) {
 				var urlRedirect = '<?=base_url();?>'+'show/'+'<?=$this->uri->segment(2);?>'+'/'+'<?=$this->uri->segment(3);?>'+'/'+'<?=$this->uri->segment(4);?>'+'/'+codeUrl(elem.marca)+'/'+codeUrl(elem.urlRedirect); 
 		
-				gallery +='<div class="col-md-4 col-sm-6"><a href="'+urlRedirect+'" data-id="'+elem.id+'"><div><div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
+				gallery +='<div class="col-md-4 col-sm-6"><a href="'+urlRedirect+'" data-id="'+elem.id+'"><div><div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"></div><div class="background" style="height:33%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
 			});
 			if ($('#gallery').hasClass('hidden')) {
 				$('#product-details').fadeOut(function() {
@@ -233,7 +234,7 @@ function showProducts(id, callback) {
 			json['productos'].forEach(function(elem, index, array) {
 				console.log('1 '+elem.url);
 				var urlRedirect = '<?=base_url();?>'+'show/'+'<?=$this->uri->segment(2);?>'+'/'+'<?=$this->uri->segment(3);?>'+'/'+'<?=$this->uri->segment(4);?>'+'/'+codeUrl(elem.marca)+'/'+codeUrl(elem.urlRedirect);
-				gallery += '<div class="col-md-4 col-sm-6"><a href="'+urlRedirect+'"   data-id="'+elem.id+'"><div><div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
+				gallery += '<div class="col-md-4 col-sm-6"><a href="'+urlRedirect+'"   data-id="'+elem.id+'"><div><div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"></div><div class="background" style="height:33%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
 			});
 			if ($('#gallery').hasClass('hidden')) {
 				$('#product-details').fadeOut(function() {
@@ -285,7 +286,7 @@ function showProducts(id, callback) {
 		}).done(function(data) {
 			console.log(data);
 			var product = $.parseJSON(data);
-			$('#product-details .container-fluid .col-md-12').html(product.descripcion);
+			$('#product-details .container-fluid .product-description').html(product.descripcion);
 			$('#product-name').html(product.nombre);
 			$('#category').html(categoria);
 			$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
@@ -298,7 +299,7 @@ function showProducts(id, callback) {
 					i = 0;
 					carouselString += '</div><div class="carousel-row">';
 				}
-				carouselString += '<div class="carousel-col"><a href="<?=base_url();?>'+'show/'+'<?=$this->uri->segment(2);?>'+'/'+'<?=$this->uri->segment(3);?>'+'/'+'<?=$this->uri->segment(4);?>/'+codeUrl(elem.marca)+'/'+codeUrl(elem.urlRedirect)+'" onclick="changeProduct('+elem.id+');" data-id="'+elem.id+'"><div style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')">'+elem.nombre+'</div></a></div>';
+				carouselString += '<div class="carousel-col"><a class="cambiar-producto-relacionado" href="<?=base_url();?>'+'show/'+'<?=$this->uri->segment(2);?>'+'/'+'<?=$this->uri->segment(3);?>'+'/'+'<?=$this->uri->segment(4);?>/'+codeUrl(elem.marca)+'/'+codeUrl(elem.urlRedirect)+'" data-id="'+elem.id+'"><div style="background-size:100%;padding:0;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"><div class="producto-relacionado-nombre">'+elem.nombre+'</div></div></a></div>';
 				// carouselString += '<div class="carousel-col"><div> </div></div>';
 				i++;
 			});
@@ -361,7 +362,7 @@ function showProducts(id, callback) {
 			}).done(function(data) {
 				console.log(data);
 				var product = $.parseJSON(data);
-				$('#product-details .container-fluid .col-md-12').html(product.descripcion);
+				$('#product-details .container-fluid .product-description').html(product.descripcion);
 				$('#product-name').html(product.nombre);
 				$('#category').html(categoria);
 				$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
@@ -403,7 +404,7 @@ function showProducts(id, callback) {
 			var brandText = '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
 			var gallery = '';
 			json['productos'].forEach(function(elem, index, array) {
-				gallery += '<div class="col-md-4 col-sm-6"><a href="javascript:void(0)" onclick="showDetails('+elem.id+');" data-id="'+elem.id+'"><div><div class="image" style="http://placehold.it/155x90"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
+				gallery += '<div class="col-md-4 col-sm-6"><a href="javascript:void(0)" onclick="showDetails('+elem.id+');" data-id="'+elem.id+'"><div><div class="image" style="http://placehold.it/155x90"></div><div class="background" style="height:33%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
 			});
 			// if ($('#gallery').hasClass('hidden')) {
 			// 	$('#product-details').hide(function() {
