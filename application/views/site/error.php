@@ -154,15 +154,24 @@
 
 				<div class="row">
 					<div class="col-md-12">
+					
 					<h4>Quizás estas buscando</h4>
-					<?foreach ($productos_relacionados as $producto_relacionado) { ?>
+					<div style="margin-top:10px">
+					
+						<?foreach ($productos_relacionados as $producto_relacionado) { ?>
 							<? if ($producto_relacionado->categoria_id == 1){?>
-								<a href="<?=base_url();?>show/products/categoria/<?=$producto_relacionado->categoria;?>/<?=$producto_relacionado->marca_nombre;?>/<?=$producto_relacionado->producto_url;?>"><?=$producto_relacionado->producto_nombre;?></a><br>
+							<a style="display:block;" href="<?=base_url();?>show/products/categoria/<?=$producto_relacionado->categoria;?>/<?=$producto_relacionado->marca_nombre;?>/<?=$producto_relacionado->producto_url;?>">
+							<?=$producto_relacionado->producto_nombre;?>
+							</a>
+								
 							<? }else{ ?>
-								<a href="<?=base_url();?>show/products/aplicacion/<?=$producto_relacionado->categoria;?>/<?=$producto_relacionado->marca_nombre;?>/<?=$producto_relacionado->producto_url;?>"><?=$producto_relacionado->producto_nombre;?></a><br>
-								<? } ?>
-							 
-					<? } ?>
+								<a style="display:block;" href="<?=base_url();?>show/products/aplicacion/<?=$producto_relacionado->categoria;?>/<?=$producto_relacionado->marca_nombre;?>/<?=$producto_relacionado->producto_url;?>">
+								<?=$producto_relacionado->producto_nombre;?>
+								</a>
+							<? } ?>
+				
+					<?}?>
+					</div>
 				</div>	
 			</div>
 	    </div>

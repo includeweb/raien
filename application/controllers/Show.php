@@ -374,13 +374,14 @@ class Show extends CI_Controller {
 		//die($this->db->last_query());
 		$data['aplicacion'] = $this->getAplicaciones();
 		$data['marcas'] = $this->db->get('marcas')->result();
-		$this->db->select('p.id as producto,p.url as producto_url,c.id as categoria_id, m.imagen as marca_nombre, p.nombre as producto_nombre, c.url as categoria, m.id as marca, c.tipo_id');
+		$this->db->select('p.id as producto,p.file_img, p.url as producto_url,c.id as categoria_id, m.imagen as marca_nombre, p.nombre as producto_nombre, c.url as categoria, m.id as marca, c.tipo_id');
 		$this->db->from('productos p');
 		$this->db->like('p.url', $producto);
+
 		$this->db->join('marcas m', 'p.marca_id = m.id', 'LEFT');
 		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id', 'LEFT');
 		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
-
+		$this->db->group_by('p.id');
 		$data['productos_relacionados'] = $this->db->get()->result();
 		
 		$this->load->view('site/error', $data);
