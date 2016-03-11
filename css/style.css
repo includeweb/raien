@@ -896,7 +896,7 @@ p > b {
 }
 
 #product-details > .col-md-12 > .container-fluid {
-	background-color: #ECEDEF;
+	background-color: #F2F2F2;
 }
 
 #product-details .row:first-child{
@@ -942,7 +942,7 @@ p > b {
 }
 
 #more-products {
-	background-color: #D1D2D4;
+	background-color: #CCCCCC;
 	padding-bottom: 25px;
 }
 
