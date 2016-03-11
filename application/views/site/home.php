@@ -425,17 +425,20 @@
 					  url: "<?=base_url();?>show/getProductHome/"+producto
 					
 					}).done(function(data) {
-					  	var json = $.parseJSON(data)
-					  	if(data.tipo_id == 1){
+					  	var json = $.parseJSON(data);
+					  	if(json == null){
+					  		window.location = '<?=base_url();?>show/error/'+producto;
+					  	}else{
+					  		if(data.tipo_id == 1){
 					  		var url = base_url+json.categoria+'/'+json.marca_nombre.replace(/ /g,"-").toLowerCase()+'/'+json.producto_url.replace(/ /g,"-").toLowerCase();
 
-					  	}else{
-					  		var url = '<?=base_url();?>'+'show/products/aplicacion/'+json.categoria+'/'+json.marca_nombre.replace(/ /g,"-").toLowerCase()+'/'+json.producto_url.replace(/ /g,"-").toLowerCase();
+						  	}else{
+						  		var url = '<?=base_url();?>'+'show/products/aplicacion/'+json.categoria+'/'+json.marca_nombre.replace(/ /g,"-").toLowerCase()+'/'+json.producto_url.replace(/ /g,"-").toLowerCase();
+						  	}
+						  	
+							window.location = url;
 					  	}
 					  	
-
-					  	
-						window.location = url;
 					  });
 			});
 	});
