@@ -7,7 +7,7 @@
 		setTimeout(function(){
 			$('.text').addClass('fadeInLeft').fadeIn('slow');
 		}, 400);
-		
+
 
 		$('#fileForm').formValidation({
 		       framework: 'bootstrap',
@@ -73,13 +73,13 @@
 			  <div class="form-group">
 			  	<div class="col-md-6">
 			  		<div>Subir curriculum</div>
-				    <input id="uploadFile" placeholder="Choose File"  disabled="disabled" />
+				    <input id="uploadFile" placeholder="Seleccione archivo"  disabled="disabled" />
 					<div class="fileUpload btn btn-primary">
-					    <span>Upload</span>
-					    <input id="uploadBtn" 
-					    type="file" 
-					     name="myFile" 
-					     class="upload" 
+					    <span><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span>
+					    <input id="uploadBtn"
+					    type="file"
+					     name="myFile"
+					     class="upload"
 					     required  accept=",.doc, .docx,application/pdf"/>
 
 					</div>

@@ -32,7 +32,7 @@
     <style type="text/css">
     	.products .col-md-4 div > .background.hover {
 		    background-color: #DCA427;
-		  
+
 		}
 	</style>
   </head>
@@ -271,11 +271,11 @@
 							  });
 
 				    }
-					
-				
+
+
 					});
-				
-			
+
+
 				$('.col-md-4 > a').mouseenter(function() {
 					//$(this).find('.background').css('background-color', '#DCA427');
 					$(this).find('.background').addClass('hover');
@@ -297,6 +297,8 @@
 				  slidesToShow: 4,
 				  slidesToScroll: 4,
 					focusOnSelect: false,
+          prevArrow: '<button type="button" class="slick-prev"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>',
+          nextArrow: '<button type="button" class="slick-next"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button>',
 				  responsive: [
 				    {
 				      breakpoint: 1024,

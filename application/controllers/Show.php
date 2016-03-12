@@ -63,11 +63,11 @@ class Show extends CI_Controller {
 				    $insert['filename'] = $filename;
 				    $data['insert'] = 'Muchas gracias por su confianza. Nos contactaremos a la brevedad.';
 				    $this->db->insert('teams',$insert);
-				} 
+				}
 			}
 		}
 
-	
+
 		$this->layout->view('team',$data);
 	}
 
@@ -106,15 +106,15 @@ class Show extends CI_Controller {
 			$data['marca_id'] = $marca_id;
 		} else {
 			$data['producto_id'] = 0;
-			$data['marca_id'] = 0; 
+			$data['marca_id'] = 0;
 		}*/
 		/*echo 'vista '.$vista.'<br>';
 		echo 'subcategoria '.$subcategoria.'<br>';*/
-		
-		
+
+
 		$marca_id = $this->traerMarcaPorNombre($marca_nombre);
 		$producto_id = $this->traerProductoPorUrl($producto_url);
-		
+
 
 
 		$this->layout->setLayout('layout_products');
@@ -294,7 +294,7 @@ class Show extends CI_Controller {
 		$this->db->select('nombre');
 		$this->db->from('productos');
 		$this->db->where('id', $this->input->post('producto_id'));
-		
+
 		$data = $this->db->get()->row();
 		$jsonstring = json_encode($data);
 		echo $jsonstring;
@@ -304,22 +304,22 @@ class Show extends CI_Controller {
 		$this->db->select('id');
 		$this->db->from('marcas');
 		$this->db->like('nombre', $marca_nombre);
-		
+
 		$data = $this->db->get()->row();
 
 		return $data->id;
-		
+
 	}
 
 	public function traerProductoPorUrl($producto_url){
 		$this->db->select('id');
 		$this->db->from('productos');
 		$this->db->like('url', $producto_url);
-		
+
 		$data = $this->db->get()->row();
 
 		return $data->id;
-		
+
 	}
 	function getProductHome($producto){
 		$this->db->select('p.id as producto,p.url as producto_url, m.nombre as marca_nombre, p.nombre as producto_nombre, c.url as categoria, m.id as marca, c.tipo_id');
@@ -338,7 +338,7 @@ class Show extends CI_Controller {
 	}
 
 	function newsletter(){
-		$insert['email'] = $this->input->post('mail'); 
+		$insert['email'] = $this->input->post('mail');
 		$this->db->insert('newsletter', $insert);
 	}
 
@@ -352,12 +352,12 @@ class Show extends CI_Controller {
 			$update['url'] = $final;
 			$this->db->where('id', $producto->id);
 			$this->db->update('productos', $update);
-			
+
 			echo "update ".$producto->id.' with '.$final.'<hr>';
 		}
-		
+
 	}
-	
+
 	function toAscii($str) {
 
 		 $clean = preg_replace("/[^a-zA-Z0-9\/_|+-]/", '', $str);
@@ -383,7 +383,7 @@ class Show extends CI_Controller {
 		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
 		$this->db->group_by('p.id');
 		$data['productos_relacionados'] = $this->db->get()->result();
-		
+
 		$this->load->view('site/error', $data);
 	}
 }

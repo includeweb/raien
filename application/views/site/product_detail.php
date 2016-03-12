@@ -48,8 +48,8 @@
 			<?php
 			if (!empty($result)) {
 			foreach ($result as $row) { ?>
-			
-				<div class="thumbnails <?if(seoUrl($row->descripcion) == $this->uri->segment(4)){echo "active-category";}?>" >
+
+				<div class="thumbnails <?php if(seoUrl($row->descripcion) == $this->uri->segment(4)){echo "active-category";}?>">
 					<a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/<?=seoUrl($row->descripcion)?>"><img src="<?=base_url();?>images/productos/<?=$row->url?>.jpg" alt="" /></a>
 				</div>
 			<?php } } ?>
@@ -78,7 +78,7 @@
 						<!-- <img src="http://placehold.it/155x90" class="img-responsive"> -->
 					</div>
 					<div class="col-sm-8">
-						
+
 					</div>
 				</div>
 			</div>
@@ -163,6 +163,8 @@
 	var carousel = 0;
 	var url;
 
+	// $('.thumbnails').tooltip();
+
 	$('.brands-carousel > div').click(function() {
 		marca = $(this).data('image');
 		nombreMarca = $(this).data('name');
@@ -177,13 +179,13 @@
 			productosRelacionados = json['productos'];
 			var brandImg = '<img src="<?=base_url();?>images/productos/logos/'+json.productos[0].imagen+'.png" />';
 			var brandText = '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
-			
-			
+
+
 			var gallery = '';
-			
+
 			json['productos'].forEach(function(elem, index, array) {
-				var urlRedirect = '<?=base_url();?>'+'show/'+'<?=$this->uri->segment(2);?>'+'/'+'<?=$this->uri->segment(3);?>'+'/'+'<?=$this->uri->segment(4);?>'+'/'+codeUrl(elem.marca)+'/'+codeUrl(elem.urlRedirect); 
-		
+				var urlRedirect = '<?=base_url();?>'+'show/'+'<?=$this->uri->segment(2);?>'+'/'+'<?=$this->uri->segment(3);?>'+'/'+'<?=$this->uri->segment(4);?>'+'/'+codeUrl(elem.marca)+'/'+codeUrl(elem.urlRedirect);
+
 				gallery +='<div class="col-md-4 col-sm-6"><a href="'+urlRedirect+'" data-id="'+elem.id+'"><div><div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"></div><div class="background" style="height:33%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
 			});
 			if ($('#gallery').hasClass('hidden')) {
@@ -225,11 +227,11 @@ function showProducts(id, callback) {
 			url: "<?=base_url();?>show/getProducts/categoria/"+url+"/"+id
 		}).done(function(data) {
 			var json = $.parseJSON(data);
-			
+
 			productosRelacionados = json['productos'];
 			var brandImg = '<img src="<?=base_url();?>images/productos/logos/'+json.productos[0].imagen+'.png" />';
 			var brandText = '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
-			
+
 			var gallery = '';
 			console.log('json2 '+json);
 			json['productos'].forEach(function(elem, index, array) {
@@ -349,7 +351,7 @@ function showProducts(id, callback) {
 					    // instead of a settings object
 					  ]
 					});
-				
+
 				});
 			});
 		});
