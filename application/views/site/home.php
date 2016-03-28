@@ -410,9 +410,10 @@
 
 			$('#search-form-2').click(function(e){
 				e.preventDefault;
-		
-				var url = base_url+categoria_selected_url.replace(/ /g,"-").toLowerCase()+'/'+marca_selected.replace(/ /g,"-").toLowerCase()+'/'+producto_selected.replace(/ /g,"-").toLowerCase();
-			
+				var finalProduct = producto_selected.replace(/&/g, '');
+
+				var url = base_url+categoria_selected_url.replace(/ /g,"-").toLowerCase()+'/'+marca_selected.replace(/ /g,"-").toLowerCase()+'/'+finalProduct.replace(/ /g,"-").toLowerCase();
+
 				window.location = url;
 
 			});
@@ -429,11 +430,13 @@
 					  	if(json == null){
 					  		window.location = '<?=base_url();?>show/error/'+producto;
 					  	}else{
+					  		var producto_uri = json.producto_url.replace(/&/g, '');
+					  		
 					  		if(data.tipo_id == 1){
-					  		var url = base_url+json.categoria+'/'+json.marca_nombre.replace(/ /g,"-").toLowerCase()+'/'+json.producto_url.replace(/ /g,"-").toLowerCase();
+					  		var url = base_url+json.categoria+'/'+json.marca_nombre.replace(/ /g,"-").toLowerCase()+'/'+producto_uri.replace(/ /g,"-").toLowerCase();
 
 						  	}else{
-						  		var url = '<?=base_url();?>'+'show/products/aplicacion/'+json.categoria+'/'+json.marca_nombre.replace(/ /g,"-").toLowerCase()+'/'+json.producto_url.replace(/ /g,"-").toLowerCase();
+						  		var url = '<?=base_url();?>'+'show/products/aplicacion/'+json.categoria+'/'+json.marca_nombre.replace(/ /g,"-").toLowerCase()+'/'+producto_uri.replace(/ /g,"-").toLowerCase();
 						  	}
 						  	
 							window.location = url;
