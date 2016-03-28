@@ -234,7 +234,7 @@
 					<!-- Split button -->
 					<div class="btn-group full-width">
 					<div class="btn-title">producto</div>
-					  <button type="button" class="btn btn-buscador producto_nombre" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Seleccione un producto</button>
+					  <button type="button" class="btn btn-buscador producto_nombre" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="overflow:hidden;">Seleccione un producto</button>
 					  <button type="button" class="btn btn-buscador-caret dropdown-toggle" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
