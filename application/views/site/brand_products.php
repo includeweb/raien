@@ -20,22 +20,26 @@
 
 ?>
 
-<div class="col-md-9 brands">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="breadcrumb">
-				Productos <?php if ($breadcrumb) echo '> '.$breadcrumb ?>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<?php foreach ($result as $row) { ?>
-		<div class="col-md-3 col-xs-6">
+<?foreach ($products as $product) {?>
+<div class="col-md-4 col-sm-6">
+	<a href="<?=base_url();?>show/products/<?=$product->producto_url?>">
+	<div>
+		<div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/<?=$product->producto_id;?>/<?=$product->file_img;?>)"></div>
+		<div class="background" style="height:33%">
 			<div>
-				<a href="<?=base_url();?>show/brand/<?=seoUrl($row->nombre)?>"><img src="<?=base_url();?>images/productos/logos/<?=seoUrl($row->nombre)?>.png" class="img-responsive"></a>
-				<!-- <img src="http://placehold.it/155x90"> -->
+				<div>
+					<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+				</div>
+				<div>
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				</div>
+				<div class="clearfix"></div>
 			</div>
+			<div><?=$product->producto?></div>
 		</div>
-		<?php } ?>
 	</div>
+	</a>
 </div>
+
+<? } ?>
+

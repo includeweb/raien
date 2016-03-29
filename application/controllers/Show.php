@@ -386,6 +386,19 @@ class Show extends CI_Controller {
 
 		$this->load->view('site/error', $data);
 	}
+
+	public function brand($brand){
+		$this->layout->setLayout('layout_products');
+		$this->db->select('m.id, c.url as categoria_url, p.url as producto_url,p.id as producto_id, p.nombre as producto, p.file_img');
+		$this->db->from('marcas m');
+		$this->db->like('m.nombre', $brand);
+		$this->db->join('productos p', 'm.id = p.marca_id');
+		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id', 'LEFT');
+		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
+		$data['products'] = $this->db->get()->result();
+		$data['active_tab'] = 'productos';
+		$this->layout->view('brand_products', $data);
+	}
 }
 
 
