@@ -19,27 +19,61 @@
 	}
 
 ?>
+<style type="text/css">
+	.products .col-md-4 div > .image {
+    	 z-index: 1;
+	}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
 
-<?foreach ($products as $product) {?>
-<div class="col-md-4 col-sm-6">
-	<a href="<?=base_url();?>show/products/<?=$product->producto_url?>">
-	<div>
-		<div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/<?=$product->producto_id;?>/<?=$product->file_img;?>)"></div>
-		<div class="background" style="height:33%">
-			<div>
-				<div>
-					<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-				</div>
-				<div>
-					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-				</div>
-				<div class="clearfix"></div>
+				$('.product-gallery .col-md-4 > a > div').mouseenter(function() {
+					$(this).find('.background').stop();
+					$(this).find('.background').animate({height: "100%"}, 300);
+				});
+
+				$('.product-gallery .col-md-4 > a > div').mouseleave(function() {
+					$(this).find('.background').stop();
+					$(this).find('.background').animate({height: "33%"}, 300);
+				});
+	});
+</script>
+<div class="col-md-9 details">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="breadcrumb">
+				<a href="<?=base_url();?>show/brands/">Marcas</a><span> &gt; </span><a href="<?=base_url();?>show/brands/<?=seoUrl($breadcrumb)?>/"><?=$breadcrumb;?></a>
 			</div>
-			<div><?=$product->producto?></div>
 		</div>
 	</div>
-	</a>
+	<div class="row" id="gallery"  style="display:block;">
+		<div class="col-md-12 product-gallery" style="display:block;">
+			<div class="container-fluid">
+				<div class="row">
+					<?foreach ($products as $product) {?>
+						<div class="col-md-4 col-sm-6">
+							<a href="<?=base_url();?>show/products/<?=$product->producto_url?>">
+							<div>
+								<div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/<?=$product->producto_id;?>/<?=$product->file_img;?>)"></div>
+								<div class="background" style="height:33%">
+									<div>
+										<div>
+											<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+										</div>
+										<div>
+											<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+									<div><?=$product->producto?></div>
+								</div>
+							</div>
+							</a>
+						</div>
+					<? } ?>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
-<? } ?>
 

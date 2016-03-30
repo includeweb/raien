@@ -397,6 +397,10 @@ class Show extends CI_Controller {
 		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
 		$data['products'] = $this->db->get()->result();
 		$data['active_tab'] = 'productos';
+		$data['categoria'] = $this->getCategorias();
+		$data['aplicacion'] = $this->getAplicaciones();
+		$data['marcas'] = $this->db->get('marcas')->result();
+		$data['breadcrumb'] = $brand;
 		$this->layout->view('brand_products', $data);
 	}
 }
