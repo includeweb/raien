@@ -52,7 +52,11 @@
 				<div class="row">
 					<?foreach ($products as $product) {?>
 						<div class="col-md-4 col-sm-6">
-							<a href="<?=base_url();?>show/products/<?=$product->producto_url?>">
+							<?if($product->type == 1){ ?>
+								<a href="<?=base_url();?>show/products/categoria/<?=$product->categoria_url?>/<?=$product->producto_url?>">
+							<? }else{ ?>
+								<a href="<?=base_url();?>show/products/aplicacion/<?=$product->categoria_url?>/<?=$product->producto_url?>">
+							<? } ?>	
 							<div>
 								<div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/<?=$product->producto_id;?>/<?=$product->file_img;?>)"></div>
 								<div class="background" style="height:33%">
