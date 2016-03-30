@@ -19,27 +19,49 @@
 	}
 
 ?>
+<style type="text/css">
+	.products .col-md-4 div > .image {
+    	 z-index: 1;
+	}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
 
-<div class="col-md-9 brands">
+				$('.product-gallery .col-md-4 > a > div').mouseenter(function() {
+					$(this).find('.background').stop();
+					$(this).find('.background').animate({height: "100%"}, 300);
+				});
+
+				$('.product-gallery .col-md-4 > a > div').mouseleave(function() {
+					$(this).find('.background').stop();
+					$(this).find('.background').animate({height: "33%"}, 300);
+				});
+	});
+</script>
+<div class="col-md-9 details">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="breadcrumb">
-				Productos <?php if ($breadcrumb) echo '> '.$breadcrumb ?>
+				<a href="<?=base_url();?>show/brands/">Marcas</a><span> &gt; </span><a href="<?=base_url();?>show/brands/<?=seoUrl($breadcrumb)?>/"><?=$breadcrumb;?></a>
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<?php foreach ($result as $row) { ?>
-		<div class="col-md-3 col-xs-6">
-			<div>
-			<?php if($row->nombre == 'MEGGITT'){ ?>
-				<a href="<?=base_url();?>show/meggit"><img src="<?=base_url();?>images/productos/logos/<?=seoUrl($row->nombre)?>.png" class="img-responsive"></a>
-			<?php }else{ ?>
-				<a href="<?=base_url();?>show/brand/<?=seoUrl($row->nombre)?>"><img src="<?=base_url();?>images/productos/logos/<?=seoUrl($row->nombre)?>.png" class="img-responsive"></a>
-				<!-- <img src="http://placehold.it/155x90"> -->
-			<?php } ?>
+	<div class="row" id="gallery"  style="display:block;">
+		<div class="col-md-12 product-gallery" style="display:block;">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-3 col-xs-6">
+						<a href="<?=base_url();?>show/brand/meggit"><img src="<?=base_url();?>images/productos/logos/<?=seoUrl($marcas[13]->nombre)?>.png" class="img-responsive"></a>
+					</div>
+					<div class="col-md-3 col-xs-6">
+						<a href="<?=base_url();?>show/brand/meggit"><img src="<?=base_url();?>images/productos/logos/<?=seoUrl($marcas[14]->nombre)?>.png" class="img-responsive"></a>
+					</div>
+					<div class="col-md-3 col-xs-6">
+						<a href="<?=base_url();?>show/brand/meggit"><img src="<?=base_url();?>images/productos/logos/<?=seoUrl($marcas[15]->nombre)?>.png" class="img-responsive"></a>
+					</div>
+				</div>
 			</div>
 		</div>
-		<?php } ?>
 	</div>
 </div>
+

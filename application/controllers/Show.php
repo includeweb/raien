@@ -403,6 +403,18 @@ class Show extends CI_Controller {
 		$data['breadcrumb'] = $brand;
 		$this->layout->view('brand_products', $data);
 	}
+
+	public function meggit(){
+		$this->layout->setLayout('layout_products');
+		$data['active_tab'] = 'productos';
+		$data['categoria'] = $this->getCategorias();
+		$data['aplicacion'] = $this->getAplicaciones();
+		$data['marcas'] = $this->db->get('marcas')->result();
+		
+		$data['breadcrumb'] = 'Meggit';
+		
+		$this->layout->view('meggit', $data);
+	}
 }
 
 
