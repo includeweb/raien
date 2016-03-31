@@ -39,7 +39,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="breadcrumb">
-				<a href="<?=base_url();?>show/products/">Productos</a><?php if ($breadcrumb) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/"><?=$breadcrumb;?></a><?php } ?><?php if ($subcategoria) { ?><span> &gt; </span><?=$subcategoria->descripcion;?><?php } ?>
+				<a href="<?=base_url();?>show/products/">Productos</a><?php if ($breadcrumb) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/"><?=$breadcrumb;?></a><?php } ?><?php if ($subcategoria) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($subcategoria->descripcion)?>/"><?=$subcategoria->descripcion;?><?php } ?></a><?php if ($producto) { ?><span> &gt; </span><?=$producto->nombre;?><?php } ?>
 			</div>
 		</div>
 	</div>
@@ -105,7 +105,7 @@
 			<div class="container-fluid">
 				<div class="row top-info">
 					<div class="col-md-4">
-						<div id="product-img">
+						<div id="product-img" class="easyzoom easyzoom--overlay easyzoom--with-thumbnails is-ready">
 
 						</div>
 					</div>
@@ -351,7 +351,11 @@ function showProducts(id, callback) {
 					    // instead of a settings object
 					  ]
 					});
+					var my_awesome_script = document.createElement('script');
 
+					my_awesome_script.setAttribute('src','<?=base_url();?>js/easyzoom.js');
+
+					document.head.appendChild(my_awesome_script);
 				});
 			});
 		});
@@ -372,6 +376,11 @@ function showProducts(id, callback) {
 				$('#product-img').html('<img src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" />');
 				$('#other-products').html('Otros productos <strong>'+nombreMarca+'</strong>');
 				$('#product-details').fadeIn();
+				var my_awesome_script = document.createElement('script');
+
+				my_awesome_script.setAttribute('src','<?=base_url();?>js/easyzoom.js');
+
+				document.head.appendChild(my_awesome_script);
 			});
 		});
 	}

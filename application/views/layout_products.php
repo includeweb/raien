@@ -19,6 +19,8 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
+	<style type="text/css" src="<?=base_url();?>css/easyzoom.css"></style>
+
 	<!-- Optional theme -->
 	 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,6 +29,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <?php echo add_style('style');?>
+    <?php echo add_style('easyzoom');?>
     <?php echo add_style('font-awesome.min');?>
     <?php echo add_style('animate');?>
     <style type="text/css">
@@ -216,6 +219,7 @@
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
     <script src="<?=base_url();?>js/jquery.validate_es.js"></script>
+    
     <script type="text/javascript">
     	$.fn.animateRotate = function(startAngle, endAngle, duration, easing, complete){
 		    return this.each(function(){
