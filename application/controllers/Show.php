@@ -111,23 +111,40 @@ class Show extends CI_Controller {
 		/*echo 'vista '.$vista.'<br>';
 		echo 'subcategoria '.$subcategoria.'<br>';*/
 
+		if($marca_nombre != '' && $marca_nombre != null){
+			$marca_id = $this->traerMarcaPorNombre($marca_nombre);
+			$data['marca_id'] = $marca_id;
+		}else{
+			$data['marca_id'] = 0;
+		}
+		if($producto_url != '' && $producto_url != null){
+			
+			$producto_id = $this->traerProductoPorUrl($producto_url);
+			
+			$this->db->select('*');
+			$this->db->from('productos');
+			$this->db->where('id', $producto_id);
+			$producto = $this->db->get()->row();
+			$data['producto_id'] = $producto_id;
+		}else{
+			$producto = '';
+			$data['producto_id'] = 0;
+		}
 
-		$marca_id = $this->traerMarcaPorNombre($marca_nombre);
-		$producto_id = $this->traerProductoPorUrl($producto_url);
+		
+
+		
 
 
 
 		$this->layout->setLayout('layout_products');
-		$this->db->select('*');
-		$this->db->from('productos');
-		$this->db->where('id', $producto_id);
-		$producto = $this->db->get()->row();
+		
 		$data['categoria'] = $this->getCategorias();
 		//die($this->db->last_query());
 		$data['aplicacion'] = $this->getAplicaciones();
 		$data['marcas'] = $this->db->get('marcas')->result();
-		$data['producto_id'] = $producto_id;
-		$data['marca_id'] = $marca_id;
+		
+		
 		switch ($vista) {
 			case 'categoria':
 			$data['result'] = $data['categoria'];
@@ -154,7 +171,7 @@ class Show extends CI_Controller {
 			default:
 			$data['breadcrumb'] = null;
 			$data['result'] = null;
-			$data['producto'] = $producto;
+			
 			$this->layout->view('product_default', $data);
 			return;
 			break;
@@ -306,7 +323,7 @@ class Show extends CI_Controller {
 		$this->db->like('nombre', $marca_nombre);
 
 		$data = $this->db->get()->row();
-
+	
 		return $data->id;
 
 	}

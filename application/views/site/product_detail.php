@@ -39,7 +39,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="breadcrumb">
-				<a href="<?=base_url();?>show/products/">Productos</a><?php if ($breadcrumb) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/"><?=$breadcrumb;?></a><?php } ?><?php if ($subcategoria) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($subcategoria->descripcion)?>/"><?=$subcategoria->descripcion;?><?php } ?></a><?php if ($producto) { ?><span> &gt; </span><?=$producto->nombre;?><?php } ?>
+				<a href="<?=base_url();?>show/products/">Productos</a><?php if ($breadcrumb) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/"><?=$breadcrumb;?></a><?php } ?><?php if ($subcategoria) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($subcategoria->descripcion)?>/"><?=$subcategoria->descripcion;?><?php } ?></a><?php if ($producto != '') { ?><span> &gt; </span><?=$producto->nombre;?><?php } ?>
 			</div>
 		</div>
 	</div>
@@ -139,7 +139,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<span>
-							<a href="<?=base_url();?>files/pdf/<?=$producto_id;?>/<?=$producto->file_pdf;?>" target="_blank">DESCARGAR ESPECIFICACIONES</a>
+							<a href="#" target="_blank">DESCARGAR ESPECIFICACIONES</a>
 						</span>
 						<span>
 							<a href="javascript:void(0)" onclick="goBack();">VOLVER</a>
@@ -381,6 +381,7 @@ function showProducts(id, callback) {
 				my_awesome_script.setAttribute('src','<?=base_url();?>js/easyzoom.js');
 
 				document.head.appendChild(my_awesome_script);
+				$('.easyzoom').easyZoom();
 			});
 		});
 	}
