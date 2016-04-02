@@ -410,17 +410,19 @@
 
 			$('#search-form-2').click(function(e){
 				e.preventDefault;
-				var finalProduct = producto_selected.replace(/&/g, '');
+				var finalProduct = generateUrl(producto_selected);
+				/*console.log(finalProduct);
+				console.log('/'+producto_selected);*/
 
-				var url = base_url+categoria_selected_url.replace(/ /g,"-").toLowerCase()+'/'+marca_selected.replace(/ /g,"-").toLowerCase()+'/'+finalProduct.replace(/ /g,"-").toLowerCase();
-
+				var url = base_url+generateUrl(categoria_selected_url)+'/'+generateUrl(marca_selected)+'/'+finalProduct;
+				//console.log('/'+url);
 				window.location = url;
 
 			});
 
 			$('#search-form-1').click(function(e){
 				e.preventDefault;
-				var producto = $('#input-product').val().replace(/ /g,"-").toLowerCase();
+				var producto = generateUrl($('#input-product').val());
 				$.ajax({
 					  method: "POST",
 					  url: "<?=base_url();?>show/getProductHome/"+producto
@@ -430,13 +432,13 @@
 					  	if(json == null){
 					  		window.location = '<?=base_url();?>show/error/'+producto;
 					  	}else{
-					  		var producto_uri = json.producto_url.replace(/&/g, '');
+					  		var producto_uri = generateUrl(json.producto_url);
 					  		
 					  		if(data.tipo_id == 1){
-					  		var url = base_url+json.categoria+'/'+json.marca_nombre.replace(/ /g,"-").toLowerCase()+'/'+producto_uri.replace(/ /g,"-").toLowerCase();
+					  		var url = base_url+json.categoria+'/'+generateUrl(json.marca_nombre)+'/'+producto_uri
 
 						  	}else{
-						  		var url = '<?=base_url();?>'+'show/products/aplicacion/'+json.categoria+'/'+json.marca_nombre.replace(/ /g,"-").toLowerCase()+'/'+producto_uri.replace(/ /g,"-").toLowerCase();
+						  		var url = '<?=base_url();?>'+'show/products/aplicacion/'+json.categoria+'/'+generateUrl(json.marca_nombre)+'/'+producto_uri;
 						  	}
 						  	
 							window.location = url;
@@ -445,7 +447,16 @@
 					  });
 			});
 	});
-
+	
+	
+	function generateUrl(url){
+		url = url.replace(/ /g,"-");
+		url = url.replace(/™/g, '');
+		url = url.replace(/&/g, '');
+		url = url.replace(/´/g, '');
+		url = url.toLowerCase();
+		return url;
+	}
 
 </script>
   </body>
