@@ -230,7 +230,7 @@ class Show extends CI_Controller {
 	}
 
 	function getProducts($vista = null, $subcategoria, $marca) {
-		$this->db->select('marcas.nombre marca, marcas.imagen, productos.url as urlRedirect, productos.id, productos.nombre , productos.file_pdf, productos.descripcion, productos.file_img');
+		$this->db->select('productos.copete, marcas.nombre marca, marcas.imagen, productos.url as urlRedirect, productos.id, productos.nombre , productos.file_pdf, productos.descripcion, productos.file_img');
 		$this->db->where('categorias.url', $subcategoria);
 		$this->db->where('marcas.id', $marca);
 		$this->db->from('categorias');
@@ -406,7 +406,7 @@ class Show extends CI_Controller {
 
 	public function brand($brand){
 		$this->layout->setLayout('layout_products');
-		$this->db->select('m.id, c.url as categoria_url,c.tipo_id as type, p.url as producto_url,p.id as producto_id, p.nombre as producto, p.file_img');
+		$this->db->select('p.copete, m.id, c.url as categoria_url,c.tipo_id as type, p.url as producto_url,p.id as producto_id, p.nombre as producto, p.file_img');
 		$this->db->from('marcas m');
 		$this->db->like('m.nombre', $brand);
 		$this->db->join('productos p', 'm.id = p.marca_id');

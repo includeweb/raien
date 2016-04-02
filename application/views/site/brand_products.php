@@ -51,7 +51,7 @@
 			<div class="container-fluid">
 				<div class="row">
 					<?foreach ($products as $product) {?>
-						<div class="col-md-4 col-sm-6">
+						<div class="col-md-4 col-sm-6 producto-list">
 							<?if($product->type == 1){ ?>
 								<a href="<?=base_url();?>show/products/categoria/<?=$product->categoria_url?>/<?=$product->producto_url?>">
 							<? }else{ ?>
@@ -70,6 +70,7 @@
 										<div class="clearfix"></div>
 									</div>
 									<div><?=$product->producto?></div>
+									<div class="copete"><?=$product->copete?></div>
 								</div>
 							</div>
 							</a>
