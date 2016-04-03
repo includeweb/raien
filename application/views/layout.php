@@ -57,7 +57,10 @@
               <li role="presentation" class="dashboard-tab <?if($active_tab == 'dashboard'){echo "active";}?>"><a href="<?=base_url();?>admin">Dashboard</a></li>
               <li role="presentation" class="productos-tab <?if($active_tab == 'productos'){echo "active";}?>"><a href="<?=base_url();?>admin/productos" class="list-group-item">Productos</a></li>
               <li role="presentation" class="contactos-tab <?if($active_tab == 'contactos'){echo "active";}?>"><a href="<?=base_url();?>admin/contactos" class="list-group-item">Contactos</a></li>
-              <li role="presentation" class="cvs-tab <?if($active_tab == 'cvs'){echo "active";}?>"><a href="<?=base_url();?>admin/cvs" class="list-group-item">CVS</a></li>
+              <li role="presentation" class="cvs-tab <?if($active_tab == 'cvs'){echo "active";}?>"><a href="<?=base_url();?>admin/cvs" class="list-group-item">CVS</a></li>              
+			  <li role="presentation" class="cvs-tab <?if($active_tab == 'suscripciones'){echo "active";}?>">
+			  <a href="<?=base_url();?>admin/suscripciones" class="list-group-item">Suscripciones</a>
+			  </li>
             </ul>
             </div>
           </div>

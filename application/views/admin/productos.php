@@ -6,8 +6,6 @@
 
     $(document).ready(function () {
         result = 20;
-
-
         $.post( base_url+"admin/products_get", function( data ) {
             contenedor = $("#content_news");
             table = $("#table_news");
@@ -15,14 +13,16 @@
                             "link":base_url+'admin/editar_producto/',
                             "button":'' ,
                             "rel":'',
+							"target":'_self',
                             "class":'glyphicon glyphicon-pencil' ,
                             "parameter": 'id'
                         },{
                             "link":'#',
                             "button":'',
                             "rel":'id',
+							"target":'_self',
                             "class":'glyphicon glyphicon-remove remove' ,
-                            "parameter":''
+                            "parameter":' '
                         }];
 
 
@@ -36,7 +36,7 @@
         $("#report").click(function(){
             var d = new Date();
             var strDate = d.getFullYear() + "_" + (d.getMonth()+1) + "_" + d.getDate();
-            var filename = 'Reporte_noticias_'+strDate;
+            var filename = 'Reporte_Productos_'+strDate;
             export_csv(json_active, filename, true);
         });
 
@@ -71,15 +71,18 @@
         $("body").on('click','.ver_img',function(){
             var id =  $(this).data("id");
             $.ajax({
-                url: "<?=base_url('admin/get_product')?>",
+                url: "<?=base_url('admin/get_fotos')?>",
                 data: {id:id},
                 type: "POST",
                 datatype: 'json',
-                success: function(data){        
+                success: function(data){ 
+					/*
                     products = JSON.parse(data);
                     var img = base_url+"files/images/"+id+"/"+products.file_img;
                     $('#title').html('Foto del Producto');
                     $('#body').html("<img src=\""+img+"\" alt=\"Smiley face\">");
+					*/
+					$('#body').html(data);
                     $('#my_modal').modal('show');
                 }  
             });
@@ -111,6 +114,13 @@ function producto_delete(id){
 }
 
 </script>
+
+<style type="text/css">
+.glyphicon {
+    margin-left: 20px;
+}
+</style>
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <div class="row">
@@ -121,29 +131,27 @@ function producto_delete(id){
 
     <div class="panel-body">
         <div class="row">
-            <form id="my_form" method="POST" action="<?=base_url('admin/obtener_xls')?>" >
-                
-                <div class="col-md-3 pull-left col-sm-12">
-                        <div class="form-group">
-                            <label for="result">Buscar:</label>
-                            <input type="text" name="buscador" id="buscador" class="form-control">
-                        </div>
-                    </div>          
-                    <div class="col-md-5 pull-left col-sm-12">
-                        <div class="form-group">
-                            <label for="result">Mostrar:</label>
-                            <select  id="result" name="result" class="form-control">
-                            <option value="">Seleccione</option>
-                            </select>
-                            <span>De: </span><span id="numRows"></span>
-                        </div>
-                        
-                    </div>              
-                    <div class="col-md-4 col-sm-12">
-                        <label>Exportar</label><br>
-                        <a href="admin/obtener_xls" class="btn btn-default pull-left" id="report" ><span class="glyphicon glyphicon-download"></span> Reporte</a>
-                    </div>
-            </form>
+         
+			<div class="col-md-3 pull-left col-sm-12">
+					<div class="form-group">
+						<label for="result">Buscar:</label>
+						<input type="text" name="buscador" id="buscador" class="form-control">
+					</div>
+				</div>          
+				<div class="col-md-5 pull-left col-sm-12">
+					<div class="form-group">
+						<label for="result">Mostrar:</label>
+						<select  id="result" name="result" class="form-control">
+						<option value="">Seleccione</option>
+						</select>
+						<span>De: </span><span id="numRows"></span>
+					</div>
+					
+				</div>              
+				<div class="col-md-4 col-sm-12">
+					<label>Exportar</label><br>
+					 <span class="btn btn-default pull-left" id="report" ><i class="fa fa-download"></i>Exportar Reporte</span>
+				</div>
         </div>
         <div class="row">
             <div class="col-md-12">

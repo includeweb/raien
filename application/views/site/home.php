@@ -120,7 +120,7 @@
 				        <li><a href="<?=base_url();?>show/training" title="Capacitación">capacitación</a></li>
 				        <li><a href="<?=base_url();?>show/about" title="Institucional">institucional</a></li>
 				        <li><a href="<?=base_url();?>show/contact" title="Contacto">contacto</a></li>
-				        <li><a href="<?=base_url();?>show/team" title="Trabajá con Raien">Trabajá con raien</a></li>
+				        <li><a href="<?=base_url();?>show/team" title="Trabajá con Raien">Trabajá en raien</a></li>
 				      </ul>
 				    </div><!-- /.navbar-collapse -->
 

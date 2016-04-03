@@ -136,7 +136,7 @@
 				        <li><a href="<?=base_url();?>show/training" title="capacitación">capacitación</a></li>
 				        <li><a href="<?=base_url();?>show/about" title="institucional">institucional</a></li>
 				        <li><a href="<?=base_url();?>show/contact" title="contacto">contacto</a></li>
-				        <li><a href="<?=base_url();?>show/team" title="trabaja con raien">trabaja con raien</a></li>
+				        <li><a href="<?=base_url();?>show/team" title="trabaja con raien">trabaja en raien</a></li>
 				      </ul>
 				    </div><!-- /.navbar-collapse -->
 				  	</div>

@@ -13,6 +13,7 @@
                             "link":'#',
                             "button":'',
                             "rel":'id',
+							"target":'_self',
                             "class":'glyphicon glyphicon-remove remove' ,
                             "parameter":''
                         }];
@@ -89,29 +90,27 @@ function contact_delete(id){
         </div>
     </div>
     <div class="panel-body">
-        <div class="row">
-            <form id="my_form" method="POST" action="<?=base_url('dashboard/obtener_xls')?>" > 
-                <div class="col-md-3 pull-left col-sm-12">
-                        <div class="form-group">
-                            <label for="result">Buscar:</label>
-                            <input type="text" name="buscador" id="buscador" class="form-control">
-                        </div>
-                    </div>          
-                    <div class="col-md-5 pull-left col-sm-12">
-                        <div class="form-group">
-                            <label for="result">Mostrar:</label>
-                            <select  id="result" name="result" class="form-control">
-                            <option value="">Seleccione</option>
-                            </select>
-                            <span>De: </span><span id="numRows"></span>
-                        </div>
-                        
-                    </div>              
-                    <div class="col-md-4 col-sm-12">
-                        <label>Exportar</label><br>
-                        <a href="dashboard/obtener_xls" class="btn btn-default pull-left" id="report" ><span class="glyphicon glyphicon-download"></span> Reporte</a>
-                    </div>
-            </form>
+        <div class="row">   
+		<div class="col-md-3 pull-left col-sm-12">
+				<div class="form-group">
+					<label for="result">Buscar:</label>
+					<input type="text" name="buscador" id="buscador" class="form-control">
+				</div>
+			</div>          
+			<div class="col-md-5 pull-left col-sm-12">
+				<div class="form-group">
+					<label for="result">Mostrar:</label>
+					<select  id="result" name="result" class="form-control">
+					<option value="">Seleccione</option>
+					</select>
+					<span>De: </span><span id="numRows"></span>
+				</div>
+				
+			</div>              
+				<div class="col-md-4 col-sm-12">
+					<label>Exportar</label><br>
+					 <span class="btn btn-default pull-left" id="report" ><i class="fa fa-download"></i>Exportar Reporte</span>
+				</div>
         </div>
         <div class="row">
             <div class="col-md-12">

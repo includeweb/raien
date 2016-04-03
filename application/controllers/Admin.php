@@ -63,7 +63,9 @@ class Admin extends CI_Controller {
 		if($_POST){
 			
 				$insert['nombre'] = $_POST['name'];
+				$insert['url'] = $this->toAscii($_POST['name']);
 				$insert['descripcion'] = $_POST['description'];
+				$insert['copete'] = $_POST['copete'];
 				$insert['marca_id'] = $_POST['marca_id'];
 				$insert['file_pdf'] = $_FILES['file_pdf']['name'];
 				$insert['file_img'] = $_FILES['file_jpg']['name'][0];
@@ -84,8 +86,69 @@ class Admin extends CI_Controller {
 		$data['categorias'] = $this->db->get('categorias');
 
 		$this->layout->view('agregar', $data, $return=false);
-	}	
-
+	}
+	
+	public function add_capacitaciones(){
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		} else {
+			$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$data['role'] = $this->tank_auth->get_role();
+			$data['active_tab'] = 'admin';
+		}
+		
+		if($_POST){
+			$insert['from'] = $_POST['from'];
+			$insert['to'] = $_POST['to'];
+			$insert['descripcion'] = $_POST['descripcion'];
+			
+			if(!empty($_FILES['file_pdf']['name'])){
+				$folder = DIRECTORY_UPLOAD ."/pdf/capacitaciones/";
+				$file = $folder ."/". basename($_FILES['file_pdf']['name']);
+				if (move_uploaded_file($_FILES['file_pdf']['tmp_name'], $file)) {
+					$insert['file_pdf'] = $_POST['file_pdf'];
+				} 
+			}
+			
+			$insert['file_pdf'] = $_FILES['file_pdf']['name'];
+			$this->db->insert('capacitaciones',$insert);
+			redirect('admin/list_capacitaciones');
+		}
+		
+		$this->layout->view('add_capacitaciones',$data);
+	}
+	
+	public function edit_capacitaciones($id){
+		if($_POST){
+			$update['from'] = $_POST['from'];
+			$update['to'] = $_POST['to'];
+			$update['descripcion'] = $_POST['descripcion'];
+			
+			if(!empty($_FILES['file_pdf']['name'])){
+				$folder = DIRECTORY_UPLOAD ."/pdf/capacitaciones/";
+				$file = $folder ."/". basename($_FILES['file_pdf']['name']);
+				if (move_uploaded_file($_FILES['file_pdf']['tmp_name'], $file)) {
+					$update['file_pdf'] = $_POST['file_pdf'];
+				} 
+			}
+			
+			$update['file_pdf'] = $_FILES['file_pdf']['name'];
+			$this->db->where('id',$id);
+			$this->db->update('capacitaciones',$update);
+			redirect('admin/list_capacitaciones');
+		}
+		$data['capacitacion'] = $this->db->get_where('capacitaciones',array('id'=>$id))->row();
+		$this->layout->view('edit_capacitaciones',$data);
+	}
+		
+	public function list_capacitaciones(){
+		
+	}
+	
+	public function get_capacitaciones(){
+		
+	}
 
 	public function editar_producto($id){
 
@@ -93,18 +156,25 @@ class Admin extends CI_Controller {
 
 			
 			$update['nombre'] = $_POST['nombre'];
+			$update['url'] = $this->toAscii($_POST['nombre']);
 			$update['descripcion'] = $_POST['descripcion'];
+			$update['copete'] = $_POST['copete'];
 			$update['marca_id'] = $_POST['marca_id'];
 
 			if($this->upload($id)){
 
 				if(!empty($_FILES['file_pdf']['name'])){
 					$update['file_pdf'] = $_FILES['file_pdf']['name'];
-				}				
-
+				}					
+				
+				if(!empty($_FILES['file1_jpg']['name'])){
+					$update['file_img'] = $_FILES['file1_jpg']['name'];
+				}
+				
+				/*
 				if(!empty($_FILES['file_jpg']['name'][0])){
 					$update['file_img'] = $_FILES['file_jpg']['name'][0];
-				}
+				}*/
 				
 			}
 
@@ -114,7 +184,8 @@ class Admin extends CI_Controller {
 			foreach ($_POST['categoria_id'] as $key => $value) {
 				$this->db->insert('productos_categorias',array('producto_id'=>$id,'categoria_id'=>$value));
 			}
-			redirect('admin');
+			redirect('admin/productos');
+			
 		
 		}
 		$data['active_tab'] = 'productos';
@@ -126,6 +197,7 @@ class Admin extends CI_Controller {
 		$data['product'] = $this->db->get_where('productos',array('id'=>$id))->row();
 		$data['categorias'] = $this->db->get('categorias');
 		$data['selected_categorias'] = $this->caategoria_by_producto($id);
+		$data['fotos'] = $this->db->get_where('imagen_productos',array('producto_id'=>$id));
 		$this->layout->view('editar_producto', $data);
 	}
 	
@@ -144,7 +216,28 @@ class Admin extends CI_Controller {
 		return $array;
 	}
 	
+	public function fotos_delete(){
+		$id = $_POST['id'];
+		$this->db->delete("imagen_productos",array('id'=>$id));
+		echo $this->db->last_query();
+	}
+	
+	
+	
+	
 	public function upload($product_id){
+		
+		if(isset($_FILES['file1_jpg']['name'])){
+			if(!empty($_FILES['file_jpg']['name'])){
+				$folder = DIRECTORY_UPLOAD ."/images/".$product_id;
+				$file = $folder ."/". basename($_FILES['file1_jpg']['name']);
+				if (move_uploaded_file($_FILES['file1_jpg']['tmp_name'], $file)) {
+					$return = true;
+				} else {
+					$return = false;
+				}
+			}
+		}
 
 		if(!empty($_FILES['file_jpg']['name'])){
 			/*$folder = DIRECTORY_UPLOAD ."/images/".$product_id;
@@ -270,6 +363,81 @@ class Admin extends CI_Controller {
 	public function producto_delete(){
 		$id = $_POST['id'];
 		$this->db->delete('productos',array('id'=>$id));
+	}
+	
+	public function suscripciones(){
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		} else {
+			$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$data['role'] = $this->tank_auth->get_role();
+			$data['active_tab'] = 'suscripciones';
+		}
+		$this->layout->view('suscripciones',$data);
+	}	
+	
+	public function get_suscripciones(){
+		$rs = $this->db->get('newsletter');
+		$suscripciones = $rs->result();
+		echo json_encode($suscripciones);
+	}	
+	
+	public function delete_suscripcion(){
+		$id = $_POST['id'];
+		$this->db->delete('newsletter',array('id'=>$id));
+	}
+	/*
+	function toAscii($str) {
+		$str = strip_tags($str);	
+		$clean = preg_replace("/[^a-zA-Z0-9\/_|+-]/", '', $str);
+		$clean = strtolower(trim($str, '-'));
+		$clean = preg_replace("/[\/_|+()™,; -]+/", '-', $clean);
+		$originales = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿŔŕ';
+		$modificadas = 'aaaaaaaceeeeiiiidnoooooouuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyRr';
+		$clean = utf8_decode($clean);
+		$clean = strtr($clean, utf8_decode($originales), $modificadas);
+		$clean = strtolower($clean);
+		return utf8_encode($clean);
+		return $clean;
+	}
+	*/
+	
+	function toAscii($str, $replace=array(), $delimiter='-') {
+		$str = strip_tags($str);
+		if( !empty($replace) ) {
+			$str = str_replace((array)$replace, ' ', $str);
+		}
+
+		$clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+		$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
+		$clean = strtolower(trim($clean, '-'));
+		$clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
+
+		return $clean;
+	}
+	
+	public function get_fotos(){
+		$data['id'] = $_POST['id'];
+		$data['rs'] = $this->db->get_where('productos',array('id'=>$data['id']));
+		$data['rs1'] = $this->db->get_where('imagen_productos',array('producto_id'=>$data['id']));
+		echo $this->load->view('admin/get_fotos',$data,true);
+	}
+	
+	
+	function sobrante(){
+		$rs = $this->db->get('productos');
+		foreach($rs->result() as $value){
+			$folder = DIRECTORY_UPLOAD ."/pdf/".$value->id."/".$value->file_pdf;
+			if (file_exists($folder)) {
+				echo "El fichero $value->file_pdf existe <br />";
+			} else {
+				$this->db->where('id',$value->id);
+				$this->db->update('productos',array('file_pdf'=>''));
+				echo "El fichero $value->file_pdf no existe <br />";
+			}
+			
+		}
 	}
 
 }
