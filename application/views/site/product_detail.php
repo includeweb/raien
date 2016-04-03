@@ -39,7 +39,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="breadcrumb">
-				<a href="<?=base_url();?>show/products/">Productos</a><?php if ($breadcrumb) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/"><?=$breadcrumb;?></a><?php } ?><?php if ($subcategoria) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($subcategoria->descripcion)?>/"><?=$subcategoria->descripcion;?><?php } ?></a><?php if ($producto != '') { ?><span> &gt; </span><?=$producto->nombre;?><?php } ?>
+				<a href="<?=base_url();?>show/products/">Productos</a><?php if ($breadcrumb) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/"><?=$breadcrumb;?></a><?php } ?><?php if ($subcategoria) { ?><span> &gt; </span><a href="<?=base_url();?>show/products/<?=seoUrl($breadcrumb)?>/<?=seoUrl($subcategoria->descripcion)?>/"><?=$subcategoria->descripcion;?><?php } ?></a><?php if ($producto != '') { ?><span> &gt; </span><?=$producto->nombre;?><?php } ?>
 			</div>
 		</div>
 	</div>
@@ -276,6 +276,8 @@ function showProducts(id, callback) {
 		var carouselString = '';
 		$(window).scrollTop(0);
 
+		$('#gallery').hide();
+
 		if (carousel) {
 			$('#other-products-carousel').slick('unslick');
 		}
@@ -309,10 +311,10 @@ function showProducts(id, callback) {
 			carouselString += '</div>';
 
 
-			$('#gallery').fadeOut(function() {
+			$('#gallery').hide(function() {
 				$('#gallery').addClass('hidden');
 				$('#product-details').removeClass('hidden');
-				$('#product-details').fadeIn(function(){
+				$('#product-details').show(function(){
 					$('#other-products-carousel').html(carouselString);
 					$('#other-products-carousel').slick({
 					  dots: false,
