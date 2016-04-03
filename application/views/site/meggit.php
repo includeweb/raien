@@ -51,13 +51,13 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-3 col-xs-6">
-						<a href="<?=base_url();?>show/brand/<?=seoUrl($marcas[13]->nombre)?>"><img src="<?=base_url();?>images/productos/logos/<?=seoUrl($marcas[13]->nombre)?>.png" class="img-responsive"></a>
+						<a href="<?=base_url();?>show/brand/<?=seoUrl($marcas[13]->nombre)?>"><img src="<?=base_url();?>images/productos/logos/<?=seoUrl($marcas[13]->imagen)?>.jpg" class="img-responsive"></a>
 					</div>
 					<div class="col-md-3 col-xs-6">
-						<a href="<?=base_url();?>show/brand/<?=seoUrl($marcas[14]->nombre)?>"><img src="<?=base_url();?>images/productos/logos/<?=seoUrl($marcas[14]->nombre)?>.png" class="img-responsive"></a>
+						<a href="<?=base_url();?>show/brand/<?=seoUrl($marcas[14]->nombre)?>"><img src="<?=base_url();?>images/productos/logos/<?=seoUrl($marcas[14]->imagen)?>.jpg" class="img-responsive"></a>
 					</div>
 					<div class="col-md-3 col-xs-6">
-						<a href="<?=base_url();?>show/brand/<?=seoUrl($marcas[15]->nombre)?>"><img src="<?=base_url();?>images/productos/logos/<?=seoUrl($marcas[15]->nombre)?>.png" class="img-responsive"></a>
+						<a href="<?=base_url();?>show/brand/<?=seoUrl($marcas[15]->nombre)?>"><img src="<?=base_url();?>images/productos/logos/<?=seoUrl($marcas[15]->imagen)?>.jpg" class="img-responsive"></a>
 					</div>
 				</div>
 			</div>

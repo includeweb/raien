@@ -301,10 +301,11 @@ function showProducts(id, callback) {
 					i = 0;
 					carouselString += '</div><div class="carousel-row">';
 				}
-				carouselString += '<div class="carousel-col"><a class="cambiar-producto-relacionado" href="<?=base_url();?>'+'show/'+'<?=$this->uri->segment(2);?>'+'/'+'<?=$this->uri->segment(3);?>'+'/'+'<?=$this->uri->segment(4);?>/'+codeUrl(elem.marca)+'/'+codeUrl(elem.urlRedirect)+'" data-id="'+elem.id+'"><div style="background-size:100%;padding:0;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"><div class="producto-relacionado-nombre">'+elem.nombre+'</div></div></a></div>';
+				carouselString += '<div class="carousel-col"><a class="cambiar-producto-relacionado" href="<?=base_url();?>'+'show/'+'<?=$this->uri->segment(2);?>'+'/'+'<?=$this->uri->segment(3);?>'+'/'+'<?=$this->uri->segment(4);?>/'+codeUrl(elem.marca)+'/'+codeUrl(elem.urlRedirect)+'" data-id="'+elem.id+'"><div style="background-size:100%;padding:0;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"><div class="producto-relacionado-nombre"  data-toggle="tooltip" data-placement="left" title='+elem.nombre+'>'+elem.nombre+'</div></div></a></div>';
 				// carouselString += '<div class="carousel-col"><div> </div></div>';
 				i++;
 			});
+
 			carouselString += '</div>';
 
 
@@ -459,4 +460,7 @@ function showProducts(id, callback) {
 		}
 		return urlFinal;
 	}
+	setTimeout(function(){
+		$('[data-toggle="tooltip"]').tooltip();
+	},1000);
 </script>
