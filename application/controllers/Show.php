@@ -237,6 +237,7 @@ class Show extends CI_Controller {
 		$this->db->join('productos_categorias', 'productos_categorias.categoria_id = categorias.id');
 		$this->db->join('productos', 'productos.id = productos_categorias.producto_id');
 		$this->db->join('marcas', 'marcas.id = productos.marca_id');
+		$this->db->oreder_by('p.sort', 'ASC');
 		$query = $this->db->get();
 		//die($this->db->last_query());
 		$data['productos'] = $query->result();
@@ -300,6 +301,7 @@ class Show extends CI_Controller {
 		$this->db->join('productos_categorias', 'productos_categorias.categoria_id = categorias.id');
 		$this->db->join('productos', 'productos.id = productos_categorias.producto_id');
 		$this->db->join('marcas', 'marcas.id = productos.marca_id');
+		$this->db->oreder_by('productos.sort', 'ASC');
 		$query = $this->db->get();
 		//die($this->db->last_query());
 		$data = $query->result();
@@ -346,6 +348,7 @@ class Show extends CI_Controller {
 		$this->db->join('marcas m', 'p.marca_id = m.id', 'LEFT');
 		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id', 'LEFT');
 		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
+		$this->db->oreder_by('p.sort', 'ASC');
 		$query = $this->db->get();
 		$data = $query->row();
 
