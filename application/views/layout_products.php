@@ -18,7 +18,7 @@
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="<?=base_url();?>js/easyzoom.js"></script>
+	<script src="<?=base_url();?>js/jquery.elevateZoom-3.0.8.min.js"></script>
 
 	<style type="text/css" src="<?=base_url();?>css/easyzoom.css"></style>
 

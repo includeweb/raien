@@ -294,7 +294,7 @@ function showProducts(id, callback) {
 			$('#product-name').html(product.nombre);
 			$('#category').html(categoria);
 			$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
-			$('#product-img').html('<a href="http://placehold.it/350x150"><img src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" /></a>');
+			$('#product-img').html('<img id="zoom_01" src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" data-zoom-image="http://placehold.it/600x300" />');
 			$('#other-products').html('Otros productos <strong>'+nombreMarca+'</strong>');
 			carouselString += '<div class="carousel-row">';
 			var i = 0;
@@ -354,7 +354,8 @@ function showProducts(id, callback) {
 					    // instead of a settings object
 					  ]
 					});
-					var $easyzoom = $('.easyzoom').easyZoom();
+					$("#zoom_01").elevateZoom();
+					// var $easyzoom = $('.easyzoom').easyZoom();
 					// var my_awesome_script = document.createElement('script');
 
 					// my_awesome_script.setAttribute('src','<?=base_url();?>js/easyzoom.js');
