@@ -73,6 +73,9 @@ class Show extends CI_Controller {
 
 	function training() {
 		$data['active_tab'] = 'capacitacion';
+		$this->db->select('*');
+		$this->db->from('capacitaciones');
+		$data['capacitaciones'] = $this->db->get()->result();
 		$this->layout->view('training', $data);
 	}
 
