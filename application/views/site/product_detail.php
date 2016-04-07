@@ -291,12 +291,24 @@ function showProducts(id, callback) {
 			method: "GET",
 			url: "<?=base_url();?>show/getProduct/"+id
 		}).done(function(data) {
-			var product = $.parseJSON(data);
+			var info = $.parseJSON(data);
+			var product = info.product;
+			var photos = info.photos;
+			console.log(info);
 			$('#product-details .container-fluid .product-description').html(product.descripcion);
 			$('#product-name').html(product.nombre);
 			$('#category').html(categoria);
 			$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
-			$('#product-img').html('<img id="zoom_01" src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" data-zoom-image="http://placehold.it/600x300" />');
+			$('#product-img').html('<img id="zoom_01" src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" data-zoom-image="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" />');
+			if (photos) {
+				galleryHtml = $('#product-img').html();
+				galleryHtml += '<div id="gal1">'
+				for (var i in photos) {
+					galleryHtml += '<a href="#" data-image="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" data-zoom-image="<?=base_url();?>files/images/'+id+'/'+product.file_img+'"><img id="img_0'+i+'" src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" /></a>'
+				}
+				galleryHtml += '</div>'
+				$('#product-img').html(galleryHtml);
+			}
 			$('#other-products').html('Otros productos <strong>'+nombreMarca+'</strong>');
 			carouselString += '<div class="carousel-row">';
 			var i = 0;

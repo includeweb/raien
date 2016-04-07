@@ -260,7 +260,15 @@ class Show extends CI_Controller {
 		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id', 'LEFT');
 		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
 		$query = $this->db->get();
-		$data = $query->row();
+		$product = $query->row();
+		$data['product'] = $product;
+
+		$this->db->select('*');
+		$this->db->from('imagen_productos');
+		$this->db->where('producto_id', $product['id']);
+		$query = $this->db->get();
+		$photos = $query->result();
+		$data['photos'] = $photos;
 
 		$jsonstring = json_encode($data);
 		echo $jsonstring;
