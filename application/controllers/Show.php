@@ -275,6 +275,15 @@ class Show extends CI_Controller {
 		$photos = $query->result();
 		$data['photos'] = $photos;
 
+		$this->db->select('c.descripcion');
+		$this->db->from('productos p');
+		$this->db->where('p.id', $productId);
+		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id', 'LEFT');
+		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
+		$query = $this->db->get();
+		$category = $query->result();
+		$data['category'] = $category;
+
 		$jsonstring = json_encode($data);
 		echo $jsonstring;
 

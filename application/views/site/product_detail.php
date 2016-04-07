@@ -117,11 +117,17 @@
 							<div id="product-name">
 
 							</div>
+							
 						</div>
 						<div id="brand-img">
 
 						</div>
 						<div class="clearfix"></div>
+						<div id="category-list">
+							<ul style="margin-top: 10px">
+								
+							</ul>
+						</div>
 					</div>
 					<div class="col-lg-4 hidden-md hidden-sm hidden-xs">
 						<div id="more-products">
@@ -292,9 +298,10 @@ function showProducts(id, callback) {
 			url: "<?=base_url();?>show/getProduct/"+id
 		}).done(function(data) {
 			var info = $.parseJSON(data);
-			console.log(info);
 			var product = info.product;
+			var category = info.category;
 			var photos = info.photos;
+			var categoryList = '';
 			$('#product-details .container-fluid .product-description').html(product.descripcion);
 			$('#product-name').html(product.nombre);
 			$('#category').html(categoria);
@@ -309,6 +316,10 @@ function showProducts(id, callback) {
 				galleryHtml += '</div>'
 				$('#product-img').html(galleryHtml);
 			}
+			for (var i in category) {
+				categoryList += '<li>'+category[i].descripcion+'</li>';
+			}
+			$('#category-list > ul').html(categoryList);
 			$('#other-products').html('Otros productos <strong>'+nombreMarca+'</strong>');
 			carouselString += '<div class="carousel-row">';
 			var i = 0;
