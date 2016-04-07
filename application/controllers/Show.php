@@ -265,7 +265,7 @@ class Show extends CI_Controller {
 
 		$this->db->select('*');
 		$this->db->from('imagen_productos');
-		$this->db->where('producto_id', $product['id']);
+		$this->db->where('producto_id', $productId);
 		$query = $this->db->get();
 		$photos = $query->result();
 		$data['photos'] = $photos;
