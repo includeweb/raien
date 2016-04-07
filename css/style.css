@@ -846,6 +846,7 @@ p > b {
 	font-size: 10px;
 	font-weight: 800;
     letter-spacing: 2px;
+    margin-top: 10px;
 }
 
 .product-gallery .background > div:first-child > div:nth-child(1) {
@@ -1222,7 +1223,7 @@ td:nth-child(3) {
 	padding: 0!important;
 }
 
-td:nth-child(3) > span {
+td:nth-child(3) > a span {
 	background-color: #DCA427;
 	padding: 8px;
 	font-size: 20px;
@@ -1549,8 +1550,8 @@ label.error{
 	z-index: 9999;
 }
 .training-table{
-	height: 200px;
-	overflow: auto;
+	height: 400px;
+    overflow: auto;
 }
 .product-description{
 	font-size: 12px;

@@ -21,54 +21,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>2 DICIEMBRE - 5 DICIEMBRE</td>
-						<td>ETAP 275</td>
-						<td><span class="glyphicon glyphicon-file" aria-hidden="true"></span></td>
-						<td><a href="<?=base_url();?>/show/contact">CONSULTAR</a></td>
-					</tr>
-					<tr>
-						<td>15 DICIEMBRE- 2 ENERO</td>
-						<td>ETAP 589</td>
-						<td><span class="glyphicon glyphicon-file" aria-hidden="true"></span></td>
-						<td><a href="<?=base_url();?>/show/contact">CONSULTAR</a></td>
-					</tr>
-					<tr>
-						<td>18 DICIEMBRE - 20 DICIEMBRE</td>
-						<td>ETAP 458</td>
-						<td><span class="glyphicon glyphicon-file" aria-hidden="true"></span></td>
-						<td><a href="<?=base_url();?>/show/contact">CONSULTAR</a></td>
-					</tr>
-					<tr>
-						<td>27 DICIEMBRE  - 28 DICIEMBRE</td>
-						<td>ETAP 125</td>
-						<td><span class="glyphicon glyphicon-file" aria-hidden="true"></span></td>
-						<td><a href="<?=base_url();?>/show/contact">CONSULTAR</a></td>
-					</tr>
-					<tr>
-						<td>2 DICIEMBRE - 5 DICIEMBRE</td>
-						<td>ETAP 275</td>
-						<td><span class="glyphicon glyphicon-file" aria-hidden="true"></span></td>
-						<td><a href="<?=base_url();?>/show/contact">CONSULTAR</a></td>
-					</tr>
-					<tr>
-						<td>15 DICIEMBRE- 2 ENERO</td>
-						<td>ETAP 589</td>
-						<td><span class="glyphicon glyphicon-file" aria-hidden="true"></span></td>
-						<td><a href="<?=base_url();?>/show/contact">CONSULTAR</a></td>
-					</tr>
-					<tr>
-						<td>18 DICIEMBRE - 20 DICIEMBRE</td>
-						<td>ETAP 458</td>
-						<td><span class="glyphicon glyphicon-file" aria-hidden="true"></span></td>
-						<td><a href="<?=base_url();?>/show/contact">CONSULTAR</a></td>
-					</tr>
-					<tr>
-						<td>27 DICIEMBRE  - 28 DICIEMBRE</td>
-						<td>ETAP 125</td>
-						<td><span class="glyphicon glyphicon-file" aria-hidden="true"></span></td>
-						<td><a href="<?=base_url();?>/show/contact">CONSULTAR</a></td>
-					</tr>
+					<? foreach ($capacitaciones as $capacitacion) { ?>
+						<tr>
+							<td><?=$capacitacion->from;?> - <?=$capacitacion->to;?></td>
+							<td><?=$capacitacion->descripcion;?></td>
+							<td><a href="<?=base_url();?>files/pdf/capacitaciones/<?=$capacitacion->file_pdf;?>"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a></td>
+							<td><a href="<?=base_url();?>/show/contact">CONSULTAR</a></td>
+						</tr>
+					<? } ?>
 				</tbody>
 			</table>
 		</div>
