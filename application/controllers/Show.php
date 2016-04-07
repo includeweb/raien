@@ -33,6 +33,7 @@ class Show extends CI_Controller {
 		$data['active_tab'] = 'contacto';
 		$this->layout->view('contact', $data);
 	}
+	
 	function add_contact() {
 		if($_POST){
 			$insert['nombre'] = $this->input->post('nombre');
@@ -75,6 +76,7 @@ class Show extends CI_Controller {
 		$data['active_tab'] = 'capacitacion';
 		$this->db->select('*');
 		$this->db->from('capacitaciones');
+		$this->db->order_by('from','asc');
 		$data['capacitaciones'] = $this->db->get()->result();
 		$this->layout->view('training', $data);
 	}

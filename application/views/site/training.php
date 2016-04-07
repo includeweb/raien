@@ -1,3 +1,15 @@
+
+<?php
+function format_date($date){
+	setlocale(LC_ALL,"es_ES");
+	return strftime("%d de %B",strtotime($date));
+}
+function format_mont($date){
+	setlocale(LC_ALL,"es_ES");
+	return strftime("%B",strtotime($date));
+}
+$c = 0;
+?>
 <script type="text/javascript" src="<?=base_url();?>js/jquery.mCustomScrollbar.js"></script>
 <style type="text/css" src="<?=base_url();?>css/jquery.mCustomScrollbar.min.css"></style>
 
@@ -9,9 +21,18 @@
 	<div class="col-md-9 ">
 		<div class="table-responsive training-table">
 			<table class="table">
+			<? foreach ($capacitaciones as $capacitacion) { ?>
+				<?php if($c == 1){
+					if($mount != format_mont($capacitacion->from)){
+						$c=0;
+					}
+				} ?>
+			
+				<?php if($c == 0){?>
 				<thead>
+
 					<tr>
-						<th colspan="4">Diciembre</th>
+						<th colspan="4"><?=format_mont($capacitacion->from);?></th>
 					</tr>
 					<tr>
 						<th>Fecha</th>
@@ -20,16 +41,21 @@
 						<th>Disponibilidad</th>
 					</tr>
 				</thead>
-				<tbody>
-					<? foreach ($capacitaciones as $capacitacion) { ?>
+				
+				<?php $mount = format_mont($capacitacion->from); ?>
+				<?php $c = 1; ?>
+				<?php } ?>
+				
+				<tbody>	
 						<tr>
-							<td><?=$capacitacion->from;?> - <?=$capacitacion->to;?></td>
+							<td><?=format_date($capacitacion->from);?> - <?=format_date($capacitacion->to);?></td>
 							<td><?=$capacitacion->descripcion;?></td>
 							<td><a href="<?=base_url();?>files/pdf/capacitaciones/<?=$capacitacion->file_pdf;?>"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a></td>
 							<td><a href="<?=base_url();?>/show/contact">CONSULTAR</a></td>
 						</tr>
-					<? } ?>
+				
 				</tbody>
+					<? } ?>
 			</table>
 		</div>
 	</div>
