@@ -398,6 +398,21 @@ p > b {
 #email:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
   color:    #909;
 }
+#uploadFile::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: grey!important;
+}
+#uploadFile::-moz-placeholder { /* Firefox 19+ */
+  color: grey!important;
+}
+#uploadFile:-ms-input-placeholder { /* IE 10+ */
+  color: grey!important;
+}
+#uploadFile:-moz-placeholder { /* Firefox 18- */
+  color: grey!important;
+}
+#uploadFile:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color:    #909;
+}
 
 .buscador button{
 	height: 36px;
@@ -1532,4 +1547,21 @@ label.error{
 
 .tooltip{
 	z-index: 9999;
+}
+.training-table{
+	height: 200px;
+	overflow: auto;
+}
+.product-description{
+	font-size: 12px;
+}
+
+.product-description h3{
+	color: #333333;
+	font-family: 'Raleway', sans-serif;
+	font-size:16px;
+}
+
+.detail-actions a:hover{
+	text-decoration: none;
 }
