@@ -292,19 +292,19 @@ function showProducts(id, callback) {
 			url: "<?=base_url();?>show/getProduct/"+id
 		}).done(function(data) {
 			var info = $.parseJSON(data);
+			console.log(info);
 			var product = info.product;
 			var photos = info.photos;
-			console.log(info);
 			$('#product-details .container-fluid .product-description').html(product.descripcion);
 			$('#product-name').html(product.nombre);
 			$('#category').html(categoria);
 			$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
-			$('#product-img').html('<img id="zoom_01" src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" data-zoom-image="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" />');
+			$('#product-img').html('<img id="zoom" src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" data-zoom-image="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" />');
 			if (photos) {
 				galleryHtml = $('#product-img').html();
-				galleryHtml += '<div id="gal1">'
+				galleryHtml += '<div id="zoom-gallery">'
 				for (var i in photos) {
-					galleryHtml += '<a href="#" data-image="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" data-zoom-image="<?=base_url();?>files/images/'+id+'/'+product.file_img+'"><img id="img_0'+i+'" src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" /></a>'
+					galleryHtml += '<a href="#" data-image="<?=base_url();?>files/images/'+id+'/'+photos[i].filename+'" data-zoom-image="<?=base_url();?>files/images/'+id+'/'+photos[i].filename+'"><img id="img_0'+i+'" src="<?=base_url();?>files/images/'+id+'/'+photos[i].filename+'" /></a>'
 				}
 				galleryHtml += '</div>'
 				$('#product-img').html(galleryHtml);
@@ -368,7 +368,17 @@ function showProducts(id, callback) {
 					    // instead of a settings object
 					  ]
 					});
-					$("#zoom_01").elevateZoom();
+					if (photos) {
+						$("#zoom").elevateZoom({gallery:'zoom-gallery', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'});
+						$("#zoom").bind("click", function(e) { 
+							var ez = $('#zoom').data('elevateZoom');	
+							$.fancybox(ez.getGalleryList()); 
+							return false; 
+						});
+					} 
+					else {
+						$("#zoom").elevateZoom();
+					}
 					// var $easyzoom = $('.easyzoom').easyZoom();
 					// var my_awesome_script = document.createElement('script');
 
