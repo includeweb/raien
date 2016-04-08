@@ -432,7 +432,7 @@ class Show extends CI_Controller {
 
 	public function brand($brand){
 		$this->layout->setLayout('layout_products');
-		$this->db->select('p.copete, m.id, c.url as categoria_url,c.tipo_id as type, p.url as producto_url,p.id as producto_id, p.nombre as producto, p.file_img');
+		$this->db->select('p.copete, m.id, c.url as categoria_url,c.tipo_id as type, p.url as producto_url,p.id as producto_id, p.nombre as producto, p.file_img, m.imagen as marca');
 		$this->db->from('marcas m');
 		$this->db->like('m.nombre', $brand);
 		$this->db->join('productos p', 'm.id = p.marca_id');
