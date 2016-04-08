@@ -309,7 +309,12 @@ function showProducts(id, callback) {
 			$('#product-name').html(product.nombre);
 			$('#category').html(categoria);
 			$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
-			$('#pdf-url').attr('href', '<?=base_url();?>pdf/'+id+'/'+product.file_pdf);
+			if (product.file_pdf) {
+				$('#pdf-url').attr('href', '<?=base_url();?>pdf/'+id+'/'+product.file_pdf);
+			}
+			else {
+				$('#pdf-url').parent().hide();
+			}
 			$('#product-img').html('<img id="zoom" src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" data-zoom-image="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" />');
 			if (photos) {
 				galleryHtml = $('#product-img').html();
