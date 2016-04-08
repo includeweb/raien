@@ -583,8 +583,10 @@ p > b {
 	padding-right: 10px
 }
 
-.content > .row > .col-md-9 ul,
-.content > .row > .col-md-9 ol{
+
+
+.site > .row > .col-md-9 ul,
+.site > .row > .col-md-9 ol{
 	margin-top: -20px;
 	margin-bottom: 20px;
 }
@@ -1012,6 +1014,19 @@ p > b {
 	padding: 0 3px;
 }
 
+#category-list > div {
+	border-top: 1px solid #CCCCCC;
+  padding-top: 10px;
+}
+#category-list ul {
+	  margin-top: 5px;
+	  padding-left: 10px;
+}
+
+#category-list ul li {
+	  list-style-type: none;
+}
+
 /*#other-products-carousel .row:first-child{
 	margin-top: 0;
 }*/
@@ -1360,6 +1375,8 @@ td:nth-child(3) > a span {
 		color: #fff;
 	}
 }
+
+
 
 @media (min-width: 768px){
 

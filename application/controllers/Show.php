@@ -278,6 +278,7 @@ class Show extends CI_Controller {
 		$this->db->select('c.descripcion');
 		$this->db->from('productos p');
 		$this->db->where('p.id', $productId);
+		$this->db->where('c.tipo_id', '2');
 		$this->db->join('productos_categorias pc', 'p.id = pc.producto_id', 'LEFT');
 		$this->db->join('categorias c', 'pc.categoria_id = c.id', 'LEFT');
 		$query = $this->db->get();

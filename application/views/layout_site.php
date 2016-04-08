@@ -133,7 +133,7 @@
 
 
 	    </div>
-	    <div class="container content">
+	    <div class="container content site">
 			<!-- Content -->
 			<?php echo $content_for_layout?>
 			<!-- / Content -->

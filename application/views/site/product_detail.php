@@ -124,7 +124,10 @@
 						</div>
 						<div class="clearfix"></div>
 						<div id="category-list">
-							<ul style="margin-top: 10px">
+							<div>
+								INDUSTRIA
+							</div>
+							<ul>
 								
 							</ul>
 						</div>
