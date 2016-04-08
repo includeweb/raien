@@ -148,7 +148,7 @@
 				<div class="row">
 					<div class="col-xs-12 detail-actions">
 						<span>
-							<a href="#" target="_blank"><span class="
+							<a href="#" target="_blank" id="pdf-url"><span class="
 glyphicon glyphicon-list-alt"></span> DESCARGAR ESPECIFICACIONES</a>
 						</span>
 						<span>
@@ -309,10 +309,12 @@ function showProducts(id, callback) {
 			$('#product-name').html(product.nombre);
 			$('#category').html(categoria);
 			$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
+			$('#pdf-url').attr('href', '<?=base_url();?>pdf/'+id+'/'+product.file_pdf);
 			$('#product-img').html('<img id="zoom" src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" data-zoom-image="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" />');
 			if (photos) {
 				galleryHtml = $('#product-img').html();
 				galleryHtml += '<div id="zoom-gallery">'
+				galleryHtml += '<a class="active-zoom" href="#" data-image="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" data-zoom-image="<?=base_url();?>files/images/'+id+'/'+product.file_img+'"><img id="img_00" src="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" data-zoom-image="<?=base_url();?>files/images/'+id+'/'+product.file_img+'" /></a>'
 				for (var i in photos) {
 					galleryHtml += '<a href="#" data-image="<?=base_url();?>files/images/'+id+'/'+photos[i].filename+'" data-zoom-image="<?=base_url();?>files/images/'+id+'/'+photos[i].filename+'"><img id="img_0'+i+'" src="<?=base_url();?>files/images/'+id+'/'+photos[i].filename+'" /></a>'
 				}
@@ -383,7 +385,7 @@ function showProducts(id, callback) {
 					  ]
 					});
 					if (photos) {
-						$("#zoom").elevateZoom({gallery:'zoom-gallery', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'});
+						$("#zoom").elevateZoom({gallery:'zoom-gallery', cursor: 'pointer', galleryActiveClass: 'active-zoom', imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'});
 						$("#zoom").bind("click", function(e) { 
 							var ez = $('#zoom').data('elevateZoom');	
 							$.fancybox(ez.getGalleryList()); 

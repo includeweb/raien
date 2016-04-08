@@ -1587,4 +1587,13 @@ label.error{
 #zoom-gallery a > img {
 	width: 30px;
 	height: 30px;
+	margin: 2px;
+}
+
+
+#gallery_01 img{
+	border:2px solid white;
+}
+.active-zoom img{
+	border:2px solid #333 !important;
 }
