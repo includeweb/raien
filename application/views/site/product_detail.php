@@ -306,6 +306,7 @@ function showProducts(id, callback) {
 			var photos = info.photos;
 			var categoryList = '';
 			$('#product-details .container-fluid .product-description').html(product.descripcion);
+			console.log(product.nombre);
 			$('#product-name').html(product.nombre);
 			$('#category').html(categoria);
 			$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');
@@ -390,7 +391,7 @@ function showProducts(id, callback) {
 					  ]
 					});
 					if (photos) {
-						$("#zoom").elevateZoom({gallery:'zoom-gallery', cursor: 'pointer', galleryActiveClass: 'active-zoom', imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'});
+						$("#zoom").elevateZoom({gallery:'zoom-gallery', cursor: 'pointer', galleryActiveClass: 'active-zoom', imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif', zoomWindowWidth:200, zoomWindowHeight:200});
 						$("#zoom").bind("click", function(e) { 
 							var ez = $('#zoom').data('elevateZoom');	
 							$.fancybox(ez.getGalleryList()); 
@@ -398,7 +399,7 @@ function showProducts(id, callback) {
 						});
 					} 
 					else {
-						$("#zoom").elevateZoom();
+						$("#zoom").elevateZoom({zoomWindowWidth:200, zoomWindowHeight:200});
 					}
 					// var $easyzoom = $('.easyzoom').easyZoom();
 					// var my_awesome_script = document.createElement('script');
@@ -420,6 +421,7 @@ function showProducts(id, callback) {
 				console.log(data);
 				var product = $.parseJSON(data);
 				$('#product-details .container-fluid .product-description').html(product.descripcion);
+				console.log(product.nombre);
 				$('#product-name').html(product.nombre);
 				$('#category').html(categoria);
 				$('#brand-img').html('<img src="<?=base_url();?>images/productos/logos/'+marca+'.png"/>');

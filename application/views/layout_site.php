@@ -70,7 +70,8 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="#"><img src="<?=base_url();?>images/web/logo-interna.png" style="margin-top: 3px;"></a>
+				      <a class="navbar-brand hidden-xs show-sm show-md show-lg" href="#" ><img src="<?=base_url();?>images/web/logo-raien.png" class="large-logo" /></a>
+				      <a class="navbar-brand show-xs hidden-sm hidden-md hidden-lg" href="#"><img src="<?=base_url();?>images/web/logo-mobile.png" class="img-responsive mobile-logo"></a>
 				    </div>
 
 				    <!-- Collect the nav links, forms, and other content for toggling -->
