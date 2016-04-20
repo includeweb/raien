@@ -197,7 +197,7 @@ glyphicon glyphicon-menu-left"></span> VOLVER</a>
 			json['productos'].forEach(function(elem, index, array) {
 				var urlRedirect = '<?=base_url();?>'+'show/'+'<?=$this->uri->segment(2);?>'+'/'+'<?=$this->uri->segment(3);?>'+'/'+'<?=$this->uri->segment(4);?>'+'/'+codeUrl(elem.marca)+'/'+codeUrl(elem.urlRedirect);
 
-				gallery +='<div class="col-md-4 col-sm-6 producto-list"><a href="'+urlRedirect+'" data-id="'+elem.id+'"><div><div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"></div><div class="background" style="height:33%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div><div class="copete">'+elem.copete+'</div></div></div></a></div>';
+				gallery +='<div class="col-md-4 col-sm-6 producto-list"><a href="'+urlRedirect+'" data-id="'+elem.id+'"><div><div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div><div class="copete">'+elem.copete+'</div></div></div></a></div>';
 			});
 			if ($('#gallery').hasClass('hidden')) {
 				$('#product-details').fadeOut(function() {
@@ -248,7 +248,7 @@ function showProducts(id, callback) {
 			json['productos'].forEach(function(elem, index, array) {
 				console.log('1 '+elem.url);
 				var urlRedirect = '<?=base_url();?>'+'show/'+'<?=$this->uri->segment(2);?>'+'/'+'<?=$this->uri->segment(3);?>'+'/'+'<?=$this->uri->segment(4);?>'+'/'+codeUrl(elem.marca)+'/'+codeUrl(elem.urlRedirect);
-				gallery += '<div class="col-md-4 col-sm-6"><a href="'+urlRedirect+'"   data-id="'+elem.id+'"><div><div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"></div><div class="background" style="height:33%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
+				gallery += '<div class="col-md-4 col-sm-6"><a href="'+urlRedirect+'"   data-id="'+elem.id+'"><div><div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/'+elem.id+'/'+elem.file_img+')"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div></div></div></a></div>';
 			});
 			if ($('#gallery').hasClass('hidden')) {
 				$('#product-details').fadeOut(function() {
@@ -469,7 +469,7 @@ function showProducts(id, callback) {
 			var brandText = '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
 			var gallery = '';
 			json['productos'].forEach(function(elem, index, array) {
-				gallery += '<div class="col-md-4 col-sm-6 producto-list"><a href="javascript:void(0)" onclick="showDetails('+elem.id+');" data-id="'+elem.id+'"><div><div class="image" style="http://placehold.it/155x90"></div><div class="background" style="height:33%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div><div class="copete">'+elem.copete+'</div></div></div></a></div>';
+				gallery += '<div class="col-md-4 col-sm-6 producto-list"><a href="javascript:void(0)" onclick="showDetails('+elem.id+');" data-id="'+elem.id+'"><div><div class="image" style="http://placehold.it/155x90"></div><div class="background" style="height:40%"><div><div><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div><div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div><div class="clearfix"></div></div><div>'+elem.nombre+'</div><div class="copete">'+elem.copete+'</div></div></div></a></div>';
 			});
 			// if ($('#gallery').hasClass('hidden')) {
 			// 	$('#product-details').hide(function() {

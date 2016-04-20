@@ -34,7 +34,7 @@
 
 				$('.product-gallery .col-md-4 > a > div').mouseleave(function() {
 					$(this).find('.background').stop();
-					$(this).find('.background').animate({height: "33%"}, 300);
+					$(this).find('.background').animate({height: "40%"}, 300);
 				});
 	});
 </script>
@@ -59,7 +59,7 @@
 							<? } ?>	
 							<div>
 								<div class="image" style="background-size:100%;background-image:url(<?=base_url();?>files/images/<?=$product->producto_id;?>/<?=$product->file_img;?>)"></div>
-								<div class="background" style="height:33%">
+								<div class="background" style="height:40%">
 									<div>
 										<div>
 											<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
