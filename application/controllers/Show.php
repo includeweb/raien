@@ -235,7 +235,7 @@ class Show extends CI_Controller {
 	}
 
 	function getProducts($vista = null, $subcategoria, $marca) {
-		$this->db->select('productos.copete, marcas.nombre marca, marcas.imagen, productos.url as urlRedirect, productos.id, productos.nombre, productos.file_pdf, productos.descripcion, productos.file_img');
+		$this->db->select('productos.copete, marcas.nombre marca, marcas.imagen, marcas.description, productos.url as urlRedirect, productos.id, productos.nombre, productos.file_pdf, productos.descripcion, productos.file_img');
 		$this->db->where('categorias.url', $subcategoria);
 		$this->db->where('marcas.id', $marca);
 		$this->db->from('categorias');
